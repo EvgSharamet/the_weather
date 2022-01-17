@@ -8,15 +8,21 @@
 import Foundation
 import UIKit
 
-struct HourlyForecastSection {
+struct HourlyForecastSection: SectionConfiguratorProtocol {
     
     let cellIdentifier = "HourlyForecastSectionCell"
+    
+    
+ /*   func getHeaderView() -> UIView {
+        <#code#>
+    }*/
+    
     
     init(tableView: UITableView){
         tableView.register(HourlyForecastCell.self, forCellReuseIdentifier: cellIdentifier)
     }
     
-    func getNumbersOfRows() -> Int {
+    func getNumberOfRows() -> Int {
         return 1
     }
     

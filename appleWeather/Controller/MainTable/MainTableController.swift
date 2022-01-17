@@ -38,8 +38,31 @@ class MainTableController: UITableViewController {
     }
     
     override func tableView(_ tablerView: UITableView, numberOfRowsInSection section : Int) -> Int {
-
+        return TableViewSections.allCases.count
     }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let currentSection = getSectionConfigurator(section: indexPath.section)
+        let cell = currentSection?.tableView(tableView, cellForRowAt: indexPath)
+        return cell
+        /*  let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! ImagePreviewTableViewMultiCell
+        
+        var data: [ImagePreviewTableViewMultiCell.ImageItemWithIndex?] = CatalogDataService.shared.data.items.enumerated()
+            .dropFirst(indexPath.row * MainTableViewController.colNumber)
+            .prefix(MainTableViewController.colNumber)
+            .map{ .init(imageItem: $0.element, index: $0.offset) }
+        
+        for _ in 0 ..< MainTableViewController.colNumber { data.append(nil) }
+        data = [ImagePreviewTableViewMultiCell.ImageItemWithIndex?] (data.prefix(MainTableViewController.colNumber))
+        
+        let itemSelectedHandler: ImagePreviewTableViewMultiCell.ItemSelectedHandler = { [weak self] (iwi) -> Void in self?.onItemSelectedDelegate?(iwi.index)}
+        
+        cell.configure(items: data,itemSelectedHandler: itemSelectedHandler )
+        
+        return cell */
+    }
+
+    
     
     private func getSectionConfigurator(section: Int) -> SectionConfiguratorProtocol? {
         guard let section = TableViewSections(rawValue: section) else { return nil }
