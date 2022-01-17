@@ -16,7 +16,7 @@ class MainNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let locatC = LocationController()
-        pushViewController(locatC, animated: true)
+        let mainWindow = MainTableController()
+        pushViewController(mainWindow, animated: true)
     }
 }

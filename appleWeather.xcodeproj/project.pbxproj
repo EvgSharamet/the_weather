@@ -16,6 +16,10 @@
 		85BC88932790F1B100D7CB4A /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BC88922790F1B100D7CB4A /* LocationService.swift */; };
 		85BC88952790F23800D7CB4A /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BC88942790F23800D7CB4A /* LocationController.swift */; };
 		85BC889A2791B56A00D7CB4A /* JsonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BC88992791B56A00D7CB4A /* JsonService.swift */; };
+		85C54C7A2795B42B00B9CFA2 /* MainTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C54C792795B42B00B9CFA2 /* MainTableController.swift */; };
+		85C54C7C2795B65D00B9CFA2 /* HourlyForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C54C7B2795B65D00B9CFA2 /* HourlyForecastCell.swift */; };
+		85C54C812795C42800B9CFA2 /* HourlyForecastSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C54C802795C42800B9CFA2 /* HourlyForecastSection.swift */; };
+		85C54C832796045C00B9CFA2 /* SectionConfiguratorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C54C822796045C00B9CFA2 /* SectionConfiguratorProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -43,6 +47,10 @@
 		85BC88922790F1B100D7CB4A /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		85BC88942790F23800D7CB4A /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		85BC88992791B56A00D7CB4A /* JsonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonService.swift; sourceTree = "<group>"; };
+		85C54C792795B42B00B9CFA2 /* MainTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableController.swift; sourceTree = "<group>"; };
+		85C54C7B2795B65D00B9CFA2 /* HourlyForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastCell.swift; sourceTree = "<group>"; };
+		85C54C802795C42800B9CFA2 /* HourlyForecastSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastSection.swift; sourceTree = "<group>"; };
+		85C54C822796045C00B9CFA2 /* SectionConfiguratorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionConfiguratorProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +86,7 @@
 			children = (
 				85BC88982791B14700D7CB4A /* Controller */,
 				85BC88972791B12400D7CB4A /* View */,
-				85BC88962791B0F600D7CB4A /* Modal */,
+				85BC88962791B0F600D7CB4A /* Model */,
 				85BC88782790E7A300D7CB4A /* AppDelegate.swift */,
 				85BC887A2790E7A300D7CB4A /* SceneDelegate.swift */,
 				85BC88812790E7A700D7CB4A /* Assets.xcassets */,
@@ -88,18 +96,19 @@
 			path = appleWeather;
 			sourceTree = "<group>";
 		};
-		85BC88962791B0F600D7CB4A /* Modal */ = {
+		85BC88962791B0F600D7CB4A /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				85BC88992791B56A00D7CB4A /* JsonService.swift */,
 				85BC88922790F1B100D7CB4A /* LocationService.swift */,
 			);
-			path = Modal;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		85BC88972791B12400D7CB4A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				85C54C7B2795B65D00B9CFA2 /* HourlyForecastCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -107,10 +116,21 @@
 		85BC88982791B14700D7CB4A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				85C54C7F2795C2B300B9CFA2 /* MainTable */,
 				85BC888C2790EC0400D7CB4A /* MainNavigationController.swift */,
 				85BC88942790F23800D7CB4A /* LocationController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		85C54C7F2795C2B300B9CFA2 /* MainTable */ = {
+			isa = PBXGroup;
+			children = (
+				85C54C792795B42B00B9CFA2 /* MainTableController.swift */,
+				85C54C802795C42800B9CFA2 /* HourlyForecastSection.swift */,
+				85C54C822796045C00B9CFA2 /* SectionConfiguratorProtocol.swift */,
+			);
+			path = MainTable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,10 +211,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				85BC88952790F23800D7CB4A /* LocationController.swift in Sources */,
+				85C54C812795C42800B9CFA2 /* HourlyForecastSection.swift in Sources */,
+				85C54C7C2795B65D00B9CFA2 /* HourlyForecastCell.swift in Sources */,
 				85BC88792790E7A300D7CB4A /* AppDelegate.swift in Sources */,
 				85BC888D2790EC0400D7CB4A /* MainNavigationController.swift in Sources */,
 				85BC889A2791B56A00D7CB4A /* JsonService.swift in Sources */,
+				85C54C7A2795B42B00B9CFA2 /* MainTableController.swift in Sources */,
 				85BC887B2790E7A300D7CB4A /* SceneDelegate.swift in Sources */,
+				85C54C832796045C00B9CFA2 /* SectionConfiguratorProtocol.swift in Sources */,
 				85BC88932790F1B100D7CB4A /* LocationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

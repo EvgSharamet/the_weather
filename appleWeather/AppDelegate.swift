@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.makeKeyAndVisible()
         self.window = window
         self.window?.backgroundColor = .systemGray4
-    
         return true
     }
 }
