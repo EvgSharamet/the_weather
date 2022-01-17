@@ -1,0 +1,10 @@
+Build/
+xcuserdata/
+*.xcworkspace
+*.xcuserdata
+*.pbxuser
+*.xcuserstate
+**/.DS_Store
+
+# CocoaPods
+StoryMe/Pods
