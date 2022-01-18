@@ -21,10 +21,27 @@ class HourlyForecastCell: UITableViewCell {
     }
     
     func prepare() {
-        self.backgroundColor = .green
-        self.snp.makeConstraints { maker in
-            maker.height.equalTo(200)
-            maker.width.equalTo(safeAreaLayoutGuide)
+        contentView.backgroundColor = .green
+        let scrollView = UIScrollView()
+        scrollView.backgroundColor = .yellow.withAlphaComponent(0.8)
+        contentView.addSubview(scrollView)
+        contentView.snp.makeConstraints { maker in
+            maker.height.equalTo(300)
+            maker.width.equalToSuperview()
         }
+        print(contentView.frame)
+        scrollView.snp.makeConstraints { maker in
+            maker.edges.equalToSuperview()
+        }
+        let hourlyStackView = UIStackView()
+        hourlyStackView.axis = .horizontal
+        hourlyStackView.spacing = 10
+        hourlyStackView.backgroundColor = .red
+        scrollView.addSubview(hourlyStackView)
+        hourlyStackView.snp.makeConstraints { maker in
+            maker.edges.equalToSuperview()
+        }
+        print(scrollView.frame)
+        print(hourlyStackView.frame)
     }
 }

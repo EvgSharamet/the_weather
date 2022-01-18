@@ -13,9 +13,17 @@ struct HourlyForecastSection: SectionConfiguratorProtocol {
     let cellIdentifier = "HourlyForecastSectionCell"
     
     
- /*   func getHeaderView() -> UIView {
-        <#code#>
-    }*/
+    public func getHeaderView() -> String {
+      /*  let header = UILabel()
+        header.snp.makeConstraints { maker in
+            maker.height.equalTo(20)
+            maker.width.equalTo(300)
+        }
+        header.backgroundColor = .blue.withAlphaComponent(0.4)
+        header.text = "HOURLY FORECAST"
+        */
+        return "HOURLY FORECAST"
+    }
     
     
     init(tableView: UITableView){

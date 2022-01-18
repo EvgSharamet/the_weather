@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol SectionConfiguratorProtocol {
-   // func getHeaderView() -> UIView
+    func getHeaderView() -> String
     func getNumberOfRows() -> Int
     func tableView( _ tableView:  UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
 }
