@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 
-class JsonService {
+class WeatherDataService {
     //MARK: - types
     
     struct Error: Swift.Error {
@@ -22,9 +22,9 @@ class JsonService {
         }
         
         struct Hourly: Codable {
-            let dt: Int
+            let dt: Int // надо будет переписать на date скорее всего
             let temp: Float
-            let weather: [Weather]
+            let weather: Weather
         }
         
         struct Current: Codable {
@@ -70,13 +70,8 @@ class JsonService {
 
         let list: [Day]
     }
-
-    struct OneDayData {
-        let description: OneDayResponse
-        let hourly: [JsonService.OneDayResponse.Weather]
-    }
     
-    typealias DayInformationRequestResult = Result<OneDayData, Swift.Error>
+    typealias DayInformationRequestResult = Result<OneDayResponse, Swift.Error>
     typealias DayInformationRequestResultHandler = (DayInformationRequestResult) -> Void
     
     typealias TenDaysInformationRequestResult = Result<TenDaysResponse, Swift.Error>
@@ -84,7 +79,7 @@ class JsonService {
     
     //MARK: - data
     
-    static let shared = JsonService()
+    static let shared = WeatherDataService()
     
     //MARK: - internal functions
     func requestByCurrentDay(place: String, handler: @escaping DayInformationRequestResultHandler) {
@@ -146,7 +141,7 @@ class JsonService {
         return answer
     }
      
-    private func getCurrentDayData(_ location:CLLocationCoordinate2D ) throws -> OneDayData {
+    private func getCurrentDayData(_ location:CLLocationCoordinate2D ) throws -> OneDayResponse {
         let decoder = JSONDecoder()
         guard let url = URL( string: "https://api.openweathermap.org/data/2.5/onecall?lat=\(location.latitude)&lon=\(location.longitude)&lang=ru&exclude=minutely,daily&units=metric&appid=167ec7c4487c8b004df1c9b138fb6600")
         else {
@@ -162,13 +157,6 @@ class JsonService {
         guard let answer = try? decoder.decode(OneDayResponse.self, from: jsonData) else {
             throw Error(info: "can't decode Response")
         }
-        
-        let rawDataToday = answer.hourly.dropLast(23)
-        var weatherInfoToday: [JsonService.OneDayResponse.Weather] = []
-
-        for item in rawDataToday {
-            weatherInfoToday.append(JsonService.OneDayResponse.Weather( description: item.weather.first?.description ?? "missing", icon: item.weather.first?.icon ?? "01n"))
-        }
-        return OneDayData(description: answer, hourly: weatherInfoToday )
+        return OneDayResponse(current: answer.current ,hourly: answer.hourly.dropLast(23))
    }
 }

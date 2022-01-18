@@ -33,11 +33,14 @@ class MainTableController: UITableViewController {
         return TableViewSections.allCases.count
     }
     
- 
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let currentSection = getSectionConfigurator(section: section)!
+        return currentSection.getHeaderView()
+    }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let header = getSectionConfigurator(section: section)
-           return header?.getHeaderView()
+        let currentSection = getSectionConfigurator(section: section)!
+        return currentSection.getHeaderTitle()
     }
     
     override func tableView(_ tablerView: UITableView, numberOfRowsInSection section : Int) -> Int {
@@ -57,5 +60,4 @@ class MainTableController: UITableViewController {
             return hourlyForecastSection
         }
     }
-
 }

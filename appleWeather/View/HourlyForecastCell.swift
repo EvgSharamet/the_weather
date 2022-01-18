@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 class HourlyForecastCell: UITableViewCell {
+    
+    var hourlyStackView: UIStackView?
      
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -29,11 +31,12 @@ class HourlyForecastCell: UITableViewCell {
             maker.height.equalTo(300)
             maker.width.equalToSuperview()
         }
-        print(contentView.frame)
         scrollView.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
         }
+        
         let hourlyStackView = UIStackView()
+        self.hourlyStackView = hourlyStackView
         hourlyStackView.axis = .horizontal
         hourlyStackView.spacing = 10
         hourlyStackView.backgroundColor = .red
@@ -41,7 +44,14 @@ class HourlyForecastCell: UITableViewCell {
         hourlyStackView.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
         }
-        print(scrollView.frame)
-        print(hourlyStackView.frame)
+    }
+    
+    func setData(data: WeatherDataService.OneDayResponse) {
+        for i in data.hourly {
+            print("!!!!!!!")
+            let oneHourInfoView = OneHourInfoView()
+            oneHourInfoView.prepare(weatherData: i)
+            hourlyStackView?.addArrangedSubview(oneHourInfoView)
+        }
     }
 }

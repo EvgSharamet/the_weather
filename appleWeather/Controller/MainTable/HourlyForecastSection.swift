@@ -11,18 +11,17 @@ import UIKit
 struct HourlyForecastSection: SectionConfiguratorProtocol {
     
     let cellIdentifier = "HourlyForecastSectionCell"
+    let data: WeatherDataService.OneDayResponse?
     
+    func getHeaderView() -> UIView? {
+       let headerView = UILabel()
+        headerView.backgroundColor = .blue.withAlphaComponent(0.1)
+        headerView.text = "☔"
+        return headerView
+    }
     
-    public func getHeaderView() -> String {
-      /*  let header = UILabel()
-        header.snp.makeConstraints { maker in
-            maker.height.equalTo(20)
-            maker.width.equalTo(300)
-        }
-        header.backgroundColor = .blue.withAlphaComponent(0.4)
-        header.text = "HOURLY FORECAST"
-        */
-        return "HOURLY FORECAST"
+    func getHeaderTitle() -> String? {
+        return "HOURLY FORECAAST"
     }
     
     
@@ -35,7 +34,12 @@ struct HourlyForecastSection: SectionConfiguratorProtocol {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let data = data else {
+            return UITableViewCell()
+        }
+
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HourlyForecastCell
+        cell.setData(data: data)
         return cell
     }
 }

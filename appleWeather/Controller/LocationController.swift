@@ -31,7 +31,7 @@ class LocationController: UIViewController, CLLocationManagerDelegate{
         }
         */
         
-        JsonService.shared.requestByCurrentDay(place: "Калининград") { result in
+        WeatherDataService.shared.requestByCurrentDay(place: "Калининград") { result in
             switch result {
                 case .success(let weatherData):
                     print(weatherData)

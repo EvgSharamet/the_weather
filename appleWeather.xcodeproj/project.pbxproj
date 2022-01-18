@@ -15,11 +15,12 @@
 		85BC88912790ED3900D7CB4A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 85BC88902790ED3900D7CB4A /* SnapKit */; };
 		85BC88932790F1B100D7CB4A /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BC88922790F1B100D7CB4A /* LocationService.swift */; };
 		85BC88952790F23800D7CB4A /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BC88942790F23800D7CB4A /* LocationController.swift */; };
-		85BC889A2791B56A00D7CB4A /* JsonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BC88992791B56A00D7CB4A /* JsonService.swift */; };
+		85BC889A2791B56A00D7CB4A /* WeatherDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BC88992791B56A00D7CB4A /* WeatherDataService.swift */; };
 		85C54C7A2795B42B00B9CFA2 /* MainTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C54C792795B42B00B9CFA2 /* MainTableController.swift */; };
 		85C54C7C2795B65D00B9CFA2 /* HourlyForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C54C7B2795B65D00B9CFA2 /* HourlyForecastCell.swift */; };
 		85C54C812795C42800B9CFA2 /* HourlyForecastSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C54C802795C42800B9CFA2 /* HourlyForecastSection.swift */; };
 		85C54C832796045C00B9CFA2 /* SectionConfiguratorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C54C822796045C00B9CFA2 /* SectionConfiguratorProtocol.swift */; };
+		85C54C852796EF1500B9CFA2 /* OneHourInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C54C842796EF1500B9CFA2 /* OneHourInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -46,11 +47,12 @@
 		85BC888C2790EC0400D7CB4A /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		85BC88922790F1B100D7CB4A /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		85BC88942790F23800D7CB4A /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
-		85BC88992791B56A00D7CB4A /* JsonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonService.swift; sourceTree = "<group>"; };
+		85BC88992791B56A00D7CB4A /* WeatherDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataService.swift; sourceTree = "<group>"; };
 		85C54C792795B42B00B9CFA2 /* MainTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableController.swift; sourceTree = "<group>"; };
 		85C54C7B2795B65D00B9CFA2 /* HourlyForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastCell.swift; sourceTree = "<group>"; };
 		85C54C802795C42800B9CFA2 /* HourlyForecastSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastSection.swift; sourceTree = "<group>"; };
 		85C54C822796045C00B9CFA2 /* SectionConfiguratorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionConfiguratorProtocol.swift; sourceTree = "<group>"; };
+		85C54C842796EF1500B9CFA2 /* OneHourInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneHourInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +101,7 @@
 		85BC88962791B0F600D7CB4A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				85BC88992791B56A00D7CB4A /* JsonService.swift */,
+				85BC88992791B56A00D7CB4A /* WeatherDataService.swift */,
 				85BC88922790F1B100D7CB4A /* LocationService.swift */,
 			);
 			path = Model;
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				85C54C7B2795B65D00B9CFA2 /* HourlyForecastCell.swift */,
+				85C54C842796EF1500B9CFA2 /* OneHourInfoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -215,10 +218,11 @@
 				85C54C7C2795B65D00B9CFA2 /* HourlyForecastCell.swift in Sources */,
 				85BC88792790E7A300D7CB4A /* AppDelegate.swift in Sources */,
 				85BC888D2790EC0400D7CB4A /* MainNavigationController.swift in Sources */,
-				85BC889A2791B56A00D7CB4A /* JsonService.swift in Sources */,
+				85BC889A2791B56A00D7CB4A /* WeatherDataService.swift in Sources */,
 				85C54C7A2795B42B00B9CFA2 /* MainTableController.swift in Sources */,
 				85BC887B2790E7A300D7CB4A /* SceneDelegate.swift in Sources */,
 				85C54C832796045C00B9CFA2 /* SectionConfiguratorProtocol.swift in Sources */,
+				85C54C852796EF1500B9CFA2 /* OneHourInfoView.swift in Sources */,
 				85BC88932790F1B100D7CB4A /* LocationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
