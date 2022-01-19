@@ -126,8 +126,6 @@ class WeatherDataService {
         else {
             throw Error(info: "can't get url")
         }
-        print("URL == \(url)")
-
         
         guard let jsonString = try? String(contentsOf: url, encoding:.utf8) else {
             throw Error(info: "can't decode url")
@@ -147,7 +145,6 @@ class WeatherDataService {
         else {
             throw Error(info: "can't get url")
         }
-        print(url)
         
         guard let jsonString = try? String(contentsOf: url, encoding:.utf8) else {
             throw Error(info: "can't decode url")
@@ -158,8 +155,6 @@ class WeatherDataService {
         guard let answer = try? decoder.decode(OneDayResponse.self, from: jsonData) else {
             throw Error(info: "can't decode Response")
         }
-        
-        print(answer)
         
         return OneDayResponse(current: answer.current ,hourly: answer.hourly.dropLast(23))
    }

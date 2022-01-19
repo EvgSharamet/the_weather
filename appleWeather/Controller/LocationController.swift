@@ -34,7 +34,7 @@ class LocationController: UIViewController, CLLocationManagerDelegate{
         WeatherDataService.shared.requestByCurrentDay(place: "Калининград") { result in
             switch result {
                 case .success(let weatherData):
-                    print(weatherData)
+                    print("SUCESS")
                 case .failure(_):
                     let alert = UIAlertController(title: "Warning", message: "Weather data didn't load", preferredStyle: UIAlertController.Style.alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))

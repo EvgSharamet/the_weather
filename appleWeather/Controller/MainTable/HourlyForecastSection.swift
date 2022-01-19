@@ -39,7 +39,6 @@ struct HourlyForecastSection: SectionConfiguratorProtocol {
         WeatherDataService.shared.requestByCurrentDay(place: "Калининград") { result in
             switch result {
                 case .success(let weatherData):
-                    print("HERE")
                     cell.setData(data: weatherData)
                 case .failure(_):
                     print("Something goes wrong")
