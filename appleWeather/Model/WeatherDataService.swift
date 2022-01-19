@@ -28,15 +28,15 @@ class WeatherDataService {
         }
         
         struct Current: Codable {
-            let dt: Int
-            let sunrise: Int
-            let sunset: Int
+            let dt: Date
+            let sunrise: Date
+            let sunset: Date
             let temp: Float
             let feels_like: Float
             let pressure: Int
             let humidity: Int //влажность
             let dew_point: Float // точка росы
-            let uvi: Int // уфи
+            let uvi: Float // уфи
             let clouds: Int
             let visibility: Int
             let wind_speed: Float
@@ -145,6 +145,7 @@ class WeatherDataService {
         else {
             throw Error(info: "can't get url")
         }
+        print(url)
         
         guard let jsonString = try? String(contentsOf: url, encoding:.utf8) else {
             throw Error(info: "can't decode url")
