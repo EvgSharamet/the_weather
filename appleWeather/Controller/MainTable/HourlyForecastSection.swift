@@ -11,7 +11,6 @@ import UIKit
 struct HourlyForecastSection: SectionConfiguratorProtocol {
     
     let cellIdentifier = "HourlyForecastSectionCell"
-    let data: WeatherDataService.OneDayResponse?
     
     func getHeaderView() -> UIView? {
        let headerView = UILabel()
@@ -21,9 +20,8 @@ struct HourlyForecastSection: SectionConfiguratorProtocol {
     }
     
     func getHeaderTitle() -> String? {
-        return "HOURLY FORECAAST"
+        return "HOURLY FORECAST"
     }
-    
     
     init(tableView: UITableView){
         tableView.register(HourlyForecastCell.self, forCellReuseIdentifier: cellIdentifier)
@@ -34,12 +32,19 @@ struct HourlyForecastSection: SectionConfiguratorProtocol {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let data = data else {
-            return UITableViewCell()
-        }
 
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HourlyForecastCell
-        cell.setData(data: data)
+        cell.prepare()
+        
+        WeatherDataService.shared.requestByCurrentDay(place: "Калининград") { result in
+            switch result {
+                case .success(let weatherData):
+                    print("HERE")
+                    cell.setData(data: weatherData)
+                case .failure(_):
+                    print("Something goes wrong")
+            }
+        }
         return cell
     }
 }

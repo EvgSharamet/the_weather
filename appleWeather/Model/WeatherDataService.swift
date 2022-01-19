@@ -22,9 +22,9 @@ class WeatherDataService {
         }
         
         struct Hourly: Codable {
-            let dt: Int // надо будет переписать на date скорее всего
+            let dt: Date // надо будет переписать на date скорее всего
             let temp: Float
-            let weather: Weather
+            let weather: [Weather]
         }
         
         struct Current: Codable {
@@ -147,16 +147,20 @@ class WeatherDataService {
         else {
             throw Error(info: "can't get url")
         }
+        print(url)
         
         guard let jsonString = try? String(contentsOf: url, encoding:.utf8) else {
             throw Error(info: "can't decode url")
         }
         
         let jsonData = Data(jsonString.utf8)
-        
+
         guard let answer = try? decoder.decode(OneDayResponse.self, from: jsonData) else {
             throw Error(info: "can't decode Response")
         }
+        
+        print(answer)
+        
         return OneDayResponse(current: answer.current ,hourly: answer.hourly.dropLast(23))
    }
 }

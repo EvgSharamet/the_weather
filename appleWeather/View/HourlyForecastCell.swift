@@ -47,10 +47,15 @@ class HourlyForecastCell: UITableViewCell {
     }
     
     func setData(data: WeatherDataService.OneDayResponse) {
+        
         for i in data.hourly {
             print("!!!!!!!")
             let oneHourInfoView = OneHourInfoView()
             oneHourInfoView.prepare(weatherData: i)
+            oneHourInfoView.snp.makeConstraints { maker in
+                maker.height.equalTo(120)
+                maker.width.equalTo(60)
+            }
             hourlyStackView?.addArrangedSubview(oneHourInfoView)
         }
     }
