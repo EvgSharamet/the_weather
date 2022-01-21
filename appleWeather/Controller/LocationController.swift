@@ -10,11 +10,13 @@ import SnapKit
 import UIKit
 import CoreLocation
 
+
+
+
 class LocationController: UIViewController, CLLocationManagerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .systemGray5
         let locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.startUpdatingLocation()

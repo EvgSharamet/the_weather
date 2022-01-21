@@ -8,7 +8,8 @@
 import Foundation
 import UIKit
 
-class HourlyForecastCell: UITableViewCell {
+
+class HourlyForecastSectionView: UITableViewCell {
     
     var hourlyStackView: UIStackView?
      
@@ -23,12 +24,13 @@ class HourlyForecastCell: UITableViewCell {
     }
     
     func prepare() {
-        contentView.backgroundColor = .green
+        
+        contentView.backgroundColor = .lightGray
         let scrollView = UIScrollView()
-        scrollView.backgroundColor = .yellow.withAlphaComponent(0.8)
+        
         contentView.addSubview(scrollView)
         contentView.snp.makeConstraints { maker in
-            maker.height.equalTo(300)
+            maker.height.equalTo(120)
             maker.width.equalToSuperview()
         }
         scrollView.snp.makeConstraints { maker in
@@ -39,7 +41,6 @@ class HourlyForecastCell: UITableViewCell {
         self.hourlyStackView = hourlyStackView
         hourlyStackView.axis = .horizontal
         hourlyStackView.spacing = 10
-        hourlyStackView.backgroundColor = .red
         scrollView.addSubview(hourlyStackView)
         hourlyStackView.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()

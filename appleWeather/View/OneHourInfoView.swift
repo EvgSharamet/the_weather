@@ -13,8 +13,8 @@ import UIKit
 class OneHourInfoView: UIView {
     
     func prepare(weatherData: WeatherDataService.OneDayResponse.Hourly) {
+        
         let mainStackView = UIStackView()
-        mainStackView.backgroundColor = .blue.withAlphaComponent(0.6)
         mainStackView.axis = .vertical
         mainStackView.distribution = .equalCentering
         self.addSubview(mainStackView)
@@ -23,13 +23,25 @@ class OneHourInfoView: UIView {
         }
     
         let dateLabel = UILabel()
+        dateLabel.textAlignment = .center
         mainStackView.addArrangedSubview(dateLabel)
+        dateLabel.snp.makeConstraints { maker in
+            maker.height.equalToSuperview().multipliedBy(0.25)
+        }
         
         let weatherIconImageView = UIImageView()
         mainStackView.addArrangedSubview(weatherIconImageView)
+        weatherIconImageView.snp.makeConstraints { maker in
+            maker.height.equalToSuperview().multipliedBy(0.5)
+        }
         
         let tempLabel = UILabel()
         mainStackView.addArrangedSubview(tempLabel)
+        tempLabel.textAlignment = .center
+        tempLabel.font = tempLabel.font.withSize(15)
+        tempLabel.snp.makeConstraints { maker in
+            maker.height.equalToSuperview().multipliedBy(0.25)
+        }
      
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH"
@@ -39,6 +51,6 @@ class OneHourInfoView: UIView {
         let iconData = try? Data(contentsOf: urlForImage!)
         weatherIconImageView.image = UIImage(data: iconData!)
         
-        tempLabel.text = String(weatherData.temp) + "°"
+        tempLabel.text = String(Int(weatherData.temp)) + "°"
     }
 }

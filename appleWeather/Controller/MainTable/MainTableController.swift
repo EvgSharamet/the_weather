@@ -13,10 +13,12 @@ class MainTableController: UITableViewController {
     
     private enum TableViewSections: Int, CaseIterable {
         case hourlyForecast = 0
+        case tenDaysForecast
     }
     
     private var hourlyForecastSection: HourlyForecastSection?
-   // private var tenDaysForecastSection: TenDaysForecastSection?
+    private var tenDaysForecastSection: TenDaysForecastSection?
+//    private var currentForecastWidgetsSection: CurrentDataWidgetsSection?
    // private var precepitaionSection: PrecepitationSection?
    // private var widgetsSection: WidgetsSection?
     
@@ -25,8 +27,11 @@ class MainTableController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .systemGray6
+        self.view.backgroundColor = .lightGray
         hourlyForecastSection = HourlyForecastSection(tableView: tableView)
+        tenDaysForecastSection = TenDaysForecastSection(tableView: tableView)
+        
+        tableView.allowsSelection = false
     }
     
     override func numberOfSections( in tableView: UITableView) -> Int {
@@ -38,19 +43,21 @@ class MainTableController: UITableViewController {
         return currentSection.getHeaderView()
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let currentSection = getSectionConfigurator(section: section)!
-        return currentSection.getHeaderTitle()
-    }
-    
     override func tableView(_ tablerView: UITableView, numberOfRowsInSection section : Int) -> Int {
-        return TableViewSections.allCases.count
+        1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let currentSection = getSectionConfigurator(section: indexPath.section)!
-        let cell = currentSection.tableView(tableView, cellForRowAt: indexPath)
+        guard let configurator = getSectionConfigurator(section: indexPath.section) else {
+            return UITableViewCell()
+        }
+
+        let cell =  configurator.tableView(tableView, cellForRowAt: indexPath)
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
     }
     
     private func getSectionConfigurator(section: Int) -> SectionConfiguratorProtocol? {
@@ -58,6 +65,9 @@ class MainTableController: UITableViewController {
         switch section {
         case .hourlyForecast:
             return hourlyForecastSection
+    
+        case .tenDaysForecast:
+            return tenDaysForecastSection
         }
     }
 }

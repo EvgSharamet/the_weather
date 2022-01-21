@@ -62,7 +62,7 @@ class WeatherDataService {
         }
         
         struct Day: Codable {
-            let dt: Int
+            let dt: Date
             let temp: Temp
             let humidity: Int
             let weather: [Weather]
@@ -153,9 +153,11 @@ class WeatherDataService {
         
         let jsonData = Data(jsonString.utf8)
 
+        print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1")
         guard let answer = try? decoder.decode(OneDayResponse.self, from: jsonData) else {
             throw Error(info: "can't decode Response")
         }
+        print(answer)
         
         return OneDayResponse(current: answer.current ,hourly: answer.hourly.dropLast(23))
    }

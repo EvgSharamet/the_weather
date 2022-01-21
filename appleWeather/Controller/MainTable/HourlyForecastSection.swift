@@ -13,28 +13,22 @@ struct HourlyForecastSection: SectionConfiguratorProtocol {
     let cellIdentifier = "HourlyForecastSectionCell"
     
     func getHeaderView() -> UIView? {
+        
        let headerView = UILabel()
-        headerView.backgroundColor = .blue.withAlphaComponent(0.1)
-        headerView.text = "☔"
+        headerView.text = "🕘 HOURLY FORECAST"
         return headerView
     }
     
-    func getHeaderTitle() -> String? {
-        return "HOURLY FORECAST"
-    }
-    
     init(tableView: UITableView){
-        tableView.register(HourlyForecastCell.self, forCellReuseIdentifier: cellIdentifier)
+        tableView.register(HourlyForecastSectionView.self, forCellReuseIdentifier: cellIdentifier)
     }
     
     func getNumberOfRows() -> Int {
-        return 1
+        1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HourlyForecastCell
-        cell.prepare()
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HourlyForecastSectionView
         
         WeatherDataService.shared.requestByCurrentDay(place: "Калининград") { result in
             switch result {
