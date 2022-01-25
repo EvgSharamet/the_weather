@@ -12,11 +12,24 @@ import SnapKit
 class TenDaysForecastSection: SectionConfiguratorProtocol {
    
     let cellIdentifier = "TenDaysForecastSectionCell"
+    var data: WeatherDataService.TenDaysResponse?
     
     func getHeaderView() -> UIView? {
-        let headerView = UILabel()
-        headerView.text = "🗓 10 DAY FORECAST"
-        return headerView
+        let view = UIView()
+        
+        let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+        view.addSubview(blurEffectView)
+        blurEffectView.snp.makeConstraints { maker in
+            maker.edges.equalToSuperview()
+        }
+        
+        let label = UILabel()
+        label.text = "📅 TEN DAYS FORECAST"
+        view.addSubview(label)
+        label.snp.makeConstraints { maker in
+            maker.edges.equalToSuperview()
+        }
+        return view
     }
     
     func getNumberOfRows() -> Int {
@@ -25,19 +38,15 @@ class TenDaysForecastSection: SectionConfiguratorProtocol {
     
     init(tableView: UITableView){
         tableView.register(TenDaysForecastSectionView.self, forCellReuseIdentifier: cellIdentifier)
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TenDaysForecastSectionView
-    
-        WeatherDataService.shared.requestByTenDays(place: "Калининград") { result in
-            switch result {
-                case .success(let weatherData):
-                    cell.setData(data: weatherData)
-                case .failure(_):
-                    print("Something goes wrong")
-            }
-        }
+        guard let data = self.data else {
+            return cell }
+        
+        cell.setData(data: data)
         return cell
     }
 }

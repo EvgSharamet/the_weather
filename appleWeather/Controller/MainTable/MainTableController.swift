@@ -9,29 +9,46 @@ import Foundation
 import SnapKit
 import UIKit
 
+
+
 class MainTableController: UITableViewController {
     
     private enum TableViewSections: Int, CaseIterable {
         case hourlyForecast = 0
         case tenDaysForecast
+        case uviSunriseWidgetSection
     }
     
     private var hourlyForecastSection: HourlyForecastSection?
     private var tenDaysForecastSection: TenDaysForecastSection?
-//    private var currentForecastWidgetsSection: CurrentDataWidgetsSection?
-   // private var precepitaionSection: PrecepitationSection?
-   // private var widgetsSection: WidgetsSection?
-    
-    private let identifier = "TableViewCell"
+    private var uviSunriseWidgetSection: UVISunriseWidgetSection?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = .lightGray
+        
         hourlyForecastSection = HourlyForecastSection(tableView: tableView)
         tenDaysForecastSection = TenDaysForecastSection(tableView: tableView)
+        uviSunriseWidgetSection = UVISunriseWidgetSection(tableView: tableView)
         
-        tableView.allowsSelection = false
+        WeatherDataService.shared.requestByCurrentDay(place: "Калининград") { result in
+            switch result {
+            case .success(let weatherData):
+                    self.uviSunriseWidgetSection?.data = weatherData
+                case .failure(_):
+                    print("Something goes wrong")
+            }
+        }
+        
+        WeatherDataService.shared.requestByTenDays(place: "Калининград") { result in
+            switch result {
+                case .success(let weatherData):
+                    self.tenDaysForecastSection?.data = weatherData
+                case .failure(_):
+                    print("Something goes wrong")
+            }
+        }
     }
     
     override func numberOfSections( in tableView: UITableView) -> Int {
@@ -68,6 +85,9 @@ class MainTableController: UITableViewController {
     
         case .tenDaysForecast:
             return tenDaysForecastSection
+       
+        case .uviSunriseWidgetSection:
+            return uviSunriseWidgetSection
         }
     }
 }

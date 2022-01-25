@@ -43,9 +43,10 @@ class OneHourInfoView: UIView {
             maker.height.equalToSuperview().multipliedBy(0.25)
         }
      
+        let date = Date(timeIntervalSince1970: weatherData.dt)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH"
-        dateLabel.text = dateFormatter.string(from: weatherData.dt)
+        dateLabel.text = dateFormatter.string(from: date)
         
         let urlForImage = URL(string: "https://openweathermap.org/img/wn/\(weatherData.weather[0].icon)@2x.png")
         let iconData = try? Data(contentsOf: urlForImage!)

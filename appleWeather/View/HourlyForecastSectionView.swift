@@ -24,15 +24,21 @@ class HourlyForecastSectionView: UITableViewCell {
     }
     
     func prepare() {
+        backgroundColor = .clear
         
-        contentView.backgroundColor = .lightGray
-        let scrollView = UIScrollView()
+        let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+        contentView.addSubview(blurEffectView)
+        blurEffectView.snp.makeConstraints { maker in
+            maker.edges.equalToSuperview()
+        }
         
-        contentView.addSubview(scrollView)
         contentView.snp.makeConstraints { maker in
             maker.height.equalTo(120)
             maker.width.equalToSuperview()
         }
+        
+        let scrollView = UIScrollView()
+        contentView.addSubview(scrollView)
         scrollView.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
         }

@@ -16,7 +16,6 @@ class OneDayInfoView: UIView {
        
         let mainStackView = UIStackView()
         mainStackView.axis = .horizontal
-     //   mainStackView.distribution = .equalCentering
         self.addSubview(mainStackView)
         mainStackView.snp.makeConstraints { maker in
             maker.width.equalToSuperview()
@@ -52,11 +51,10 @@ class OneDayInfoView: UIView {
             maker.width.equalToSuperview().multipliedBy(0.2)
         }
         
+        let date = Date(timeIntervalSince1970: weatherData.dt)
         let dateFormatter = DateFormatter()
-              dateFormatter.dateFormat = "EEE"
-        dateLabel.text = dateFormatter.string(from: weatherData.dt).capitalized
-   
-       
+        dateFormatter.dateFormat = "EEE"
+        dateLabel.text = dateFormatter.string(from: date).capitalized
         
         let urlForImage = URL(string: "https://openweathermap.org/img/wn/\(weatherData.weather[0].icon)@2x.png")
         let iconData = try? Data(contentsOf: urlForImage!)

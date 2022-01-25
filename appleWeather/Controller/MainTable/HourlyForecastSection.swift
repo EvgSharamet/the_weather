@@ -11,12 +11,24 @@ import UIKit
 struct HourlyForecastSection: SectionConfiguratorProtocol {
     
     let cellIdentifier = "HourlyForecastSectionCell"
+    var data: WeatherDataService.OneDayResponse? 
     
     func getHeaderView() -> UIView? {
+        let view = UIView()
         
-       let headerView = UILabel()
-        headerView.text = "🕘 HOURLY FORECAST"
-        return headerView
+        let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+        view.addSubview(blurEffectView)
+        blurEffectView.snp.makeConstraints { maker in
+            maker.edges.equalToSuperview()
+        }
+        
+        let label = UILabel()
+        label.text = "🕘 HOURLY FORECAST"
+        view.addSubview(label)
+        label.snp.makeConstraints { maker in
+            maker.edges.equalToSuperview()
+        }
+        return view
     }
     
     init(tableView: UITableView){
@@ -28,16 +40,8 @@ struct HourlyForecastSection: SectionConfiguratorProtocol {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HourlyForecastSectionView
         
-        WeatherDataService.shared.requestByCurrentDay(place: "Калининград") { result in
-            switch result {
-                case .success(let weatherData):
-                    cell.setData(data: weatherData)
-                case .failure(_):
-                    print("Something goes wrong")
-            }
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HourlyForecastSectionView
         return cell
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		858D8507279F22DF00CDEC90 /* UVIWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D8506279F22DF00CDEC90 /* UVIWidget.swift */; };
 		85BC88792790E7A300D7CB4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BC88782790E7A300D7CB4A /* AppDelegate.swift */; };
 		85BC887B2790E7A300D7CB4A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BC887A2790E7A300D7CB4A /* SceneDelegate.swift */; };
 		85BC88822790E7A700D7CB4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85BC88812790E7A700D7CB4A /* Assets.xcassets */; };
@@ -14,7 +15,6 @@
 		85BC888D2790EC0400D7CB4A /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BC888C2790EC0400D7CB4A /* MainNavigationController.swift */; };
 		85BC88912790ED3900D7CB4A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 85BC88902790ED3900D7CB4A /* SnapKit */; };
 		85BC88932790F1B100D7CB4A /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BC88922790F1B100D7CB4A /* LocationService.swift */; };
-		85BC88952790F23800D7CB4A /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BC88942790F23800D7CB4A /* LocationController.swift */; };
 		85BC889A2791B56A00D7CB4A /* WeatherDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BC88992791B56A00D7CB4A /* WeatherDataService.swift */; };
 		85C54C7A2795B42B00B9CFA2 /* MainTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C54C792795B42B00B9CFA2 /* MainTableController.swift */; };
 		85C54C7C2795B65D00B9CFA2 /* HourlyForecastSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C54C7B2795B65D00B9CFA2 /* HourlyForecastSectionView.swift */; };
@@ -24,9 +24,8 @@
 		85E2B843279985E600E8595B /* TenDaysForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E2B842279985E600E8595B /* TenDaysForecast.swift */; };
 		85E2B84527998D1F00E8595B /* TenDaysForecastSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E2B84427998D1F00E8595B /* TenDaysForecastSectionView.swift */; };
 		85E2B84727999E1F00E8595B /* OneDayInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E2B84627999E1F00E8595B /* OneDayInfoView.swift */; };
-		85E2B8492799BFFC00E8595B /* CurrentDataWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E2B8482799BFFC00E8595B /* CurrentDataWidgets.swift */; };
-		85E2B84B2799C3AB00E8595B /* CurrentForecastWidgetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E2B84A2799C3AB00E8595B /* CurrentForecastWidgetsView.swift */; };
-		85E2B84D2799C45100E8595B /* OneWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E2B84C2799C45100E8595B /* OneWidgetView.swift */; };
+		85E2B8492799BFFC00E8595B /* UVISunRiseWidgetSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E2B8482799BFFC00E8595B /* UVISunRiseWidgetSection.swift */; };
+		85E2B84B2799C3AB00E8595B /* UVISunriseWidgetSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E2B84A2799C3AB00E8595B /* UVISunriseWidgetSectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -44,6 +43,7 @@
 /* End PBXBuildRule section */
 
 /* Begin PBXFileReference section */
+		858D8506279F22DF00CDEC90 /* UVIWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UVIWidget.swift; sourceTree = "<group>"; };
 		85BC88752790E7A300D7CB4A /* appleWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appleWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85BC88782790E7A300D7CB4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85BC887A2790E7A300D7CB4A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +52,6 @@
 		85BC88862790E7A700D7CB4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85BC888C2790EC0400D7CB4A /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		85BC88922790F1B100D7CB4A /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
-		85BC88942790F23800D7CB4A /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		85BC88992791B56A00D7CB4A /* WeatherDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataService.swift; sourceTree = "<group>"; };
 		85C54C792795B42B00B9CFA2 /* MainTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableController.swift; sourceTree = "<group>"; };
 		85C54C7B2795B65D00B9CFA2 /* HourlyForecastSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastSectionView.swift; sourceTree = "<group>"; };
@@ -62,9 +61,8 @@
 		85E2B842279985E600E8595B /* TenDaysForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenDaysForecast.swift; sourceTree = "<group>"; };
 		85E2B84427998D1F00E8595B /* TenDaysForecastSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenDaysForecastSectionView.swift; sourceTree = "<group>"; };
 		85E2B84627999E1F00E8595B /* OneDayInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDayInfoView.swift; sourceTree = "<group>"; };
-		85E2B8482799BFFC00E8595B /* CurrentDataWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDataWidgets.swift; sourceTree = "<group>"; };
-		85E2B84A2799C3AB00E8595B /* CurrentForecastWidgetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentForecastWidgetsView.swift; sourceTree = "<group>"; };
-		85E2B84C2799C45100E8595B /* OneWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneWidgetView.swift; sourceTree = "<group>"; };
+		85E2B8482799BFFC00E8595B /* UVISunRiseWidgetSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UVISunRiseWidgetSection.swift; sourceTree = "<group>"; };
+		85E2B84A2799C3AB00E8595B /* UVISunriseWidgetSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UVISunriseWidgetSectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,8 +125,8 @@
 				85C54C842796EF1500B9CFA2 /* OneHourInfoView.swift */,
 				85E2B84427998D1F00E8595B /* TenDaysForecastSectionView.swift */,
 				85E2B84627999E1F00E8595B /* OneDayInfoView.swift */,
-				85E2B84A2799C3AB00E8595B /* CurrentForecastWidgetsView.swift */,
-				85E2B84C2799C45100E8595B /* OneWidgetView.swift */,
+				85E2B84A2799C3AB00E8595B /* UVISunriseWidgetSectionView.swift */,
+				858D8506279F22DF00CDEC90 /* UVIWidget.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -138,7 +136,6 @@
 			children = (
 				85C54C7F2795C2B300B9CFA2 /* MainTable */,
 				85BC888C2790EC0400D7CB4A /* MainNavigationController.swift */,
-				85BC88942790F23800D7CB4A /* LocationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -149,7 +146,7 @@
 				85C54C792795B42B00B9CFA2 /* MainTableController.swift */,
 				85C54C802795C42800B9CFA2 /* HourlyForecastSection.swift */,
 				85E2B842279985E600E8595B /* TenDaysForecast.swift */,
-				85E2B8482799BFFC00E8595B /* CurrentDataWidgets.swift */,
+				85E2B8482799BFFC00E8595B /* UVISunRiseWidgetSection.swift */,
 			);
 			path = MainTable;
 			sourceTree = "<group>";
@@ -231,10 +228,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85BC88952790F23800D7CB4A /* LocationController.swift in Sources */,
 				85C54C812795C42800B9CFA2 /* HourlyForecastSection.swift in Sources */,
 				85C54C7C2795B65D00B9CFA2 /* HourlyForecastSectionView.swift in Sources */,
-				85E2B84D2799C45100E8595B /* OneWidgetView.swift in Sources */,
+				858D8507279F22DF00CDEC90 /* UVIWidget.swift in Sources */,
 				85BC88792790E7A300D7CB4A /* AppDelegate.swift in Sources */,
 				85BC888D2790EC0400D7CB4A /* MainNavigationController.swift in Sources */,
 				85E2B84527998D1F00E8595B /* TenDaysForecastSectionView.swift in Sources */,
@@ -242,11 +238,11 @@
 				85C54C7A2795B42B00B9CFA2 /* MainTableController.swift in Sources */,
 				85E2B84727999E1F00E8595B /* OneDayInfoView.swift in Sources */,
 				85BC887B2790E7A300D7CB4A /* SceneDelegate.swift in Sources */,
-				85E2B8492799BFFC00E8595B /* CurrentDataWidgets.swift in Sources */,
+				85E2B8492799BFFC00E8595B /* UVISunRiseWidgetSection.swift in Sources */,
 				85C54C832796045C00B9CFA2 /* SectionConfiguratorProtocol.swift in Sources */,
 				85C54C852796EF1500B9CFA2 /* OneHourInfoView.swift in Sources */,
 				85BC88932790F1B100D7CB4A /* LocationService.swift in Sources */,
-				85E2B84B2799C3AB00E8595B /* CurrentForecastWidgetsView.swift in Sources */,
+				85E2B84B2799C3AB00E8595B /* UVISunriseWidgetSectionView.swift in Sources */,
 				85E2B843279985E600E8595B /* TenDaysForecast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
