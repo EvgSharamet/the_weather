@@ -11,7 +11,7 @@ import SnapKit
 
 
 
-class TenDaysForecastSectionView: UITableViewCell {
+class TenDaysForecastSectionView: CellWithRoundedCorner {
     
     var tenDaysStackView: UIStackView?
      
@@ -27,17 +27,10 @@ class TenDaysForecastSectionView: UITableViewCell {
     
     func prepare() {
         
-        backgroundColor = .clear
-        
+      //  backgroundColor = .clear
         contentView.snp.makeConstraints { maker in
             maker.height.equalTo(400)
             maker.width.equalToSuperview()
-        }
-        
-        let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
-        contentView.addSubview(blurEffectView)
-        blurEffectView.snp.makeConstraints { maker in
-            maker.edges.equalToSuperview()
         }
         
         let tenDaysStackView = UIStackView()

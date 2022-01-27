@@ -1,20 +1,19 @@
 //
-//  CurrentForecastWidgetsView.swift
+//  VisibilityPressureWidgetSectionView.swift
 //  appleWeather
 //
-//  Created by Евгения Шарамет on 20.01.2022.
+//  Created by Евгения Шарамет on 27.01.2022.
 //
 
 import Foundation
-import UIKit
 import SnapKit
+import UIKit
 
 
-
-class UVISunriseWidgetSectionView: UITableViewCell {
+class VisibilityPressureWidgetSectionView: UITableViewCell {
     
-    var uviWidget: UVIWidget?
-    var sunriseWidget: SunriseWidget?
+    var visibilityWidget: VisibilityWidget?
+    var pressureWidget: PressureWidget?
     
    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
        super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -43,22 +42,22 @@ class UVISunriseWidgetSectionView: UITableViewCell {
        stackView.distribution = .fillEqually
        stackView.spacing = 10
        
-       let uviWidget = UVIWidget()
-       self.uviWidget = uviWidget
-       uviWidget.prepare()
-       let sunriseWidget = SunriseWidget()
-       self.sunriseWidget = sunriseWidget
-       sunriseWidget.prepare()
+       let visibilityWidget = VisibilityWidget()
+       self.visibilityWidget = visibilityWidget
+       visibilityWidget.prepare()
        
-       stackView.addArrangedSubview(uviWidget)
-       stackView.addArrangedSubview(sunriseWidget)
+       let pressureWidget = PressureWidget()
+       self.pressureWidget = pressureWidget
+       pressureWidget.prepare()
+       
+       stackView.addArrangedSubview(visibilityWidget)
+       stackView.addArrangedSubview(pressureWidget)
     }
     
     func setData(data: WeatherDataService.OneDayResponse.Current) {
-        uviWidget?.setData(text: String(data.uvi))
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:MM"
-        sunriseWidget?.setData(text: dateFormatter.string(from: data.sunrise))
+        visibilityWidget?.setData(text: String(data.visibility))
+        pressureWidget?.setData(text: String(data.pressure))
     }
 }
+
 

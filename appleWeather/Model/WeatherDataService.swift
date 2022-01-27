@@ -66,6 +66,7 @@ class WeatherDataService {
             let temp: Temp
             let humidity: Int
             let weather: [Weather]
+            let clouds: Float
         }
 
         let list: [Day]

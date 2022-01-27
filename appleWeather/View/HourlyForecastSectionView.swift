@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 
-class HourlyForecastSectionView: UITableViewCell {
+class HourlyForecastSectionView: CellWithRoundedCorner {
     
     var hourlyStackView: UIStackView?
      
@@ -25,12 +25,6 @@ class HourlyForecastSectionView: UITableViewCell {
     
     func prepare() {
         backgroundColor = .clear
-        
-        let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
-        contentView.addSubview(blurEffectView)
-        blurEffectView.snp.makeConstraints { maker in
-            maker.edges.equalToSuperview()
-        }
         
         contentView.snp.makeConstraints { maker in
             maker.height.equalTo(120)

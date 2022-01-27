@@ -1,20 +1,20 @@
 //
-//  CurrentForecastWidgetsView.swift
+//  WindPrecipitationWidgetView.swift
 //  appleWeather
 //
-//  Created by Евгения Шарамет on 20.01.2022.
+//  Created by Евгения Шарамет on 27.01.2022.
 //
 
 import Foundation
-import UIKit
 import SnapKit
+import UIKit
 
 
 
-class UVISunriseWidgetSectionView: UITableViewCell {
+class WindPrecipitationWidgetSectionView: UITableViewCell {
     
-    var uviWidget: UVIWidget?
-    var sunriseWidget: SunriseWidget?
+    var windWidget: WindWidget?
+    var precipitationWidget: PrecipitationWidget?
     
    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
        super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -43,22 +43,21 @@ class UVISunriseWidgetSectionView: UITableViewCell {
        stackView.distribution = .fillEqually
        stackView.spacing = 10
        
-       let uviWidget = UVIWidget()
-       self.uviWidget = uviWidget
-       uviWidget.prepare()
-       let sunriseWidget = SunriseWidget()
-       self.sunriseWidget = sunriseWidget
-       sunriseWidget.prepare()
+       let windWidget = WindWidget()
+       self.windWidget = windWidget
+       windWidget.prepare()
        
-       stackView.addArrangedSubview(uviWidget)
-       stackView.addArrangedSubview(sunriseWidget)
+       let precipitationWidget = PrecipitationWidget()
+       self.precipitationWidget = precipitationWidget
+       precipitationWidget.prepare()
+       
+       stackView.addArrangedSubview(windWidget)
+       stackView.addArrangedSubview(precipitationWidget)
     }
     
     func setData(data: WeatherDataService.OneDayResponse.Current) {
-        uviWidget?.setData(text: String(data.uvi))
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:MM"
-        sunriseWidget?.setData(text: dateFormatter.string(from: data.sunrise))
+        windWidget?.setData(text: String(data.wind_speed))
+        precipitationWidget?.setData(text: String("None"))
     }
 }
 

@@ -1,17 +1,17 @@
 //
-//  UVIWidget.swift
+//  VisibilityWidget.swift
 //  appleWeather
 //
-//  Created by Евгения Шарамет on 24.01.2022.
+//  Created by Евгения Шарамет on 27.01.2022.
 //
 
 import Foundation
-import UIKit
 import SnapKit
+import UIKit
 
 
 
-class UVIWidget: ViewWithRoundedCorner {
+class VisibilityWidget:  ViewWithRoundedCorner {
     let textLabel = UILabel()
     
     func prepare() {

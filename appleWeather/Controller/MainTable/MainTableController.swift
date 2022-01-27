@@ -16,26 +16,41 @@ class MainTableController: UITableViewController {
     private enum TableViewSections: Int, CaseIterable {
         case hourlyForecast = 0
         case tenDaysForecast
-        case uviSunriseWidgetSection
+        case uviSunriseWidgets
+        case windPrecipitationWidgets
+        case feelsLikeHumidityWidgets
+        case visibilityPressureWidgets
     }
     
     private var hourlyForecastSection: HourlyForecastSection?
     private var tenDaysForecastSection: TenDaysForecastSection?
     private var uviSunriseWidgetSection: UVISunriseWidgetSection?
+    private var windPrecipitationWidgetSection: WindPrecipitationWidgetSection?
+    private var feelsLikeHumidityWidgetSection: FeelsLikeHumidityWidgetSection?
+    private var visibilityPressureWidgetSection: VisibilityPressureWidgetSection?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .lightGray
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "night.png")!)
         
         hourlyForecastSection = HourlyForecastSection(tableView: tableView)
         tenDaysForecastSection = TenDaysForecastSection(tableView: tableView)
         uviSunriseWidgetSection = UVISunriseWidgetSection(tableView: tableView)
+        windPrecipitationWidgetSection = WindPrecipitationWidgetSection(tableView: tableView)
+        feelsLikeHumidityWidgetSection = FeelsLikeHumidityWidgetSection(tableView: tableView)
+        visibilityPressureWidgetSection = VisibilityPressureWidgetSection(tableView: tableView)
         
         WeatherDataService.shared.requestByCurrentDay(place: "Калининград") { result in
             switch result {
             case .success(let weatherData):
-                    self.uviSunriseWidgetSection?.data = weatherData
+                print(weatherData)
+                self.hourlyForecastSection?.data = weatherData
+                self.uviSunriseWidgetSection?.data = weatherData
+                self.windPrecipitationWidgetSection?.data = weatherData
+                self.feelsLikeHumidityWidgetSection?.data = weatherData
+                self.visibilityPressureWidgetSection?.data = weatherData
+                self.tableView.reloadData()
                 case .failure(_):
                     print("Something goes wrong")
             }
@@ -45,6 +60,7 @@ class MainTableController: UITableViewController {
             switch result {
                 case .success(let weatherData):
                     self.tenDaysForecastSection?.data = weatherData
+                    self.tableView.reloadData()
                 case .failure(_):
                     print("Something goes wrong")
             }
@@ -86,8 +102,17 @@ class MainTableController: UITableViewController {
         case .tenDaysForecast:
             return tenDaysForecastSection
        
-        case .uviSunriseWidgetSection:
+        case .uviSunriseWidgets:
             return uviSunriseWidgetSection
+            
+        case .windPrecipitationWidgets:
+            return windPrecipitationWidgetSection
+       
+        case .feelsLikeHumidityWidgets:
+            return feelsLikeHumidityWidgetSection
+            
+        case .visibilityPressureWidgets:
+            return visibilityPressureWidgetSection
         }
     }
 }

@@ -14,16 +14,9 @@ struct HourlyForecastSection: SectionConfiguratorProtocol {
     var data: WeatherDataService.OneDayResponse? 
     
     func getHeaderView() -> UIView? {
-        let view = UIView()
-        
-        let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
-        view.addSubview(blurEffectView)
-        blurEffectView.snp.makeConstraints { maker in
-            maker.edges.equalToSuperview()
-        }
-        
+        let view = HeaderViewWithRoundedCorner()
         let label = UILabel()
-        label.text = "🕘 HOURLY FORECAST"
+        label.text = " 🕘 HOURLY FORECAST"
         view.addSubview(label)
         label.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
@@ -40,8 +33,10 @@ struct HourlyForecastSection: SectionConfiguratorProtocol {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HourlyForecastSectionView
+
+        guard let data = self.data else { return cell }
+        cell.setData(data: data)
         return cell
     }
 }

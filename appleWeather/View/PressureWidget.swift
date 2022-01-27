@@ -1,19 +1,19 @@
 //
-//  UVIWidget.swift
+//  PressureWidget.swift
 //  appleWeather
 //
-//  Created by Евгения Шарамет on 24.01.2022.
+//  Created by Евгения Шарамет on 27.01.2022.
 //
 
 import Foundation
-import UIKit
 import SnapKit
+import UIKit
 
 
 
-class UVIWidget: ViewWithRoundedCorner {
+class PressureWidget: ViewWithRoundedCorner {
     let textLabel = UILabel()
-    
+
     func prepare() {
         let stackView = UIStackView()
         self.addSubview(stackView)
@@ -22,7 +22,7 @@ class UVIWidget: ViewWithRoundedCorner {
         }
         stackView.addArrangedSubview(textLabel)
     }
-    
+
     func setData(text: String) {
         textLabel.text = text
     }

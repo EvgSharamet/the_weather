@@ -1,8 +1,8 @@
 //
-//  CurrentDataWidgets.swift
+//  VisibilityPressureWidgetSectionView.swift
 //  appleWeather
 //
-//  Created by Евгения Шарамет on 20.01.2022.
+//  Created by Евгения Шарамет on 27.01.2022.
 //
 
 import Foundation
@@ -10,10 +10,9 @@ import SnapKit
 import UIKit
 
 
-
-class UVISunriseWidgetSection: SectionConfiguratorProtocol {
+class VisibilityPressureWidgetSection: SectionConfiguratorProtocol {
     
-    let cellIdentifier = "UVISunriseWidgetSectionCell"
+    let cellIdentifier = "VisibilityPressureWidgetSectionCell"
     var data: WeatherDataService.OneDayResponse?
     
     func getHeaderView() -> UIView? {
@@ -29,7 +28,7 @@ class UVISunriseWidgetSection: SectionConfiguratorProtocol {
         let firstHeader = HeaderViewWithRoundedCorner()
         stackView.addArrangedSubview(firstHeader)
         let firstLabel = UILabel()
-        firstLabel.text = "🌤 UV-INDEX"
+        firstLabel.text = "👁‍🗨 VISIBILITY"
         firstHeader.addSubview(firstLabel)
         firstLabel.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
@@ -38,7 +37,7 @@ class UVISunriseWidgetSection: SectionConfiguratorProtocol {
         let secondHeader = HeaderViewWithRoundedCorner()
         stackView.addArrangedSubview(secondHeader)
         let secondLabel = UILabel()
-        secondLabel.text = " 🌅 SUNRISE/SUNSET"
+        secondLabel.text = "⏲ PRESSURE"
         secondHeader.addSubview(secondLabel)
         secondLabel.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
@@ -51,15 +50,17 @@ class UVISunriseWidgetSection: SectionConfiguratorProtocol {
     }
     
     init(tableView: UITableView){
-        tableView.register(UVISunriseWidgetSectionView.self, forCellReuseIdentifier: cellIdentifier)
+        tableView.register(VisibilityPressureWidgetSectionView.self, forCellReuseIdentifier: cellIdentifier)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! UVISunriseWidgetSectionView
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! VisibilityPressureWidgetSectionView
         cell.prepare()
         guard let dataForWidgets = data?.current else { return cell }
         cell.setData(data: dataForWidgets)
         return cell
     }
 }
+
+
 

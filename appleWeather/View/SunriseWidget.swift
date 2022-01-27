@@ -1,17 +1,16 @@
 //
-//  UVIWidget.swift
+//  Sunrise.swift
 //  appleWeather
 //
-//  Created by Евгения Шарамет on 24.01.2022.
+//  Created by Евгения Шарамет on 26.01.2022.
 //
 
 import Foundation
-import UIKit
 import SnapKit
+import UIKit
 
 
-
-class UVIWidget: ViewWithRoundedCorner {
+class SunriseWidget: ViewWithRoundedCorner {
     let textLabel = UILabel()
     
     func prepare() {

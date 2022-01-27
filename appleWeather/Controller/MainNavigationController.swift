@@ -16,6 +16,8 @@ class MainNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      //  let testContr = testContr()
+      //  pushViewController(testContr, animated: false)
         let mainWindow = MainTableController()
         pushViewController(mainWindow, animated: true)
     }

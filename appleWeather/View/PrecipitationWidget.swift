@@ -1,17 +1,16 @@
 //
-//  UVIWidget.swift
+//  PrecipitationWidget.swift
 //  appleWeather
 //
-//  Created by Евгения Шарамет on 24.01.2022.
+//  Created by Евгения Шарамет on 27.01.2022.
 //
 
 import Foundation
-import UIKit
 import SnapKit
+import UIKit
 
 
-
-class UVIWidget: ViewWithRoundedCorner {
+class PrecipitationWidget: ViewWithRoundedCorner {
     let textLabel = UILabel()
     
     func prepare() {
@@ -27,3 +26,4 @@ class UVIWidget: ViewWithRoundedCorner {
         textLabel.text = text
     }
 }
+

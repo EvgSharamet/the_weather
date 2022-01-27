@@ -7,7 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		858824AE27A2AEFE0054E337 /* WindPrecipitationWidgetSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824AD27A2AEFE0054E337 /* WindPrecipitationWidgetSection.swift */; };
+		858824B027A2B00E0054E337 /* WindPrecipitationWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824AF27A2B00E0054E337 /* WindPrecipitationWidgetView.swift */; };
+		858824B227A2B0CB0054E337 /* WindWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824B127A2B0CB0054E337 /* WindWidget.swift */; };
+		858824B427A2B0E70054E337 /* HumidityWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824B327A2B0E70054E337 /* HumidityWidget.swift */; };
+		858824B627A2DA270054E337 /* PrecipitationWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824B527A2DA270054E337 /* PrecipitationWidget.swift */; };
+		858824B827A2DDE00054E337 /* FeelsLikeHumidityWidgetSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824B727A2DDE00054E337 /* FeelsLikeHumidityWidgetSection.swift */; };
+		858824BA27A2E16B0054E337 /* FeelsLikeHumidityWidgetSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824B927A2E16B0054E337 /* FeelsLikeHumidityWidgetSectionView.swift */; };
+		858824BC27A2E3CA0054E337 /* FeelsLikeWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824BB27A2E3CA0054E337 /* FeelsLikeWidget.swift */; };
+		858824BE27A2EAF50054E337 /* VisibilityPressureWidgetSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824BD27A2EAF50054E337 /* VisibilityPressureWidgetSectionView.swift */; };
+		858824C027A2EB420054E337 /* VisibilityPressureWidgetSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824BF27A2EB420054E337 /* VisibilityPressureWidgetSection.swift */; };
+		858824C227A2ED9F0054E337 /* VisibilityWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824C127A2ED9F0054E337 /* VisibilityWidget.swift */; };
+		858824C427A2EDE60054E337 /* PressureWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824C327A2EDE60054E337 /* PressureWidget.swift */; };
 		858D8507279F22DF00CDEC90 /* UVIWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D8506279F22DF00CDEC90 /* UVIWidget.swift */; };
+		858D850B27A0843E00CDEC90 /* ViewWithRoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D850A27A0843E00CDEC90 /* ViewWithRoundedCorner.swift */; };
+		858D850D27A18D4800CDEC90 /* CellWithRoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D850C27A18D4800CDEC90 /* CellWithRoundedCorner.swift */; };
+		858D850F27A190F000CDEC90 /* HeaderViewWithRoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D850E27A190F000CDEC90 /* HeaderViewWithRoundedCorner.swift */; };
+		858D851127A1A75600CDEC90 /* SunriseWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D851027A1A75600CDEC90 /* SunriseWidget.swift */; };
 		85BC88792790E7A300D7CB4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BC88782790E7A300D7CB4A /* AppDelegate.swift */; };
 		85BC887B2790E7A300D7CB4A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BC887A2790E7A300D7CB4A /* SceneDelegate.swift */; };
 		85BC88822790E7A700D7CB4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85BC88812790E7A700D7CB4A /* Assets.xcassets */; };
@@ -43,7 +59,23 @@
 /* End PBXBuildRule section */
 
 /* Begin PBXFileReference section */
+		858824AD27A2AEFE0054E337 /* WindPrecipitationWidgetSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindPrecipitationWidgetSection.swift; sourceTree = "<group>"; };
+		858824AF27A2B00E0054E337 /* WindPrecipitationWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindPrecipitationWidgetView.swift; sourceTree = "<group>"; };
+		858824B127A2B0CB0054E337 /* WindWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindWidget.swift; sourceTree = "<group>"; };
+		858824B327A2B0E70054E337 /* HumidityWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumidityWidget.swift; sourceTree = "<group>"; };
+		858824B527A2DA270054E337 /* PrecipitationWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecipitationWidget.swift; sourceTree = "<group>"; };
+		858824B727A2DDE00054E337 /* FeelsLikeHumidityWidgetSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelsLikeHumidityWidgetSection.swift; sourceTree = "<group>"; };
+		858824B927A2E16B0054E337 /* FeelsLikeHumidityWidgetSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelsLikeHumidityWidgetSectionView.swift; sourceTree = "<group>"; };
+		858824BB27A2E3CA0054E337 /* FeelsLikeWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelsLikeWidget.swift; sourceTree = "<group>"; };
+		858824BD27A2EAF50054E337 /* VisibilityPressureWidgetSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisibilityPressureWidgetSectionView.swift; sourceTree = "<group>"; };
+		858824BF27A2EB420054E337 /* VisibilityPressureWidgetSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisibilityPressureWidgetSection.swift; sourceTree = "<group>"; };
+		858824C127A2ED9F0054E337 /* VisibilityWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisibilityWidget.swift; sourceTree = "<group>"; };
+		858824C327A2EDE60054E337 /* PressureWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureWidget.swift; sourceTree = "<group>"; };
 		858D8506279F22DF00CDEC90 /* UVIWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UVIWidget.swift; sourceTree = "<group>"; };
+		858D850A27A0843E00CDEC90 /* ViewWithRoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithRoundedCorner.swift; sourceTree = "<group>"; };
+		858D850C27A18D4800CDEC90 /* CellWithRoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellWithRoundedCorner.swift; sourceTree = "<group>"; };
+		858D850E27A190F000CDEC90 /* HeaderViewWithRoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewWithRoundedCorner.swift; sourceTree = "<group>"; };
+		858D851027A1A75600CDEC90 /* SunriseWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunriseWidget.swift; sourceTree = "<group>"; };
 		85BC88752790E7A300D7CB4A /* appleWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appleWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85BC88782790E7A300D7CB4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85BC887A2790E7A300D7CB4A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,7 +158,20 @@
 				85E2B84427998D1F00E8595B /* TenDaysForecastSectionView.swift */,
 				85E2B84627999E1F00E8595B /* OneDayInfoView.swift */,
 				85E2B84A2799C3AB00E8595B /* UVISunriseWidgetSectionView.swift */,
+				858824AF27A2B00E0054E337 /* WindPrecipitationWidgetView.swift */,
+				858824B927A2E16B0054E337 /* FeelsLikeHumidityWidgetSectionView.swift */,
+				858824BD27A2EAF50054E337 /* VisibilityPressureWidgetSectionView.swift */,
+				858824B527A2DA270054E337 /* PrecipitationWidget.swift */,
 				858D8506279F22DF00CDEC90 /* UVIWidget.swift */,
+				858824B127A2B0CB0054E337 /* WindWidget.swift */,
+				858D851027A1A75600CDEC90 /* SunriseWidget.swift */,
+				858824B327A2B0E70054E337 /* HumidityWidget.swift */,
+				858824C127A2ED9F0054E337 /* VisibilityWidget.swift */,
+				858D850A27A0843E00CDEC90 /* ViewWithRoundedCorner.swift */,
+				858D850C27A18D4800CDEC90 /* CellWithRoundedCorner.swift */,
+				858D850E27A190F000CDEC90 /* HeaderViewWithRoundedCorner.swift */,
+				858824BB27A2E3CA0054E337 /* FeelsLikeWidget.swift */,
+				858824C327A2EDE60054E337 /* PressureWidget.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -147,6 +192,9 @@
 				85C54C802795C42800B9CFA2 /* HourlyForecastSection.swift */,
 				85E2B842279985E600E8595B /* TenDaysForecast.swift */,
 				85E2B8482799BFFC00E8595B /* UVISunRiseWidgetSection.swift */,
+				858824AD27A2AEFE0054E337 /* WindPrecipitationWidgetSection.swift */,
+				858824B727A2DDE00054E337 /* FeelsLikeHumidityWidgetSection.swift */,
+				858824BF27A2EB420054E337 /* VisibilityPressureWidgetSection.swift */,
 			);
 			path = MainTable;
 			sourceTree = "<group>";
@@ -228,7 +276,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				858824B827A2DDE00054E337 /* FeelsLikeHumidityWidgetSection.swift in Sources */,
 				85C54C812795C42800B9CFA2 /* HourlyForecastSection.swift in Sources */,
+				858824B627A2DA270054E337 /* PrecipitationWidget.swift in Sources */,
+				858824B427A2B0E70054E337 /* HumidityWidget.swift in Sources */,
 				85C54C7C2795B65D00B9CFA2 /* HourlyForecastSectionView.swift in Sources */,
 				858D8507279F22DF00CDEC90 /* UVIWidget.swift in Sources */,
 				85BC88792790E7A300D7CB4A /* AppDelegate.swift in Sources */,
@@ -237,13 +288,26 @@
 				85BC889A2791B56A00D7CB4A /* WeatherDataService.swift in Sources */,
 				85C54C7A2795B42B00B9CFA2 /* MainTableController.swift in Sources */,
 				85E2B84727999E1F00E8595B /* OneDayInfoView.swift in Sources */,
+				858824C427A2EDE60054E337 /* PressureWidget.swift in Sources */,
+				858D850B27A0843E00CDEC90 /* ViewWithRoundedCorner.swift in Sources */,
+				858824C227A2ED9F0054E337 /* VisibilityWidget.swift in Sources */,
+				858D850D27A18D4800CDEC90 /* CellWithRoundedCorner.swift in Sources */,
 				85BC887B2790E7A300D7CB4A /* SceneDelegate.swift in Sources */,
+				858824C027A2EB420054E337 /* VisibilityPressureWidgetSection.swift in Sources */,
 				85E2B8492799BFFC00E8595B /* UVISunRiseWidgetSection.swift in Sources */,
+				858824BC27A2E3CA0054E337 /* FeelsLikeWidget.swift in Sources */,
+				858D850F27A190F000CDEC90 /* HeaderViewWithRoundedCorner.swift in Sources */,
+				858824BE27A2EAF50054E337 /* VisibilityPressureWidgetSectionView.swift in Sources */,
+				858824BA27A2E16B0054E337 /* FeelsLikeHumidityWidgetSectionView.swift in Sources */,
 				85C54C832796045C00B9CFA2 /* SectionConfiguratorProtocol.swift in Sources */,
+				858D851127A1A75600CDEC90 /* SunriseWidget.swift in Sources */,
+				858824B227A2B0CB0054E337 /* WindWidget.swift in Sources */,
 				85C54C852796EF1500B9CFA2 /* OneHourInfoView.swift in Sources */,
 				85BC88932790F1B100D7CB4A /* LocationService.swift in Sources */,
 				85E2B84B2799C3AB00E8595B /* UVISunriseWidgetSectionView.swift in Sources */,
+				858824B027A2B00E0054E337 /* WindPrecipitationWidgetView.swift in Sources */,
 				85E2B843279985E600E8595B /* TenDaysForecast.swift in Sources */,
+				858824AE27A2AEFE0054E337 /* WindPrecipitationWidgetSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

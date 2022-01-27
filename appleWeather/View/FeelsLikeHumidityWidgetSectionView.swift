@@ -1,20 +1,19 @@
 //
-//  CurrentForecastWidgetsView.swift
+//  FeelsLikeHumidityWidgetSectionView.swift
 //  appleWeather
 //
-//  Created by Евгения Шарамет on 20.01.2022.
+//  Created by Евгения Шарамет on 27.01.2022.
 //
 
 import Foundation
-import UIKit
 import SnapKit
+import UIKit
 
 
-
-class UVISunriseWidgetSectionView: UITableViewCell {
+class FeelsLikeHumidityWidgetSectionView: UITableViewCell {
     
-    var uviWidget: UVIWidget?
-    var sunriseWidget: SunriseWidget?
+    var feelsLikeWidget: FeelsLikeWidget?
+    var humidityWidget: HumidityWidget?
     
    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
        super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -43,22 +42,21 @@ class UVISunriseWidgetSectionView: UITableViewCell {
        stackView.distribution = .fillEqually
        stackView.spacing = 10
        
-       let uviWidget = UVIWidget()
-       self.uviWidget = uviWidget
-       uviWidget.prepare()
-       let sunriseWidget = SunriseWidget()
-       self.sunriseWidget = sunriseWidget
-       sunriseWidget.prepare()
+       let feelsLikeWidget = FeelsLikeWidget()
+       self.feelsLikeWidget = feelsLikeWidget
+       feelsLikeWidget.prepare()
        
-       stackView.addArrangedSubview(uviWidget)
-       stackView.addArrangedSubview(sunriseWidget)
+       let humidityWidget = HumidityWidget()
+       self.humidityWidget = humidityWidget
+       humidityWidget.prepare()
+       
+       stackView.addArrangedSubview(feelsLikeWidget)
+       stackView.addArrangedSubview(humidityWidget)
     }
     
     func setData(data: WeatherDataService.OneDayResponse.Current) {
-        uviWidget?.setData(text: String(data.uvi))
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:MM"
-        sunriseWidget?.setData(text: dateFormatter.string(from: data.sunrise))
+        feelsLikeWidget?.setData(text: String(data.feels_like))
+        humidityWidget?.setData(text: String(data.humidity))
     }
 }
 
