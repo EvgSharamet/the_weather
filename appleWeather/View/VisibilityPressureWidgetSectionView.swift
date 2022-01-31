@@ -12,6 +12,7 @@ import UIKit
 
 class VisibilityPressureWidgetSectionView: UITableViewCell {
     
+    var stackView: UIStackView?
     var visibilityWidget: VisibilityWidget?
     var pressureWidget: PressureWidget?
     
@@ -33,6 +34,7 @@ class VisibilityPressureWidgetSectionView: UITableViewCell {
            maker.width.equalToSuperview()
        }
        let stackView = UIStackView()
+       self.stackView = stackView
        stackView.axis = .horizontal
        
        contentView.addSubview(stackView)
@@ -57,6 +59,11 @@ class VisibilityPressureWidgetSectionView: UITableViewCell {
     func setData(data: WeatherDataService.OneDayResponse.Current) {
         visibilityWidget?.setData(text: String(data.visibility))
         pressureWidget?.setData(text: String(data.pressure))
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        stackView?.arrangedSubviews.forEach{ $0.removeFromSuperview() }
     }
 }
 

@@ -19,6 +19,7 @@
 		858824C027A2EB420054E337 /* VisibilityPressureWidgetSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824BF27A2EB420054E337 /* VisibilityPressureWidgetSection.swift */; };
 		858824C227A2ED9F0054E337 /* VisibilityWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824C127A2ED9F0054E337 /* VisibilityWidget.swift */; };
 		858824C427A2EDE60054E337 /* PressureWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824C327A2EDE60054E337 /* PressureWidget.swift */; };
+		858824C627A824B70054E337 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824C527A824B70054E337 /* MainNavigationController.swift */; };
 		858D8507279F22DF00CDEC90 /* UVIWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D8506279F22DF00CDEC90 /* UVIWidget.swift */; };
 		858D850B27A0843E00CDEC90 /* ViewWithRoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D850A27A0843E00CDEC90 /* ViewWithRoundedCorner.swift */; };
 		858D850D27A18D4800CDEC90 /* CellWithRoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D850C27A18D4800CDEC90 /* CellWithRoundedCorner.swift */; };
@@ -28,7 +29,6 @@
 		85BC887B2790E7A300D7CB4A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BC887A2790E7A300D7CB4A /* SceneDelegate.swift */; };
 		85BC88822790E7A700D7CB4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85BC88812790E7A700D7CB4A /* Assets.xcassets */; };
 		85BC88852790E7A700D7CB4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85BC88832790E7A700D7CB4A /* LaunchScreen.storyboard */; };
-		85BC888D2790EC0400D7CB4A /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BC888C2790EC0400D7CB4A /* MainNavigationController.swift */; };
 		85BC88912790ED3900D7CB4A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 85BC88902790ED3900D7CB4A /* SnapKit */; };
 		85BC88932790F1B100D7CB4A /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BC88922790F1B100D7CB4A /* LocationService.swift */; };
 		85BC889A2791B56A00D7CB4A /* WeatherDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BC88992791B56A00D7CB4A /* WeatherDataService.swift */; };
@@ -71,6 +71,7 @@
 		858824BF27A2EB420054E337 /* VisibilityPressureWidgetSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisibilityPressureWidgetSection.swift; sourceTree = "<group>"; };
 		858824C127A2ED9F0054E337 /* VisibilityWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisibilityWidget.swift; sourceTree = "<group>"; };
 		858824C327A2EDE60054E337 /* PressureWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureWidget.swift; sourceTree = "<group>"; };
+		858824C527A824B70054E337 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		858D8506279F22DF00CDEC90 /* UVIWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UVIWidget.swift; sourceTree = "<group>"; };
 		858D850A27A0843E00CDEC90 /* ViewWithRoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithRoundedCorner.swift; sourceTree = "<group>"; };
 		858D850C27A18D4800CDEC90 /* CellWithRoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellWithRoundedCorner.swift; sourceTree = "<group>"; };
@@ -82,7 +83,6 @@
 		85BC88812790E7A700D7CB4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85BC88842790E7A700D7CB4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85BC88862790E7A700D7CB4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		85BC888C2790EC0400D7CB4A /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		85BC88922790F1B100D7CB4A /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		85BC88992791B56A00D7CB4A /* WeatherDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataService.swift; sourceTree = "<group>"; };
 		85C54C792795B42B00B9CFA2 /* MainTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableController.swift; sourceTree = "<group>"; };
@@ -180,7 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				85C54C7F2795C2B300B9CFA2 /* MainTable */,
-				85BC888C2790EC0400D7CB4A /* MainNavigationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -188,6 +187,7 @@
 		85C54C7F2795C2B300B9CFA2 /* MainTable */ = {
 			isa = PBXGroup;
 			children = (
+				858824C527A824B70054E337 /* MainNavigationController.swift */,
 				85C54C792795B42B00B9CFA2 /* MainTableController.swift */,
 				85C54C802795C42800B9CFA2 /* HourlyForecastSection.swift */,
 				85E2B842279985E600E8595B /* TenDaysForecast.swift */,
@@ -283,7 +283,6 @@
 				85C54C7C2795B65D00B9CFA2 /* HourlyForecastSectionView.swift in Sources */,
 				858D8507279F22DF00CDEC90 /* UVIWidget.swift in Sources */,
 				85BC88792790E7A300D7CB4A /* AppDelegate.swift in Sources */,
-				85BC888D2790EC0400D7CB4A /* MainNavigationController.swift in Sources */,
 				85E2B84527998D1F00E8595B /* TenDaysForecastSectionView.swift in Sources */,
 				85BC889A2791B56A00D7CB4A /* WeatherDataService.swift in Sources */,
 				85C54C7A2795B42B00B9CFA2 /* MainTableController.swift in Sources */,
@@ -295,6 +294,7 @@
 				85BC887B2790E7A300D7CB4A /* SceneDelegate.swift in Sources */,
 				858824C027A2EB420054E337 /* VisibilityPressureWidgetSection.swift in Sources */,
 				85E2B8492799BFFC00E8595B /* UVISunRiseWidgetSection.swift in Sources */,
+				858824C627A824B70054E337 /* MainNavigationController.swift in Sources */,
 				858824BC27A2E3CA0054E337 /* FeelsLikeWidget.swift in Sources */,
 				858D850F27A190F000CDEC90 /* HeaderViewWithRoundedCorner.swift in Sources */,
 				858824BE27A2EAF50054E337 /* VisibilityPressureWidgetSectionView.swift in Sources */,

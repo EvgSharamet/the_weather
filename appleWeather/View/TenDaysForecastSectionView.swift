@@ -28,10 +28,10 @@ class TenDaysForecastSectionView: CellWithRoundedCorner {
     func prepare() {
         
       //  backgroundColor = .clear
-        contentView.snp.makeConstraints { maker in
+      /*  contentView.snp.makeConstraints { maker in
             maker.height.equalTo(400)
             maker.width.equalToSuperview()
-        }
+        }*/
         
         let tenDaysStackView = UIStackView()
         self.tenDaysStackView = tenDaysStackView

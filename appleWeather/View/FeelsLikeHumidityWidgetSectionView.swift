@@ -12,6 +12,7 @@ import UIKit
 
 class FeelsLikeHumidityWidgetSectionView: UITableViewCell {
     
+    var stackView: UIStackView?
     var feelsLikeWidget: FeelsLikeWidget?
     var humidityWidget: HumidityWidget?
     
@@ -33,6 +34,7 @@ class FeelsLikeHumidityWidgetSectionView: UITableViewCell {
            maker.width.equalToSuperview()
        }
        let stackView = UIStackView()
+       self.stackView = stackView
        stackView.axis = .horizontal
        
        contentView.addSubview(stackView)
@@ -57,6 +59,11 @@ class FeelsLikeHumidityWidgetSectionView: UITableViewCell {
     func setData(data: WeatherDataService.OneDayResponse.Current) {
         feelsLikeWidget?.setData(text: String(data.feels_like))
         humidityWidget?.setData(text: String(data.humidity))
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        stackView?.arrangedSubviews.forEach{ $0.removeFromSuperview() }
     }
 }
 

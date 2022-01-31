@@ -138,7 +138,16 @@ class WeatherDataService {
         guard let answer = try? decoder.decode(TenDaysResponse.self, from: jsonData) else {
             throw Error(info: "can't decode Response")
         }
-        
+    
+        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        let test = answer.list
+        for i in test {
+            let date = Date(timeIntervalSince1970: i.dt)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM-dd-yyyy"
+            print( dateFormatter.string(from: date))
+            print(i.temp)
+        }
         return answer
     }
      

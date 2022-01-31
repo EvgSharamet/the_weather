@@ -62,4 +62,3 @@ class UVISunriseWidgetSection: SectionConfiguratorProtocol {
         return cell
     }
 }
-

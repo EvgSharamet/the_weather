@@ -38,7 +38,8 @@ class TenDaysForecastSection: SectionConfiguratorProtocol {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TenDaysForecastSectionView
         guard let data = self.data else {
-            return cell }
+            return cell
+        }
         
         cell.setData(data: data)
         return cell

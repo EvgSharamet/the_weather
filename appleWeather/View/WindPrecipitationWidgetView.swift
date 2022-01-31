@@ -13,6 +13,7 @@ import UIKit
 
 class WindPrecipitationWidgetSectionView: UITableViewCell {
     
+    var stackView: UIStackView?
     var windWidget: WindWidget?
     var precipitationWidget: PrecipitationWidget?
     
@@ -34,6 +35,7 @@ class WindPrecipitationWidgetSectionView: UITableViewCell {
            maker.width.equalToSuperview()
        }
        let stackView = UIStackView()
+       self.stackView = stackView
        stackView.axis = .horizontal
        
        contentView.addSubview(stackView)
@@ -66,5 +68,10 @@ class WindPrecipitationWidgetSectionView: UITableViewCell {
             return
         }
         precipitationWidget?.setData(text: String(rain) + "mm Rain")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        stackView?.arrangedSubviews.forEach{ $0.removeFromSuperview() }
     }
 }

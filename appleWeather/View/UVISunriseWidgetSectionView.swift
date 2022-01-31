@@ -13,6 +13,7 @@ import SnapKit
 
 class UVISunriseWidgetSectionView: UITableViewCell {
     
+    var stackView: UIStackView?
     var uviWidget: UVIWidget?
     var sunriseWidget: SunriseWidget?
     
@@ -34,6 +35,7 @@ class UVISunriseWidgetSectionView: UITableViewCell {
            maker.width.equalToSuperview()
        }
        let stackView = UIStackView()
+       self.stackView = stackView
        stackView.axis = .horizontal
        
        contentView.addSubview(stackView)
@@ -59,6 +61,11 @@ class UVISunriseWidgetSectionView: UITableViewCell {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:MM"
         sunriseWidget?.setData(text: dateFormatter.string(from: data.sunrise))
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        stackView?.arrangedSubviews.forEach{ $0.removeFromSuperview() }
     }
 }
 
