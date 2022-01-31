@@ -60,13 +60,14 @@ class MainTableController: UITableViewController {
             switch result {
                 case .success(let weatherData):
                     self.tenDaysForecastSection?.data = weatherData
+                self.windPrecipitationWidgetSection?.dataForPrecipitation = weatherData.list.first
                     self.tableView.reloadData()
                 case .failure(_):
                     print("Something goes wrong")
             }
         }
     }
-    
+
     override func numberOfSections( in tableView: UITableView) -> Int {
         return TableViewSections.allCases.count
     }

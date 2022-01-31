@@ -15,6 +15,7 @@ class WindPrecipitationWidgetSection: SectionConfiguratorProtocol {
     
     let cellIdentifier = "WindHumidityWidgetSectionCell"
     var data: WeatherDataService.OneDayResponse?
+    var dataForPrecipitation: WeatherDataService.TenDaysResponse.Day?
     
     func getHeaderView() -> UIView? {
         let view = UIView()
@@ -58,7 +59,11 @@ class WindPrecipitationWidgetSection: SectionConfiguratorProtocol {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! WindPrecipitationWidgetSectionView
         cell.prepare()
         guard let dataForWidgets = data?.current else { return cell }
-        cell.setData(data: dataForWidgets)
+        guard let dataForPrecipitation = dataForPrecipitation else {
+            return cell
+        }
+
+        cell.setData(data: dataForWidgets, dataForPrecipitation: dataForPrecipitation)
         return cell
     }
 }

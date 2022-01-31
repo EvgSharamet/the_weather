@@ -55,9 +55,16 @@ class WindPrecipitationWidgetSectionView: UITableViewCell {
        stackView.addArrangedSubview(precipitationWidget)
     }
     
-    func setData(data: WeatherDataService.OneDayResponse.Current) {
+    func setData(data: WeatherDataService.OneDayResponse.Current, dataForPrecipitation: WeatherDataService.TenDaysResponse.Day) {
         windWidget?.setData(text: String(data.wind_speed))
-        precipitationWidget?.setData(text: String("None"))
+        guard let rain = dataForPrecipitation.rain else {
+            guard let snow = dataForPrecipitation.snow else {
+                precipitationWidget?.setData(text: String("None"))
+                return
+            }
+            precipitationWidget?.setData(text: String(snow) + "mm Snow")
+            return
+        }
+        precipitationWidget?.setData(text: String(rain) + "mm Rain")
     }
 }
-

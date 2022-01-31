@@ -41,7 +41,7 @@ class WeatherDataService {
             let visibility: Int
             let wind_speed: Float
             let wind_deg: Int
-         //   let wind_gust: Float // не получается превратить
+            let wind_gust: Float? // не получается превратить
         }
         
         let current: Current
@@ -67,6 +67,8 @@ class WeatherDataService {
             let humidity: Int
             let weather: [Weather]
             let clouds: Float
+            let rain: Float?
+            let snow: Float?
         }
 
         let list: [Day]
@@ -146,7 +148,7 @@ class WeatherDataService {
         else {
             throw Error(info: "can't get url")
         }
-    
+        
         guard let jsonString = try? String(contentsOf: url, encoding:.utf8) else {
             throw Error(info: "can't decode url")
         }
