@@ -12,34 +12,67 @@ import SnapKit
 
 
 class UVIWidget: ViewWithRoundedCorner {
-    let textLabel = UILabel()
+    let valueNumberLabel = UILabel()
+    let valueTextLabel = UILabel()
+    let descriptionLabel = UILabel()
     
     func prepare() {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.distribution = .equalSpacing
         self.addSubview(stackView)
-        stackView.backgroundColor = .purple.withAlphaComponent(0.2)
         stackView.snp.makeConstraints { maker in
-            maker.height.equalToSuperview()
+            maker.height.equalToSuperview().inset(10)
             maker.centerY.equalToSuperview()
-            maker.left.equalToSuperview().inset(10)
-            maker.right.equalToSuperview().inset(10)
+            maker.left.equalToSuperview().inset(15)
+            maker.right.equalToSuperview().inset(15)
         }
-        stackView.addArrangedSubview(textLabel)
         
+        stackView.addArrangedSubview(valueNumberLabel)
+        valueNumberLabel.snp.makeConstraints { maker in
+            maker.height.equalToSuperview().multipliedBy(0.2)
+        }
+        
+        valueNumberLabel.font = valueNumberLabel.font.withSize(30)
+        valueNumberLabel.textColor = .white
+        
+        stackView.addArrangedSubview(valueTextLabel)
+        valueTextLabel.snp.makeConstraints { maker in
+            maker.height.equalToSuperview().multipliedBy(0.2)
+        }
+        valueTextLabel.font = valueTextLabel.font.withSize(25)
+        valueTextLabel.textColor = .white
+    
         let indicatorView = UIImageView()
-        indicatorView.backgroundColor = .blue.withAlphaComponent(0.3)
         stackView.addArrangedSubview(indicatorView)
         indicatorView.snp.makeConstraints { maker in
-            maker.height.equalTo(7)
+            maker.height.equalToSuperview().multipliedBy(0.05)
         }
         indicatorView.image = UIImage(named:"gradient")
-        let descriptionLabel = UILabel()
+        
+        let indicatorPointView = UIImageView()
+        indicatorPointView.image = UIImage(named:"point")
+        indicatorPointView.contentMode = .scaleAspectFill
+        indicatorView.addSubview(indicatorPointView)
+        indicatorPointView.snp.makeConstraints { maker in
+            maker.height.equalToSuperview()
+            maker.width.equalTo(8)
+            maker.centerY.equalToSuperview()
+        }
+   
         stackView.addArrangedSubview(descriptionLabel)
+        descriptionLabel.lineBreakMode = .byWordWrapping
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.font = descriptionLabel.font.withSize(16)
+        descriptionLabel.textColor = .white
+        descriptionLabel.snp.makeConstraints { maker in
+            maker.height.equalToSuperview().multipliedBy(0.45)
+        }
     }
     
     func setData(text: String) {
-        textLabel.text = text
+        valueTextLabel.text = "Низкий"
+        descriptionLabel.text = "Индекс останется низким до конца дня."
+        valueNumberLabel.text = "0"
     }
 }

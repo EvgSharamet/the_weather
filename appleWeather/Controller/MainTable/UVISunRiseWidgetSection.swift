@@ -30,6 +30,7 @@ class UVISunriseWidgetSection: SectionConfiguratorProtocol {
         stackView.addArrangedSubview(firstHeader)
         let firstLabel = UILabel()
         firstLabel.text = "🌤 UV-INDEX"
+        firstLabel.textColor = .lightGray
         firstHeader.addSubview(firstLabel)
         firstLabel.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
@@ -39,6 +40,7 @@ class UVISunriseWidgetSection: SectionConfiguratorProtocol {
         stackView.addArrangedSubview(secondHeader)
         let secondLabel = UILabel()
         secondLabel.text = " 🌅 SUNRISE/SUNSET"
+        secondLabel.textColor = .lightGray
         secondHeader.addSubview(secondLabel)
         secondLabel.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()

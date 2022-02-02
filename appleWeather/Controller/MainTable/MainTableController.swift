@@ -51,7 +51,7 @@ class MainTableController: UITableViewController {
                 self.feelsLikeHumidityWidgetSection?.data = weatherData
                 self.visibilityPressureWidgetSection?.data = weatherData
                 self.tableView.reloadData()
-                case .failure(_):
+            case .failure(_):
                     print("Something goes wrong")
             }
         }
@@ -67,7 +67,7 @@ class MainTableController: UITableViewController {
             }
         }
     }
-
+    
     override func numberOfSections( in tableView: UITableView) -> Int {
         return TableViewSections.allCases.count
     }

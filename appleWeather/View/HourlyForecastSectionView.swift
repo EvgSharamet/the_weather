@@ -9,15 +9,17 @@ import Foundation
 import UIKit
 
 
+
 class HourlyForecastSectionView: CellWithRoundedCorner {
     
     var stackView: UIStackView?
     var hourlyStackView: UIStackView?
+    var containerView: UIView = UIView()
      
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         prepare()
-    }
+    } 
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -27,14 +29,18 @@ class HourlyForecastSectionView: CellWithRoundedCorner {
     func prepare() {
         backgroundColor = .clear
         
-        contentView.snp.makeConstraints { maker in
+        self.addSubview(containerView)
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        containerView.snp.makeConstraints { maker in
             maker.height.equalTo(120)
             maker.width.equalToSuperview()
+            maker.top.bottom.equalToSuperview()
         }
 
         let scrollView = UIScrollView()
         
-        contentView.addSubview(scrollView)
+        containerView.addSubview(scrollView)
         scrollView.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
         }
@@ -49,7 +55,7 @@ class HourlyForecastSectionView: CellWithRoundedCorner {
             maker.edges.equalToSuperview()
         }
     }
-    
+
     func setData(data: WeatherDataService.OneDayResponse) {
         
         for i in data.hourly {

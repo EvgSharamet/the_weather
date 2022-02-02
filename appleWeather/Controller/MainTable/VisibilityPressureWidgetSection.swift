@@ -29,6 +29,7 @@ class VisibilityPressureWidgetSection: SectionConfiguratorProtocol {
         stackView.addArrangedSubview(firstHeader)
         let firstLabel = UILabel()
         firstLabel.text = "👁‍🗨 VISIBILITY"
+        firstLabel.textColor = .lightGray
         firstHeader.addSubview(firstLabel)
         firstLabel.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
@@ -38,6 +39,7 @@ class VisibilityPressureWidgetSection: SectionConfiguratorProtocol {
         stackView.addArrangedSubview(secondHeader)
         let secondLabel = UILabel()
         secondLabel.text = "⏲ PRESSURE"
+        secondLabel.textColor = .lightGray
         secondHeader.addSubview(secondLabel)
         secondLabel.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()

@@ -30,7 +30,7 @@ class FeelsLikeHumidityWidgetSectionView: UITableViewCell {
        self.backgroundColor = .clear
        self.selectionStyle = SelectionStyle.none
        contentView.snp.makeConstraints { maker in
-           maker.height.equalTo(120)
+           maker.height.equalTo(150)
            maker.width.equalToSuperview()
        }
        let stackView = UIStackView()

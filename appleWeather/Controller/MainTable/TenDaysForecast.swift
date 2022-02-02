@@ -32,7 +32,6 @@ class TenDaysForecastSection: SectionConfiguratorProtocol {
     
     init(tableView: UITableView){
         tableView.register(TenDaysForecastSectionView.self, forCellReuseIdentifier: cellIdentifier)
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

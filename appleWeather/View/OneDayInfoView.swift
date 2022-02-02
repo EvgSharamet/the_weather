@@ -10,6 +10,7 @@ import SnapKit
 import UIKit
 
 
+
 class OneDayInfoView: UIView {
     
     func prepare(weatherData: WeatherDataService.TenDaysResponse.Day) {
@@ -34,7 +35,7 @@ class OneDayInfoView: UIView {
         mainStackView.addArrangedSubview(weatherIconImageView)
         weatherIconImageView.snp.makeConstraints { maker in
             maker.height.equalToSuperview()
-            maker.width.equalToSuperview().multipliedBy(0.2)
+            maker.width.equalToSuperview().multipliedBy(0.18)
         }
         
         let minTempLabel = UILabel()

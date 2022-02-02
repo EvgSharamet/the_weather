@@ -31,8 +31,8 @@ class WindPrecipitationWidgetSectionView: UITableViewCell {
        self.backgroundColor = .clear
        self.selectionStyle = SelectionStyle.none
        contentView.snp.makeConstraints { maker in
-           maker.height.equalTo(120)
            maker.width.equalToSuperview()
+           maker.height.equalTo(150)
        }
        let stackView = UIStackView()
        self.stackView = stackView
@@ -61,13 +61,13 @@ class WindPrecipitationWidgetSectionView: UITableViewCell {
         windWidget?.setData(text: String(data.wind_speed))
         guard let rain = dataForPrecipitation.rain else {
             guard let snow = dataForPrecipitation.snow else {
-                precipitationWidget?.setData(text: String("None"))
+                precipitationWidget?.setData(text: String("0"))
                 return
             }
-            precipitationWidget?.setData(text: String(snow) + "mm Snow")
+            precipitationWidget?.setData(text: String(snow) + " мм")
             return
         }
-        precipitationWidget?.setData(text: String(rain) + "mm Rain")
+        precipitationWidget?.setData(text: String(rain) + " мм")
     }
     
     override func prepareForReuse() {

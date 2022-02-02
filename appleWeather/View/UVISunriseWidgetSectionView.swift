@@ -16,6 +16,7 @@ class UVISunriseWidgetSectionView: UITableViewCell {
     var stackView: UIStackView?
     var uviWidget: UVIWidget?
     var sunriseWidget: SunriseWidget?
+    var containerView = UIView()
     
    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
        super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -30,15 +31,20 @@ class UVISunriseWidgetSectionView: UITableViewCell {
    func prepare() {
        self.backgroundColor = .clear
        self.selectionStyle = SelectionStyle.none
-       contentView.snp.makeConstraints { maker in
-           maker.height.equalTo(120)
+       self.addSubview(containerView)
+       containerView.translatesAutoresizingMaskIntoConstraints = false
+       
+       containerView.snp.makeConstraints { maker in
+           maker.height.equalTo(150)
            maker.width.equalToSuperview()
+           maker.top.bottom.equalToSuperview()
        }
+       
        let stackView = UIStackView()
        self.stackView = stackView
        stackView.axis = .horizontal
        
-       contentView.addSubview(stackView)
+       containerView.addSubview(stackView)
        stackView.snp.makeConstraints { maker in
            maker.edges.equalToSuperview()
        }
