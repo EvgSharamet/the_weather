@@ -11,18 +11,33 @@ import UIKit
 
 
 class HumidityWidget: ViewWithRoundedCorner {
-    let textLabel = UILabel()
+    let valueNumberLabel = UILabel()
+    let descriptionLabel = UILabel()
     
     func prepare() {
         let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
         self.addSubview(stackView)
         stackView.snp.makeConstraints { maker in
-            maker.edges.equalToSuperview()
+            maker.height.equalToSuperview().inset(10)
+            maker.centerY.equalToSuperview()
+            maker.left.equalToSuperview().inset(15)
+            maker.right.equalToSuperview().inset(15)
         }
-        stackView.addArrangedSubview(textLabel)
+        stackView.addArrangedSubview(valueNumberLabel)
+        valueNumberLabel.font = valueNumberLabel.font.withSize(30)
+        valueNumberLabel.textColor = .white
+        
+        stackView.addArrangedSubview(descriptionLabel)
+        descriptionLabel.lineBreakMode = .byWordWrapping
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.font = descriptionLabel.font.withSize(16)
+        descriptionLabel.textColor = .white
     }
     
     func setData(text: String) {
-        textLabel.text = text + "%"
+        valueNumberLabel.text = text + "%"
+        descriptionLabel.text = "точка росы сейчас -- - 1"
     }
 }
