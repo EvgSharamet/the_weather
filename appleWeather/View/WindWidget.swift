@@ -13,17 +13,23 @@ import UIKit
 
 class WindWidget: ViewWithRoundedCorner {
     let textLabel = UILabel()
+    let backgroundImageView = UIImageView()
     
     func prepare() {
-        let stackView = UIStackView()
-        self.addSubview(stackView)
-        stackView.snp.makeConstraints { maker in
+        
+        self.addSubview(backgroundImageView)
+        backgroundImageView.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
         }
-        stackView.addArrangedSubview(textLabel)
+
+        backgroundImageView.backgroundColor = .red.withAlphaComponent(0.3)
+        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        print(backgroundImageView.frame)
+        backgroundImageView.contentMode = .scaleAspectFill
     }
     
     func setData(text: String) {
+        backgroundImageView.image = UIImage(named: "nigth")
         textLabel.text = text
     }
 }

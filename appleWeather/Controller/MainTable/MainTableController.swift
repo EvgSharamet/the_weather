@@ -32,7 +32,9 @@ class MainTableController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "night.png")!)
+        let backgroundImageView = UIImageView(image: UIImage(named: "night"))
+        backgroundImageView.contentMode = .scaleAspectFill
+        self.tableView.backgroundView = backgroundImageView
         
         hourlyForecastSection = HourlyForecastSection(tableView: tableView)
         tenDaysForecastSection = TenDaysForecastSection(tableView: tableView)
@@ -52,7 +54,7 @@ class MainTableController: UITableViewController {
                 self.visibilityPressureWidgetSection?.data = weatherData
                 self.tableView.reloadData()
             case .failure(_):
-                    print("Something goes wrong")
+                print("Something goes wrong")
             }
         }
         
@@ -86,7 +88,7 @@ class MainTableController: UITableViewController {
             return UITableViewCell()
         }
 
-        let cell =  configurator.tableView(tableView, cellForRowAt: indexPath)
+        let cell = configurator.tableView(tableView, cellForRowAt: indexPath)
         return cell
     }
     
