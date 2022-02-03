@@ -36,7 +36,17 @@ class MainTableController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let backgroundImageView = UIImageView(image: UIImage(named: "night"))
         backgroundImageView.contentMode = .scaleAspectFill
-        self.tableView.backgroundView = backgroundImageView
+        self.view.addSubview(backgroundImageView)
+        backgroundImageView.snp.makeConstraints { maker in
+            maker.edges.equalToSuperview()
+        }
+        self.view.addSubview(tableView)
+        tableView.snp.makeConstraints { maker in
+            maker.height.equalTo(view.safeAreaLayoutGuide)
+            maker.left.right.equalTo(view.safeAreaLayoutGuide).inset(10)
+            maker.bottom.equalToSuperview()
+        }
+        tableView.backgroundColor = .clear
         
         tableView.delegate = self
         tableView.dataSource = self
