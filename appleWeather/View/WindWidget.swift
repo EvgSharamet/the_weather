@@ -21,15 +21,12 @@ class WindWidget: ViewWithRoundedCorner {
         backgroundImageView.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
         }
-
-        backgroundImageView.backgroundColor = .red.withAlphaComponent(0.3)
-        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-        print(backgroundImageView.frame)
-        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.contentMode = .scaleAspectFit
     }
     
     func setData(text: String) {
-        backgroundImageView.image = UIImage(named: "nigth")
+        backgroundImageView.image = UIImage(named: "compass")
+        backgroundImageView.alpha = 0.5
         textLabel.text = text
     }
 }

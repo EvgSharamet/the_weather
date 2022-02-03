@@ -11,7 +11,9 @@ import UIKit
 
 
 
-class MainTableController: UITableViewController {
+class MainTableController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    let tableView = UITableView()
     
     private enum TableViewSections: Int, CaseIterable {
         case hourlyForecast = 0
@@ -35,6 +37,9 @@ class MainTableController: UITableViewController {
         let backgroundImageView = UIImageView(image: UIImage(named: "night"))
         backgroundImageView.contentMode = .scaleAspectFill
         self.tableView.backgroundView = backgroundImageView
+        
+        tableView.delegate = self
+        tableView.dataSource = self
         
         hourlyForecastSection = HourlyForecastSection(tableView: tableView)
         tenDaysForecastSection = TenDaysForecastSection(tableView: tableView)
@@ -69,21 +74,24 @@ class MainTableController: UITableViewController {
             }
         }
     }
+}
+
+extension MainTableController {
     
-    override func numberOfSections( in tableView: UITableView) -> Int {
+    func numberOfSections( in tableView: UITableView) -> Int {
         return TableViewSections.allCases.count
     }
     
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let currentSection = getSectionConfigurator(section: section)!
         return currentSection.getHeaderView()
     }
     
-    override func tableView(_ tablerView: UITableView, numberOfRowsInSection section : Int) -> Int {
+    func tableView(_ tablerView: UITableView, numberOfRowsInSection section : Int) -> Int {
         1
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let configurator = getSectionConfigurator(section: indexPath.section) else {
             return UITableViewCell()
         }
@@ -92,7 +100,7 @@ class MainTableController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
     }
     

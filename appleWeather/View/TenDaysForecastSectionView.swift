@@ -29,9 +29,6 @@ class TenDaysForecastSectionView: CellWithRoundedCorner {
     func prepare() {
         addSubview(containerView)
         containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.snp.makeConstraints { maker in
-            maker.top.bottom.equalToSuperview()
-        }
         
         let tenDaysStackView = UIStackView()
         self.tenDaysStackView = tenDaysStackView
