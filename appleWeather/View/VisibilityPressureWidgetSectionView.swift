@@ -10,6 +10,7 @@ import SnapKit
 import UIKit
 
 
+
 class VisibilityPressureWidgetSectionView: UITableViewCell {
     
     var stackView: UIStackView?
@@ -66,5 +67,3 @@ class VisibilityPressureWidgetSectionView: UITableViewCell {
         stackView?.arrangedSubviews.forEach{ $0.removeFromSuperview() }
     }
 }
-
-

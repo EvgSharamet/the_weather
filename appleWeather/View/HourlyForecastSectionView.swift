@@ -32,15 +32,14 @@ class HourlyForecastSectionView: CellWithRoundedCorner {
         self.addSubview(containerView)
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
-        containerView.snp.makeConstraints { maker in
+        self.contentView.snp.makeConstraints { maker in
             maker.height.equalTo(120)
             maker.width.equalToSuperview()
-            maker.top.bottom.equalToSuperview()
         }
 
         let scrollView = UIScrollView()
         
-        containerView.addSubview(scrollView)
+        self.contentView.addSubview(scrollView)
         scrollView.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
         }

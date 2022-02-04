@@ -14,7 +14,6 @@ import SnapKit
 class TenDaysForecastSectionView: CellWithRoundedCorner {
     
     var tenDaysStackView: UIStackView?
-    var containerView: UIView = UIView()
      
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -27,16 +26,13 @@ class TenDaysForecastSectionView: CellWithRoundedCorner {
     }
     
     func prepare() {
-        addSubview(containerView)
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        
         let tenDaysStackView = UIStackView()
         self.tenDaysStackView = tenDaysStackView
         tenDaysStackView.axis = .vertical
         tenDaysStackView.spacing = 10
         self.addSubview(tenDaysStackView)
         tenDaysStackView.snp.makeConstraints { maker in
-            maker.edges.equalToSuperview()
+            maker.edges.equalToSuperview().inset(7)
         }
     }
     
