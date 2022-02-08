@@ -13,7 +13,7 @@ import UIKit
 
 class WindPrecipitationWidgetSectionView: UITableViewCell {
     
-    var stackView: UIStackView?
+    var stackView = UIStackView()
     var windWidget: WindWidget?
     var precipitationWidget: PrecipitationWidget?
     
@@ -34,10 +34,9 @@ class WindPrecipitationWidgetSectionView: UITableViewCell {
            maker.width.equalToSuperview()
            maker.height.equalTo(150)
        }
-       let stackView = UIStackView()
-       self.stackView = stackView
-       stackView.axis = .horizontal
        
+       stackView.arrangedSubviews.forEach{ $0.removeFromSuperview() }
+       stackView.axis = .horizontal
        contentView.addSubview(stackView)
        stackView.snp.makeConstraints { maker in
            maker.edges.equalToSuperview()
@@ -71,6 +70,6 @@ class WindPrecipitationWidgetSectionView: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        stackView?.arrangedSubviews.forEach{ $0.removeFromSuperview() }
+        stackView.arrangedSubviews.forEach{ $0.removeFromSuperview() }
     }
 }

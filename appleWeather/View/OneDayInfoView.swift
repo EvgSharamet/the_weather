@@ -17,40 +17,28 @@ class OneDayInfoView: UIView {
        
         let mainStackView = UIStackView()
         mainStackView.axis = .horizontal
+        mainStackView.distribution  = .fillEqually
         self.addSubview(mainStackView)
         mainStackView.snp.makeConstraints { maker in
-            maker.width.equalToSuperview()
-            maker.height.equalToSuperview()
+            maker.edges.equalToSuperview()
         }
         
        let dateLabel = UILabel()
         mainStackView.addArrangedSubview(dateLabel)
-        dateLabel.snp.makeConstraints { maker in
-            maker.height.equalToSuperview()
-            maker.width.equalToSuperview().multipliedBy(0.2)
-        }
+  
         
         let weatherIconImageView = UIImageView()
         weatherIconImageView.contentMode = .scaleAspectFill
         mainStackView.addArrangedSubview(weatherIconImageView)
         weatherIconImageView.snp.makeConstraints { maker in
-            maker.height.equalToSuperview()
-            maker.width.equalToSuperview().multipliedBy(0.18)
+            maker.height.equalToSuperview().inset(2)
         }
         
         let minTempLabel = UILabel()
         mainStackView.addArrangedSubview(minTempLabel)
-        minTempLabel.snp.makeConstraints { maker in
-            maker.height.equalToSuperview()
-            maker.width.equalToSuperview().multipliedBy(0.2)
-        }
         
         let maxTempLabel = UILabel()
         mainStackView.addArrangedSubview(maxTempLabel)
-        maxTempLabel.snp.makeConstraints { maker in
-            maker.height.equalToSuperview()
-            maker.width.equalToSuperview().multipliedBy(0.2)
-        }
         
         let date = Date(timeIntervalSince1970: weatherData.dt)
         let dateFormatter = DateFormatter()

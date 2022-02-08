@@ -12,7 +12,7 @@ import UIKit
 
 class FeelsLikeHumidityWidgetSectionView: UITableViewCell {
     
-    var stackView: UIStackView?
+    var stackView = UIStackView()
     var feelsLikeWidget: FeelsLikeWidget?
     var humidityWidget: HumidityWidget?
     
@@ -29,12 +29,13 @@ class FeelsLikeHumidityWidgetSectionView: UITableViewCell {
    func prepare() {
        self.backgroundColor = .clear
        self.selectionStyle = SelectionStyle.none
+       
        contentView.snp.makeConstraints { maker in
            maker.height.equalTo(150)
            maker.width.equalToSuperview()
        }
-       let stackView = UIStackView()
-       self.stackView = stackView
+    
+       stackView.arrangedSubviews.forEach{ $0.removeFromSuperview() }
        stackView.axis = .horizontal
        
        contentView.addSubview(stackView)
@@ -63,7 +64,7 @@ class FeelsLikeHumidityWidgetSectionView: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        stackView?.arrangedSubviews.forEach{ $0.removeFromSuperview() }
+        stackView.arrangedSubviews.forEach{ $0.removeFromSuperview() }
     }
 }
 

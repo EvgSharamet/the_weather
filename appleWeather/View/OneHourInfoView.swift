@@ -30,6 +30,7 @@ class OneHourInfoView: UIView {
         }
         
         let weatherIconImageView = UIImageView()
+        weatherIconImageView.contentMode = .scaleAspectFill
         mainStackView.addArrangedSubview(weatherIconImageView)
         weatherIconImageView.snp.makeConstraints { maker in
             maker.height.equalToSuperview().multipliedBy(0.5)

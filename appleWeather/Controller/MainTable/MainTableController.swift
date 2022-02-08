@@ -61,7 +61,6 @@ class MainTableController: UIViewController, UITableViewDelegate, UITableViewDat
         WeatherDataService.shared.requestByCurrentDay(place: "Калининград") { result in
             switch result {
             case .success(let weatherData):
-                print(weatherData)
                 self.hourlyForecastSection?.data = weatherData
                 self.uviSunriseWidgetSection?.data = weatherData
                 self.windPrecipitationWidgetSection?.data = weatherData

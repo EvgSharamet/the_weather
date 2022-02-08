@@ -60,11 +60,12 @@ class HourlyForecastSectionView: CellWithRoundedCorner {
         for i in data.hourly {
             let oneHourInfoView = OneHourInfoView()
             oneHourInfoView.prepare(weatherData: i)
+            self.stackView?.addArrangedSubview(oneHourInfoView)
             oneHourInfoView.snp.makeConstraints { maker in
-                maker.height.equalTo(120)
+                maker.top.equalTo(self.contentView.snp_topMargin)
+                maker.bottom.equalTo(self.contentView.snp_bottomMargin)
                 maker.width.equalTo(60)
             }
-            hourlyStackView?.addArrangedSubview(oneHourInfoView)
         }
     }
     

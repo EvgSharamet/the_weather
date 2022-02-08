@@ -21,8 +21,8 @@ class VisibilityWidget:  ViewWithRoundedCorner {
         stackView.distribution = .fillEqually
         self.addSubview(stackView)
         stackView.snp.makeConstraints { maker in
-            maker.height.equalToSuperview().inset(10)
-            maker.centerY.equalToSuperview()
+            maker.height.equalToSuperview().inset(5)
+            maker.bottom.equalToSuperview().inset(5)
             maker.left.equalToSuperview().inset(15)
             maker.right.equalToSuperview().inset(15)
         }

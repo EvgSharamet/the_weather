@@ -29,7 +29,11 @@ class TenDaysForecastSectionView: CellWithRoundedCorner {
         let tenDaysStackView = UIStackView()
         self.tenDaysStackView = tenDaysStackView
         tenDaysStackView.axis = .vertical
-        tenDaysStackView.spacing = 10
+        tenDaysStackView.distribution = .fillEqually
+        self.contentView.snp.makeConstraints { maker in
+            maker.height.equalTo(450)
+            maker.width.equalToSuperview()
+        }
         self.addSubview(tenDaysStackView)
         tenDaysStackView.snp.makeConstraints { maker in
             maker.edges.equalToSuperview().inset(7)
@@ -42,7 +46,6 @@ class TenDaysForecastSectionView: CellWithRoundedCorner {
             tenDaysStackView?.addArrangedSubview(oneDayInfoView)
             oneDayInfoView.prepare(weatherData: i)
             oneDayInfoView.snp.makeConstraints { maker in
-                maker.height.equalTo(30)
                 maker.width.equalToSuperview()
             }
         }

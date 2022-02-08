@@ -10,6 +10,7 @@ import SnapKit
 import UIKit
 
 
+
 class PrecipitationWidget: ViewWithRoundedCorner {
     let valueNumberLabel = UILabel()
     let valueTextLabel = UILabel()

@@ -13,7 +13,7 @@ import SnapKit
 
 class UVISunriseWidgetSectionView: UITableViewCell {
     
-    var stackView: UIStackView?
+    var stackView = UIStackView()
     var uviWidget: UVIWidget?
     var sunriseWidget: SunriseWidget?
     
@@ -36,8 +36,7 @@ class UVISunriseWidgetSectionView: UITableViewCell {
            maker.width.equalToSuperview()
        }
        
-       let stackView = UIStackView()
-       self.stackView = stackView
+       stackView.arrangedSubviews.forEach{ $0.removeFromSuperview() }
        stackView.axis = .horizontal
        
        contentView.addSubview(stackView)
@@ -46,7 +45,7 @@ class UVISunriseWidgetSectionView: UITableViewCell {
            maker.edges.equalToSuperview()
        }
        stackView.distribution = .fillEqually
-       stackView.spacing = 10
+       //stackView.spacing = 10
        
        let uviWidget = UVIWidget()
        self.uviWidget = uviWidget
@@ -54,7 +53,7 @@ class UVISunriseWidgetSectionView: UITableViewCell {
        let sunriseWidget = SunriseWidget()
        self.sunriseWidget = sunriseWidget
        sunriseWidget.prepare()
-       
+        
        stackView.addArrangedSubview(uviWidget)
        stackView.addArrangedSubview(sunriseWidget)
     }
@@ -67,8 +66,8 @@ class UVISunriseWidgetSectionView: UITableViewCell {
     }
     
     override func prepareForReuse() {
+        stackView.arrangedSubviews.forEach{ $0.removeFromSuperview() }
         super.prepareForReuse()
-        stackView?.arrangedSubviews.forEach{ $0.removeFromSuperview() }
     }
 }
 

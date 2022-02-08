@@ -63,9 +63,11 @@ class UVISunriseWidgetSection: SectionConfiguratorProtocol {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! UVISunriseWidgetSectionView
         cell.prepare()
-        guard let dataForWidgets = data?.current else { return cell }
-    
-   //     cell.setData(dataForUVIWidget: , dataForSunriseWidget:  ) // допиши меня
+        guard let data = data?.current else {
+            return cell
+        }
+
+        cell.setData(data: data)
         return cell
     }
 }
