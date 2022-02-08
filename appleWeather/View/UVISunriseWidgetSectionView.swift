@@ -64,10 +64,5 @@ class UVISunriseWidgetSectionView: UITableViewCell {
       //  dateFormatter.dateFormat = "HH:MM"
    //     sunriseWidget?.setData(text: dateFormatter.string(from: data.sunrise))
     }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        stackView.arrangedSubviews.forEach{ $0.removeFromSuperview() }
-    }
 }
 

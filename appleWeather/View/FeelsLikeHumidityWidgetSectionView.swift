@@ -61,10 +61,5 @@ class FeelsLikeHumidityWidgetSectionView: UITableViewCell {
         feelsLikeWidget?.setData(text: String(data.feels_like))
         humidityWidget?.setData(text: String(data.humidity))
     }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        stackView.arrangedSubviews.forEach{ $0.removeFromSuperview() }
-    }
 }
 

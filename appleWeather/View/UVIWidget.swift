@@ -14,6 +14,7 @@ import SnapKit
 class UVIWidget: ViewWithRoundedCorner {
     
     struct UVIndexStringValue {
+        let number: Float
         let numberValue: String
         let textValue: String
         let description: String
@@ -22,6 +23,8 @@ class UVIWidget: ViewWithRoundedCorner {
     let valueNumberLabel = UILabel()
     let valueTextLabel = UILabel()
     let descriptionLabel = UILabel()
+    let indicatorView = UIImageView()
+    let indicatorPointView = UIImageView()
     
     func prepare() {
         let stackView = UIStackView()
@@ -50,14 +53,12 @@ class UVIWidget: ViewWithRoundedCorner {
         valueTextLabel.font = valueTextLabel.font.withSize(25)
         valueTextLabel.textColor = .white
     
-        let indicatorView = UIImageView()
         stackView.addArrangedSubview(indicatorView)
         indicatorView.snp.makeConstraints { maker in
             maker.height.equalToSuperview().multipliedBy(0.05)
         }
         indicatorView.image = UIImage(named:"gradient")
-        
-        let indicatorPointView = UIImageView()
+   
         indicatorPointView.image = UIImage(named:"point")
         indicatorPointView.contentMode = .scaleAspectFill
         indicatorView.addSubview(indicatorPointView)
@@ -81,5 +82,9 @@ class UVIWidget: ViewWithRoundedCorner {
         valueNumberLabel.text = data.numberValue
         valueTextLabel.text = data.textValue
         descriptionLabel.text = data.description
+        let pointLocation = data.number / 12 + 0.01
+        indicatorPointView.snp.makeConstraints { make in
+            make.right.equalToSuperview().multipliedBy(pointLocation)
+        }
     }
 }

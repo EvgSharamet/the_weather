@@ -66,9 +66,4 @@ class WindPrecipitationWidgetSectionView: UITableViewCell {
         }
         precipitationWidget?.setData(text: String(rain) + " мм")
     }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        stackView.arrangedSubviews.forEach{ $0.removeFromSuperview() }
-    }
 }

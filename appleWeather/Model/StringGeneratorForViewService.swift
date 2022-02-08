@@ -14,6 +14,7 @@ import UIKit
 class StringGeneratorForViewService {
     
     struct UVIndexStringValue {
+        let number: Float
         let numberValue: String
         let textValue: String
         let description: String
@@ -46,19 +47,20 @@ class StringGeneratorForViewService {
         for i in rowData.hourly {
             uviValuesPerDay.append(i.uvi)
         }
+        uviValuesPerDay = uviValuesPerDay.dropLast(12)
+       
         
         let currentUVI = uviValuesPerDay[0]
-        let maxUVI = uviValuesPerDay.max()
-        guard let maxUVI = maxUVI else {
-            return UVIndexStringValue(numberValue: String(rowData.current.uvi), textValue: textValue, description: "")
+        guard let maxUVI =  uviValuesPerDay.max() else {
+            return UVIndexStringValue( number: rowData.current.uvi , numberValue: String(rowData.current.uvi), textValue: textValue, description: "")
         }
 
         if currentUVI >= maxUVI {
-            description = "Индекс останется \(textValue) до конца дня"
+            description = "Индекс \(textValue) до конца дня"
         } else {
             description = "Индекс повысится до \(maxUVI) в течение дня"
         }
         
-        return UVIndexStringValue(numberValue:String(rowData.current.uvi), textValue: textValue, description: description)
+        return UVIndexStringValue(number: rowData.current.uvi, numberValue:String(rowData.current.uvi), textValue: textValue, description: description)
     }
 }
