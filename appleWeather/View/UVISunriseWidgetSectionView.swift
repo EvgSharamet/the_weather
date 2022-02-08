@@ -45,7 +45,7 @@ class UVISunriseWidgetSectionView: UITableViewCell {
            maker.edges.equalToSuperview()
        }
        stackView.distribution = .fillEqually
-       //stackView.spacing = 10
+       stackView.spacing = 10
        
        let uviWidget = UVIWidget()
        self.uviWidget = uviWidget
