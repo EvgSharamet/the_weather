@@ -58,11 +58,11 @@ class UVISunriseWidgetSectionView: UITableViewCell {
        stackView.addArrangedSubview(sunriseWidget)
     }
     
-    func setData(data: WeatherDataService.OneDayResponse.Current) {
-        uviWidget?.setData(text: String(data.uvi))
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:MM"
-        sunriseWidget?.setData(text: dateFormatter.string(from: data.sunrise))
+    func setData(data: StringGeneratorForViewService.UVIndexStringValue) {
+        uviWidget?.setData(data: data)
+      //  let dateFormatter = DateFormatter()
+      //  dateFormatter.dateFormat = "HH:MM"
+   //     sunriseWidget?.setData(text: dateFormatter.string(from: data.sunrise))
     }
     
     override func prepareForReuse() {

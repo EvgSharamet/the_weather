@@ -25,6 +25,7 @@ class WeatherDataService {
             let dt: Double
             let temp: Float
             let weather: [Weather]
+            let uvi: Float
         }
         
         struct Current: Codable {

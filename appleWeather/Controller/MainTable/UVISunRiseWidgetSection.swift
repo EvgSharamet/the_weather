@@ -12,10 +12,6 @@ import UIKit
 
 
 class UVISunriseWidgetSection: SectionConfiguratorProtocol {
-    
-    struct uviData {
-        let info: String
-    }
 
     let cellIdentifier = "UVISunriseWidgetSectionCell"
     var data: WeatherDataService.OneDayResponse?
@@ -63,11 +59,10 @@ class UVISunriseWidgetSection: SectionConfiguratorProtocol {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! UVISunriseWidgetSectionView
         cell.prepare()
-        guard let data = data?.current else {
+        guard let data = data else {
             return cell
         }
-
-        cell.setData(data: data)
+        cell.setData(data: StringGeneratorForViewService.shared.getUVIndexStringValue(rowData: data))
         return cell
     }
 }

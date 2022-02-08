@@ -70,9 +70,9 @@ class UVIWidget: ViewWithRoundedCorner {
         }
     }
     
-    func setData(text: String) {
-        valueTextLabel.text = "Низкий"
-        descriptionLabel.text = "Индекс останется низким до конца дня."
-        valueNumberLabel.text = "0"
+    func setData(data: StringGeneratorForViewService.UVIndexStringValue) {
+        valueNumberLabel.text = data.numberValue
+        valueTextLabel.text = data.textValue
+        descriptionLabel.text = data.description
     }
 }
