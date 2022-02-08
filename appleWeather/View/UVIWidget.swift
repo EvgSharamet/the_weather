@@ -12,6 +12,13 @@ import SnapKit
 
 
 class UVIWidget: ViewWithRoundedCorner {
+    
+    struct UVIndexStringValue {
+        let numberValue: String
+        let textValue: String
+        let description: String
+    }
+    
     let valueNumberLabel = UILabel()
     let valueTextLabel = UILabel()
     let descriptionLabel = UILabel()
@@ -70,7 +77,7 @@ class UVIWidget: ViewWithRoundedCorner {
         }
     }
     
-    func setData(data: StringGeneratorForViewService.UVIndexStringValue) {
+    func setData(data: UVIndexStringValue) {
         valueNumberLabel.text = data.numberValue
         valueTextLabel.text = data.textValue
         descriptionLabel.text = data.description

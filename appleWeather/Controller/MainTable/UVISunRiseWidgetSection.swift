@@ -62,7 +62,9 @@ class UVISunriseWidgetSection: SectionConfiguratorProtocol {
         guard let data = data else {
             return cell
         }
-        cell.setData(data: StringGeneratorForViewService.shared.getUVIndexStringValue(rowData: data))
+        
+        let uviDataStringValue = StringGeneratorForViewService.shared.getUVIndexStringValue(rowData: data)
+        cell.setData(data: UVIWidget.UVIndexStringValue(numberValue: uviDataStringValue.numberValue , textValue: uviDataStringValue.textValue, description: uviDataStringValue.description))
         return cell
     }
 }
