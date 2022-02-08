@@ -57,7 +57,6 @@ class FeelsLikeHumidityWidgetSection: SectionConfiguratorProtocol {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! FeelsLikeHumidityWidgetSectionView
-        cell.prepare()
         guard let dataForWidgets = data?.current else { return cell }
         cell.setData(data: dataForWidgets)
         return cell

@@ -35,7 +35,6 @@ class WindPrecipitationWidgetSectionView: UITableViewCell {
            maker.height.equalTo(150)
        }
        
-       stackView.arrangedSubviews.forEach{ $0.removeFromSuperview() }
        stackView.axis = .horizontal
        contentView.addSubview(stackView)
        stackView.snp.makeConstraints { maker in

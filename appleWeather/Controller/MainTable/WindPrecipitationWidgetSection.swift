@@ -59,7 +59,6 @@ class WindPrecipitationWidgetSection: SectionConfiguratorProtocol {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! WindPrecipitationWidgetSectionView
-        cell.prepare()
         guard let dataForWidgets = data?.current else { return cell }
         guard let dataForPrecipitation = dataForPrecipitation else {
             return cell

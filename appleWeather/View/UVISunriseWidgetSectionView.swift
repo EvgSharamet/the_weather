@@ -66,8 +66,8 @@ class UVISunriseWidgetSectionView: UITableViewCell {
     }
     
     override func prepareForReuse() {
-        stackView.arrangedSubviews.forEach{ $0.removeFromSuperview() }
         super.prepareForReuse()
+        stackView.arrangedSubviews.forEach{ $0.removeFromSuperview() }
     }
 }
 

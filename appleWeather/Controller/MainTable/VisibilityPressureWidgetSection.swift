@@ -57,7 +57,6 @@ class VisibilityPressureWidgetSection: SectionConfiguratorProtocol {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! VisibilityPressureWidgetSectionView
-        cell.prepare()
         guard let dataForWidgets = data?.current else { return cell }
         cell.setData(data: dataForWidgets)
         return cell

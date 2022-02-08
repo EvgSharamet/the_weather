@@ -14,7 +14,6 @@ class HourlyForecastSectionView: CellWithRoundedCorner {
     
     var stackView: UIStackView?
     var hourlyStackView: UIStackView?
-    var containerView: UIView = UIView()
      
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -28,9 +27,6 @@ class HourlyForecastSectionView: CellWithRoundedCorner {
     
     func prepare() {
         backgroundColor = .clear
-        
-        self.addSubview(containerView)
-        containerView.translatesAutoresizingMaskIntoConstraints = false
         
         self.contentView.snp.makeConstraints { maker in
             maker.height.equalTo(120)
