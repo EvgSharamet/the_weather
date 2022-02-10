@@ -58,8 +58,8 @@ class VisibilityPressureWidgetSectionView: UITableViewCell {
        stackView.addArrangedSubview(pressureWidget)
     }
     
-    func setData(data: WeatherDataService.OneDayResponse.Current) {
-        visibilityWidget?.setData(text: String(data.visibility))
-        pressureWidget?.setData(text: String(data.pressure))
+    func setData(dataForVisibilityWidget: VisibilityWidget.VisibilityStringValue, dataForPressureWidget: PressureWidget.PressureStringValue) {
+        visibilityWidget?.setData(data: dataForVisibilityWidget)
+        pressureWidget?.setData(data: dataForPressureWidget)
     }
 }

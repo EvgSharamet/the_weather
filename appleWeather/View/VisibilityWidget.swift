@@ -12,7 +12,13 @@ import UIKit
 
 
 class VisibilityWidget:  ViewWithRoundedCorner {
-    let valueNumberLabel = UILabel()
+    
+    struct VisibilityStringValue {
+        let visibilityValue: String
+        let description: String?
+    }
+    
+    let visibilityValueLabel = UILabel()
     let descriptionLabel = UILabel()
     
     func prepare() {
@@ -26,9 +32,9 @@ class VisibilityWidget:  ViewWithRoundedCorner {
             maker.left.equalToSuperview().inset(15)
             maker.right.equalToSuperview().inset(15)
         }
-        stackView.addArrangedSubview(valueNumberLabel)
-        valueNumberLabel.font = valueNumberLabel.font.withSize(30)
-        valueNumberLabel.textColor = .white
+        stackView.addArrangedSubview(visibilityValueLabel)
+        visibilityValueLabel.font = visibilityValueLabel.font.withSize(30)
+        visibilityValueLabel.textColor = .white
         
         stackView.addArrangedSubview(descriptionLabel)
         descriptionLabel.lineBreakMode = .byWordWrapping
@@ -37,8 +43,8 @@ class VisibilityWidget:  ViewWithRoundedCorner {
         descriptionLabel.textColor = .white
     }
     
-    func setData(text: String) {
-        valueNumberLabel.text = text + " М"
-        descriptionLabel.text = "Сейчас ясно"
+    func setData(data: VisibilityStringValue) {
+        visibilityValueLabel.text = data.visibilityValue
+        descriptionLabel.text = data.description
     }
 }

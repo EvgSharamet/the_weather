@@ -11,7 +11,13 @@ import UIKit
 
 
 class FeelsLikeWidget: ViewWithRoundedCorner {
-    let valueNumberLabel = UILabel()
+    
+    struct FeelsLikeStringValue {
+        let feelsLikeValue: String
+        let description: String?
+    }
+    
+    let feelsLikeValueLabel = UILabel()
     let descriptionLabel = UILabel()
     
     func prepare() {
@@ -25,9 +31,9 @@ class FeelsLikeWidget: ViewWithRoundedCorner {
             maker.left.equalToSuperview().inset(15)
             maker.right.equalToSuperview().inset(15)
         }
-        stackView.addArrangedSubview(valueNumberLabel)
-        valueNumberLabel.font = valueNumberLabel.font.withSize(30)
-        valueNumberLabel.textColor = .white
+        stackView.addArrangedSubview( feelsLikeValueLabel)
+        feelsLikeValueLabel.font =  feelsLikeValueLabel.font.withSize(30)
+        feelsLikeValueLabel.textColor = .white
         
         stackView.addArrangedSubview(descriptionLabel)
         descriptionLabel.lineBreakMode = .byWordWrapping
@@ -36,8 +42,8 @@ class FeelsLikeWidget: ViewWithRoundedCorner {
         descriptionLabel.textColor = .white
     }
     
-    func setData(text: String) {
-        valueNumberLabel.text = text
-        descriptionLabel.text = "По ощущениям холоднее из-за погоды"
+    func setData(data: FeelsLikeStringValue) {
+        feelsLikeValueLabel.text = data.feelsLikeValue
+        descriptionLabel.text = data.description
     }
 }

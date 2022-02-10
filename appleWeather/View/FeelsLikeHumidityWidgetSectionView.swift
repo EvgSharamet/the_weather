@@ -57,9 +57,9 @@ class FeelsLikeHumidityWidgetSectionView: UITableViewCell {
        stackView.addArrangedSubview(humidityWidget)
     }
     
-    func setData(data: WeatherDataService.OneDayResponse.Current) {
-        feelsLikeWidget?.setData(text: String(data.feels_like))
-        humidityWidget?.setData(text: String(data.humidity))
+    func setData(dataForFeelsLikeWidget:  FeelsLikeWidget.FeelsLikeStringValue, dataForHumidityWidget: HumidityWidget.HumidityStringValue) {
+        feelsLikeWidget?.setData(data: dataForFeelsLikeWidget)
+        humidityWidget?.setData(data: dataForHumidityWidget)
     }
 }
 

@@ -12,7 +12,12 @@ import UIKit
 
 
 class PressureWidget: ViewWithRoundedCorner {
-    let textLabel = UILabel()
+    
+    struct PressureStringValue {
+        let pressureValue: String
+    }
+    
+    let pressureValueLabel = UILabel()
 
     func prepare() {
         let stackView = UIStackView()
@@ -20,10 +25,10 @@ class PressureWidget: ViewWithRoundedCorner {
         stackView.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
         }
-        stackView.addArrangedSubview(textLabel)
+        stackView.addArrangedSubview(pressureValueLabel)
     }
 
-    func setData(text: String) {
-        textLabel.text = text
+    func setData(data: PressureStringValue) {
+        pressureValueLabel.text = data.pressureValue
     }
 }

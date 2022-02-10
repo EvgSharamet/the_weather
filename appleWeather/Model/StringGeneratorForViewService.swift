@@ -33,12 +33,31 @@ class StringGeneratorForViewService {
          let windDeg: Int
     }
     
-    struct precipitationStringValue {
+    struct PrecipitationStringValue {
         let weatherType: PrecipitationWidget.WeatherType?
         let textForHeader: String
         let currentValue: String
         let preciptiationText = "за последние сутки"
         let futureValue: String
+    }
+    
+    struct FeelsLikeStringValue {
+        let feelsLikeValue: String
+        let description: String?
+    }
+    
+    struct HumidityStringValue {
+        let humidityValue: String
+        let description: String
+    }
+    
+    struct VisibilityStringValue {
+        let visibilityValue: String
+        let description: String?
+    }
+    
+    struct PressureStringValue {
+        let pressureValue: String
     }
     
     static let shared = StringGeneratorForViewService()
@@ -96,7 +115,7 @@ class StringGeneratorForViewService {
         return WindStringValue(windSpeed: windSpeed, windDeg: rowData.current.wind_deg)
     }
     
-    func getPrecipitationStringValue(rowData: WeatherDataService.TenDaysResponse) -> precipitationStringValue {
+    func getPrecipitationStringValue(rowData: WeatherDataService.TenDaysResponse) -> PrecipitationStringValue {
         
         var weatherType: PrecipitationWidget.WeatherType?
         var currentPrecipitation: String?
@@ -152,7 +171,56 @@ class StringGeneratorForViewService {
             textForHeader = "💧 PRECIPITATION"
         }
         
+        return PrecipitationStringValue(weatherType: weatherType, textForHeader: textForHeader, currentValue: currentPrecipitation ?? "0", futureValue: futurePrecipitation ?? "0 мм ожидается в течение суток")
+    }
+    
+    func getFeelsLikeStringValue(rowData: WeatherDataService.OneDayResponse) -> FeelsLikeStringValue {
+        var description: String?
         
-        return precipitationStringValue(weatherType: weatherType, textForHeader: textForHeader, currentValue: currentPrecipitation ?? "0", futureValue: futurePrecipitation ?? "0 мм ожидается в течение суток")
+        if rowData.current.feels_like < rowData.current.temp {
+            if rowData.current.wind_speed >= 3 {
+                description = "По ощущениям холоднее из-за ветра"
+            } else {
+                if rowData.current.humidity >= 80 {
+                    description = "По ощущениям холоднее из-за влажности"
+                }
+            }
+        }
+        return FeelsLikeStringValue.init(feelsLikeValue: String(Int(rowData.current.feels_like)) + "°" , description: description)
+    }
+    
+    func getHumidityStringValue(rowData: WeatherDataService.OneDayResponse) -> HumidityStringValue {
+        return HumidityStringValue(humidityValue: String(rowData.current.humidity) + "%", description: "Точка росы сейчас — " + String(Int(rowData.current.dew_point)))
+    }
+    
+    func getVisibilityStringValue(rowData: WeatherDataService.OneDayResponse) -> VisibilityStringValue {
+        
+        var description: String?
+        
+        switch rowData.current.visibility {
+        case 0...501:
+            description = "Слабая видимость из-за сильного тумана"
+        case 501...1000:
+            description = "Видимость ухудшена из-за тумана"
+        case 1001...9999:
+            description = "Видимость ухудшена из-за дымки"
+        case 10000:
+            description = "Сейчас ясно"
+        default:
+            description = nil
+        }
+        
+        var visiblyValue = ""
+        if rowData.current.visibility < 1000 {
+            visiblyValue = String(rowData.current.visibility) + " м"
+        } else {
+            visiblyValue = String(Int(rowData.current.visibility / 1000)) + " км"
+        }
+        
+        return VisibilityStringValue(visibilityValue: visiblyValue, description: description)
+    }
+    
+    func getPressureStringValue(rowData: WeatherDataService.OneDayResponse) -> PressureStringValue {
+        return PressureStringValue(pressureValue: String(rowData.current.pressure))
     }
 }
