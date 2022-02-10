@@ -14,8 +14,9 @@ import SnapKit
 class WindPrecipitationWidgetSection: SectionConfiguratorProtocol {
     
     let cellIdentifier = "WindHumidityWidgetSectionCell"
-    var data: WeatherDataService.OneDayResponse?
-    var dataForPrecipitation: WeatherDataService.TenDaysResponse.Day?
+    var dataOneDay: WeatherDataService.OneDayResponse?
+    var dataTenDays: WeatherDataService.TenDaysResponse?
+    var precipitationHeaderLabel = UILabel()
     
     func getHeaderView() -> UIView? {
         let view = UIView()
@@ -39,11 +40,9 @@ class WindPrecipitationWidgetSection: SectionConfiguratorProtocol {
         
         let secondHeader = HeaderViewWithRoundedCorner()
         stackView.addArrangedSubview(secondHeader)
-        let secondLabel = UILabel()
-        secondLabel.text = "💧 PRECIPITATION"
-        secondLabel.textColor = .lightGray
-        secondHeader.addSubview(secondLabel)
-        secondLabel.snp.makeConstraints { maker in
+        precipitationHeaderLabel.textColor = .lightGray
+        secondHeader.addSubview(precipitationHeaderLabel)
+        precipitationHeaderLabel.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
         }
         return view
@@ -59,12 +58,23 @@ class WindPrecipitationWidgetSection: SectionConfiguratorProtocol {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! WindPrecipitationWidgetSectionView
-        guard let dataForWidgets = data?.current else { return cell }
-        guard let dataForPrecipitation = dataForPrecipitation else {
+
+        guard let dataOneDay = dataOneDay else {
+            return cell
+        }
+        
+        guard let dataTenDays = dataTenDays else {
             return cell
         }
 
-        cell.setData(data: dataForWidgets, dataForPrecipitation: dataForPrecipitation)
+ 
+        let windDataStringValue = StringGeneratorForViewService.shared.getWindStringValue(rowData: dataOneDay)
+        let precipitationDataStringValue = StringGeneratorForViewService.shared.getPrecipitationStringValue(rowData: dataTenDays)
+        precipitationHeaderLabel.text = precipitationDataStringValue.textForHeader
+        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        print(precipitationDataStringValue.textForHeader)
+        
+        cell.setData(dataForWindVidget: WindWidget.WindStringValue(windSpeed: windDataStringValue.windSpeed, windMeasure: windDataStringValue.windMeasure, windDeg: windDataStringValue.windDeg), dataForPrecipitationWidget: PrecipitationWidget.PrecipitationStringValue (weatherType: precipitationDataStringValue.weatherType, textForHeader: precipitationDataStringValue.textForHeader, currentValue: precipitationDataStringValue.currentValue, futureValue: precipitationDataStringValue.futureValue))
         return cell
     }
 }

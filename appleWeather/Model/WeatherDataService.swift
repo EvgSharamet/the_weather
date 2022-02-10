@@ -42,7 +42,7 @@ class WeatherDataService {
             let visibility: Int
             let wind_speed: Float
             let wind_deg: Int
-            let wind_gust: Float? // не получается превратить
+            let wind_gust: Float?
         }
         
         let current: Current

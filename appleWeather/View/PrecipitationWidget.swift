@@ -12,6 +12,19 @@ import UIKit
 
 
 class PrecipitationWidget: ViewWithRoundedCorner {
+   
+    enum WeatherType {
+        case rain, snow, rainWithSnow
+    }
+    
+    struct PrecipitationStringValue {
+        let weatherType: WeatherType?
+        let textForHeader: String
+        let currentValue: String
+        let preciptiationText = "За последние сутки"
+        let futureValue: String
+    }
+    
     let valueNumberLabel = UILabel()
     let valueTextLabel = UILabel()
     let descriptionLabel = UILabel()
@@ -51,10 +64,10 @@ class PrecipitationWidget: ViewWithRoundedCorner {
         descriptionLabel.textColor = .white
     }
     
-    func setData(text: String) {
-        valueNumberLabel.text = text
-        valueTextLabel.text =  "за последние сутки"
-        descriptionLabel.text = "3 mm ожидается в течение суток"
+    func setData(data: PrecipitationStringValue) {
+        valueNumberLabel.text = data.currentValue
+        valueTextLabel.text =  data.preciptiationText
+        descriptionLabel.text = data.futureValue
     }
 }
 

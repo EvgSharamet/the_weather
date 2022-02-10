@@ -58,11 +58,9 @@ class UVISunriseWidgetSectionView: UITableViewCell {
        stackView.addArrangedSubview(sunriseWidget)
     }
     
-    func setData(data: UVIWidget.UVIndexStringValue) {
-        uviWidget?.setData(data: data)
-      //  let dateFormatter = DateFormatter()
-      //  dateFormatter.dateFormat = "HH:MM"
-   //     sunriseWidget?.setData(text: dateFormatter.string(from: data.sunrise))
+    func setData(dataForUVIVidget: UVIWidget.UVIndexStringValue, dataForSunriseVidget: SunriseWidget.SunriseStringValue) {
+        uviWidget?.setData(data: dataForUVIVidget)
+        sunriseWidget?.setData(data: dataForSunriseVidget)
     }
 }
 

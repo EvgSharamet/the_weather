@@ -10,6 +10,7 @@ import SnapKit
 import UIKit
 
 
+
 class HumidityWidget: ViewWithRoundedCorner {
     let valueNumberLabel = UILabel()
     let descriptionLabel = UILabel()

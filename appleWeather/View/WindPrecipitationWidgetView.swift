@@ -54,16 +54,8 @@ class WindPrecipitationWidgetSectionView: UITableViewCell {
        precipitationWidget.prepare()
     }
     
-    func setData(data: WeatherDataService.OneDayResponse.Current, dataForPrecipitation: WeatherDataService.TenDaysResponse.Day) {
-        windWidget?.setData(text: String(data.wind_speed))
-        guard let rain = dataForPrecipitation.rain else {
-            guard let snow = dataForPrecipitation.snow else {
-                precipitationWidget?.setData(text: String("0"))
-                return
-            }
-            precipitationWidget?.setData(text: String(snow) + " мм")
-            return
-        }
-        precipitationWidget?.setData(text: String(rain) + " мм")
+    func setData(dataForWindVidget: WindWidget.WindStringValue, dataForPrecipitationWidget: PrecipitationWidget.PrecipitationStringValue) {
+        windWidget?.setData(data: dataForWindVidget)
+        precipitationWidget?.setData(data: dataForPrecipitationWidget)
     }
 }

@@ -63,7 +63,9 @@ class UVISunriseWidgetSection: SectionConfiguratorProtocol {
         }
         
         let uviDataStringValue = StringGeneratorForViewService.shared.getUVIndexStringValue(rowData: data)
-        cell.setData(data: UVIWidget.UVIndexStringValue(number: uviDataStringValue.number, numberValue: uviDataStringValue.numberValue , textValue: uviDataStringValue.textValue, description: uviDataStringValue.description))
+        let sunriseDataStringValue = StringGeneratorForViewService.shared.getSunriseStringValue(rowData: data)
+        
+        cell.setData(dataForUVIVidget:  UVIWidget.UVIndexStringValue(number: uviDataStringValue.number, numberValue: uviDataStringValue.numberValue , textValue: uviDataStringValue.textValue, description: uviDataStringValue.description),  dataForSunriseVidget: SunriseWidget.SunriseStringValue(sunrise: sunriseDataStringValue.sunrise, sunset: sunriseDataStringValue.sunset, sunriseValue: sunriseDataStringValue.sunriseValue, sunsetValue: sunriseDataStringValue.sunsetValue))
         return cell
     }
 }

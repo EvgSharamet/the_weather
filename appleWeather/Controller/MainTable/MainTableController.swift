@@ -58,12 +58,12 @@ class MainTableController: UIViewController, UITableViewDelegate, UITableViewDat
         feelsLikeHumidityWidgetSection = FeelsLikeHumidityWidgetSection(tableView: tableView)
         visibilityPressureWidgetSection = VisibilityPressureWidgetSection(tableView: tableView)
         
-        WeatherDataService.shared.requestByCurrentDay(place: "Калининград") { result in
+        WeatherDataService.shared.requestByCurrentDay(place: "Калиниград") { result in
             switch result {
             case .success(let weatherData):
                 self.hourlyForecastSection?.data = weatherData
                 self.uviSunriseWidgetSection?.data = weatherData
-                self.windPrecipitationWidgetSection?.data = weatherData
+                self.windPrecipitationWidgetSection?.dataOneDay = weatherData
                 self.feelsLikeHumidityWidgetSection?.data = weatherData
                 self.visibilityPressureWidgetSection?.data = weatherData
                 self.tableView.reloadData()
@@ -76,7 +76,7 @@ class MainTableController: UIViewController, UITableViewDelegate, UITableViewDat
             switch result {
                 case .success(let weatherData):
                     self.tenDaysForecastSection?.data = weatherData
-                self.windPrecipitationWidgetSection?.dataForPrecipitation = weatherData.list.first
+                self.windPrecipitationWidgetSection?.dataTenDays = weatherData
                     self.tableView.reloadData()
                 case .failure(_):
                     print("Something goes wrong")

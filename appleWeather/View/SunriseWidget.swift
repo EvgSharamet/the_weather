@@ -11,18 +11,31 @@ import UIKit
 
 
 class SunriseWidget: ViewWithRoundedCorner {
-    let textLabel = UILabel()
+    
+    struct SunriseStringValue {
+        let sunrise: Date
+        let sunset: Date
+        let sunriseValue: String
+        let sunsetValue: String
+    }
+    
+    let sunriseLabel = UILabel()
+    let sunsetLabel = UILabel()
     
     func prepare() {
         let stackView = UIStackView()
         self.addSubview(stackView)
+        
+        stackView.axis = .vertical
         stackView.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
         }
-        stackView.addArrangedSubview(textLabel)
+        stackView.addArrangedSubview(sunriseLabel)
+        stackView.addArrangedSubview(sunsetLabel)
     }
     
-    func setData(text: String) {
-        textLabel.text = text
+    func setData(data: SunriseStringValue) {
+        sunriseLabel.text = data.sunriseValue
+        sunsetLabel.text = data.sunsetValue
     }
 }
