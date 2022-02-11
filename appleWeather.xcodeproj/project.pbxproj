@@ -111,6 +111,121 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		44F4678527B67E6200D01BA3 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				44F4678627B67E7800D01BA3 /* MainNavigation */,
+				44F4678727B67E8E00D01BA3 /* MainScreen */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		44F4678627B67E7800D01BA3 /* MainNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				858824C527A824B70054E337 /* MainNavigationController.swift */,
+			);
+			path = MainNavigation;
+			sourceTree = "<group>";
+		};
+		44F4678727B67E8E00D01BA3 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				85C54C792795B42B00B9CFA2 /* MainTableController.swift */,
+				85C54C822796045C00B9CFA2 /* SectionConfiguratorProtocol.swift */,
+				44F4678827B67EAA00D01BA3 /* Widget */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		44F4678827B67EAA00D01BA3 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				44F4678927B67EB900D01BA3 /* CommonView */,
+				44F4678E27B67F2700D01BA3 /* FeelsLikeHumidityWidget */,
+				44F4678A27B67EF700D01BA3 /* HourlyForecast */,
+				44F4678B27B67F0300D01BA3 /* TenDaysForecast */,
+				44F4678C27B67F0F00D01BA3 /* UVISunriseWidget */,
+				44F4678F27B67F3000D01BA3 /* VisibilityPressureWidget */,
+				44F4678D27B67F1A00D01BA3 /* WindPrecipitationWidget */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		44F4678927B67EB900D01BA3 /* CommonView */ = {
+			isa = PBXGroup;
+			children = (
+				858D850C27A18D4800CDEC90 /* CellWithRoundedCorner.swift */,
+				858D850E27A190F000CDEC90 /* HeaderViewWithRoundedCorner.swift */,
+				858D850A27A0843E00CDEC90 /* ViewWithRoundedCorner.swift */,
+			);
+			path = CommonView;
+			sourceTree = "<group>";
+		};
+		44F4678A27B67EF700D01BA3 /* HourlyForecast */ = {
+			isa = PBXGroup;
+			children = (
+				85C54C802795C42800B9CFA2 /* HourlyForecastSection.swift */,
+				85C54C7B2795B65D00B9CFA2 /* HourlyForecastSectionView.swift */,
+				85C54C842796EF1500B9CFA2 /* OneHourInfoView.swift */,
+			);
+			path = HourlyForecast;
+			sourceTree = "<group>";
+		};
+		44F4678B27B67F0300D01BA3 /* TenDaysForecast */ = {
+			isa = PBXGroup;
+			children = (
+				85E2B84627999E1F00E8595B /* OneDayInfoView.swift */,
+				85E2B842279985E600E8595B /* TenDaysForecast.swift */,
+				85E2B84427998D1F00E8595B /* TenDaysForecastSectionView.swift */,
+			);
+			path = TenDaysForecast;
+			sourceTree = "<group>";
+		};
+		44F4678C27B67F0F00D01BA3 /* UVISunriseWidget */ = {
+			isa = PBXGroup;
+			children = (
+				858D851027A1A75600CDEC90 /* SunriseWidget.swift */,
+				85E2B8482799BFFC00E8595B /* UVISunRiseWidgetSection.swift */,
+				85E2B84A2799C3AB00E8595B /* UVISunriseWidgetSectionView.swift */,
+				858D8506279F22DF00CDEC90 /* UVIWidget.swift */,
+			);
+			path = UVISunriseWidget;
+			sourceTree = "<group>";
+		};
+		44F4678D27B67F1A00D01BA3 /* WindPrecipitationWidget */ = {
+			isa = PBXGroup;
+			children = (
+				858824B527A2DA270054E337 /* PrecipitationWidget.swift */,
+				858824AD27A2AEFE0054E337 /* WindPrecipitationWidgetSection.swift */,
+				858824AF27A2B00E0054E337 /* WindPrecipitationWidgetView.swift */,
+				858824B127A2B0CB0054E337 /* WindWidget.swift */,
+			);
+			path = WindPrecipitationWidget;
+			sourceTree = "<group>";
+		};
+		44F4678E27B67F2700D01BA3 /* FeelsLikeHumidityWidget */ = {
+			isa = PBXGroup;
+			children = (
+				858824B727A2DDE00054E337 /* FeelsLikeHumidityWidgetSection.swift */,
+				858824B927A2E16B0054E337 /* FeelsLikeHumidityWidgetSectionView.swift */,
+				858824BB27A2E3CA0054E337 /* FeelsLikeWidget.swift */,
+				858824B327A2B0E70054E337 /* HumidityWidget.swift */,
+			);
+			path = FeelsLikeHumidityWidget;
+			sourceTree = "<group>";
+		};
+		44F4678F27B67F3000D01BA3 /* VisibilityPressureWidget */ = {
+			isa = PBXGroup;
+			children = (
+				858824C327A2EDE60054E337 /* PressureWidget.swift */,
+				858824BF27A2EB420054E337 /* VisibilityPressureWidgetSection.swift */,
+				858824BD27A2EAF50054E337 /* VisibilityPressureWidgetSectionView.swift */,
+				858824C127A2ED9F0054E337 /* VisibilityWidget.swift */,
+			);
+			path = VisibilityPressureWidget;
+			sourceTree = "<group>";
+		};
 		85BC886C2790E7A300D7CB4A = {
 			isa = PBXGroup;
 			children = (
@@ -130,10 +245,8 @@
 		85BC88772790E7A300D7CB4A /* appleWeather */ = {
 			isa = PBXGroup;
 			children = (
-				85C54C822796045C00B9CFA2 /* SectionConfiguratorProtocol.swift */,
-				85BC88982791B14700D7CB4A /* Controller */,
-				85BC88972791B12400D7CB4A /* View */,
-				85BC88962791B0F600D7CB4A /* Model */,
+				44F4678527B67E6200D01BA3 /* Module */,
+				85BC88962791B0F600D7CB4A /* Service */,
 				85BC88782790E7A300D7CB4A /* AppDelegate.swift */,
 				85BC887A2790E7A300D7CB4A /* SceneDelegate.swift */,
 				85BC88832790E7A700D7CB4A /* LaunchScreen.storyboard */,
@@ -143,63 +256,14 @@
 			path = appleWeather;
 			sourceTree = "<group>";
 		};
-		85BC88962791B0F600D7CB4A /* Model */ = {
+		85BC88962791B0F600D7CB4A /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				85BC88992791B56A00D7CB4A /* WeatherDataService.swift */,
 				85BC88922790F1B100D7CB4A /* LocationService.swift */,
 				8560A80327B12BF70065AA4F /* StringGeneratorForViewService.swift */,
 			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		85BC88972791B12400D7CB4A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				85C54C7B2795B65D00B9CFA2 /* HourlyForecastSectionView.swift */,
-				85C54C842796EF1500B9CFA2 /* OneHourInfoView.swift */,
-				85E2B84427998D1F00E8595B /* TenDaysForecastSectionView.swift */,
-				85E2B84627999E1F00E8595B /* OneDayInfoView.swift */,
-				85E2B84A2799C3AB00E8595B /* UVISunriseWidgetSectionView.swift */,
-				858824AF27A2B00E0054E337 /* WindPrecipitationWidgetView.swift */,
-				858824B927A2E16B0054E337 /* FeelsLikeHumidityWidgetSectionView.swift */,
-				858824BD27A2EAF50054E337 /* VisibilityPressureWidgetSectionView.swift */,
-				858824B527A2DA270054E337 /* PrecipitationWidget.swift */,
-				858D8506279F22DF00CDEC90 /* UVIWidget.swift */,
-				858D851027A1A75600CDEC90 /* SunriseWidget.swift */,
-				858824B127A2B0CB0054E337 /* WindWidget.swift */,
-				858824B327A2B0E70054E337 /* HumidityWidget.swift */,
-				858824C127A2ED9F0054E337 /* VisibilityWidget.swift */,
-				858D850A27A0843E00CDEC90 /* ViewWithRoundedCorner.swift */,
-				858D850C27A18D4800CDEC90 /* CellWithRoundedCorner.swift */,
-				858D850E27A190F000CDEC90 /* HeaderViewWithRoundedCorner.swift */,
-				858824BB27A2E3CA0054E337 /* FeelsLikeWidget.swift */,
-				858824C327A2EDE60054E337 /* PressureWidget.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		85BC88982791B14700D7CB4A /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				85C54C7F2795C2B300B9CFA2 /* MainTable */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		85C54C7F2795C2B300B9CFA2 /* MainTable */ = {
-			isa = PBXGroup;
-			children = (
-				858824C527A824B70054E337 /* MainNavigationController.swift */,
-				85C54C792795B42B00B9CFA2 /* MainTableController.swift */,
-				85C54C802795C42800B9CFA2 /* HourlyForecastSection.swift */,
-				85E2B842279985E600E8595B /* TenDaysForecast.swift */,
-				85E2B8482799BFFC00E8595B /* UVISunRiseWidgetSection.swift */,
-				858824AD27A2AEFE0054E337 /* WindPrecipitationWidgetSection.swift */,
-				858824B727A2DDE00054E337 /* FeelsLikeHumidityWidgetSection.swift */,
-				858824BF27A2EB420054E337 /* VisibilityPressureWidgetSection.swift */,
-			);
-			path = MainTable;
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
