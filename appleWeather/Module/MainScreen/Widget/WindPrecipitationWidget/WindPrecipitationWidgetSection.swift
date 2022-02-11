@@ -12,7 +12,6 @@ import SnapKit
 
 
 class WindPrecipitationWidgetSection: SectionConfiguratorProtocol {
-    
     let cellIdentifier = "WindHumidityWidgetSectionCell"
     var dataOneDay: WeatherDataService.OneDayResponse?
     var dataTenDays: WeatherDataService.TenDaysResponse?
@@ -76,6 +75,10 @@ class WindPrecipitationWidgetSection: SectionConfiguratorProtocol {
         
         cell.setData(dataForWindVidget: WindWidget.WindStringValue(windSpeed: windDataStringValue.windSpeed, windMeasure: windDataStringValue.windMeasure, windDeg: windDataStringValue.windDeg), dataForPrecipitationWidget: PrecipitationWidget.PrecipitationStringValue (weatherType: precipitationDataStringValue.weatherType, textForHeader: precipitationDataStringValue.textForHeader, currentValue: precipitationDataStringValue.currentValue, futureValue: precipitationDataStringValue.futureValue))
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        150
     }
 }
 

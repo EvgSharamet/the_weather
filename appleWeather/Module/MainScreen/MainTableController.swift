@@ -104,13 +104,19 @@ extension MainTableController {
         guard let configurator = getSectionConfigurator(section: indexPath.section) else {
             return UITableViewCell()
         }
-
         let cell = configurator.tableView(tableView, cellForRowAt: indexPath)
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let configurator = getSectionConfigurator(section: indexPath.section) else {
+            return UITableView.automaticDimension
+        }
+        return configurator.tableView(tableView, heightForRowAt: indexPath)
     }
     
     private func getSectionConfigurator(section: Int) -> SectionConfiguratorProtocol? {

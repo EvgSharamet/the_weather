@@ -30,18 +30,10 @@ class UVISunriseWidgetSectionView: UITableViewCell {
    func prepare() {
        self.backgroundColor = .clear
        self.selectionStyle = SelectionStyle.none
-       
-       self.contentView.snp.makeConstraints { maker in
-           maker.height.equalTo(150)
-           maker.width.equalToSuperview()
-           maker.center.equalToSuperview()
-       }
-       
+
        stackView.arrangedSubviews.forEach{ $0.removeFromSuperview() }
        stackView.axis = .horizontal
-       
        contentView.addSubview(stackView)
-       
        stackView.snp.makeConstraints { maker in
            maker.edges.equalToSuperview()
        }

@@ -31,14 +31,8 @@ class VisibilityPressureWidgetSectionView: UITableViewCell {
        
        self.selectionStyle = SelectionStyle.none
        self.backgroundColor = .clear
-       contentView.snp.makeConstraints { maker in
-           maker.height.equalTo(150)
-           maker.width.equalToSuperview()
-           maker.center.equalToSuperview()
-       }
-       
-       stackView.axis = .horizontal
-       
+
+       stackView.axis = .horizontal       
        contentView.addSubview(stackView)
        stackView.snp.makeConstraints { maker in
            maker.edges.equalToSuperview()

@@ -30,11 +30,6 @@ class TenDaysForecastSectionView: CellWithRoundedCorner {
         self.tenDaysStackView = tenDaysStackView
         tenDaysStackView.axis = .vertical
         tenDaysStackView.distribution = .fillEqually
-        self.contentView.snp.makeConstraints { maker in
-            maker.height.equalTo(450)
-            maker.width.equalToSuperview()
-            maker.center.equalToSuperview()
-        }
         self.addSubview(tenDaysStackView)
         tenDaysStackView.snp.makeConstraints { maker in
             maker.edges.equalToSuperview().inset(7)

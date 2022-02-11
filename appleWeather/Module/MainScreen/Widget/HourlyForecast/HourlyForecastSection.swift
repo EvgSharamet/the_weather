@@ -41,4 +41,8 @@ struct HourlyForecastSection: SectionConfiguratorProtocol {
         cell.setData(data: data)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        120
+    }
 }

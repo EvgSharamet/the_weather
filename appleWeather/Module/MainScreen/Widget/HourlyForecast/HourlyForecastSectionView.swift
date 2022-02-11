@@ -27,15 +27,8 @@ class HourlyForecastSectionView: CellWithRoundedCorner {
     
     func prepare() {
         backgroundColor = .clear
-        
-        self.contentView.snp.makeConstraints { maker in
-            maker.height.equalTo(120)
-            maker.width.equalToSuperview()
-            maker.center.equalToSuperview()
-        }
 
         let scrollView = UIScrollView()
-        
         self.contentView.addSubview(scrollView)
         scrollView.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
@@ -59,8 +52,7 @@ class HourlyForecastSectionView: CellWithRoundedCorner {
             oneHourInfoView.prepare(weatherData: i)
             self.stackView?.addArrangedSubview(oneHourInfoView)
             oneHourInfoView.snp.makeConstraints { maker in
-                maker.top.equalTo(self.contentView.snp_topMargin)
-                maker.bottom.equalTo(self.contentView.snp_bottomMargin)
+                maker.height.equalTo(120)
                 maker.width.equalTo(60)
             }
         }

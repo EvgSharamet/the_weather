@@ -30,11 +30,6 @@ class WindPrecipitationWidgetSectionView: UITableViewCell {
    func prepare() {
        self.backgroundColor = .clear
        self.selectionStyle = SelectionStyle.none
-       contentView.snp.makeConstraints { maker in
-           maker.width.equalToSuperview()
-           maker.height.equalTo(150)
-           maker.center.equalToSuperview()
-       }
        
        stackView.axis = .horizontal
        contentView.addSubview(stackView)
