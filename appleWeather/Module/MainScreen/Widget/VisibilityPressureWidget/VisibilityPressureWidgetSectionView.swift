@@ -34,6 +34,7 @@ class VisibilityPressureWidgetSectionView: UITableViewCell {
        contentView.snp.makeConstraints { maker in
            maker.height.equalTo(150)
            maker.width.equalToSuperview()
+           maker.center.equalToSuperview()
        }
        
        stackView.axis = .horizontal

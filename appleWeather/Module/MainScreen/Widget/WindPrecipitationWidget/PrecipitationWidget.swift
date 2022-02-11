@@ -33,12 +33,13 @@ class PrecipitationWidget: ViewWithRoundedCorner {
         
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.distribution = .fill
+        stackView.distribution = .fillProportionally
         self.addSubview(stackView)
         stackView.snp.makeConstraints { maker in
             maker.height.equalToSuperview().inset(10)
             maker.left.equalToSuperview().inset(15)
             maker.right.equalToSuperview().inset(15)
+            maker.centerY.equalToSuperview()
         }
         
         stackView.addArrangedSubview(valueNumberLabel)

@@ -33,6 +33,7 @@ class WindPrecipitationWidgetSectionView: UITableViewCell {
        contentView.snp.makeConstraints { maker in
            maker.width.equalToSuperview()
            maker.height.equalTo(150)
+           maker.center.equalToSuperview()
        }
        
        stackView.axis = .horizontal

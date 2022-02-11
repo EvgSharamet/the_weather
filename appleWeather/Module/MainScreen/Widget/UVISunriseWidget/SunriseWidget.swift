@@ -27,6 +27,7 @@ class SunriseWidget: ViewWithRoundedCorner {
         self.addSubview(stackView)
         
         stackView.axis = .vertical
+        stackView.distribution = .fillEqually
         stackView.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
         }
