@@ -26,10 +26,13 @@ class OneDayInfoView: UIView {
        let dateLabel = UILabel()
         mainStackView.addArrangedSubview(dateLabel)
   
-        
         let weatherIconImageView = UIImageView()
-        weatherIconImageView.contentMode = .scaleAspectFill
+        weatherIconImageView.contentMode = .scaleAspectFit
         mainStackView.addArrangedSubview(weatherIconImageView)
+        weatherIconImageView.snp.makeConstraints { make in
+            make.height.equalToSuperview()
+        }
+      //  weatherIconImageView.backgroundColor = .cyan
         
         let minTempLabel = UILabel()
         mainStackView.addArrangedSubview(minTempLabel)

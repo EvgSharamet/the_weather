@@ -18,17 +18,29 @@ class PressureWidget: ViewWithRoundedCorner {
     }
     
     let pressureValueLabel = UILabel()
-
+    let backgroundImageView = UIImageView()
+    let arrowImageView = UIImageView()
+    
     func prepare() {
-        let stackView = UIStackView()
-        self.addSubview(stackView)
-        stackView.snp.makeConstraints { maker in
+        self.addSubview(backgroundImageView)
+        backgroundImageView.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
         }
-        stackView.addArrangedSubview(pressureValueLabel)
+        backgroundImageView.contentMode = .scaleAspectFit
+        backgroundImageView.image = UIImage(named: "barometer")
+    
+        self.addSubview(arrowImageView)
+        arrowImageView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.height.equalToSuperview().inset(10)
+        }
+        arrowImageView.contentMode = .scaleAspectFit
+        arrowImageView.image = UIImage(named: "arrowBar")
+        arrowImageView.backgroundColor = .brown.withAlphaComponent(0.2)
     }
-
+    
     func setData(data: PressureStringValue) {
         pressureValueLabel.text = data.pressureValue
+        arrowImageView.transform = arrowImageView.transform.rotated(by: CGFloat(0) * .pi / 180 )
     }
 }

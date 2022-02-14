@@ -32,8 +32,8 @@ class UVIWidget: ViewWithRoundedCorner {
         stackView.distribution = .equalSpacing
         self.addSubview(stackView)
         stackView.snp.makeConstraints { maker in
-            maker.height.equalToSuperview().inset(10)
-            maker.centerY.equalToSuperview()
+            maker.top.equalToSuperview().inset(10)
+            maker.bottom.equalToSuperview().inset(10)
             maker.left.equalToSuperview().inset(15)
             maker.right.equalToSuperview().inset(15)
         }
@@ -58,7 +58,9 @@ class UVIWidget: ViewWithRoundedCorner {
             maker.height.equalToSuperview().multipliedBy(0.05)
            
         }
-        
+        indicatorView.backgroundColor = .brown
+        indicatorView.layer.cornerRadius = 4
+        indicatorView.contentMode = .scaleAspectFit
         indicatorView.image = UIImage(named:"gradient")
    
         indicatorPointView.image = UIImage(named:"point")

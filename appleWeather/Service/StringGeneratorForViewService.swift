@@ -29,7 +29,7 @@ class StringGeneratorForViewService {
     
     struct WindStringValue {
          let windSpeed: String
-        let windMeasure = "м/с"
+         let windMeasure = "м/с"
          let windDeg: Int
     }
     
@@ -123,7 +123,7 @@ class StringGeneratorForViewService {
         
         if let rainCurrentPrecipitation = rowData.list[0].rain {
             weatherType = .rain
-            currentPrecipitation = String(Int(rainCurrentPrecipitation)) + " мм"
+            currentPrecipitation = String(Int(rainCurrentPrecipitation * 10)) + " мм"
         }
         
         if let snowCurrentPrecipitation = rowData.list[0].snow {
@@ -132,13 +132,13 @@ class StringGeneratorForViewService {
             } else {
                 weatherType = .snow
             }
-            currentPrecipitation = String(Int(snowCurrentPrecipitation)) + " мм"
+            currentPrecipitation = String(Int(snowCurrentPrecipitation * 10)) + " мм"
         }
         
         
         if let rainCurrentPrecipitation = rowData.list[0].rain {
             weatherType = .rain
-            currentPrecipitation = String(Int(rainCurrentPrecipitation)) + " мм"
+            currentPrecipitation = String(Int(rainCurrentPrecipitation * 10 )) + " мм"
         }
         
         if let snowCurrentPrecipitation = rowData.list[0].snow {
@@ -147,15 +147,15 @@ class StringGeneratorForViewService {
             } else {
                 weatherType = .snow
             }
-            currentPrecipitation = String(Int(snowCurrentPrecipitation)) + " мм"
+            currentPrecipitation = String(Int(snowCurrentPrecipitation * 10 )) + " мм"
         }
         
         if let rainFuturePrecipitation = rowData.list[1].rain {
-            futurePrecipitation = String(Int(rainFuturePrecipitation)) + " мм ожидается в течение суток"
+            futurePrecipitation = String(Int(rainFuturePrecipitation * 10 )) + " мм ожидается в течение суток"
         }
         
         if let snowFuturePrecipitation = rowData.list[1].snow {
-            currentPrecipitation = String(Int(snowFuturePrecipitation)) + " мм ожидается в течение суток"
+            futurePrecipitation = String(Int(snowFuturePrecipitation * 10)) + " мм ожидается в течение суток"
         }
         
         var textForHeader = ""
@@ -171,7 +171,7 @@ class StringGeneratorForViewService {
             textForHeader = "💧 PRECIPITATION"
         }
         
-        return PrecipitationStringValue(weatherType: weatherType, textForHeader: textForHeader, currentValue: currentPrecipitation ?? "0", futureValue: futurePrecipitation ?? "0 мм ожидается в течение суток")
+        return PrecipitationStringValue(weatherType: weatherType, textForHeader: textForHeader, currentValue: currentPrecipitation ?? "0", futureValue: futurePrecipitation ?? "0 ожидается в течение суток")
     }
     
     func getFeelsLikeStringValue(rowData: WeatherDataService.OneDayResponse) -> FeelsLikeStringValue {

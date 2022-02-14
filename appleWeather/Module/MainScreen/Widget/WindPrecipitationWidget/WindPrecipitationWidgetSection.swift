@@ -70,8 +70,7 @@ class WindPrecipitationWidgetSection: SectionConfiguratorProtocol {
         let windDataStringValue = StringGeneratorForViewService.shared.getWindStringValue(rowData: dataOneDay)
         let precipitationDataStringValue = StringGeneratorForViewService.shared.getPrecipitationStringValue(rowData: dataTenDays)
         precipitationHeaderLabel.text = precipitationDataStringValue.textForHeader
-        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-        print(precipitationDataStringValue.textForHeader)
+
         
         cell.setData(dataForWindVidget: WindWidget.WindStringValue(windSpeed: windDataStringValue.windSpeed, windMeasure: windDataStringValue.windMeasure, windDeg: windDataStringValue.windDeg), dataForPrecipitationWidget: PrecipitationWidget.PrecipitationStringValue (weatherType: precipitationDataStringValue.weatherType, textForHeader: precipitationDataStringValue.textForHeader, currentValue: precipitationDataStringValue.currentValue, futureValue: precipitationDataStringValue.futureValue))
         return cell

@@ -31,7 +31,7 @@ class WindWidget: ViewWithRoundedCorner {
         }
         backgroundImageView.contentMode = .scaleAspectFit
         backgroundImageView.image = UIImage(named: "compass")
-        backgroundImageView.alpha = 0.5
+        backgroundImageView.alpha = 0.7
         
         self.addSubview(arrowImageView)
         arrowImageView.snp.makeConstraints { make in

@@ -146,8 +146,8 @@
 				44F4678A27B67EF700D01BA3 /* HourlyForecast */,
 				44F4678B27B67F0300D01BA3 /* TenDaysForecast */,
 				44F4678C27B67F0F00D01BA3 /* UVISunriseWidget */,
-				44F4678F27B67F3000D01BA3 /* VisibilityPressureWidget */,
 				44F4678D27B67F1A00D01BA3 /* WindPrecipitationWidget */,
+				44F4678F27B67F3000D01BA3 /* VisibilityPressureWidget */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
