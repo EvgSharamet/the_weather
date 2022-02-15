@@ -36,9 +36,31 @@ class OneDayInfoView: UIView {
         
         let minTempLabel = UILabel()
         mainStackView.addArrangedSubview(minTempLabel)
+        minTempLabel.textAlignment = .center
+        
+        let distributionView = UIView()
+        mainStackView.addArrangedSubview(distributionView)
+        
+        let distributionIndicatorView = UIView()
+        distributionView.addSubview(distributionIndicatorView)
+        distributionIndicatorView.snp.makeConstraints { make in
+            make.height.equalToSuperview().multipliedBy(0.08)
+            make.center.equalToSuperview()
+            make.width.equalToSuperview().inset(-20)
+        }
+        
+        distributionIndicatorView.layer.cornerRadius = 2
+        
+        let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .systemMaterialDark))
+        distributionIndicatorView.addSubview(blurEffectView)
+        blurEffectView.snp.makeConstraints { maker in
+            maker.edges.equalToSuperview()
+        }
+        distributionIndicatorView.layer.masksToBounds = true
         
         let maxTempLabel = UILabel()
         mainStackView.addArrangedSubview(maxTempLabel)
+        maxTempLabel.textAlignment = .center
         
         let date = Date(timeIntervalSince1970: weatherData.dt)
         let dateFormatter = DateFormatter()

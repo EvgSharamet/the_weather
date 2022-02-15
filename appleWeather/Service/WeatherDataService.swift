@@ -131,6 +131,7 @@ class WeatherDataService {
         else {
             throw Error(info: "can't get url")
         }
+        print(url)
         
         guard let jsonString = try? String(contentsOf: url, encoding:.utf8) else {
             throw Error(info: "can't decode url")

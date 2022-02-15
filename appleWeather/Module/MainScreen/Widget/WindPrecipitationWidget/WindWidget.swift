@@ -27,16 +27,16 @@ class WindWidget: ViewWithRoundedCorner {
     func prepare() {
         self.addSubview(backgroundImageView)
         backgroundImageView.snp.makeConstraints { maker in
-            maker.edges.equalToSuperview()
+            maker.edges.equalToSuperview().inset(10)
         }
         backgroundImageView.contentMode = .scaleAspectFit
         backgroundImageView.image = UIImage(named: "compassWind")
-        backgroundImageView.alpha = 0.7
+    //    backgroundImageView.alpha = 0.7
         
         self.addSubview(arrowImageView)
         arrowImageView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.height.equalToSuperview().inset(10)
+            make.height.equalToSuperview().inset(15)
         }
         arrowImageView.contentMode = .scaleAspectFit
         arrowImageView.image = UIImage(named: "arrowWind")

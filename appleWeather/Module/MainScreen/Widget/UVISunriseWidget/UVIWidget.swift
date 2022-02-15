@@ -56,7 +56,6 @@ class UVIWidget: ViewWithRoundedCorner {
         stackView.addArrangedSubview(indicatorView)
         indicatorView.snp.makeConstraints { maker in
             maker.height.equalToSuperview().multipliedBy(0.05)
-           
         }
         indicatorView.layer.cornerRadius = 4
         indicatorView.contentMode = .scaleAspectFit
