@@ -34,7 +34,7 @@ class MainTableController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let backgroundImageView = UIImageView(image: UIImage(named: "night"))
+        let backgroundImageView = UIImageView(image: UIImage(named: "backgroundMainTable"))
         backgroundImageView.contentMode = .scaleAspectFill
         self.view.addSubview(backgroundImageView)
         backgroundImageView.snp.makeConstraints { maker in

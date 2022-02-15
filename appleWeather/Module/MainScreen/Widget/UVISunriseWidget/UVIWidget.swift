@@ -58,12 +58,12 @@ class UVIWidget: ViewWithRoundedCorner {
             maker.height.equalToSuperview().multipliedBy(0.05)
            
         }
-        indicatorView.backgroundColor = .brown
         indicatorView.layer.cornerRadius = 4
         indicatorView.contentMode = .scaleAspectFit
-        indicatorView.image = UIImage(named:"gradient")
+        indicatorView.layer.masksToBounds = true
+        indicatorView.image = UIImage(named:"gradientUVI")
    
-        indicatorPointView.image = UIImage(named:"point")
+        indicatorPointView.image = UIImage(named:"pointUVI")
         indicatorPointView.contentMode = .scaleAspectFill
         indicatorView.addSubview(indicatorPointView)
         indicatorPointView.snp.makeConstraints { maker in

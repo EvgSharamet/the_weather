@@ -30,7 +30,7 @@ class WindWidget: ViewWithRoundedCorner {
             maker.edges.equalToSuperview()
         }
         backgroundImageView.contentMode = .scaleAspectFit
-        backgroundImageView.image = UIImage(named: "compass")
+        backgroundImageView.image = UIImage(named: "compassWind")
         backgroundImageView.alpha = 0.7
         
         self.addSubview(arrowImageView)
@@ -39,7 +39,7 @@ class WindWidget: ViewWithRoundedCorner {
             make.height.equalToSuperview().inset(10)
         }
         arrowImageView.contentMode = .scaleAspectFit
-        arrowImageView.image = UIImage(named: "arrow")
+        arrowImageView.image = UIImage(named: "arrowWind")
         
         let circleView = UIView()
         self.addSubview(circleView)
@@ -63,10 +63,8 @@ class WindWidget: ViewWithRoundedCorner {
         windSpeedLabel.textAlignment = .center
         windSpeedLabel.font = windSpeedLabel.font.withSize(25)
         windSpeedLabel.textColor = .white
-     //   windSpeedLabel.backgroundColor = .blue
         windMeasureLabel.textAlignment = .center
         windMeasureLabel.textColor = .white
-       // windMeasureLabel.backgroundColor = .cyan
         windMeasureLabel.font = windMeasureLabel.font.withSize(16)
         centerStack.addArrangedSubview(windSpeedLabel)
         centerStack.addArrangedSubview(windMeasureLabel)

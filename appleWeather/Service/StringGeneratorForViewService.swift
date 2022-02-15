@@ -58,6 +58,10 @@ class StringGeneratorForViewService {
     
     struct PressureStringValue {
         let pressureValue: String
+        let degreesForGraph: Int
+        let aboveNorm: Bool
+        let willRise: Bool
+        let description = "мм рт. ст."
     }
     
     static let shared = StringGeneratorForViewService()
@@ -221,6 +225,14 @@ class StringGeneratorForViewService {
     }
     
     func getPressureStringValue(rowData: WeatherDataService.OneDayResponse) -> PressureStringValue {
-        return PressureStringValue(pressureValue: String(rowData.current.pressure))
+        let pressureValue = String(Int(Float(rowData.current.pressure) * 0.75006375541921)) // 1 hPa = 0.75006375541921 mmHg
+        let degressForGraph = (Int(Float(rowData.current.pressure) * 0.75006375541) - 760) * 2 // 760 - reference value // * 2  -
+      //   distribution on the graph goes 1 real degree to 2 degrees on graph
+        var aboveNorm = true
+        if degressForGraph < 0  {
+            aboveNorm = false
+        }
+        let willRise = Bool(rowData.hourly[1].pressure > rowData.hourly[0].pressure)
+        return PressureStringValue(pressureValue: pressureValue, degreesForGraph: degressForGraph, aboveNorm: aboveNorm, willRise: willRise)
     }
 }

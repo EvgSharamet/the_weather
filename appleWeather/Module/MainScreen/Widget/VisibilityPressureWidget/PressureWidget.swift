@@ -15,32 +15,81 @@ class PressureWidget: ViewWithRoundedCorner {
     
     struct PressureStringValue {
         let pressureValue: String
+        let degreesForGraph: Int
+        let aboveNorm: Bool
+        let willRise: Bool
+        let description: String
     }
     
     let pressureValueLabel = UILabel()
-    let backgroundImageView = UIImageView()
+    let graphImageView = UIImageView()
+    let valueSegmentImageView = UIImageView()
     let arrowImageView = UIImageView()
+    let descriptionLabel = UILabel()
     
     func prepare() {
-        self.addSubview(backgroundImageView)
-        backgroundImageView.snp.makeConstraints { maker in
+        self.addSubview(graphImageView)
+        graphImageView.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
         }
-        backgroundImageView.contentMode = .scaleAspectFit
-        backgroundImageView.image = UIImage(named: "barometer")
+        graphImageView.contentMode = .scaleAspectFit
+        graphImageView.image = UIImage(named: "graphPressure")
     
-        self.addSubview(arrowImageView)
-        arrowImageView.snp.makeConstraints { make in
+        self.addSubview(valueSegmentImageView)
+        valueSegmentImageView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.height.equalToSuperview().inset(10)
+            make.height.equalToSuperview()
         }
+        valueSegmentImageView.contentMode = .scaleAspectFit
+        valueSegmentImageView.image = UIImage(named: "valueSegmentPressure")
+        
+        let centerStackView = UIStackView()
+        self.addSubview(centerStackView)
+        centerStackView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.height.equalTo(65)
+            make.width.equalTo(80)
+        }
+        centerStackView.axis = .vertical
+        
+        centerStackView.addArrangedSubview(arrowImageView)
+        arrowImageView.image = UIImage(named: "arrowPressure")
         arrowImageView.contentMode = .scaleAspectFit
-        arrowImageView.image = UIImage(named: "arrowBar")
-        arrowImageView.backgroundColor = .brown.withAlphaComponent(0.2)
+        
+        centerStackView.addArrangedSubview(pressureValueLabel)
+        pressureValueLabel.textAlignment = .center
+        pressureValueLabel.font = pressureValueLabel.font.withSize(20)
+        pressureValueLabel.textColor = .white
+        
+        centerStackView.addArrangedSubview(descriptionLabel)
+        descriptionLabel.font = descriptionLabel.font.withSize(15)
+        descriptionLabel.textColor = .white
+        descriptionLabel.textAlignment = .center
+        
+        let arrowUp = UIImageView()
+        self.addSubview(arrowUp)
+        arrowUp.snp.makeConstraints { make in
+            make.height.equalTo(16)
+            make.width.equalTo(16)
+            make.bottom.equalToSuperview().inset(20)
+            make.centerY.equalToSuperview().inset(-20)
+        }
+        arrowUp.contentMode = .scaleAspectFit
+        arrowUp.backgroundColor = .blue.withAlphaComponent(0.4)
+        arrowUp.image = UIImage(named: "arrowPressure")
     }
     
     func setData(data: PressureStringValue) {
         pressureValueLabel.text = data.pressureValue
-        arrowImageView.transform = arrowImageView.transform.rotated(by: CGFloat(0) * .pi / 180 )
+        if data.willRise {
+            valueSegmentImageView.transform = CGAffineTransform(scaleX: -1, y: 1)
+            valueSegmentImageView.transform = valueSegmentImageView.transform.rotated(by: CGFloat(-data.degreesForGraph) * .pi / 180 )
+        } else {
+            valueSegmentImageView.transform = valueSegmentImageView.transform.rotated(by: CGFloat(data.degreesForGraph) * .pi / 180 )
+        }
+        if data.aboveNorm  == false {
+            arrowImageView.transform = CGAffineTransform(scaleX: 1, y: -1)
+        }
+        descriptionLabel.text = data.description
     }
 }

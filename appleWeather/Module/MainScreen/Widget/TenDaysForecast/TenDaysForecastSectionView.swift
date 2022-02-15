@@ -32,7 +32,7 @@ class TenDaysForecastSectionView: CellWithRoundedCorner {
         tenDaysStackView.distribution = .fillEqually
         self.addSubview(tenDaysStackView)
         tenDaysStackView.snp.makeConstraints { maker in
-            maker.edges.equalToSuperview().inset(7)
+            maker.edges.equalToSuperview().inset(10)
         }
     }
     
