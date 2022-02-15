@@ -21,7 +21,8 @@ class TenDaysForecastSection: SectionConfiguratorProtocol {
         label.text = " 📅 TEN DAYS FORECAST"
         view.addSubview(label)
         label.snp.makeConstraints { maker in
-            maker.edges.equalToSuperview()
+            maker.top.bottom.right.equalToSuperview()
+            maker.left.equalToSuperview().inset(10)
         }
         return view
     }

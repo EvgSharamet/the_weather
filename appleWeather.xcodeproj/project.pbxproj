@@ -38,7 +38,7 @@
 		85C54C812795C42800B9CFA2 /* HourlyForecastSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C54C802795C42800B9CFA2 /* HourlyForecastSection.swift */; };
 		85C54C832796045C00B9CFA2 /* SectionConfiguratorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C54C822796045C00B9CFA2 /* SectionConfiguratorProtocol.swift */; };
 		85C54C852796EF1500B9CFA2 /* OneHourInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C54C842796EF1500B9CFA2 /* OneHourInfoView.swift */; };
-		85E2B843279985E600E8595B /* TenDaysForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E2B842279985E600E8595B /* TenDaysForecast.swift */; };
+		85E2B843279985E600E8595B /* TenDaysForecastSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E2B842279985E600E8595B /* TenDaysForecastSection.swift */; };
 		85E2B84527998D1F00E8595B /* TenDaysForecastSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E2B84427998D1F00E8595B /* TenDaysForecastSectionView.swift */; };
 		85E2B84727999E1F00E8595B /* OneDayInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E2B84627999E1F00E8595B /* OneDayInfoView.swift */; };
 		85E2B8492799BFFC00E8595B /* UVISunRiseWidgetSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E2B8482799BFFC00E8595B /* UVISunRiseWidgetSection.swift */; };
@@ -92,7 +92,7 @@
 		85C54C802795C42800B9CFA2 /* HourlyForecastSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastSection.swift; sourceTree = "<group>"; };
 		85C54C822796045C00B9CFA2 /* SectionConfiguratorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionConfiguratorProtocol.swift; sourceTree = "<group>"; };
 		85C54C842796EF1500B9CFA2 /* OneHourInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneHourInfoView.swift; sourceTree = "<group>"; };
-		85E2B842279985E600E8595B /* TenDaysForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenDaysForecast.swift; sourceTree = "<group>"; };
+		85E2B842279985E600E8595B /* TenDaysForecastSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenDaysForecastSection.swift; sourceTree = "<group>"; };
 		85E2B84427998D1F00E8595B /* TenDaysForecastSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenDaysForecastSectionView.swift; sourceTree = "<group>"; };
 		85E2B84627999E1F00E8595B /* OneDayInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDayInfoView.swift; sourceTree = "<group>"; };
 		85E2B8482799BFFC00E8595B /* UVISunRiseWidgetSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UVISunRiseWidgetSection.swift; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				85E2B84627999E1F00E8595B /* OneDayInfoView.swift */,
-				85E2B842279985E600E8595B /* TenDaysForecast.swift */,
+				85E2B842279985E600E8595B /* TenDaysForecastSection.swift */,
 				85E2B84427998D1F00E8595B /* TenDaysForecastSectionView.swift */,
 			);
 			path = TenDaysForecast;
@@ -374,7 +374,7 @@
 				85BC88932790F1B100D7CB4A /* LocationService.swift in Sources */,
 				85E2B84B2799C3AB00E8595B /* UVISunriseWidgetSectionView.swift in Sources */,
 				858824B027A2B00E0054E337 /* WindPrecipitationWidgetView.swift in Sources */,
-				85E2B843279985E600E8595B /* TenDaysForecast.swift in Sources */,
+				85E2B843279985E600E8595B /* TenDaysForecastSection.swift in Sources */,
 				858824AE27A2AEFE0054E337 /* WindPrecipitationWidgetSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

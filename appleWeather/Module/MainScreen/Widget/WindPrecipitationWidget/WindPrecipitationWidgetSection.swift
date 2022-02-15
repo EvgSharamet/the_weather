@@ -34,7 +34,8 @@ class WindPrecipitationWidgetSection: SectionConfiguratorProtocol {
         firstLabel.textColor = .lightGray
         firstHeader.addSubview(firstLabel)
         firstLabel.snp.makeConstraints { maker in
-            maker.edges.equalToSuperview()
+            maker.top.bottom.right.equalToSuperview()
+            maker.left.equalToSuperview().inset(10)
         }
         
         let secondHeader = HeaderViewWithRoundedCorner()
@@ -42,7 +43,8 @@ class WindPrecipitationWidgetSection: SectionConfiguratorProtocol {
         precipitationHeaderLabel.textColor = .lightGray
         secondHeader.addSubview(precipitationHeaderLabel)
         precipitationHeaderLabel.snp.makeConstraints { maker in
-            maker.edges.equalToSuperview()
+            maker.top.bottom.right.equalToSuperview()
+            maker.left.equalToSuperview().inset(10)
         }
         return view
     }

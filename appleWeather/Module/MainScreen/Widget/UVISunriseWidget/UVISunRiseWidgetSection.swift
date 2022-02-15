@@ -33,7 +33,8 @@ class UVISunriseWidgetSection: SectionConfiguratorProtocol {
         firstLabel.textColor = .lightGray
         firstHeader.addSubview(firstLabel)
         firstLabel.snp.makeConstraints { maker in
-            maker.edges.equalToSuperview()
+            maker.top.bottom.right.equalToSuperview()
+            maker.left.equalToSuperview().inset(10)
         }
         
         let secondHeader = HeaderViewWithRoundedCorner()
@@ -43,7 +44,8 @@ class UVISunriseWidgetSection: SectionConfiguratorProtocol {
         secondLabel.textColor = .lightGray
         secondHeader.addSubview(secondLabel)
         secondLabel.snp.makeConstraints { maker in
-            maker.edges.equalToSuperview()
+            maker.top.bottom.right.equalToSuperview()
+            maker.left.equalToSuperview().inset(10)
         }
         return view
     }

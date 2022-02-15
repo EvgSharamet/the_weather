@@ -47,8 +47,14 @@ class WindWidget: ViewWithRoundedCorner {
             make.center.equalToSuperview()
             make.height.width.equalTo(50)
         }
-        circleView.backgroundColor = .darkGray
         circleView.layer.cornerRadius = 25
+        
+        let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+        circleView.addSubview(blurEffectView)
+        blurEffectView.snp.makeConstraints { maker in
+            maker.edges.equalToSuperview()
+        }
+        circleView.layer.masksToBounds = true
         
         let centerStack = UIStackView()
         self.addSubview(centerStack)

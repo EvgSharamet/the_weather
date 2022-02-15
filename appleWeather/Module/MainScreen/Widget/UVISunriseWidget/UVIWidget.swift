@@ -65,11 +65,11 @@ class UVIWidget: ViewWithRoundedCorner {
    
         indicatorPointView.image = UIImage(named:"pointUVI")
         indicatorPointView.contentMode = .scaleAspectFill
-        indicatorView.addSubview(indicatorPointView)
+        self.addSubview(indicatorPointView)
         indicatorPointView.snp.makeConstraints { maker in
-            maker.height.equalToSuperview()
+            maker.height.equalTo(indicatorView)
             maker.width.equalTo(8)
-            maker.centerY.equalToSuperview()
+            maker.centerY.equalTo(indicatorView)
         }
    
         stackView.addArrangedSubview(descriptionLabel)
@@ -88,7 +88,7 @@ class UVIWidget: ViewWithRoundedCorner {
         descriptionLabel.text = data.description
         let pointLocation = data.number / 12 + 0.01
         indicatorPointView.snp.makeConstraints { make in
-            make.right.equalToSuperview().multipliedBy(pointLocation)
+            make.right.equalTo(indicatorView).multipliedBy(pointLocation)
         }
     }
 }
