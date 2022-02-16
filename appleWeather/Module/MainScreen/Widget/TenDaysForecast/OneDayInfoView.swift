@@ -13,6 +13,8 @@ import UIKit
 
 class OneDayInfoView: UIView {
     
+     let distributionIndicatorView = UIView()
+    
     func prepare(weatherData: WeatherDataService.TenDaysResponse.Day) {
        
         let mainStackView = UIStackView()
@@ -41,23 +43,55 @@ class OneDayInfoView: UIView {
         let distributionView = UIView()
         mainStackView.addArrangedSubview(distributionView)
         
-        let distributionIndicatorView = UIView()
-        distributionView.addSubview(distributionIndicatorView)
-        distributionIndicatorView.snp.makeConstraints { make in
+        let distributionAxisView = UIView()
+        distributionView.addSubview(distributionAxisView)
+        distributionAxisView.snp.makeConstraints { make in
             make.height.equalToSuperview().multipliedBy(0.08)
             make.center.equalToSuperview()
-            make.width.equalToSuperview().inset(-20)
+            make.width.equalTo(100)//.//inset(-20)
         }
         
-        distributionIndicatorView.layer.cornerRadius = 2
-        
+        distributionAxisView.layer.cornerRadius = 2
+   //     distributionAxisView.layer.masksToBounds = true
+    
         let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .systemMaterialDark))
-        distributionIndicatorView.addSubview(blurEffectView)
+        distributionAxisView.addSubview(blurEffectView)
         blurEffectView.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
         }
-        distributionIndicatorView.layer.masksToBounds = true
+
+        distributionAxisView.addSubview(distributionIndicatorView)
+        distributionIndicatorView.snp.makeConstraints { make in
+            make.height.equalToSuperview()
+        }
         
+        let globalMin = Int(weatherData.temp.min)
+        let globalMax = Int(weatherData.temp.max)
+        var min = Int(weatherData.temp.eve)
+        var max = Int(weatherData.temp.morn)
+        if min > max {
+            min = Int(weatherData.temp.morn)
+            max = Int(weatherData.temp.eve)
+        }
+        print(globalMin , globalMax)
+        print ( min , max)
+        print("next")
+        
+        let globalWidth = Double(globalMax - globalMin)
+        let width = Double(max - min) + 0.01
+        let indicatorRealWidth = width / globalWidth * 100 + 10 //+ 10 чтобы отображалось значение, если минимальная и максимальная локальные точки равны
+        let leftOffset = Double(min - globalMin) / globalWidth * 100
+        //print( leftOffset)
+        
+        
+        distributionIndicatorView.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(leftOffset)
+            make.width.equalTo(indicatorRealWidth)
+        }
+        
+        distributionIndicatorView.backgroundColor = .blue
+        
+    
         let maxTempLabel = UILabel()
         mainStackView.addArrangedSubview(maxTempLabel)
         maxTempLabel.textAlignment = .center

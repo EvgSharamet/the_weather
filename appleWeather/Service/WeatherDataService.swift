@@ -61,6 +61,8 @@ class WeatherDataService {
         struct Temp: Codable {
             let min: Float
             let max: Float
+            let eve: Float
+            let morn: Float
         }
         
         struct Day: Codable {

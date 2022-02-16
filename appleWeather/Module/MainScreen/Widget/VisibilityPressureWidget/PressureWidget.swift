@@ -66,16 +66,27 @@ class PressureWidget: ViewWithRoundedCorner {
         descriptionLabel.textColor = .white
         descriptionLabel.textAlignment = .center
         
+        let arrowDown = UIImageView()
+        self.addSubview(arrowDown)
+        arrowDown.snp.makeConstraints { make in
+            make.height.equalTo(16)
+            make.width.equalTo(16)
+            make.bottom.equalToSuperview().inset(20)
+            make.centerX.equalToSuperview().offset(-20)
+        }
+        arrowDown.contentMode = .scaleAspectFit
+        arrowDown.image = UIImage(named: "arrowPressure")
+        arrowDown.transform = CGAffineTransform(scaleX: 1, y: -1)
+        
         let arrowUp = UIImageView()
         self.addSubview(arrowUp)
         arrowUp.snp.makeConstraints { make in
             make.height.equalTo(16)
             make.width.equalTo(16)
             make.bottom.equalToSuperview().inset(20)
-            make.centerY.equalToSuperview().inset(-20)
+            make.centerX.equalToSuperview().offset(20)
         }
         arrowUp.contentMode = .scaleAspectFit
-        arrowUp.backgroundColor = .blue.withAlphaComponent(0.4)
         arrowUp.image = UIImage(named: "arrowPressure")
     }
     
