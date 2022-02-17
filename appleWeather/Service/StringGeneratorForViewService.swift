@@ -254,17 +254,12 @@ class StringGeneratorForViewService {
         var tenDays: [TenDaysStringValue.OneDayStringValue] = []
         
         for rowDay in rowData.list {
-            
-     //       let url = URL(string: "https://openweathermap.org/img/wn/\(weatherData.weather[0].icon)@2x.png")
-     //       print(url)
-           // let iconData = try? Data(contentsOf: urlForImage!)
-            //weatherIconImageView.image = UIImage(data: iconData!)
-            
-            
-            let urlForImage = URL(string: "https://openweathermap.org/img/wn/\(rowDay.weather[0].icon)@2x.png")
-     //       print(urlForImage)
-            let iconData = try? Data(contentsOf: urlForImage!)
-            let icon = UIImage(data:iconData!)
+            var icon: UIImage?
+            if let urlForImage = URL(string: "https://openweathermap.org/img/wn/\(rowDay.weather[0].icon)@2x.png") {
+                if let iconData = try? Data(contentsOf: urlForImage) {
+                    icon = UIImage(data:iconData)
+                }
+            }
             
             let globalMin = Int(rowDay.temp.min)
             let globalMax = Int(rowDay.temp.max)
