@@ -48,11 +48,13 @@ class OneHourInfoView: UIView {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH"
         dateLabel.text = dateFormatter.string(from: date)
+       
+        if let urlForImage = URL(string: "https://openweathermap.org/img/wn/\(weatherData.weather[0].icon)@2x.png") {
+            if let iconData = try? Data(contentsOf: urlForImage) {
+                weatherIconImageView.image = UIImage(data:iconData)
+            }
+        }
         
-        let urlForImage = URL(string: "https://openweathermap.org/img/wn/\(weatherData.weather[0].icon)@2x.png")
-        print(urlForImage)
-        let iconData = try? Data(contentsOf: urlForImage!)
-        weatherIconImageView.image = UIImage(data: iconData!)
         
         tempLabel.text = String(Int(weatherData.temp)) + "°"
     }
