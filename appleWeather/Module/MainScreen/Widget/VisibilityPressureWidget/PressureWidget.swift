@@ -90,7 +90,7 @@ class PressureWidget: ViewWithRoundedCorner {
         arrowUp.image = UIImage(named: "arrowPressure")
     }
     
-    func setData(data: PressureStringValue) {
+    func configure(data: PressureStringValue) {
         pressureValueLabel.text = data.pressureValue
         if data.willRise {
             valueSegmentImageView.transform = CGAffineTransform(scaleX: -1, y: 1)

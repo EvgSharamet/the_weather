@@ -53,8 +53,8 @@ class VisibilityPressureWidgetSectionView: UITableViewCell {
        stackView.addArrangedSubview(pressureWidget)
     }
     
-    func setData(dataForVisibilityWidget: VisibilityWidget.VisibilityStringValue, dataForPressureWidget: PressureWidget.PressureStringValue) {
-        visibilityWidget?.setData(data: dataForVisibilityWidget)
-        pressureWidget?.setData(data: dataForPressureWidget)
+    func configure(dataForVisibilityWidget: VisibilityWidget.VisibilityStringValue, dataForPressureWidget: PressureWidget.PressureStringValue) {
+        visibilityWidget?.configure(data: dataForVisibilityWidget)
+        pressureWidget?.configure(data: dataForPressureWidget)
     }
 }

@@ -254,9 +254,18 @@ class StringGeneratorForViewService {
         var tenDays: [TenDaysStringValue.OneDayStringValue] = []
         
         for rowDay in rowData.list {
-      //      let urlForImage = URL(string: "https://openweathermap.org/img/wn/\(rowDay.weather[0].icon))@2x.png")
-    //        let iconData = try? Data(contentsOf: urlForImage!)
-            let icon = UIImage(named: "arrowWind")
+            
+     //       let url = URL(string: "https://openweathermap.org/img/wn/\(weatherData.weather[0].icon)@2x.png")
+     //       print(url)
+           // let iconData = try? Data(contentsOf: urlForImage!)
+            //weatherIconImageView.image = UIImage(data: iconData!)
+            
+            
+            let urlForImage = URL(string: "https://openweathermap.org/img/wn/\(rowDay.weather[0].icon)@2x.png")
+     //       print(urlForImage)
+            let iconData = try? Data(contentsOf: urlForImage!)
+            let icon = UIImage(data:iconData!)
+            
             let globalMin = Int(rowDay.temp.min)
             let globalMax = Int(rowDay.temp.max)
             let dailyAverages = [Int(rowDay.temp.morn), Int(rowDay.temp.day), Int(rowDay.temp.eve), Int(rowDay.temp.night)]
@@ -274,13 +283,6 @@ class StringGeneratorForViewService {
                 indicatorRealWidth = Double(width / globalWidth)
                 leftOffset = Double( Int(localMin) - globalMin) / globalWidth * 100
             }
-            
-            print("!!!!!!!!!!!!!!!!!!!!!!!!")
-            print(globalMin)
-            print(globalMax)
-            print(localMin)
-            print(localMax)
-            print("next")
             
             let date = Date(timeIntervalSince1970: rowDay.dt)
             let dateFormatter = DateFormatter()

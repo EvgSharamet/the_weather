@@ -65,7 +65,7 @@ class PrecipitationWidget: ViewWithRoundedCorner {
         descriptionLabel.textColor = .white
     }
     
-    func setData(data: PrecipitationStringValue) {
+    func configure(data: PrecipitationStringValue) {
         valueNumberLabel.text = data.currentValue
         valueTextLabel.text =  data.preciptiationText
         descriptionLabel.text = data.futureValue

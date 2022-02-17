@@ -45,7 +45,7 @@ class HourlyForecastSectionView: CellWithRoundedCorner {
         }
     }
 
-    func setData(data: WeatherDataService.OneDayResponse) {
+    func configure(data: WeatherDataService.OneDayResponse) {
         
         for i in data.hourly {
             let oneHourInfoView = OneHourInfoView()

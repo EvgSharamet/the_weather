@@ -41,12 +41,12 @@ class TenDaysForecastSectionView: CellWithRoundedCorner {
         }
     }
     
-    func setData(data: TenDaysStringValue) {
+    func configure(data: TenDaysStringValue) {
         for dayData in data.list {
             let oneDayInfoView = OneDayInfoView()
             tenDaysStackView?.addArrangedSubview(oneDayInfoView)
             oneDayInfoView.prepare()
-            oneDayInfoView.setData(data: dayData)
+            oneDayInfoView.configure(data: dayData)
             oneDayInfoView.snp.makeConstraints { maker in
                 maker.width.equalToSuperview()
             }

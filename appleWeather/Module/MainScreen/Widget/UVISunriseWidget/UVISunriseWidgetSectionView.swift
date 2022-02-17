@@ -51,9 +51,9 @@ class UVISunriseWidgetSectionView: UITableViewCell {
        stackView.addArrangedSubview(sunriseWidget)
     }
     
-    func setData(dataForUVIVidget: UVIWidget.UVIndexStringValue, dataForSunriseVidget: SunriseWidget.SunriseStringValue) {
-        uviWidget?.setData(data: dataForUVIVidget)
-        sunriseWidget?.setData(data: dataForSunriseVidget)
+    func configure(dataForUVIVidget: UVIWidget.UVIndexStringValue, dataForSunriseVidget: SunriseWidget.SunriseStringValue) {
+        uviWidget?.configure(data: dataForUVIVidget)
+        sunriseWidget?.configure(data: dataForSunriseVidget)
     }
 }
 

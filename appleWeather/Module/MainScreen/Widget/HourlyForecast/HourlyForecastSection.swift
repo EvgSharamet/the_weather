@@ -39,7 +39,7 @@ struct HourlyForecastSection: SectionConfiguratorProtocol {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HourlyForecastSectionView
 
         guard let data = self.data else { return cell }
-        cell.setData(data: data)
+        cell.configure(data: data)
         return cell
     }
     

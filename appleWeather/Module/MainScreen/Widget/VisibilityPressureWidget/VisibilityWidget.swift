@@ -43,7 +43,7 @@ class VisibilityWidget:  ViewWithRoundedCorner {
         descriptionLabel.textColor = .white
     }
     
-    func setData(data: VisibilityStringValue) {
+    func configure(data: VisibilityStringValue) {
         visibilityValueLabel.text = data.visibilityValue
         descriptionLabel.text = data.description
     }

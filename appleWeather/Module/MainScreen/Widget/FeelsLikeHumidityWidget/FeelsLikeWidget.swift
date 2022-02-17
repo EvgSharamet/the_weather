@@ -42,7 +42,7 @@ class FeelsLikeWidget: ViewWithRoundedCorner {
         descriptionLabel.textColor = .white
     }
     
-    func setData(data: FeelsLikeStringValue) {
+    func configure(data: FeelsLikeStringValue) {
         feelsLikeValueLabel.text = data.feelsLikeValue
         descriptionLabel.text = data.description
     }

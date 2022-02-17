@@ -47,7 +47,7 @@ class TenDaysForecastSection: SectionConfiguratorProtocol {
             list.append( OneDayInfoView.OneDayStringValue(icon: dayData.icon, min: dayData.min, max: dayData.max, leftOffset: dayData.leftOffset, distributionIndicatorWidth: dayData.indicatorRealWidth, dayOfTheWeek: dayData.dayOfTheWeek))
         }
         
-        cell.setData(data: TenDaysForecastSectionView.TenDaysStringValue(list: list, todayPoint:  dataForTenDaysSection.todayPoint))
+        cell.configure(data: TenDaysForecastSectionView.TenDaysStringValue(list: list, todayPoint:  dataForTenDaysSection.todayPoint))
         return cell
     }
     

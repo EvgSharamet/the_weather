@@ -43,7 +43,7 @@ class HumidityWidget: ViewWithRoundedCorner {
         descriptionLabel.textColor = .white
     }
     
-    func setData(data: HumidityStringValue) {
+    func configure(data: HumidityStringValue) {
         humidityValueLabel.text = data.humidityValue
         descriptionLabel.text = data.description
     }

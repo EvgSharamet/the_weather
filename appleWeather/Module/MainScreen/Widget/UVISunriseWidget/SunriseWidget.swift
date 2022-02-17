@@ -35,7 +35,7 @@ class SunriseWidget: ViewWithRoundedCorner {
         stackView.addArrangedSubview(sunsetLabel)
     }
     
-    func setData(data: SunriseStringValue) {
+    func configure(data: SunriseStringValue) {
         sunriseLabel.text = data.sunriseValue
         sunsetLabel.text = data.sunsetValue
     }

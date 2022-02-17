@@ -50,8 +50,8 @@ class WindPrecipitationWidgetSectionView: UITableViewCell {
        precipitationWidget.prepare()
     }
     
-    func setData(dataForWindVidget: WindWidget.WindStringValue, dataForPrecipitationWidget: PrecipitationWidget.PrecipitationStringValue) {
-        windWidget?.setData(data: dataForWindVidget)
-        precipitationWidget?.setData(data: dataForPrecipitationWidget)
+    func configure(dataForWindVidget: WindWidget.WindStringValue, dataForPrecipitationWidget: PrecipitationWidget.PrecipitationStringValue) {
+        windWidget?.configure(data: dataForWindVidget)
+        precipitationWidget?.configure(data: dataForPrecipitationWidget)
     }
 }

@@ -86,7 +86,7 @@ class OneDayInfoView: UIView {
         maxTempLabel.textAlignment = .center
     }
 
-    func setData(data: OneDayStringValue) {
+    func configure(data: OneDayStringValue) {
         weatherIconImageView.image = data.icon
         dateLabel.text = data.dayOfTheWeek
         minTempLabel.text = data.min

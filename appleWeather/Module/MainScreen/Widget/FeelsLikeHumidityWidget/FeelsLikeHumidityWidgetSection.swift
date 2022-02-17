@@ -65,7 +65,7 @@ class FeelsLikeHumidityWidgetSection: SectionConfiguratorProtocol {
 
         let feelsLikeDataStringValue = StringGeneratorForViewService.shared.getFeelsLikeStringValue(rowData: data)
         let humidityDataStringValue = StringGeneratorForViewService.shared.getHumidityStringValue(rowData: data)
-        cell.setData(dataForFeelsLikeWidget: FeelsLikeWidget.FeelsLikeStringValue(feelsLikeValue: feelsLikeDataStringValue.feelsLikeValue, description: feelsLikeDataStringValue.description), dataForHumidityWidget: HumidityWidget.HumidityStringValue(humidityValue: humidityDataStringValue.humidityValue, description: humidityDataStringValue.description))
+        cell.configure(dataForFeelsLikeWidget: FeelsLikeWidget.FeelsLikeStringValue(feelsLikeValue: feelsLikeDataStringValue.feelsLikeValue, description: feelsLikeDataStringValue.description), dataForHumidityWidget: HumidityWidget.HumidityStringValue(humidityValue: humidityDataStringValue.humidityValue, description: humidityDataStringValue.description))
         return cell
     }
     

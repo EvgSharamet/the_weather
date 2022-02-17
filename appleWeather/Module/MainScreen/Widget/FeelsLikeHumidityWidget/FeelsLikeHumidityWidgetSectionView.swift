@@ -52,9 +52,9 @@ class FeelsLikeHumidityWidgetSectionView: UITableViewCell {
        stackView.addArrangedSubview(humidityWidget)
     }
     
-    func setData(dataForFeelsLikeWidget:  FeelsLikeWidget.FeelsLikeStringValue, dataForHumidityWidget: HumidityWidget.HumidityStringValue) {
-        feelsLikeWidget?.setData(data: dataForFeelsLikeWidget)
-        humidityWidget?.setData(data: dataForHumidityWidget)
+    func configure(dataForFeelsLikeWidget:  FeelsLikeWidget.FeelsLikeStringValue, dataForHumidityWidget: HumidityWidget.HumidityStringValue) {
+        feelsLikeWidget?.configure(data: dataForFeelsLikeWidget)
+        humidityWidget?.configure(data: dataForHumidityWidget)
     }
 }
 

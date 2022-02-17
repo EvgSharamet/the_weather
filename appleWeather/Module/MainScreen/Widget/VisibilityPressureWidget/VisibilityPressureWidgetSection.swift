@@ -65,7 +65,7 @@ class VisibilityPressureWidgetSection: SectionConfiguratorProtocol {
         
         let dataForVisibilityWidget = StringGeneratorForViewService.shared.getVisibilityStringValue(rowData: data)
         let dataForPressureWidget = StringGeneratorForViewService.shared.getPressureStringValue(rowData: data)
-        cell.setData(dataForVisibilityWidget: VisibilityWidget.VisibilityStringValue(visibilityValue: dataForVisibilityWidget.visibilityValue, description: dataForVisibilityWidget.description),dataForPressureWidget: PressureWidget.PressureStringValue(pressureValue: dataForPressureWidget.pressureValue, degreesForGraph: dataForPressureWidget.degreesForGraph, aboveNorm: dataForPressureWidget.aboveNorm, willRise: dataForPressureWidget.willRise, description: dataForPressureWidget.description))
+        cell.configure(dataForVisibilityWidget: VisibilityWidget.VisibilityStringValue(visibilityValue: dataForVisibilityWidget.visibilityValue, description: dataForVisibilityWidget.description),dataForPressureWidget: PressureWidget.PressureStringValue(pressureValue: dataForPressureWidget.pressureValue, degreesForGraph: dataForPressureWidget.degreesForGraph, aboveNorm: dataForPressureWidget.aboveNorm, willRise: dataForPressureWidget.willRise, description: dataForPressureWidget.description))
         return cell
     }
     

@@ -81,7 +81,7 @@ class UVIWidget: ViewWithRoundedCorner {
         }
     }
     
-    func setData(data: UVIndexStringValue) {
+    func configure(data: UVIndexStringValue) {
         valueNumberLabel.text = data.numberValue
         valueTextLabel.text = data.textValue
         descriptionLabel.text = data.description
