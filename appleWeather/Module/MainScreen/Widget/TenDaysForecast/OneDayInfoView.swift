@@ -70,6 +70,7 @@ class OneDayInfoView: UIView {
         distributionAxisView.addSubview(distributionIndicatorView)
         distributionIndicatorView.snp.makeConstraints { make in
             make.height.equalToSuperview()
+            make.centerY.equalToSuperview()
         }
         distributionIndicatorView.layer.cornerRadius = 2
         distributionIndicatorView.backgroundColor = .cyan
