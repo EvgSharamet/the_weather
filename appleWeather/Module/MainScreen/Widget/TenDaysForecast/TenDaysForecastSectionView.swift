@@ -13,6 +13,11 @@ import SnapKit
 
 class TenDaysForecastSectionView: CellWithRoundedCorner {
     
+    struct TenDaysStringValue {
+        let list: [OneDayInfoView.OneDayStringValue]
+        let todayPoint: Double
+    }
+    
     var tenDaysStackView: UIStackView?
      
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -36,11 +41,12 @@ class TenDaysForecastSectionView: CellWithRoundedCorner {
         }
     }
     
-    func setData(data: WeatherDataService.TenDaysResponse) {
-        for i in data.list {
+    func setData(data: TenDaysStringValue) {
+        for dayData in data.list {
             let oneDayInfoView = OneDayInfoView()
             tenDaysStackView?.addArrangedSubview(oneDayInfoView)
-            oneDayInfoView.prepare(weatherData: i)
+            oneDayInfoView.prepare()
+            oneDayInfoView.setData(data: dayData)
             oneDayInfoView.snp.makeConstraints { maker in
                 maker.width.equalToSuperview()
             }

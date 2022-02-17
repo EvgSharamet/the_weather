@@ -28,9 +28,9 @@ class StringGeneratorForViewService {
     }
     
     struct WindStringValue {
-         let windSpeed: String
-         let windMeasure = "м/с"
-         let windDeg: Int
+        let windSpeed: String
+        let windMeasure = "м/с"
+        let windDeg: Int
     }
     
     struct PrecipitationStringValue {
@@ -64,6 +64,20 @@ class StringGeneratorForViewService {
         let description = "мм рт. ст."
     }
     
+    struct TenDaysStringValue {
+        struct OneDayStringValue {
+            let icon: UIImage?
+            let min: String
+            let max: String
+            let indicatorRealWidth: Double?
+            let leftOffset: Double?
+            let dayOfTheWeek: String
+        }
+        
+        let list: [OneDayStringValue]
+        let todayPoint: Double
+    }
+    
     static let shared = StringGeneratorForViewService()
     
     func  getUVIndexStringValue(rowData: WeatherDataService.OneDayResponse)  -> UVIndexStringValue {
@@ -92,7 +106,6 @@ class StringGeneratorForViewService {
             uviValuesPerDay.append(i.uvi)
         }
         uviValuesPerDay = uviValuesPerDay.dropLast(12)
-       
         
         let currentUVI = uviValuesPerDay[0]
         guard let maxUVI =  uviValuesPerDay.max() else {
@@ -127,7 +140,7 @@ class StringGeneratorForViewService {
         
         if let rainCurrentPrecipitation = rowData.list[0].rain {
             weatherType = .rain
-            currentPrecipitation = String(Int(rainCurrentPrecipitation * 10)) + " мм"
+            currentPrecipitation = String(Int(rainCurrentPrecipitation)) + " мм"
         }
         
         if let snowCurrentPrecipitation = rowData.list[0].snow {
@@ -136,13 +149,13 @@ class StringGeneratorForViewService {
             } else {
                 weatherType = .snow
             }
-            currentPrecipitation = String(Int(snowCurrentPrecipitation * 10)) + " мм"
+            currentPrecipitation = String(Int(snowCurrentPrecipitation)) + " мм"
         }
         
         
         if let rainCurrentPrecipitation = rowData.list[0].rain {
             weatherType = .rain
-            currentPrecipitation = String(Int(rainCurrentPrecipitation * 10 )) + " мм"
+            currentPrecipitation = String(Int(rainCurrentPrecipitation)) + " мм"
         }
         
         if let snowCurrentPrecipitation = rowData.list[0].snow {
@@ -151,15 +164,15 @@ class StringGeneratorForViewService {
             } else {
                 weatherType = .snow
             }
-            currentPrecipitation = String(Int(snowCurrentPrecipitation * 10 )) + " мм"
+            currentPrecipitation = String(Int(snowCurrentPrecipitation)) + " мм"
         }
         
         if let rainFuturePrecipitation = rowData.list[1].rain {
-            futurePrecipitation = String(Int(rainFuturePrecipitation * 10 )) + " мм ожидается в течение суток"
+            futurePrecipitation = String(Int(rainFuturePrecipitation)) + " мм ожидается в течение суток"
         }
         
         if let snowFuturePrecipitation = rowData.list[1].snow {
-            futurePrecipitation = String(Int(snowFuturePrecipitation * 10)) + " мм ожидается в течение суток"
+            futurePrecipitation = String(Int(snowFuturePrecipitation)) + " мм ожидается в течение суток"
         }
         
         var textForHeader = ""
@@ -234,5 +247,48 @@ class StringGeneratorForViewService {
         }
         let willRise = Bool(rowData.hourly[1].pressure > rowData.hourly[0].pressure)
         return PressureStringValue(pressureValue: pressureValue, degreesForGraph: degressForGraph, aboveNorm: aboveNorm, willRise: willRise)
+    }
+    
+    func getTenDaysStringValue(rowData: WeatherDataService.TenDaysResponse) -> TenDaysStringValue {
+        
+        var tenDays: [TenDaysStringValue.OneDayStringValue] = []
+        
+        for rowDay in rowData.list {
+      //      let urlForImage = URL(string: "https://openweathermap.org/img/wn/\(rowDay.weather[0].icon))@2x.png")
+    //        let iconData = try? Data(contentsOf: urlForImage!)
+            let icon = UIImage(named: "arrowWind")
+            let globalMin = Int(rowDay.temp.min)
+            let globalMax = Int(rowDay.temp.max)
+            let dailyAverages = [Int(rowDay.temp.morn), Int(rowDay.temp.day), Int(rowDay.temp.eve), Int(rowDay.temp.night)]
+    
+            guard let localMin = dailyAverages.min() else { continue }
+            guard let localMax = dailyAverages.max() else { continue }
+            
+            let globalWidth = Double(globalMax - globalMin)
+            let width = Double(localMax - localMin)
+            
+            var indicatorRealWidth: Double?
+            var leftOffset: Double?
+            
+            if globalWidth != Double(0) {
+                indicatorRealWidth = Double(width / globalWidth)
+                leftOffset = Double( Int(localMin) - globalMin) / globalWidth * 100
+            }
+            
+            print("!!!!!!!!!!!!!!!!!!!!!!!!")
+            print(globalMin)
+            print(globalMax)
+            print(localMin)
+            print(localMax)
+            print("next")
+            
+            let date = Date(timeIntervalSince1970: rowDay.dt)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "EEE"
+            let dayOfTheWeek = dateFormatter.string(from: date).capitalized
+            
+            tenDays.append(TenDaysStringValue.OneDayStringValue(icon: icon, min: String("\(globalMin)°"), max: String("\(globalMax)°"), indicatorRealWidth: indicatorRealWidth, leftOffset: leftOffset, dayOfTheWeek: dayOfTheWeek))
+        }
+        return TenDaysStringValue.init(list: tenDays, todayPoint: 0) // больше не могу, посчитай его потом
     }
 }
