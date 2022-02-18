@@ -20,6 +20,7 @@ class OneDayInfoView: UIView {
         let leftOffset: Double?
         let distributionIndicatorWidth: Double?
         let dayOfTheWeek: String
+        let clouds: String
     }
     
     let distributionIndicatorView = UIView()
@@ -29,6 +30,7 @@ class OneDayInfoView: UIView {
     let minTempLabel = UILabel()
     let maxTempLabel = UILabel()
     let currentPointView = UIImageView()
+    let cloudsLabel = UILabel()
     
     func prepare() {
         let mainStackView = UIStackView()
@@ -39,13 +41,24 @@ class OneDayInfoView: UIView {
             maker.edges.equalToSuperview()
         }
         mainStackView.addArrangedSubview(dateLabel)
-  
-        weatherIconImageView.contentMode = .scaleAspectFit
+        
         mainStackView.addArrangedSubview(weatherIconImageView)
         weatherIconImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(-20)
-            make.bottom.equalToSuperview().inset(-20)
+            make.top.equalToSuperview().inset(-10)
+            make.bottom.equalToSuperview().inset(-10)
         }
+        weatherIconImageView.contentMode = .scaleAspectFit
+        
+        weatherIconImageView.addSubview(cloudsLabel)
+        cloudsLabel.snp.makeConstraints { make in
+            make.bottom.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.height.equalTo(14)
+            make.width.equalToSuperview()
+        }
+        cloudsLabel.font = cloudsLabel.font.withSize(14)
+        cloudsLabel.textAlignment = .center
+        cloudsLabel.textColor = .cyan
         
         mainStackView.addArrangedSubview(minTempLabel)
         minTempLabel.textAlignment = .center
@@ -92,6 +105,7 @@ class OneDayInfoView: UIView {
         dateLabel.text = data.dayOfTheWeek
         minTempLabel.text = data.min
         maxTempLabel.text = data.max
+        cloudsLabel.text = data.clouds
         
         guard let leftOffset = data.leftOffset else {
             return

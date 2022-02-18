@@ -80,6 +80,7 @@ class WindWidget: ViewWithRoundedCorner {
     func configure(data: WindStringValue) {
         windSpeedLabel.text = data.windSpeed
         windMeasureLabel.text = data.windMeasure
+        arrowImageView.transform = .identity
         arrowImageView.transform = arrowImageView.transform.rotated(by: CGFloat(data.windDeg) * .pi / 180 )
     }
 }

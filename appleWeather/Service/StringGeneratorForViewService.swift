@@ -72,13 +72,25 @@ class StringGeneratorForViewService {
             let indicatorRealWidth: Double?
             let leftOffset: Double?
             let dayOfTheWeek: String
+            let clouds: String
         }
         
         let list: [OneDayStringValue]
         let todayPoint: Double
     }
     
+    struct HeaderStringValue {
+        let cityName: String
+        let temp: String
+        let description: String
+        let maxMinTemp: String
+    }
+    
     static let shared = StringGeneratorForViewService()
+    
+    func getHeaderStringValue(rowData: WeatherDataService.OneDayResponse, rowDataForMinMax: WeatherDataService.TenDaysResponse) -> HeaderStringValue {
+        return HeaderStringValue(cityName: "Калининград", temp: String("\(rowData.hourly[0])°"), description: rowData.hourly[0].weather.description, maxMinTemp: String("Mакс.: \(rowDataForMinMax.list[0].temp.max), мин.:\(rowDataForMinMax.list[0].temp.min)"))
+    }
     
     func  getUVIndexStringValue(rowData: WeatherDataService.OneDayResponse)  -> UVIndexStringValue {
         
@@ -284,7 +296,7 @@ class StringGeneratorForViewService {
             dateFormatter.dateFormat = "EEE"
             let dayOfTheWeek = dateFormatter.string(from: date).capitalized
             
-            tenDays.append(TenDaysStringValue.OneDayStringValue(icon: icon, min: String("\(globalMin)°"), max: String("\(globalMax)°"), indicatorRealWidth: indicatorRealWidth, leftOffset: leftOffset, dayOfTheWeek: dayOfTheWeek))
+            tenDays.append(TenDaysStringValue.OneDayStringValue(icon: icon, min: String("\(globalMin)°"), max: String("\(globalMax)°"), indicatorRealWidth: indicatorRealWidth, leftOffset: leftOffset, dayOfTheWeek: dayOfTheWeek, clouds: String("\(rowDay.clouds)%")))
         }
         return TenDaysStringValue.init(list: tenDays, todayPoint: 0) // больше не могу, посчитай его потом
     }

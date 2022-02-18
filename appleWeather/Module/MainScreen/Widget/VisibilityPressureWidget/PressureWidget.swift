@@ -92,6 +92,7 @@ class PressureWidget: ViewWithRoundedCorner {
     
     func configure(data: PressureStringValue) {
         pressureValueLabel.text = data.pressureValue
+        arrowImageView.transform = .identity
         if data.willRise {
             valueSegmentImageView.transform = CGAffineTransform(scaleX: -1, y: 1)
             valueSegmentImageView.transform = valueSegmentImageView.transform.rotated(by: CGFloat(-data.degreesForGraph) * .pi / 180 )

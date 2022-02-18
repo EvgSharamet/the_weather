@@ -72,7 +72,7 @@ class WeatherDataService {
             let temp: Temp
             let humidity: Int
             let weather: [Weather]
-            let clouds: Float
+            let clouds: Int
             let rain: Float?
             let snow: Float?
         }
