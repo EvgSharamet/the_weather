@@ -37,8 +37,7 @@ class PressureWidget: ViewWithRoundedCorner {
     
         self.addSubview(valueSegmentImageView)
         valueSegmentImageView.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.height.equalToSuperview()
+            make.edges.equalToSuperview()
         }
         valueSegmentImageView.contentMode = .scaleAspectFit
         valueSegmentImageView.image = UIImage(named: "valueSegmentPressure")
@@ -51,15 +50,23 @@ class PressureWidget: ViewWithRoundedCorner {
             make.width.equalTo(80)
         }
         centerStackView.axis = .vertical
+        centerStackView.distribution = .equalSpacing
         
         centerStackView.addArrangedSubview(arrowImageView)
         arrowImageView.image = UIImage(named: "arrowPressure")
         arrowImageView.contentMode = .scaleAspectFit
         
+        
         centerStackView.addArrangedSubview(pressureValueLabel)
+        pressureValueLabel.snp.makeConstraints { make in
+            make.height.equalToSuperview().multipliedBy(0.33)
+            make.centerY.equalToSuperview()
+            make.width.equalToSuperview()
+        }
         pressureValueLabel.textAlignment = .center
         pressureValueLabel.font = pressureValueLabel.font.withSize(20)
         pressureValueLabel.textColor = .white
+        
         
         centerStackView.addArrangedSubview(descriptionLabel)
         descriptionLabel.font = descriptionLabel.font.withSize(15)
@@ -92,7 +99,7 @@ class PressureWidget: ViewWithRoundedCorner {
     
     func configure(data: PressureStringValue) {
         pressureValueLabel.text = data.pressureValue
-        arrowImageView.transform = .identity
+        valueSegmentImageView.transform = .identity
         if data.willRise {
             valueSegmentImageView.transform = CGAffineTransform(scaleX: -1, y: 1)
             valueSegmentImageView.transform = valueSegmentImageView.transform.rotated(by: CGFloat(-data.degreesForGraph) * .pi / 180 )

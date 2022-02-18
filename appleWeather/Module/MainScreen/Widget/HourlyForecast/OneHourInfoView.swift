@@ -13,7 +13,6 @@ import UIKit
 class OneHourInfoView: UIView {
     
     func prepare(weatherData: WeatherDataService.OneDayResponse.Hourly) {
-        
         let mainStackView = UIStackView()
         mainStackView.axis = .vertical
         mainStackView.distribution = .equalCentering
@@ -54,8 +53,6 @@ class OneHourInfoView: UIView {
                 weatherIconImageView.image = UIImage(data:iconData)
             }
         }
-        
-        
         tempLabel.text = String(Int(weatherData.temp)) + "°"
     }
 }

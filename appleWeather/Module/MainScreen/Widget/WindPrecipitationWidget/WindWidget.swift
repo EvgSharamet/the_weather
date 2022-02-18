@@ -74,7 +74,6 @@ class WindWidget: ViewWithRoundedCorner {
         windMeasureLabel.font = windMeasureLabel.font.withSize(16)
         centerStack.addArrangedSubview(windSpeedLabel)
         centerStack.addArrangedSubview(windMeasureLabel)
-        
     }
     
     func configure(data: WindStringValue) {
