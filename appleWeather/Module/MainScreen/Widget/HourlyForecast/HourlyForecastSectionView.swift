@@ -12,6 +12,10 @@ import UIKit
 
 class HourlyForecastSectionView: CellWithRoundedCorner {
     
+    struct HourlyForecastStringValue {
+        let list: [OneHourInfoView.OneHourStringValue]
+    }
+    
     var stackView: UIStackView?
     var hourlyStackView: UIStackView?
      
@@ -45,21 +49,16 @@ class HourlyForecastSectionView: CellWithRoundedCorner {
         }
     }
 
-    func configure(data: WeatherDataService.OneDayResponse) {
-        
-        for i in data.hourly {
+    func configure(data: HourlyForecastStringValue) {
+        for hour in data.list {
             let oneHourInfoView = OneHourInfoView()
-            oneHourInfoView.prepare(weatherData: i)
+            oneHourInfoView.prepare()
+            oneHourInfoView.configure(data: OneHourInfoView.OneHourStringValue(date: hour.date, icon: hour.icon, clouds: hour.clouds, showClouds: hour.showClouds, temp: hour.temp))
             self.stackView?.addArrangedSubview(oneHourInfoView)
             oneHourInfoView.snp.makeConstraints { maker in
                 maker.height.equalTo(120)
                 maker.width.equalTo(60)
             }
         }
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        stackView?.arrangedSubviews.forEach{ $0.removeFromSuperview() }
     }
 }

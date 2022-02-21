@@ -38,8 +38,15 @@ struct HourlyForecastSection: SectionConfiguratorProtocol {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HourlyForecastSectionView
 
-        guard let data = self.data else { return cell }
-        cell.configure(data: data)
+        guard let rowData = self.data else { return cell }
+        let data = StringGeneratorForViewService.shared.getHourlyStringValue(rowData: rowData)
+        var list:[OneHourInfoView.OneHourStringValue] = []
+        
+        for hourData in data.list {
+            list.append(OneHourInfoView.OneHourStringValue(date: hourData.date, icon: hourData.icon, clouds: hourData.clouds, showClouds: hourData.showClouds, temp: hourData.temp))
+        }
+
+        cell.configure(data: HourlyForecastSectionView.HourlyForecastStringValue(list: list))
         return cell
     }
     

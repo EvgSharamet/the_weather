@@ -21,6 +21,7 @@ class OneDayInfoView: UIView {
         let distributionIndicatorWidth: Double?
         let dayOfTheWeek: String
         let clouds: String
+        let showClouds: Bool
     }
     
     let distributionIndicatorView = UIView()
@@ -105,7 +106,9 @@ class OneDayInfoView: UIView {
         dateLabel.text = data.dayOfTheWeek
         minTempLabel.text = data.min
         maxTempLabel.text = data.max
-        cloudsLabel.text = data.clouds
+        if data.showClouds {
+            cloudsLabel.text = data.clouds
+        }
         
         guard let leftOffset = data.leftOffset else {
             return

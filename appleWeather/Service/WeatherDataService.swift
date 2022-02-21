@@ -8,6 +8,7 @@
 import Foundation
 import CoreLocation
 
+
 class WeatherDataService {
     //MARK: - types
     
@@ -22,11 +23,24 @@ class WeatherDataService {
         }
         
         struct Hourly: Codable {
+            
             let dt: Double
             let temp: Float
             let pressure: Int
+            let clouds: Int
             let weather: [Weather]
             let uvi: Float
+            let rain: Rain?
+            let snow: Snow?
+
+            struct Rain: Codable {
+                let h1: Double
+                private enum CodingKeys : String, CodingKey { case h1 = "1h"}
+            }
+            struct Snow: Codable {
+                let h1: Double
+                private enum CodingKeys : String, CodingKey { case h1 = "1h"}
+            }
         }
         
         struct Current: Codable {

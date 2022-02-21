@@ -44,7 +44,7 @@ class TenDaysForecastSection: SectionConfiguratorProtocol {
         let dataForTenDaysSection = StringGeneratorForViewService.shared.getTenDaysStringValue(rowData: data)
         var list: [OneDayInfoView.OneDayStringValue] = []
         for dayData in dataForTenDaysSection.list {
-            list.append( OneDayInfoView.OneDayStringValue(icon: dayData.icon, min: dayData.min, max: dayData.max, leftOffset: dayData.leftOffset, distributionIndicatorWidth: dayData.indicatorRealWidth, dayOfTheWeek: dayData.dayOfTheWeek, clouds: dayData.clouds))
+            list.append( OneDayInfoView.OneDayStringValue(icon: dayData.icon, min: dayData.min, max: dayData.max, leftOffset: dayData.leftOffset, distributionIndicatorWidth: dayData.indicatorRealWidth, dayOfTheWeek: dayData.dayOfTheWeek, clouds: dayData.clouds, showClouds: dayData.showClouds))
         }
         
         cell.configure(data: TenDaysForecastSectionView.TenDaysStringValue(list: list, todayPoint:  dataForTenDaysSection.todayPoint))

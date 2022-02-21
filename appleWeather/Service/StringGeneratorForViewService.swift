@@ -73,6 +73,7 @@ class StringGeneratorForViewService {
             let leftOffset: Double?
             let dayOfTheWeek: String
             let clouds: String
+            let showClouds: Bool
         }
         
         let list: [OneDayStringValue]
@@ -86,10 +87,46 @@ class StringGeneratorForViewService {
         let maxMinTemp: String
     }
     
+    struct HourlyStringValue {
+        struct OneHourStringValue {
+            let date: String
+            let icon: UIImage?
+            let clouds: String
+            let temp: String
+            let showClouds: Bool
+        }
+        let list: [OneHourStringValue]
+    }
+    
     static let shared = StringGeneratorForViewService()
     
     func getHeaderStringValue(rowData: WeatherDataService.OneDayResponse, rowDataForMinMax: WeatherDataService.TenDaysResponse) -> HeaderStringValue {
         return HeaderStringValue(cityName: "Калининград", temp: String("\(rowData.hourly[0])°"), description: rowData.hourly[0].weather.description, maxMinTemp: String("Mакс.: \(rowDataForMinMax.list[0].temp.max), мин.:\(rowDataForMinMax.list[0].temp.min)"))
+    }
+    
+    func getHourlyStringValue(rowData: WeatherDataService.OneDayResponse) -> HourlyStringValue {
+        
+        var list: [HourlyStringValue.OneHourStringValue] = []
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH"
+        for hourlyData in  rowData.hourly {
+            let date = dateFormatter.string(from: Date(timeIntervalSince1970: hourlyData.dt))
+            var icon: UIImage?
+            if let urlForImage = URL(string: "https://openweathermap.org/img/wn/\(hourlyData.weather[0].icon)@2x.png") {
+                if let iconData = try? Data(contentsOf: urlForImage) {
+                    icon = UIImage(data:iconData)
+                }
+            }
+            
+            var showClouds = false
+            
+            if hourlyData.rain != nil || hourlyData.snow != nil {
+                showClouds = true
+            }
+            
+            list.append(HourlyStringValue.OneHourStringValue(date: date, icon: icon, clouds: String("\(hourlyData.clouds)%") , temp: String("\(Int(hourlyData.temp))°"), showClouds: showClouds))
+        }
+        return HourlyStringValue(list: list)
     }
     
     func  getUVIndexStringValue(rowData: WeatherDataService.OneDayResponse)  -> UVIndexStringValue {
@@ -296,7 +333,12 @@ class StringGeneratorForViewService {
             dateFormatter.dateFormat = "EEE"
             let dayOfTheWeek = dateFormatter.string(from: date).capitalized
             
-            tenDays.append(TenDaysStringValue.OneDayStringValue(icon: icon, min: String("\(globalMin)°"), max: String("\(globalMax)°"), indicatorRealWidth: indicatorRealWidth, leftOffset: leftOffset, dayOfTheWeek: dayOfTheWeek, clouds: String("\(rowDay.clouds)%")))
+            var showClouds = false
+            if rowDay.rain != nil || rowDay.snow != nil {
+                showClouds = true
+            }
+            
+            tenDays.append(TenDaysStringValue.OneDayStringValue(icon: icon, min: String("\(globalMin)°"), max: String("\(globalMax)°"), indicatorRealWidth: indicatorRealWidth, leftOffset: leftOffset, dayOfTheWeek: dayOfTheWeek, clouds: String("\(rowDay.clouds)%"), showClouds: showClouds))
         }
         return TenDaysStringValue.init(list: tenDays, todayPoint: 0) // больше не могу, посчитай его потом
     }
