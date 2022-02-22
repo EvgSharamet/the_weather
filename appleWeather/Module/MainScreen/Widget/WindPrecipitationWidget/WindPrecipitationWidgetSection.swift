@@ -13,8 +13,7 @@ import SnapKit
 
 class WindPrecipitationWidgetSection: SectionConfiguratorProtocol {
     let cellIdentifier = "WindHumidityWidgetSectionCell"
-    var dataOneDay: WeatherDataService.OneDayResponse?
-    var dataTenDays: WeatherDataService.TenDaysResponse?
+    var data: (StringGeneratorForViewService.WindStringValue, StringGeneratorForViewService.PrecipitationStringValue)?
     var precipitationHeaderLabel = UILabel()
     
     func getHeaderView() -> UIView? {
@@ -59,20 +58,13 @@ class WindPrecipitationWidgetSection: SectionConfiguratorProtocol {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! WindPrecipitationWidgetSectionView
-
-        guard let dataOneDay = dataOneDay else {
-            return cell
-        }
-        
-        guard let dataTenDays = dataTenDays else {
-            return cell
-        }
-
  
-        let windDataStringValue = StringGeneratorForViewService.shared.getWindStringValue(rowData: dataOneDay)
-        let precipitationDataStringValue = StringGeneratorForViewService.shared.getPrecipitationStringValue(rowData: dataTenDays)
-        precipitationHeaderLabel.text = precipitationDataStringValue.textForHeader
+        guard let data = data else {
+            return cell
+        }
 
+        let windDataStringValue = data.0
+        let precipitationDataStringValue = data.1
         
         cell.configure(dataForWindVidget: WindWidget.WindStringValue(windSpeed: windDataStringValue.windSpeed, windMeasure: windDataStringValue.windMeasure, windDeg: windDataStringValue.windDeg), dataForPrecipitationWidget: PrecipitationWidget.PrecipitationStringValue (weatherType: precipitationDataStringValue.weatherType, textForHeader: precipitationDataStringValue.textForHeader, currentValue: precipitationDataStringValue.currentValue, futureValue: precipitationDataStringValue.futureValue))
         return cell

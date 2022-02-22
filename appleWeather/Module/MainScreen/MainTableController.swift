@@ -47,40 +47,60 @@ class MainTableController: UIViewController, UITableViewDelegate, UITableViewDat
             maker.bottom.equalToSuperview()
         }
         tableView.backgroundColor = .clear
-        
         tableView.delegate = self
         tableView.dataSource = self
-        
         hourlyForecastSection = HourlyForecastSection(tableView: tableView)
         tenDaysForecastSection = TenDaysForecastSection(tableView: tableView)
         uviSunriseWidgetSection = UVISunriseWidgetSection(tableView: tableView)
         windPrecipitationWidgetSection = WindPrecipitationWidgetSection(tableView: tableView)
         feelsLikeHumidityWidgetSection = FeelsLikeHumidityWidgetSection(tableView: tableView)
         visibilityPressureWidgetSection = VisibilityPressureWidgetSection(tableView: tableView)
+        updateData()
+    }
+    
+    private func updateData() {
+        let group = DispatchGroup()
+        var oneDayResponse: WeatherDataService.OneDayResponse?
+        var tenDaysResponse: WeatherDataService.TenDaysResponse?
+        
+        group.enter()
+        group.enter()
         
         WeatherDataService.shared.requestByCurrentDay(place: "Калиниград") { result in
             switch result {
             case .success(let weatherData):
-                self.hourlyForecastSection?.data = weatherData
-                self.uviSunriseWidgetSection?.data = weatherData
-                self.windPrecipitationWidgetSection?.dataOneDay = weatherData
-                self.feelsLikeHumidityWidgetSection?.data = weatherData
-                self.visibilityPressureWidgetSection?.data = weatherData
-                self.tableView.reloadData()
+                oneDayResponse = weatherData
+            case .failure(_):
+                print("Something goes wrong")
+            }
+            group.leave()
+        }
+        
+        WeatherDataService.shared.requestByTenDays(place: "Калининград") { result in
+            switch result {
+            case .success(let weatherData):
+                tenDaysResponse = weatherData
             case .failure(_):
                 print("Something goes wrong")
             }
         }
         
-        WeatherDataService.shared.requestByTenDays(place: "Калининград") { result in
-            switch result {
-                case .success(let weatherData):
-                    self.tenDaysForecastSection?.data = weatherData
-                self.windPrecipitationWidgetSection?.dataTenDays = weatherData
-                    self.tableView.reloadData()
-                case .failure(_):
-                    print("Something goes wrong")
+        group.notify(queue: .main) {
+            guard let oneDayResponse = oneDayResponse else {
+                return
             }
+            guard let tenDaysResponse = tenDaysResponse else {
+                return
+            }
+
+            self.hourlyForecastSection?.data = StringGeneratorForViewService.shared.getHourlyStringValue(rowData: oneDayResponse)
+            self.tenDaysForecastSection?.data = StringGeneratorForViewService.shared.getTenDaysStringValue(rowData: tenDaysResponse)
+            self.uviSunriseWidgetSection?.data = (StringGeneratorForViewService.shared.getUVIndexStringValue(rowData: oneDayResponse), StringGeneratorForViewService.shared.getSunriseStringValue(rowData: oneDayResponse))
+            self.windPrecipitationWidgetSection?.data = (StringGeneratorForViewService.shared.getWindStringValue(rowData: oneDayResponse), StringGeneratorForViewService.shared.getPrecipitationStringValue(rowData: tenDaysResponse))
+                                                   
+            self.feelsLikeHumidityWidgetSection?.data = (StringGeneratorForViewService.shared.getFeelsLikeStringValue(rowData: oneDayResponse), StringGeneratorForViewService.shared.getHumidityStringValue(rowData: oneDayResponse))
+            self.visibilityPressureWidgetSection?.data = (StringGeneratorForViewService.shared.getVisibilityStringValue(rowData: oneDayResponse), StringGeneratorForViewService.shared.getPressureStringValue(rowData: oneDayResponse))
+            self.tableView.reloadData()
         }
     }
 }

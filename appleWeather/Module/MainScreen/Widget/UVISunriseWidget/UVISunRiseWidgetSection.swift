@@ -14,7 +14,7 @@ import UIKit
 class UVISunriseWidgetSection: SectionConfiguratorProtocol {
 
     let cellIdentifier = "UVISunriseWidgetSectionCell"
-    var data: WeatherDataService.OneDayResponse?
+    var data: (StringGeneratorForViewService.UVIndexStringValue, StringGeneratorForViewService.SunriseStringValue)?
     
     func getHeaderView() -> UIView? {
         let view = UIView()
@@ -63,9 +63,8 @@ class UVISunriseWidgetSection: SectionConfiguratorProtocol {
         guard let data = data else {
             return cell
         }
-        
-        let uviDataStringValue = StringGeneratorForViewService.shared.getUVIndexStringValue(rowData: data)
-        let sunriseDataStringValue = StringGeneratorForViewService.shared.getSunriseStringValue(rowData: data)
+        let uviDataStringValue = data.0
+        let sunriseDataStringValue = data.1
         
         cell.configure(dataForUVIVidget:  UVIWidget.UVIndexStringValue(number: uviDataStringValue.number, numberValue: uviDataStringValue.numberValue , textValue: uviDataStringValue.textValue, description: uviDataStringValue.description),  dataForSunriseVidget: SunriseWidget.SunriseStringValue(sunrise: sunriseDataStringValue.sunrise, sunset: sunriseDataStringValue.sunset, sunriseValue: sunriseDataStringValue.sunriseValue, sunsetValue: sunriseDataStringValue.sunsetValue))
         return cell

@@ -13,7 +13,7 @@ import UIKit
 struct HourlyForecastSection: SectionConfiguratorProtocol {
     
     let cellIdentifier = "HourlyForecastSectionCell"
-    var data: WeatherDataService.OneDayResponse? 
+    var data: StringGeneratorForViewService.HourlyStringValue?
     
     func getHeaderView() -> UIView? {
         let view = HeaderViewWithRoundedCorner()
@@ -38,9 +38,10 @@ struct HourlyForecastSection: SectionConfiguratorProtocol {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HourlyForecastSectionView
 
-        guard let rowData = self.data else { return cell }
-        let data = StringGeneratorForViewService.shared.getHourlyStringValue(rowData: rowData)
         var list:[OneHourInfoView.OneHourStringValue] = []
+        guard let data = data else {
+            return cell
+        }
         
         for hourData in data.list {
             list.append(OneHourInfoView.OneHourStringValue(date: hourData.dateString, icon: hourData.icon, clouds: hourData.clouds, showClouds: hourData.showClouds, temp: hourData.temp))

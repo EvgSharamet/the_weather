@@ -12,7 +12,7 @@ import SnapKit
 class TenDaysForecastSection: SectionConfiguratorProtocol {
    
     let cellIdentifier = "TenDaysForecastSectionCell"
-    var data: WeatherDataService.TenDaysResponse?
+    var data: StringGeneratorForViewService.TenDaysStringValue?
     
     func getHeaderView() -> UIView? {
         let view = HeaderViewWithRoundedCorner()
@@ -40,10 +40,8 @@ class TenDaysForecastSection: SectionConfiguratorProtocol {
         guard let data = data else {
             return cell
         }
-        
-        let dataForTenDaysSection = StringGeneratorForViewService.shared.getTenDaysStringValue(rowData: data)
         var list: [OneDayInfoView.OneDayStringValue] = []
-        for dayData in dataForTenDaysSection.list {
+        for dayData in data.list {
             list.append( OneDayInfoView.OneDayStringValue(icon: dayData.icon, minString: dayData.minString, maxString: dayData.maxString, globalMin: dayData.globalMin, globalMax: dayData.globalMax, localMin: dayData.localMin, localMax: dayData.localMax, pointCoord: dayData.pointCoord, dayOfTheWeek: dayData.dayOfTheWeek, clouds: dayData.clouds, showClouds: dayData.showClouds, showCurrentPointView: dayData.showCurrentPointView))
         }
         cell.configure(data: TenDaysForecastSectionView.TenDaysStringValue(list: list))

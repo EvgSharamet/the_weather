@@ -13,7 +13,7 @@ import UIKit
 class VisibilityPressureWidgetSection: SectionConfiguratorProtocol {
     
     let cellIdentifier = "VisibilityPressureWidgetSectionCell"
-    var data: WeatherDataService.OneDayResponse?
+    var data: (StringGeneratorForViewService.VisibilityStringValue, StringGeneratorForViewService.PressureStringValue)?
     
     func getHeaderView() -> UIView? {
         let view = UIView()
@@ -63,8 +63,8 @@ class VisibilityPressureWidgetSection: SectionConfiguratorProtocol {
             return cell
         }
         
-        let dataForVisibilityWidget = StringGeneratorForViewService.shared.getVisibilityStringValue(rowData: data)
-        let dataForPressureWidget = StringGeneratorForViewService.shared.getPressureStringValue(rowData: data)
+        let dataForVisibilityWidget = data.0
+        let dataForPressureWidget = data.1
         cell.configure(dataForVisibilityWidget: VisibilityWidget.VisibilityStringValue(visibilityValue: dataForVisibilityWidget.visibilityValue, description: dataForVisibilityWidget.description),dataForPressureWidget: PressureWidget.PressureStringValue(pressureValue: dataForPressureWidget.pressureValue, degreesForGraph: dataForPressureWidget.degreesForGraph, aboveNorm: dataForPressureWidget.aboveNorm, willRise: dataForPressureWidget.willRise, description: dataForPressureWidget.description))
         return cell
     }
