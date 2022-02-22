@@ -15,7 +15,6 @@ class TenDaysForecastSectionView: CellWithRoundedCorner {
     
     struct TenDaysStringValue {
         let list: [OneDayInfoView.OneDayStringValue]
-        let todayPoint: Double
     }
     
     var tenDaysStackView: UIStackView?

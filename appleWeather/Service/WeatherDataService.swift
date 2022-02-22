@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreLocation
+import UIKit
 
 
 class WeatherDataService {
@@ -20,10 +21,11 @@ class WeatherDataService {
         struct Weather: Codable {
             let description: String
             let icon: String
+            
+        //  let iconUIImage: UIImage?
         }
         
         struct Hourly: Codable {
-            
             let dt: Double
             let temp: Float
             let pressure: Int
@@ -34,19 +36,19 @@ class WeatherDataService {
             let snow: Snow?
 
             struct Rain: Codable {
-                let h1: Double
                 private enum CodingKeys : String, CodingKey { case h1 = "1h"}
+                let h1: Double
             }
             struct Snow: Codable {
-                let h1: Double
                 private enum CodingKeys : String, CodingKey { case h1 = "1h"}
+                let h1: Double
             }
         }
         
         struct Current: Codable {
             let dt: Double
-            let sunrise: Date
-            let sunset: Date
+            let sunrise: Double
+            let sunset: Double
             let temp: Float
             let feels_like: Float
             let pressure: Int
@@ -59,7 +61,6 @@ class WeatherDataService {
             let wind_deg: Int
             let wind_gust: Float?
         }
-        
         let current: Current
         let hourly: [Hourly]
     }
@@ -90,7 +91,6 @@ class WeatherDataService {
             let rain: Float?
             let snow: Float?
         }
-
         let list: [Day]
     }
     
@@ -181,4 +181,9 @@ class WeatherDataService {
         
         return OneDayResponse(current: answer.current ,hourly: answer.hourly.dropLast(23))
    }
+}
+
+protocol Iconable {
+    var icon: String {get}
+    var iconImage: UIImage? {get set}
 }

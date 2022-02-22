@@ -21,8 +21,8 @@ class StringGeneratorForViewService {
     }
     
     struct SunriseStringValue {
-        let sunrise: Date
-        let sunset: Date
+        let sunrise: Double
+        let sunset: Double
         let sunriseValue: String
         let sunsetValue: String
     }
@@ -67,17 +67,19 @@ class StringGeneratorForViewService {
     struct TenDaysStringValue {
         struct OneDayStringValue {
             let icon: UIImage?
-            let min: String
-            let max: String
-            let indicatorRealWidth: Double?
-            let leftOffset: Double?
+            let minString: String
+            let maxString: String
+            let globalMin: Int
+            let globalMax: Int
+            let localMin: Int
+            let localMax: Int
+            let pointCoord: Int
             let dayOfTheWeek: String
             let clouds: String
             let showClouds: Bool
+            var showCurrentPointView: Bool
         }
-        
         let list: [OneDayStringValue]
-        let todayPoint: Double
     }
     
     struct HeaderStringValue {
@@ -89,7 +91,8 @@ class StringGeneratorForViewService {
     
     struct HourlyStringValue {
         struct OneHourStringValue {
-            let date: String
+            let dateString: String
+            let date: Date
             let icon: UIImage?
             let clouds: String
             let temp: String
@@ -110,7 +113,8 @@ class StringGeneratorForViewService {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH"
         for hourlyData in  rowData.hourly {
-            let date = dateFormatter.string(from: Date(timeIntervalSince1970: hourlyData.dt))
+            let date = Date(timeIntervalSince1970: Double(hourlyData.dt))
+            let dateString = dateFormatter.string(from: date)
             var icon: UIImage?
             if let urlForImage = URL(string: "https://openweathermap.org/img/wn/\(hourlyData.weather[0].icon)@2x.png") {
                 if let iconData = try? Data(contentsOf: urlForImage) {
@@ -123,10 +127,41 @@ class StringGeneratorForViewService {
             if hourlyData.rain != nil || hourlyData.snow != nil {
                 showClouds = true
             }
-            
-            list.append(HourlyStringValue.OneHourStringValue(date: date, icon: icon, clouds: String("\(hourlyData.clouds)%") , temp: String("\(Int(hourlyData.temp))°"), showClouds: showClouds))
+            list.append(HourlyStringValue.OneHourStringValue(dateString: dateString, date: date, icon: icon, clouds: String("\(hourlyData.clouds)%") , temp: String("\(Int(hourlyData.temp))°"), showClouds: showClouds))
         }
-        return HourlyStringValue(list: list)
+        
+        let resList: [HourlyStringValue.OneHourStringValue] = {
+            let dfHHmm = DateFormatter()
+            dfHHmm.dateFormat = "HH:mm"
+            let sunriseToday = Date(timeIntervalSince1970: rowData.current.sunrise)
+            let sunsetToday = Date(timeIntervalSince1970: rowData.current.sunset)
+            
+            var retVal = list
+            
+            // sunrise
+            let sunriseIdx = list
+                    .map({ $0.date })
+                    .enumerated()
+                    .first(where: { $0.element < sunriseToday })?
+                    .offset
+            if let idx = sunriseIdx, idx > 0, idx < list.endIndex {
+                retVal.insert(.init(dateString: dfHHmm.string(from: sunriseToday), date: sunriseToday, icon: UIImage(named: "sunriseHourly"), clouds: "0", temp: "восход", showClouds: false), at: idx)
+            }
+            
+            // sunset
+            let sunsetIdx = list
+                    .map({ $0.date })
+                    .enumerated()
+                    .first(where: { $0.element < sunsetToday })?
+                    .offset
+            if let idx = sunsetIdx, idx > 0, idx < list.endIndex {
+                retVal.insert(.init(dateString: dfHHmm.string(from: sunsetToday), date: sunsetToday, icon: UIImage(named: "sunriseHourly"), clouds: "0", temp: "закат", showClouds: false), at: idx)
+            }
+            
+            return retVal
+        }()
+        
+        return HourlyStringValue(list: resList)
     }
     
     func  getUVIndexStringValue(rowData: WeatherDataService.OneDayResponse)  -> UVIndexStringValue {
@@ -173,7 +208,10 @@ class StringGeneratorForViewService {
     func  getSunriseStringValue(rowData: WeatherDataService.OneDayResponse)  -> SunriseStringValue {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:MM"
-        return SunriseStringValue(sunrise: rowData.current.sunrise, sunset: rowData.current.sunset, sunriseValue: dateFormatter.string(from: rowData.current.sunrise), sunsetValue: dateFormatter.string(from: rowData.current.sunset))
+        
+        
+        
+        return SunriseStringValue(sunrise: rowData.current.sunrise, sunset: rowData.current.sunset, sunriseValue: dateFormatter.string(from:  Date(timeIntervalSince1970: Double(rowData.current.sunrise))), sunsetValue: dateFormatter.string(from:  Date(timeIntervalSince1970: Double(rowData.current.sunset))))
     }
     
     func getWindStringValue(rowData: WeatherDataService.OneDayResponse) -> WindStringValue {
@@ -310,23 +348,10 @@ class StringGeneratorForViewService {
                 }
             }
             
-            let globalMin = Int(rowDay.temp.min)
-            let globalMax = Int(rowDay.temp.max)
             let dailyAverages = [Int(rowDay.temp.morn), Int(rowDay.temp.day), Int(rowDay.temp.eve), Int(rowDay.temp.night)]
-    
+            
             guard let localMin = dailyAverages.min() else { continue }
             guard let localMax = dailyAverages.max() else { continue }
-            
-            let globalWidth = Double(globalMax - globalMin)
-            let width = Double(localMax - localMin)
-            
-            var indicatorRealWidth: Double?
-            var leftOffset: Double?
-            
-            if globalWidth != Double(0) {
-                indicatorRealWidth = Double(width / globalWidth)
-                leftOffset = Double( Int(localMin) - globalMin) / globalWidth * 100
-            }
             
             let date = Date(timeIntervalSince1970: rowDay.dt)
             let dateFormatter = DateFormatter()
@@ -338,8 +363,9 @@ class StringGeneratorForViewService {
                 showClouds = true
             }
             
-            tenDays.append(TenDaysStringValue.OneDayStringValue(icon: icon, min: String("\(globalMin)°"), max: String("\(globalMax)°"), indicatorRealWidth: indicatorRealWidth, leftOffset: leftOffset, dayOfTheWeek: dayOfTheWeek, clouds: String("\(rowDay.clouds)%"), showClouds: showClouds))
+            tenDays.append(TenDaysStringValue.OneDayStringValue(icon: icon, minString: "\(Int(rowDay.temp.min))°", maxString: "\(Int(rowDay.temp.max))°", globalMin: Int(rowDay.temp.min), globalMax: Int(rowDay.temp.max), localMin: localMin, localMax: localMax, pointCoord: Int(3), dayOfTheWeek: dayOfTheWeek, clouds: "\(rowDay.clouds)%", showClouds: showClouds, showCurrentPointView: false))
         }
-        return TenDaysStringValue.init(list: tenDays, todayPoint: 0) // больше не могу, посчитай его потом
+        tenDays[0].showCurrentPointView = true // today
+        return TenDaysStringValue.init(list: tenDays)
     }
 }

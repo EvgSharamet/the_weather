@@ -13,8 +13,8 @@ import UIKit
 class SunriseWidget: ViewWithRoundedCorner {
     
     struct SunriseStringValue {
-        let sunrise: Date
-        let sunset: Date
+        let sunrise: Double
+        let sunset: Double
         let sunriseValue: String
         let sunsetValue: String
     }

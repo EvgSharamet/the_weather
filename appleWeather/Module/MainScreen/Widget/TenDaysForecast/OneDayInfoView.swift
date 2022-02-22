@@ -15,13 +15,17 @@ class OneDayInfoView: UIView {
     
     struct OneDayStringValue {
         let icon: UIImage?
-        let min: String
-        let max: String
-        let leftOffset: Double?
-        let distributionIndicatorWidth: Double?
+        let minString: String
+        let maxString: String
+        let globalMin: Int
+        let globalMax: Int
+        let localMin: Int
+        let localMax: Int
+        let pointCoord: Int
         let dayOfTheWeek: String
         let clouds: String
         let showClouds: Bool
+        let showCurrentPointView: Bool
     }
     
     let distributionIndicatorView = UIView()
@@ -90,36 +94,50 @@ class OneDayInfoView: UIView {
         distributionIndicatorView.backgroundColor = .cyan
         
         self.addSubview(currentPointView)
-        currentPointView.snp.makeConstraints { make in
-            make.center.centerX.equalTo(distributionAxisView)
-            make.height.equalTo(distributionAxisView)
-            make.width.equalTo(6)
-        }
+        
         currentPointView.image = UIImage(named: "pointUVI")
+        currentPointView.isHidden = true
     
         mainStackView.addArrangedSubview(maxTempLabel)
         maxTempLabel.textAlignment = .center
     }
 
     func configure(data: OneDayStringValue) {
+        
         weatherIconImageView.image = data.icon
         dateLabel.text = data.dayOfTheWeek
-        minTempLabel.text = data.min
-        maxTempLabel.text = data.max
+        minTempLabel.text = data.minString
+        maxTempLabel.text = data.maxString
         if data.showClouds {
             cloudsLabel.text = data.clouds
         }
         
-        guard let leftOffset = data.leftOffset else {
-            return
-        }
-        guard let distributionIndicatorWidth = data.distributionIndicatorWidth else {
-            return
+        let globalMin = Int(data.globalMin)
+        let globalMax = Int(data.globalMax)
+        
+        let globalWidth = Double(globalMax - globalMin)
+        let width = Double(data.localMax - data.localMin)
+        
+        if globalWidth != Double(0) {
+            
+            let indicatorRealWidth = Double(width / globalWidth)
+            let leftOffset = Double( Int(data.localMin) - globalMin) / globalWidth * 100
+            
+            distributionIndicatorView.snp.makeConstraints { make in
+                make.left.equalToSuperview().offset(leftOffset)
+                make.width.equalToSuperview().multipliedBy(Swift.max(Swift.min(indicatorRealWidth, 1.0), 0.1))
+            }
         }
         
-        distributionIndicatorView.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(leftOffset)
-            make.width.equalToSuperview().multipliedBy(Swift.max(Swift.min(distributionIndicatorWidth, 1.0), 0.1))
+        if data.showCurrentPointView {
+            currentPointView.isHidden = false
+            let pointCoord = Double(data.pointCoord) / globalWidth * 100
+            currentPointView.snp.makeConstraints { make in
+                make.centerY.equalTo(distributionAxisView)
+                make.height.equalTo(6)
+                make.width.equalTo(6)
+                make.left.equalTo(distributionAxisView).offset(pointCoord)
+            }
         }
     }
 }

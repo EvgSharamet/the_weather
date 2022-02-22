@@ -61,4 +61,9 @@ class HourlyForecastSectionView: CellWithRoundedCorner {
             }
         }
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        hourlyStackView?.arrangedSubviews.forEach{ $0.removeFromSuperview() }
+    }
 }
