@@ -83,6 +83,7 @@ class MainTableController: UIViewController, UITableViewDelegate, UITableViewDat
             case .failure(_):
                 print("Something goes wrong")
             }
+            group.leave()
         }
         
         group.notify(queue: .main) {
