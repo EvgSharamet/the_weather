@@ -336,11 +336,11 @@ class StringGeneratorForViewService {
         return PressureStringValue(pressureValue: pressureValue, degreesForGraph: degressForGraph, aboveNorm: aboveNorm, willRise: willRise)
     }
     
-    func getTenDaysStringValue(rowData: WeatherDataService.TenDaysResponse) -> TenDaysStringValue {
+    func getTenDaysStringValue(dataTenDays: WeatherDataService.TenDaysResponse, currentDay: WeatherDataService.OneDayResponse) -> TenDaysStringValue {
         
         var tenDays: [TenDaysStringValue.OneDayStringValue] = []
         
-        for rowDay in rowData.list {
+        for rowDay in dataTenDays.list {
             var icon: UIImage?
             if let urlForImage = URL(string: "https://openweathermap.org/img/wn/\(rowDay.weather[0].icon)@2x.png") {
                 if let iconData = try? Data(contentsOf: urlForImage) {
@@ -363,7 +363,7 @@ class StringGeneratorForViewService {
                 showClouds = true
             }
             
-            tenDays.append(TenDaysStringValue.OneDayStringValue(icon: icon, minString: "\(Int(rowDay.temp.min))°", maxString: "\(Int(rowDay.temp.max))°", globalMin: Int(rowDay.temp.min), globalMax: Int(rowDay.temp.max), localMin: localMin, localMax: localMax, pointCoord: Int(3), dayOfTheWeek: dayOfTheWeek, clouds: "\(rowDay.clouds)%", showClouds: showClouds, showCurrentPointView: false))
+            tenDays.append(TenDaysStringValue.OneDayStringValue(icon: icon, minString: "\(Int(rowDay.temp.min))°", maxString: "\(Int(rowDay.temp.max))°", globalMin: Int(rowDay.temp.min), globalMax: Int(rowDay.temp.max), localMin: localMin, localMax: localMax, pointCoord: Int(currentDay.current.temp), dayOfTheWeek: dayOfTheWeek, clouds: "\(rowDay.clouds)%", showClouds: showClouds, showCurrentPointView: false))
         }
         tenDays[0].showCurrentPointView = true // today
         return TenDaysStringValue.init(list: tenDays)

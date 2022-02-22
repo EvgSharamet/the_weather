@@ -95,10 +95,9 @@ class MainTableController: UIViewController, UITableViewDelegate, UITableViewDat
             }
 
             self.hourlyForecastSection?.data = StringGeneratorForViewService.shared.getHourlyStringValue(rowData: oneDayResponse)
-            self.tenDaysForecastSection?.data = StringGeneratorForViewService.shared.getTenDaysStringValue(rowData: tenDaysResponse)
+            self.tenDaysForecastSection?.data = StringGeneratorForViewService.shared.getTenDaysStringValue(dataTenDays: tenDaysResponse, currentDay: oneDayResponse)
             self.uviSunriseWidgetSection?.data = (StringGeneratorForViewService.shared.getUVIndexStringValue(rowData: oneDayResponse), StringGeneratorForViewService.shared.getSunriseStringValue(rowData: oneDayResponse))
             self.windPrecipitationWidgetSection?.data = (StringGeneratorForViewService.shared.getWindStringValue(rowData: oneDayResponse), StringGeneratorForViewService.shared.getPrecipitationStringValue(rowData: tenDaysResponse))
-                                                   
             self.feelsLikeHumidityWidgetSection?.data = (StringGeneratorForViewService.shared.getFeelsLikeStringValue(rowData: oneDayResponse), StringGeneratorForViewService.shared.getHumidityStringValue(rowData: oneDayResponse))
             self.visibilityPressureWidgetSection?.data = (StringGeneratorForViewService.shared.getVisibilityStringValue(rowData: oneDayResponse), StringGeneratorForViewService.shared.getPressureStringValue(rowData: oneDayResponse))
             self.tableView.reloadData()
