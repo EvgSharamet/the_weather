@@ -19,10 +19,11 @@ class WeatherDataService {
     
     struct OneDayResponse: Codable {
         struct Weather: Codable {
+            private enum CodingKeys: String, CodingKey { case description; case icon }
             let description: String
             let icon: String
             
-        //  let iconUIImage: UIImage?
+            var iconUIImage: UIImage?
         }
         
         struct Hourly: Codable {

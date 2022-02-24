@@ -93,7 +93,7 @@ class StringGeneratorForViewService {
         struct OneHourStringValue {
             let dateString: String
             let date: Date
-            let icon: UIImage?
+            let icon: String
             let clouds: String
             let temp: String
             let showClouds: Bool
@@ -115,19 +115,12 @@ class StringGeneratorForViewService {
         for hourlyData in  rowData.hourly {
             let date = Date(timeIntervalSince1970: Double(hourlyData.dt))
             let dateString = dateFormatter.string(from: date)
-            var icon: UIImage?
-            if let urlForImage = URL(string: "https://openweathermap.org/img/wn/\(hourlyData.weather[0].icon)@2x.png") {
-                if let iconData = try? Data(contentsOf: urlForImage) {
-                    icon = UIImage(data:iconData)
-                }
-            }
-            
             var showClouds = false
             
             if hourlyData.rain != nil || hourlyData.snow != nil {
                 showClouds = true
             }
-            list.append(HourlyStringValue.OneHourStringValue(dateString: dateString, date: date, icon: icon, clouds: String("\(hourlyData.clouds)%") , temp: String("\(Int(hourlyData.temp))°"), showClouds: showClouds))
+            list.append(HourlyStringValue.OneHourStringValue(dateString: dateString, date: date, icon: hourlyData.weather[0].icon , clouds: String("\(hourlyData.clouds)%") , temp: String("\(Int(hourlyData.temp))°"), showClouds: showClouds))
         }
         
         let resList: [HourlyStringValue.OneHourStringValue] = {
@@ -138,7 +131,7 @@ class StringGeneratorForViewService {
             
             var retVal = list
             
-            // sunrise
+     /*       // sunrise
             let sunriseIdx = list
                     .map({ $0.date })
                     .enumerated()
@@ -156,7 +149,7 @@ class StringGeneratorForViewService {
                     .offset
             if let idx = sunsetIdx, idx > 0, idx < list.endIndex {
                 retVal.insert(.init(dateString: dfHHmm.string(from: sunsetToday), date: sunsetToday, icon: UIImage(named: "sunriseHourly"), clouds: "0", temp: "закат", showClouds: false), at: idx)
-            }
+            }*/
             
             return retVal
         }()
@@ -294,7 +287,7 @@ class StringGeneratorForViewService {
     }
     
     func getHumidityStringValue(rowData: WeatherDataService.OneDayResponse) -> HumidityStringValue {
-        return HumidityStringValue(humidityValue: String(rowData.current.humidity) + "%", description: "Точка росы сейчас — " + String(Int(rowData.current.dew_point)))
+        return HumidityStringValue(humidityValue: String(rowData.current.humidity) + "%", description: "Точка росы сейчас — " + String(Int(rowData.current.dew_point)) + "°")
     }
     
     func getVisibilityStringValue(rowData: WeatherDataService.OneDayResponse) -> VisibilityStringValue {
