@@ -44,7 +44,7 @@ struct HourlyForecastSection: SectionConfiguratorProtocol {
         }
         
         for hourData in data.list {
-            list.append(OneHourInfoView.OneHourStringValue(date: hourData.dateString, icon: hourData.icon, clouds: hourData.clouds, showClouds: hourData.showClouds, temp: hourData.temp))
+            list.append(OneHourInfoView.OneHourStringValue(date: hourData.dateString, clouds: hourData.clouds, showClouds: hourData.showClouds, temp: hourData.temp))
         }
 
         cell.configure(data: HourlyForecastSectionView.HourlyForecastStringValue(list: list))

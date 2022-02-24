@@ -66,7 +66,7 @@ class MainTableController: UIViewController, UITableViewDelegate, UITableViewDat
         group.enter()
         group.enter()
         
-        WeatherDataService.shared.requestByCurrentDay(place: "Кипр") { result in
+        WeatherDataService.shared.requestByCurrentDay(place: "Алжир") { result in
             switch result {
             case .success(let weatherData):
                 oneDayResponse = weatherData
@@ -76,7 +76,7 @@ class MainTableController: UIViewController, UITableViewDelegate, UITableViewDat
             group.leave()
         }
         
-        WeatherDataService.shared.requestByTenDays(place: "Кипр") { result in
+        WeatherDataService.shared.requestByTenDays(place: "Алжир") { result in
             switch result {
             case .success(let weatherData):
                 tenDaysResponse = weatherData

@@ -53,7 +53,7 @@ class HourlyForecastSectionView: CellWithRoundedCorner {
         for hour in data.list {
             let oneHourInfoView = OneHourInfoView()
             oneHourInfoView.prepare()
-            oneHourInfoView.configure(data: OneHourInfoView.OneHourStringValue(date: hour.date, icon: hour.icon, clouds: hour.clouds, showClouds: hour.showClouds, temp: hour.temp))
+            oneHourInfoView.configure(data: OneHourInfoView.OneHourStringValue(date: hour.date, clouds: hour.clouds, showClouds: hour.showClouds, temp: hour.temp))
             self.stackView?.addArrangedSubview(oneHourInfoView)
             oneHourInfoView.snp.makeConstraints { maker in
                 maker.height.equalTo(120)

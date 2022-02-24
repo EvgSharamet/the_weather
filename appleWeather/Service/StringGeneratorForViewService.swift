@@ -93,7 +93,6 @@ class StringGeneratorForViewService {
         struct OneHourStringValue {
             let dateString: String
             let date: Date
-            let icon: String
             let clouds: String
             let temp: String
             let showClouds: Bool
@@ -120,16 +119,16 @@ class StringGeneratorForViewService {
             if hourlyData.rain != nil || hourlyData.snow != nil {
                 showClouds = true
             }
-            list.append(HourlyStringValue.OneHourStringValue(dateString: dateString, date: date, icon: hourlyData.weather[0].icon , clouds: String("\(hourlyData.clouds)%") , temp: String("\(Int(hourlyData.temp))°"), showClouds: showClouds))
+            list.append(HourlyStringValue.OneHourStringValue(dateString: dateString, date: date, clouds: String("\(hourlyData.clouds)%") , temp: String("\(Int(hourlyData.temp))°"), showClouds: showClouds))
         }
         
         let resList: [HourlyStringValue.OneHourStringValue] = {
             let dfHHmm = DateFormatter()
             dfHHmm.dateFormat = "HH:mm"
-            let sunriseToday = Date(timeIntervalSince1970: rowData.current.sunrise)
-            let sunsetToday = Date(timeIntervalSince1970: rowData.current.sunset)
+      //      let sunriseToday = Date(timeIntervalSince1970: rowData.current.sunrise)
+      //      let sunsetToday = Date(timeIntervalSince1970: rowData.current.sunset)
             
-            var retVal = list
+            let retVal = list
             
      /*       // sunrise
             let sunriseIdx = list
@@ -164,13 +163,13 @@ class StringGeneratorForViewService {
         switch rowData.current.uvi {
         case 0...2:
             textValue = "Низкий"
-        case 3...5:
+        case 2...6:
             textValue = "Умеренный"
-        case 6...7:
+        case 6...8:
             textValue = "Высокий"
         case 8...10:
             textValue = "Очень высокий"
-        case 11...15:
+        case 10...15:
             textValue = "Чрезмерный"
         default:
             textValue = "Значение отсутствует"
