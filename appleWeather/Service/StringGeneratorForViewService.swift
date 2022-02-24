@@ -93,6 +93,7 @@ class StringGeneratorForViewService {
         struct OneHourStringValue {
             let dateString: String
             let date: Date
+            let icon: String
             let clouds: String
             let temp: String
             let showClouds: Bool
@@ -119,7 +120,7 @@ class StringGeneratorForViewService {
             if hourlyData.rain != nil || hourlyData.snow != nil {
                 showClouds = true
             }
-            list.append(HourlyStringValue.OneHourStringValue(dateString: dateString, date: date, clouds: String("\(hourlyData.clouds)%") , temp: String("\(Int(hourlyData.temp))°"), showClouds: showClouds))
+            list.append(HourlyStringValue.OneHourStringValue(dateString: dateString, date: date, icon: hourlyData.weather[0].icon, clouds: String("\(hourlyData.clouds)%") , temp: String("\(Int(hourlyData.temp))°"), showClouds: showClouds))
         }
         
         let resList: [HourlyStringValue.OneHourStringValue] = {

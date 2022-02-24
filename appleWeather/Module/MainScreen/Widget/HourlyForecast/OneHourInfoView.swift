@@ -14,6 +14,8 @@ class OneHourInfoView: UIView {
     
     struct OneHourStringValue {
         let date: String
+        let iconString: String
+        var icon: UIImage?
         let clouds: String
         let showClouds: Bool
         let temp: String
@@ -78,12 +80,7 @@ class OneHourInfoView: UIView {
     
     func configure(data: OneHourStringValue){
         dateLabel.text = data.date
-      //  let url = "https://openweathermap.org/img/wn/\(data.icon)@2x.png"
-        /*     ImageLoaderService.shared.resolveImage(urlString: url )  { result in
-            DispatchQueue.main.async { [weak self] in
-                self?.weatherIconImageView.image = result
-            }
-        }*/
+        weatherIconImageView.image = data.icon
         if data.showClouds {
             cloudsLabel.text = data.clouds
         }
