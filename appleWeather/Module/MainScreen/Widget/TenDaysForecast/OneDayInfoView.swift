@@ -14,7 +14,8 @@ import UIKit
 class OneDayInfoView: UIView {
     
     struct OneDayStringValue {
-        let icon: UIImage?
+        var icon: UIImage?
+        let iconString: String
         let minString: String
         let maxString: String
         let globalMin: Int
@@ -95,7 +96,7 @@ class OneDayInfoView: UIView {
         
         self.addSubview(currentPointView)
         
-        currentPointView.image = UIImage(named: "pointUVI")
+        currentPointView.image = UIImage(named: "sunsetHourly")
         currentPointView.isHidden = true
     
         mainStackView.addArrangedSubview(maxTempLabel)
@@ -103,7 +104,6 @@ class OneDayInfoView: UIView {
     }
 
     func configure(data: OneDayStringValue) {
-        
         weatherIconImageView.image = data.icon
         dateLabel.text = data.dayOfTheWeek
         minTempLabel.text = data.minString

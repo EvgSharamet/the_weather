@@ -42,9 +42,24 @@ class TenDaysForecastSection: SectionConfiguratorProtocol {
         }
         var list: [OneDayInfoView.OneDayStringValue] = []
         for dayData in data.list {
-            list.append( OneDayInfoView.OneDayStringValue(icon: dayData.icon, minString: dayData.minString, maxString: dayData.maxString, globalMin: dayData.globalMin, globalMax: dayData.globalMax, localMin: dayData.localMin, localMax: dayData.localMax, pointCoord: dayData.pointCoord, dayOfTheWeek: dayData.dayOfTheWeek, clouds: dayData.clouds, showClouds: dayData.showClouds, showCurrentPointView: dayData.showCurrentPointView))
+            list.append( OneDayInfoView.OneDayStringValue(iconString: dayData.icon, minString: dayData.minString, maxString: dayData.maxString, globalMin: dayData.globalMin, globalMax: dayData.globalMax, localMin: dayData.localMin, localMax: dayData.localMax, pointCoord: dayData.pointCoord, dayOfTheWeek: dayData.dayOfTheWeek, clouds: dayData.clouds, showClouds: dayData.showClouds, showCurrentPointView: dayData.showCurrentPointView))
         }
         cell.configure(data: TenDaysForecastSectionView.TenDaysStringValue(list: list))
+        
+        let group = DispatchGroup()
+        list.forEach{ _ in group.enter() }
+        list.enumerated().forEach { item in
+            var val = item.element
+                let url = "https://openweathermap.org/img/wn/\(val.iconString)@2x.png"
+                ImageLoaderService.shared.resolveImage(urlString: url) { img in
+                    val.icon = img
+                list[item.offset] = val
+                group.leave()
+            }
+        }
+        group.notify(queue: .main) {
+            cell.configure(data: TenDaysForecastSectionView.TenDaysStringValue(list: list))
+        }
         return cell
     }
     

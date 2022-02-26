@@ -66,7 +66,7 @@ class StringGeneratorForViewService {
     
     struct TenDaysStringValue {
         struct OneDayStringValue {
-            let icon: UIImage?
+            let icon: String
             let minString: String
             let maxString: String
             let globalMin: Int
@@ -93,7 +93,8 @@ class StringGeneratorForViewService {
         struct OneHourStringValue {
             let dateString: String
             let date: Date
-            let icon: String
+            var icon: UIImage?
+            let iconString: String
             let clouds: String
             let temp: String
             let showClouds: Bool
@@ -107,12 +108,12 @@ class StringGeneratorForViewService {
         return HeaderStringValue(cityName: "Калининград", temp: String("\(rowData.hourly[0])°"), description: rowData.hourly[0].weather.description, maxMinTemp: String("Mакс.: \(rowDataForMinMax.list[0].temp.max), мин.:\(rowDataForMinMax.list[0].temp.min)"))
     }
     
-    func getHourlyStringValue(rowData: WeatherDataService.OneDayResponse) -> HourlyStringValue {
+    func getHourlyStringValue(rowDayData: WeatherDataService.OneDayResponse, rowTenDaysData: WeatherDataService.TenDaysResponse ) -> HourlyStringValue {
         
         var list: [HourlyStringValue.OneHourStringValue] = []
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH"
-        for hourlyData in  rowData.hourly {
+        for hourlyData in  rowDayData.hourly {
             let date = Date(timeIntervalSince1970: Double(hourlyData.dt))
             let dateString = dateFormatter.string(from: date)
             var showClouds = false
@@ -120,36 +121,65 @@ class StringGeneratorForViewService {
             if hourlyData.rain != nil || hourlyData.snow != nil {
                 showClouds = true
             }
-            list.append(HourlyStringValue.OneHourStringValue(dateString: dateString, date: date, icon: hourlyData.weather[0].icon, clouds: String("\(hourlyData.clouds)%") , temp: String("\(Int(hourlyData.temp))°"), showClouds: showClouds))
+            list.append(HourlyStringValue.OneHourStringValue(dateString: dateString, date: date, iconString: hourlyData.weather[0].icon, clouds: String("\(hourlyData.clouds)%") , temp: String("\(Int(hourlyData.temp))°"), showClouds: showClouds))
         }
         
         let resList: [HourlyStringValue.OneHourStringValue] = {
             let dfHHmm = DateFormatter()
             dfHHmm.dateFormat = "HH:mm"
-      //      let sunriseToday = Date(timeIntervalSince1970: rowData.current.sunrise)
-      //      let sunsetToday = Date(timeIntervalSince1970: rowData.current.sunset)
+            let sunriseToday = Date(timeIntervalSince1970: rowTenDaysData.list[0].sunrise)
+            let sunsetToday = Date(timeIntervalSince1970: rowTenDaysData.list[0].sunset)
+            let sunriseTomorrow = Date(timeIntervalSince1970: rowTenDaysData.list[1].sunrise)
+            let sunsetTomorrow = Date(timeIntervalSince1970: rowTenDaysData.list[1].sunset)
+            var retVal = list
             
-            let retVal = list
-            
-     /*       // sunrise
-            let sunriseIdx = list
+            // sunrise today
+             let sunriseIdx = list
                     .map({ $0.date })
                     .enumerated()
-                    .first(where: { $0.element < sunriseToday })?
+                    .first(where: { $0.element > sunriseToday })?
                     .offset
-            if let idx = sunriseIdx, idx > 0, idx < list.endIndex {
-                retVal.insert(.init(dateString: dfHHmm.string(from: sunriseToday), date: sunriseToday, icon: UIImage(named: "sunriseHourly"), clouds: "0", temp: "восход", showClouds: false), at: idx)
+            if let idx = sunriseIdx, idx > 0, idx <= list.endIndex {
+                print(idx)
+                print("*******************************************")
+                retVal.insert(.init(dateString: dfHHmm.string(from: sunriseToday), date: sunriseToday, icon: UIImage(named: "sunriseHourly"), iconString: "none", clouds: "0", temp: "восход", showClouds: false), at: idx)
             }
             
-            // sunset
+            // sunset today
             let sunsetIdx = list
                     .map({ $0.date })
                     .enumerated()
-                    .first(where: { $0.element < sunsetToday })?
+                    .first(where: { $0.element > sunsetToday })?
                     .offset
             if let idx = sunsetIdx, idx > 0, idx < list.endIndex {
-                retVal.insert(.init(dateString: dfHHmm.string(from: sunsetToday), date: sunsetToday, icon: UIImage(named: "sunriseHourly"), clouds: "0", temp: "закат", showClouds: false), at: idx)
-            }*/
+                print(idx)
+                print("*******************************************")
+                retVal.insert(.init(dateString: dfHHmm.string(from: sunsetToday), date: sunsetToday, icon: UIImage(named: "sunriseHourly"), iconString: "none", clouds: "0", temp: "закат", showClouds: false), at: idx)
+            }
+            
+            //sunrise tomorrow
+            let sunriseTomorrowIdx = list
+                    .map({ $0.date })
+                    .enumerated()
+                    .first(where: { $0.element > sunriseTomorrow })?
+                    .offset
+            if let idx = sunriseTomorrowIdx,  idx > 0, idx <= list.endIndex {
+                print(idx)
+                print("*******************************************")
+                retVal.insert(.init(dateString: dfHHmm.string(from: sunriseTomorrow), date: sunriseTomorrow, icon: UIImage(named: "sunriseHourly"), iconString: "none", clouds: "0", temp: "рассвет завтра", showClouds: false), at: idx)
+            }
+            
+            //sunset tomorrow
+            let sunsetTomorrowIdx = list
+                    .map({ $0.date })
+                    .enumerated()
+                    .first(where: { $0.element > sunsetTomorrow })?
+                    .offset
+            if let idx = sunsetTomorrowIdx, idx >= 0, idx < list.endIndex {
+                print(idx)
+                print("*******************************************")
+                retVal.insert(.init(dateString: dfHHmm.string(from: sunsetTomorrow), date: sunsetTomorrow, icon: UIImage(named: "sunriseHourly"), iconString: "none", clouds: "0", temp: "закат завтра", showClouds: false), at: idx + 1)
+            }
             
             return retVal
         }()
@@ -334,12 +364,6 @@ class StringGeneratorForViewService {
         var tenDays: [TenDaysStringValue.OneDayStringValue] = []
         
         for rowDay in dataTenDays.list {
-            var icon: UIImage?
-            if let urlForImage = URL(string: "https://openweathermap.org/img/wn/\(rowDay.weather[0].icon)@2x.png") {
-                if let iconData = try? Data(contentsOf: urlForImage) {
-                    icon = UIImage(data:iconData)
-                }
-            }
             
             let dailyAverages = [Int(rowDay.temp.morn), Int(rowDay.temp.day), Int(rowDay.temp.eve), Int(rowDay.temp.night)]
             
@@ -356,7 +380,7 @@ class StringGeneratorForViewService {
                 showClouds = true
             }
             
-            tenDays.append(TenDaysStringValue.OneDayStringValue(icon: icon, minString: "\(Int(rowDay.temp.min))°", maxString: "\(Int(rowDay.temp.max))°", globalMin: Int(rowDay.temp.min), globalMax: Int(rowDay.temp.max), localMin: localMin, localMax: localMax, pointCoord: Int(currentDay.current.temp), dayOfTheWeek: dayOfTheWeek, clouds: "\(rowDay.clouds)%", showClouds: showClouds, showCurrentPointView: false))
+            tenDays.append(TenDaysStringValue.OneDayStringValue(icon: rowDay.weather[0].icon , minString: "\(Int(rowDay.temp.min))°", maxString: "\(Int(rowDay.temp.max))°", globalMin: Int(rowDay.temp.min), globalMax: Int(rowDay.temp.max), localMin: localMin, localMax: localMax, pointCoord: Int(currentDay.current.temp), dayOfTheWeek: dayOfTheWeek, clouds: "\(rowDay.clouds)%", showClouds: showClouds, showCurrentPointView: false))
         }
         tenDays[0].showCurrentPointView = true // today
         return TenDaysStringValue.init(list: tenDays)

@@ -14,7 +14,6 @@ struct HourlyForecastSection: SectionConfiguratorProtocol {
     
     let cellIdentifier = "HourlyForecastSectionCell"
     var data: StringGeneratorForViewService.HourlyStringValue?
-    private let queue = DispatchQueue(label: "IconQueue", qos: .default)
     
     func getHeaderView() -> UIView? {
         let view = HeaderViewWithRoundedCorner()
@@ -45,22 +44,25 @@ struct HourlyForecastSection: SectionConfiguratorProtocol {
         }
         
         for hourData in data.list {
-            list.append(OneHourInfoView.OneHourStringValue(date: hourData.dateString, iconString: hourData.icon, clouds: hourData.clouds, showClouds: hourData.showClouds, temp: hourData.temp))
+            list.append(OneHourInfoView.OneHourStringValue(date: hourData.dateString, iconString: hourData.iconString, clouds: hourData.clouds, showClouds: hourData.showClouds, temp: hourData.temp))
         }
+        
         cell.configure(data: HourlyForecastSectionView.HourlyForecastStringValue(list: list))
         
-        var listWithImages: [OneHourInfoView.OneHourStringValue] = []
-        
-        queue.async {
-            for hourData in list {
-                let url = "https://openweathermap.org/img/wn/\(hourData.iconString)@2x.png"
-                var icon: UIImage?
-                
-                ImageLoaderService.shared.resolveImage(urlString: url )  { result in
-                    icon = result
-                }
-                listWithImages.append(OneHourInfoView.OneHourStringValue(date: hourData.date, iconString: hourData.iconString, icon: icon, clouds: hourData.clouds, showClouds: hourData.showClouds, temp: hourData.temp))
+        let group = DispatchGroup()
+        list.forEach{ _ in group.enter() }
+        list.enumerated().forEach { item in
+            var val = item.element
+            let url = "https://openweathermap.org/img/wn/\(val.iconString)@2x.png"
+            ImageLoaderService.shared.resolveImage(urlString: url) { img in
+                val.icon = img
+            list[item.offset] = val
+            group.leave()
             }
+        }
+        
+        group.notify(queue: .main) {
+            cell.configure(data: HourlyForecastSectionView.HourlyForecastStringValue(list: list))
         }
         return cell
     }

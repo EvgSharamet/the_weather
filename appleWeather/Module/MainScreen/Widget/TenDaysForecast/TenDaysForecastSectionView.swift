@@ -41,6 +41,7 @@ class TenDaysForecastSectionView: CellWithRoundedCorner {
     }
     
     func configure(data: TenDaysStringValue) {
+        tenDaysStackView?.arrangedSubviews.forEach{ $0.removeFromSuperview() }
         for dayData in data.list {
             let oneDayInfoView = OneDayInfoView()
             tenDaysStackView?.addArrangedSubview(oneDayInfoView)

@@ -85,6 +85,8 @@ class WeatherDataService {
         
         struct Day: Codable {
             let dt: Double
+            let sunrise: Double
+            let sunset: Double
             let temp: Temp
             let humidity: Int
             let weather: [Weather]
