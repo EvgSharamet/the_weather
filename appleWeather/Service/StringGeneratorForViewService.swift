@@ -178,7 +178,7 @@ class StringGeneratorForViewService {
             if let idx = sunsetTomorrowIdx, idx >= 0, idx < list.endIndex {
                 print(idx)
                 print("*******************************************")
-                retVal.insert(.init(dateString: dfHHmm.string(from: sunsetTomorrow), date: sunsetTomorrow, icon: UIImage(named: "sunriseHourly"), iconString: "none", clouds: "0", temp: "закат завтра", showClouds: false), at: idx + 1)
+                retVal.insert(.init(dateString: dfHHmm.string(from: sunsetTomorrow), date: sunsetTomorrow, icon: UIImage(named: "sunsetHourly"), iconString: "none", clouds: "0", temp: "закат завтра", showClouds: false), at: idx + 1)
             }
             
             return retVal

@@ -50,8 +50,8 @@ class TenDaysForecastSection: SectionConfiguratorProtocol {
         list.forEach{ _ in group.enter() }
         list.enumerated().forEach { item in
             var val = item.element
-                let url = "https://openweathermap.org/img/wn/\(val.iconString)@2x.png"
-                ImageLoaderService.shared.resolveImage(urlString: url) { img in
+            let url = "https://openweathermap.org/img/wn/\(val.iconString)@2x.png"
+            ImageLoaderService.shared.resolveImage(urlString: url) { img in
                     val.icon = img
                 list[item.offset] = val
                 group.leave()

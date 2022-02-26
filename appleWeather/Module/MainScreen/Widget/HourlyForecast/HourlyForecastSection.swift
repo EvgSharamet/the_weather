@@ -44,7 +44,7 @@ struct HourlyForecastSection: SectionConfiguratorProtocol {
         }
         
         for hourData in data.list {
-            list.append(OneHourInfoView.OneHourStringValue(date: hourData.dateString, iconString: hourData.iconString, clouds: hourData.clouds, showClouds: hourData.showClouds, temp: hourData.temp))
+            list.append(OneHourInfoView.OneHourStringValue(date: hourData.dateString, iconString: hourData.iconString,icon: hourData.icon, clouds: hourData.clouds, showClouds: hourData.showClouds, temp: hourData.temp))
         }
         
         cell.configure(data: HourlyForecastSectionView.HourlyForecastStringValue(list: list))
@@ -54,16 +54,24 @@ struct HourlyForecastSection: SectionConfiguratorProtocol {
         list.enumerated().forEach { item in
             var val = item.element
             let url = "https://openweathermap.org/img/wn/\(val.iconString)@2x.png"
-            ImageLoaderService.shared.resolveImage(urlString: url) { img in
-                val.icon = img
-            list[item.offset] = val
-            group.leave()
+            if let _ = val.icon {
+                list[item.offset] = val
+                group.leave()
+            }
+            else {
+                ImageLoaderService.shared.resolveImage(urlString: url) { img in
+                    val.icon = img
+                    list[item.offset] = val
+                    group.leave()
+                    
+                }
             }
         }
-        
+
         group.notify(queue: .main) {
             cell.configure(data: HourlyForecastSectionView.HourlyForecastStringValue(list: list))
         }
+        
         return cell
     }
     

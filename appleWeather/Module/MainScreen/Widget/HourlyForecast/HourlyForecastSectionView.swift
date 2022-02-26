@@ -16,7 +16,6 @@ class HourlyForecastSectionView: CellWithRoundedCorner {
         let list: [OneHourInfoView.OneHourStringValue]
     }
     
-    var stackView: UIStackView?
     var hourlyStackView: UIStackView?
      
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -39,7 +38,6 @@ class HourlyForecastSectionView: CellWithRoundedCorner {
         }
         
         let hourlyStackView = UIStackView()
-        self.stackView = hourlyStackView
         self.hourlyStackView = hourlyStackView
         hourlyStackView.axis = .horizontal
         hourlyStackView.spacing = 10
@@ -50,12 +48,12 @@ class HourlyForecastSectionView: CellWithRoundedCorner {
     }
 
     func configure(data: HourlyForecastStringValue) {
-        self.stackView?.arrangedSubviews.forEach{ $0.removeFromSuperview() }
+        self.hourlyStackView?.arrangedSubviews.forEach{ $0.removeFromSuperview() }
         for hour in data.list {
             let oneHourInfoView = OneHourInfoView()
             oneHourInfoView.prepare()
             oneHourInfoView.configure(data: OneHourInfoView.OneHourStringValue(date: hour.date, iconString: hour.iconString, icon: hour.icon, clouds: hour.clouds,  showClouds: hour.showClouds, temp: hour.temp))
-            self.stackView?.addArrangedSubview(oneHourInfoView)
+            self.hourlyStackView?.addArrangedSubview(oneHourInfoView)
             oneHourInfoView.snp.makeConstraints { maker in
                 maker.height.equalTo(120)
                 maker.width.equalTo(60)
