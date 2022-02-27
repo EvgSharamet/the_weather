@@ -140,8 +140,6 @@ class StringGeneratorForViewService {
                     .first(where: { $0.element > sunriseToday })?
                     .offset
             if let idx = sunriseIdx, idx > 0, idx <= list.endIndex {
-                print(idx)
-                print("*******************************************")
                 retVal.insert(.init(dateString: dfHHmm.string(from: sunriseToday), date: sunriseToday, icon: UIImage(named: "sunriseHourly"), iconString: "none", clouds: "0", temp: "восход", showClouds: false), at: idx)
             }
             
@@ -152,8 +150,6 @@ class StringGeneratorForViewService {
                     .first(where: { $0.element > sunsetToday })?
                     .offset
             if let idx = sunsetIdx, idx > 0, idx < list.endIndex {
-                print(idx)
-                print("*******************************************")
                 retVal.insert(.init(dateString: dfHHmm.string(from: sunsetToday), date: sunsetToday, icon: UIImage(named: "sunriseHourly"), iconString: "none", clouds: "0", temp: "закат", showClouds: false), at: idx)
             }
             
@@ -164,9 +160,7 @@ class StringGeneratorForViewService {
                     .first(where: { $0.element > sunriseTomorrow })?
                     .offset
             if let idx = sunriseTomorrowIdx,  idx > 0, idx <= list.endIndex {
-                print(idx)
-                print("*******************************************")
-                retVal.insert(.init(dateString: dfHHmm.string(from: sunriseTomorrow), date: sunriseTomorrow, icon: UIImage(named: "sunriseHourly"), iconString: "none", clouds: "0", temp: "рассвет завтра", showClouds: false), at: idx)
+                retVal.insert(.init(dateString: dfHHmm.string(from: sunriseTomorrow), date: sunriseTomorrow, icon: UIImage(named: "sunriseHourly"), iconString: "none", clouds: "0", temp: "рассвет завтра", showClouds: false), at: idx + 1)
             }
             
             //sunset tomorrow
@@ -176,8 +170,6 @@ class StringGeneratorForViewService {
                     .first(where: { $0.element > sunsetTomorrow })?
                     .offset
             if let idx = sunsetTomorrowIdx, idx >= 0, idx < list.endIndex {
-                print(idx)
-                print("*******************************************")
                 retVal.insert(.init(dateString: dfHHmm.string(from: sunsetTomorrow), date: sunsetTomorrow, icon: UIImage(named: "sunsetHourly"), iconString: "none", clouds: "0", temp: "закат завтра", showClouds: false), at: idx + 1)
             }
             

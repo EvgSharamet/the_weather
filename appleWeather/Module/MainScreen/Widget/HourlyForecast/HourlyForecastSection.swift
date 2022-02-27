@@ -63,7 +63,6 @@ struct HourlyForecastSection: SectionConfiguratorProtocol {
                     val.icon = img
                     list[item.offset] = val
                     group.leave()
-                    
                 }
             }
         }
@@ -71,7 +70,6 @@ struct HourlyForecastSection: SectionConfiguratorProtocol {
         group.notify(queue: .main) {
             cell.configure(data: HourlyForecastSectionView.HourlyForecastStringValue(list: list))
         }
-        
         return cell
     }
     
