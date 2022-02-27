@@ -96,7 +96,7 @@ class OneDayInfoView: UIView {
         
         self.addSubview(currentPointView)
         
-        currentPointView.image = UIImage(named: "sunsetHourly")
+        currentPointView.image = UIImage(named: "pointUVI")
         currentPointView.isHidden = true
     
         mainStackView.addArrangedSubview(maxTempLabel)
@@ -134,8 +134,8 @@ class OneDayInfoView: UIView {
             let pointCoord = Double(data.pointCoord) / globalWidth * 100
             currentPointView.snp.makeConstraints { make in
                 make.centerY.equalTo(distributionAxisView)
-                make.height.equalTo(6)
-                make.width.equalTo(6)
+                make.height.equalTo(7)
+                make.width.equalTo(8)
                 make.left.equalTo(distributionAxisView).offset(pointCoord)
             }
         }

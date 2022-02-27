@@ -19,6 +19,7 @@ class OneHourInfoView: UIView {
         let clouds: String
         let showClouds: Bool
         let temp: String
+        let sunsetSunriseView: Bool
     }
     
     let dateLabel = UILabel()
@@ -48,17 +49,14 @@ class OneHourInfoView: UIView {
         }
         
         centralView.addSubview(weatherIconImageView)
-        weatherIconImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(10)
-            make.height.equalToSuperview().inset(-5)
-            make.width.equalToSuperview().inset(-5)
-            make.center.equalToSuperview()
-        }
         
-        weatherIconImageView.contentMode = .scaleAspectFill
         weatherIconImageView.snp.makeConstraints { make in
-            make.height.equalToSuperview().multipliedBy(0.5)
+            make.center.equalToSuperview()
+            make.height.equalTo(70)
+            make.width.equalTo(70)
         }
+        weatherIconImageView.contentMode = .scaleAspectFit
+   
         centralView.addSubview(cloudsLabel)
         cloudsLabel.snp.makeConstraints { make in
             make.bottom.equalToSuperview()
