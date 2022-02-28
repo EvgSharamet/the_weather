@@ -58,9 +58,8 @@ class OneDayInfoView: UIView {
         weatherIconImageView.addSubview(cloudsLabel)
         cloudsLabel.snp.makeConstraints { make in
             make.bottom.equalToSuperview()
-            make.centerX.equalToSuperview()
             make.height.equalTo(14)
-            make.width.equalToSuperview()
+            make.centerX.equalToSuperview()
         }
         cloudsLabel.font = cloudsLabel.font.withSize(14)
         cloudsLabel.textAlignment = .center

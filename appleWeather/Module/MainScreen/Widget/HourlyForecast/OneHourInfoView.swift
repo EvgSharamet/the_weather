@@ -59,10 +59,9 @@ class OneHourInfoView: UIView {
    
         centralView.addSubview(cloudsLabel)
         cloudsLabel.snp.makeConstraints { make in
+            make.height.equalTo(14)
             make.bottom.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.height.equalTo(14)
-            make.width.equalToSuperview()
         }
         cloudsLabel.font = cloudsLabel.font.withSize(14)
         cloudsLabel.textAlignment = .center
