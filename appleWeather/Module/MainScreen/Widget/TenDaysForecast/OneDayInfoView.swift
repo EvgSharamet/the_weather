@@ -121,7 +121,6 @@ class OneDayInfoView: UIView {
             
             let indicatorRealWidth = Double(width / globalWidth)
             let leftOffset = Double( Int(data.localMin) - globalMin) / globalWidth * 100
-            
             distributionIndicatorView.snp.makeConstraints { make in
                 make.left.equalToSuperview().offset(leftOffset)
                 make.width.equalToSuperview().multipliedBy(Swift.max(Swift.min(indicatorRealWidth, 1.0), 0.1))
@@ -130,14 +129,15 @@ class OneDayInfoView: UIView {
         
         if data.showCurrentPointView {
             currentPointView.isHidden = false
-            let pointCoord = Double(data.pointCoord) / globalWidth * 100
+            let leftset = Double( Int(data.pointCoord) - globalMin) / globalWidth * 100
             currentPointView.snp.makeConstraints { make in
                 make.centerY.equalTo(distributionAxisView)
                 make.height.equalTo(7)
                 make.width.equalTo(8)
-                make.left.equalTo(distributionAxisView).offset(pointCoord)
+                make.left.equalTo(distributionAxisView).offset(leftset)
             }
         }
+
     }
 }
 
