@@ -96,10 +96,7 @@ class MainTableController: UIViewController {
         }
         
         group.notify(queue: .main) {
-            guard let oneDayResponse = oneDayResponse else {
-                return
-            }
-            guard let tenDaysResponse = tenDaysResponse else {
+            guard let oneDayResponse = oneDayResponse, let tenDaysResponse = tenDaysResponse else {
                 return
             }
 
