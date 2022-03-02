@@ -23,24 +23,22 @@ class StretchyTableHeaderView: UIView {
     let maxMinTempLabel = UILabel()
     
     func prepare(){
-        self.backgroundColor = .purple.withAlphaComponent(0.5)
         let stack = UIStackView()
         stack.axis = .vertical
         stack.distribution = .fill
-        stack.spacing = 10
         stack.alignment = .center
         self.addSubview(stack)
         stack.snp.makeConstraints { make in
             make.edges.equalToSuperview()
-            
         }
+        stack.backgroundColor = .cyan.withAlphaComponent(0.3)
         stack.addArrangedSubview(cityNameLabel)
         cityNameLabel.font = cityNameLabel.font.withSize(40)
         cityNameLabel.textColor = .white
         cityNameLabel.textAlignment = .center
         
         stack.addArrangedSubview(currentTempLabel)
-        currentTempLabel.font = currentTempLabel.font.withSize(70)
+        currentTempLabel.font = currentTempLabel.font.withSize(75)
         currentTempLabel.textColor = .white
         currentTempLabel.textAlignment = .center
         
@@ -50,7 +48,7 @@ class StretchyTableHeaderView: UIView {
         descriptionLabel.textAlignment = .center
         
         stack.addArrangedSubview(maxMinTempLabel)
-        maxMinTempLabel.font = maxMinTempLabel.font.withSize(30)
+        maxMinTempLabel.font = maxMinTempLabel.font.withSize(20)
         maxMinTempLabel.textColor = .white
         maxMinTempLabel.textAlignment = .center
     }

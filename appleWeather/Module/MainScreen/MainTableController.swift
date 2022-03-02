@@ -48,10 +48,10 @@ class MainTableController: UIViewController, UITableViewDelegate, UITableViewDat
             maker.bottom.equalToSuperview()
         }
         
+        self.view.addSubview(headerView)
         headerView.snp.makeConstraints { make in
-            make.height.equalTo(300)
-            make.width.width.equalTo(350)
-          //  make.width.equalTo(view.safeAreaLayoutGuide)
+            make.height.equalTo(200)
+            make.width.equalTo(view.safeAreaLayoutGuide)
         }
         headerView.prepare()
         self.tableView.tableHeaderView = headerView

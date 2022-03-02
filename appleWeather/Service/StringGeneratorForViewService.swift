@@ -107,7 +107,7 @@ class StringGeneratorForViewService {
     
     func getHeaderStringValue(rowData: WeatherDataService.OneDayResponse, rowDataForMinMax: WeatherDataService.TenDaysResponse) -> HeaderStringValue {
 
-        return HeaderStringValue(cityName: "Калининград", temp: String("\(Int(rowData.hourly[0].temp))°"), description: rowData.hourly[0].weather.description , maxMinTemp: String("Mакс.: \(Int(rowDataForMinMax.list[0].temp.max)), мин.:\(Int(rowDataForMinMax.list[0].temp.min))"))
+        return HeaderStringValue(cityName: "Калининград", temp: String("\(Int(rowData.hourly[0].temp))°"), description: rowData.hourly[0].weather[0].description , maxMinTemp: String("Mакс.: \(Int(rowDataForMinMax.list[0].temp.max)), мин.:\(Int(rowDataForMinMax.list[0].temp.min))"))
     }
     
     func getHourlyStringValue(rowDayData: WeatherDataService.OneDayResponse, rowTenDaysData: WeatherDataService.TenDaysResponse ) -> HourlyStringValue {
