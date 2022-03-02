@@ -122,7 +122,7 @@ extension MainTableController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let currentSection = getSectionConfigurator(section: section)!
+        guard let currentSection = getSectionConfigurator(section: section) else { return nil }
         return currentSection.getHeaderView()
     }
     
