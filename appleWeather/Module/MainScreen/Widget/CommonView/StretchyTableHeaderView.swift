@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
+
 class StretchyTableHeaderView: UIView {
-    
     struct HeaderStringValue {
         let cityName: String
         let temp: String

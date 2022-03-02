@@ -10,9 +10,7 @@ import UIKit
 import SnapKit
 
 
-
 class TenDaysForecastSectionView: CellWithRoundedCorner {
-    
     struct TenDaysStringValue {
         let list: [OneDayInfoView.OneDayStringValue]
     }

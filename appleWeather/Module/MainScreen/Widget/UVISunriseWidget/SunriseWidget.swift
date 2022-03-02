@@ -11,7 +11,6 @@ import UIKit
 
 
 class SunriseWidget: ViewWithRoundedCorner {
-    
     struct SunriseStringValue {
         let sunrise: Double
         let sunset: Double

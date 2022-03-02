@@ -10,9 +10,7 @@ import SnapKit
 import UIKit
 
 
-
 class VisibilityPressureWidgetSectionView: UITableViewCell {
-    
     var stackView = UIStackView()
     var visibilityWidget: VisibilityWidget?
     var pressureWidget: PressureWidget?

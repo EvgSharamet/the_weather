@@ -10,9 +10,7 @@ import SnapKit
 import UIKit
 
 
-
 class WindPrecipitationWidgetSectionView: UITableViewCell {
-    
     var stackView = UIStackView()
     var windWidget: WindWidget?
     var precipitationWidget: PrecipitationWidget?

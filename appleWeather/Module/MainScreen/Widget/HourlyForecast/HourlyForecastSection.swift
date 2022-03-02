@@ -9,9 +9,7 @@ import Foundation
 import UIKit
 
 
-
 struct HourlyForecastSection: SectionConfiguratorProtocol {
-    
     let cellIdentifier = "HourlyForecastSectionCell"
     var data: StringGeneratorForViewService.HourlyStringValue?
     

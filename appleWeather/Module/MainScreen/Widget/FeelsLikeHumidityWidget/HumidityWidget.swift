@@ -10,9 +10,7 @@ import SnapKit
 import UIKit
 
 
-
 class HumidityWidget: ViewWithRoundedCorner {
-    
     struct HumidityStringValue {
         let humidityValue: String
         let description: String

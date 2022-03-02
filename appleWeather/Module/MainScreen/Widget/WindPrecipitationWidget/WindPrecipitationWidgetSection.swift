@@ -10,7 +10,6 @@ import UIKit
 import SnapKit
 
 
-
 class WindPrecipitationWidgetSection: SectionConfiguratorProtocol {
     let cellIdentifier = "WindHumidityWidgetSectionCell"
     var data: (StringGeneratorForViewService.WindStringValue, StringGeneratorForViewService.PrecipitationStringValue)?

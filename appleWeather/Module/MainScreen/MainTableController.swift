@@ -108,7 +108,6 @@ class MainTableController: UIViewController {
             self.visibilityPressureWidgetSection?.data = (StringGeneratorForViewService.shared.getVisibilityStringValue(rowData: oneDayResponse), StringGeneratorForViewService.shared.getPressureStringValue(rowData: oneDayResponse))
             
             let dataForHeader = StringGeneratorForViewService.shared.getHeaderStringValue(rowData: oneDayResponse, rowDataForMinMax: tenDaysResponse)
-            print("DDAAAATTTAAAAA = \(dataForHeader)")
             self.headerView.configure(data: StretchyTableHeaderView.HeaderStringValue(cityName: dataForHeader.cityName, temp: dataForHeader.temp, description: dataForHeader.description, maxMinTemp: dataForHeader.maxMinTemp))
             self.tableView.reloadData()
         }
@@ -154,19 +153,14 @@ extension MainTableController: UITableViewDelegate, UITableViewDataSource {
         switch section {
         case .hourlyForecast:
             return hourlyForecastSection
-    
         case .tenDaysForecast:
             return tenDaysForecastSection
-       
         case .uviSunriseWidgets:
             return uviSunriseWidgetSection
-            
         case .windPrecipitationWidgets:
             return windPrecipitationWidgetSection
-       
         case .feelsLikeHumidityWidgets:
             return feelsLikeHumidityWidgetSection
-            
         case .visibilityPressureWidgets:
             return visibilityPressureWidgetSection
         }

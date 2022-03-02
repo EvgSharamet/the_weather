@@ -10,9 +10,7 @@ import SnapKit
 import UIKit
 
 
-
 class UVISunriseWidgetSection: SectionConfiguratorProtocol {
-
     let cellIdentifier = "UVISunriseWidgetSectionCell"
     var data: (StringGeneratorForViewService.UVIndexStringValue, StringGeneratorForViewService.SunriseStringValue)?
     

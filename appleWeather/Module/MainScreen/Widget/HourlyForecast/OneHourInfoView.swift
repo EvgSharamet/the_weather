@@ -9,9 +9,7 @@ import Foundation
 import UIKit
 
 
-
 class OneHourInfoView: UIView {
-    
     struct OneHourStringValue {
         let date: String
         let iconString: String

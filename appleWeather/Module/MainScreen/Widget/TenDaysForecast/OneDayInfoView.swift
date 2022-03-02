@@ -10,9 +10,7 @@ import SnapKit
 import UIKit
 
 
-
 class OneDayInfoView: UIView {
-    
     struct OneDayStringValue {
         var icon: UIImage?
         let iconString: String

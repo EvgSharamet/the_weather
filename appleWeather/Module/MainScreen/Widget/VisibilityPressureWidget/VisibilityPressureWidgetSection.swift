@@ -11,7 +11,6 @@ import UIKit
 
 
 class VisibilityPressureWidgetSection: SectionConfiguratorProtocol {
-    
     let cellIdentifier = "VisibilityPressureWidgetSectionCell"
     var data: (StringGeneratorForViewService.VisibilityStringValue, StringGeneratorForViewService.PressureStringValue)?
     

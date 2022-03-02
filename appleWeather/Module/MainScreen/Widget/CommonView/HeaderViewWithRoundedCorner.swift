@@ -10,7 +10,6 @@ import SnapKit
 import UIKit
 
 
-
 class HeaderViewWithRoundedCorner: UIView {
     
     override init(frame: CGRect) {

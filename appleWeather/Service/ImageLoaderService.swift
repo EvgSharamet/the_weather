@@ -9,9 +9,7 @@ import Foundation
 import UIKit
 
 
-
 class ImageLoaderService {
-    
     static let shared = ImageLoaderService()
     
     private let queue = DispatchQueue(label: "ImageLoaderService.queue",

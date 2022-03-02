@@ -11,7 +11,6 @@ import UIKit
 
 
 class FeelsLikeHumidityWidgetSection: SectionConfiguratorProtocol {
-    
     let cellIdentifier = "FeelsLikeHumidityWidgetSectionCell"
     var data: (StringGeneratorForViewService.FeelsLikeStringValue, StringGeneratorForViewService.HumidityStringValue)?
     

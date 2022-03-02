@@ -12,7 +12,6 @@ import UIKit
 
 class WeatherDataService {
     //MARK: - types
-    
     struct Error: Swift.Error {
         let info: String
     }

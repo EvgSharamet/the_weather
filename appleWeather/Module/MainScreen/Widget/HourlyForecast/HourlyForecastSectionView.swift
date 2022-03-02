@@ -9,9 +9,7 @@ import Foundation
 import UIKit
 
 
-
 class HourlyForecastSectionView: CellWithRoundedCorner {
-    
     struct HourlyForecastStringValue {
         let list: [OneHourInfoView.OneHourStringValue]
     }
