@@ -11,7 +11,7 @@ import UIKit
 
 
 
-class MainTableController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MainTableController: UIViewController {
     
     let tableView = UITableView()
     let headerView = StretchyTableHeaderView()
@@ -48,13 +48,12 @@ class MainTableController: UIViewController, UITableViewDelegate, UITableViewDat
             maker.bottom.equalToSuperview()
         }
         
-        self.view.addSubview(headerView)
+        self.tableView.tableHeaderView = headerView
         headerView.snp.makeConstraints { make in
             make.height.equalTo(200)
-            make.width.equalTo(view.safeAreaLayoutGuide)
+            make.width.equalTo(self.tableView.safeAreaLayoutGuide)
         }
         headerView.prepare()
-        self.tableView.tableHeaderView = headerView
 
         tableView.backgroundColor = .clear
         tableView.delegate = self
@@ -119,7 +118,7 @@ class MainTableController: UIViewController, UITableViewDelegate, UITableViewDat
     }
 }
 
-extension MainTableController {
+extension MainTableController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections( in tableView: UITableView) -> Int {
         return TableViewSections.allCases.count

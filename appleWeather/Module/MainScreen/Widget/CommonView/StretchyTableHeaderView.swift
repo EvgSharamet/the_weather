@@ -31,7 +31,7 @@ class StretchyTableHeaderView: UIView {
         stack.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        stack.backgroundColor = .cyan.withAlphaComponent(0.3)
+        stack.backgroundColor = .clear
         stack.addArrangedSubview(cityNameLabel)
         cityNameLabel.font = cityNameLabel.font.withSize(40)
         cityNameLabel.textColor = .white
