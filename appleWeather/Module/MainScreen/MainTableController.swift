@@ -14,6 +14,7 @@ import UIKit
 class MainTableController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let tableView = UITableView()
+    let headerView = StretchyTableHeaderView()
     
     private enum TableViewSections: Int, CaseIterable {
         case hourlyForecast = 0
@@ -46,6 +47,15 @@ class MainTableController: UIViewController, UITableViewDelegate, UITableViewDat
             maker.left.right.equalTo(view.safeAreaLayoutGuide).inset(10)
             maker.bottom.equalToSuperview()
         }
+        
+        headerView.snp.makeConstraints { make in
+            make.height.equalTo(300)
+            make.width.width.equalTo(350)
+          //  make.width.equalTo(view.safeAreaLayoutGuide)
+        }
+        headerView.prepare()
+        self.tableView.tableHeaderView = headerView
+
         tableView.backgroundColor = .clear
         tableView.delegate = self
         tableView.dataSource = self
@@ -66,7 +76,7 @@ class MainTableController: UIViewController, UITableViewDelegate, UITableViewDat
         group.enter()
         group.enter()
         
-        WeatherDataService.shared.requestByCurrentDay(place: "Алжир") { result in
+        WeatherDataService.shared.requestByCurrentDay(place: "Калининград") { result in
             switch result {
             case .success(let weatherData):
                 oneDayResponse = weatherData
@@ -76,7 +86,7 @@ class MainTableController: UIViewController, UITableViewDelegate, UITableViewDat
             group.leave()
         }
         
-        WeatherDataService.shared.requestByTenDays(place: "Алжир") { result in
+        WeatherDataService.shared.requestByTenDays(place: "Калининград") { result in
             switch result {
             case .success(let weatherData):
                 tenDaysResponse = weatherData
@@ -100,6 +110,10 @@ class MainTableController: UIViewController, UITableViewDelegate, UITableViewDat
             self.windPrecipitationWidgetSection?.data = (StringGeneratorForViewService.shared.getWindStringValue(rowData: oneDayResponse), StringGeneratorForViewService.shared.getPrecipitationStringValue(rowData: tenDaysResponse))
             self.feelsLikeHumidityWidgetSection?.data = (StringGeneratorForViewService.shared.getFeelsLikeStringValue(rowData: oneDayResponse), StringGeneratorForViewService.shared.getHumidityStringValue(rowData: oneDayResponse))
             self.visibilityPressureWidgetSection?.data = (StringGeneratorForViewService.shared.getVisibilityStringValue(rowData: oneDayResponse), StringGeneratorForViewService.shared.getPressureStringValue(rowData: oneDayResponse))
+            
+            let dataForHeader = StringGeneratorForViewService.shared.getHeaderStringValue(rowData: oneDayResponse, rowDataForMinMax: tenDaysResponse)
+            print("DDAAAATTTAAAAA = \(dataForHeader)")
+            self.headerView.configure(data: StretchyTableHeaderView.HeaderStringValue(cityName: dataForHeader.cityName, temp: dataForHeader.temp, description: dataForHeader.description, maxMinTemp: dataForHeader.maxMinTemp))
             self.tableView.reloadData()
         }
     }

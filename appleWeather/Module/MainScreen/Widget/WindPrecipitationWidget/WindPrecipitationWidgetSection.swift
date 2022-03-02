@@ -36,7 +36,7 @@ class WindPrecipitationWidgetSection: SectionConfiguratorProtocol {
             maker.top.bottom.right.equalToSuperview()
             maker.left.equalToSuperview().inset(10)
         }
-        
+   
         let secondHeader = HeaderViewWithRoundedCorner()
         stackView.addArrangedSubview(secondHeader)
         precipitationHeaderLabel.textColor = .lightGray
@@ -45,6 +45,7 @@ class WindPrecipitationWidgetSection: SectionConfiguratorProtocol {
             maker.top.bottom.right.equalToSuperview()
             maker.left.equalToSuperview().inset(10)
         }
+
         return view
     }
     

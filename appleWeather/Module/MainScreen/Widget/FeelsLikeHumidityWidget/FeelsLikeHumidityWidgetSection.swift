@@ -35,7 +35,7 @@ class FeelsLikeHumidityWidgetSection: SectionConfiguratorProtocol {
             maker.top.bottom.right.equalToSuperview()
             maker.left.equalToSuperview().inset(10)
         }
-        
+
         let secondHeader = HeaderViewWithRoundedCorner()
         stackView.addArrangedSubview(secondHeader)
         let secondLabel = UILabel()
