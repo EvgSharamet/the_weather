@@ -11,8 +11,13 @@ import UIKit
 
 
 class UVISunriseWidgetSectionConfigurator: SectionConfiguratorProtocol {
+    struct Data {
+        let uvindex: StringGeneratorForViewService.UVIndexStringValue
+        let sunrise: StringGeneratorForViewService.SunriseStringValue
+    }
+    
     let cellIdentifier = "UVISunriseWidgetSectionCell"
-    var data: (StringGeneratorForViewService.UVIndexStringValue, StringGeneratorForViewService.SunriseStringValue)?
+    var data: Data?
     
     func getHeaderView() -> UIView? {
         let view = UIView()
@@ -63,8 +68,8 @@ class UVISunriseWidgetSectionConfigurator: SectionConfiguratorProtocol {
         guard let data = data else {
             return cell
         }
-        let uviDataStringValue = data.0
-        let sunriseDataStringValue = data.1
+        let uviDataStringValue = data.uvindex
+        let sunriseDataStringValue = data.sunrise
         
         cell.configure(dataForUVIVidget:  UVIWidget.UVIndexStringValue(number: uviDataStringValue.number, numberValue: uviDataStringValue.numberValue , textValue: uviDataStringValue.textValue, description: uviDataStringValue.description),  dataForSunriseVidget: SunriseWidget.SunriseStringValue(sunrise: sunriseDataStringValue.sunrise, sunset: sunriseDataStringValue.sunset, sunriseValue: sunriseDataStringValue.sunriseValue, sunsetValue: sunriseDataStringValue.sunsetValue))
         return cell

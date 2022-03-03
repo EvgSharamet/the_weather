@@ -11,8 +11,13 @@ import SnapKit
 
 
 class WindPrecipitationWidgetSectionConfigurator: SectionConfiguratorProtocol {
+    struct Data {
+        let wind: StringGeneratorForViewService.WindStringValue
+        let precipitation: StringGeneratorForViewService.PrecipitationStringValue
+    }
+    
+    var data: Data?
     let cellIdentifier = "WindHumidityWidgetSectionCell"
-    var data: (StringGeneratorForViewService.WindStringValue, StringGeneratorForViewService.PrecipitationStringValue)?
     var precipitationHeaderLabel = UILabel()
     
     func getHeaderView() -> UIView? {
@@ -63,8 +68,8 @@ class WindPrecipitationWidgetSectionConfigurator: SectionConfiguratorProtocol {
             return cell
         }
 
-        let windDataStringValue = data.0
-        let precipitationDataStringValue = data.1
+        let windDataStringValue = data.wind
+        let precipitationDataStringValue = data.precipitation
         precipitationHeaderLabel.text = precipitationDataStringValue.textForHeader
         
         cell.configure(dataForWindVidget: WindWidget.WindStringValue(windSpeed: windDataStringValue.windSpeed, windMeasure: windDataStringValue.windMeasure, windDeg: windDataStringValue.windDeg), dataForPrecipitationWidget: PrecipitationWidget.PrecipitationStringValue (weatherType: precipitationDataStringValue.weatherType, textForHeader: precipitationDataStringValue.textForHeader, currentValue: precipitationDataStringValue.currentValue, futureValue: precipitationDataStringValue.futureValue))

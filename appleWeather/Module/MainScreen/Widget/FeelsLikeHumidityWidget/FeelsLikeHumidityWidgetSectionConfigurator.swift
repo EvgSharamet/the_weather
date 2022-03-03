@@ -11,8 +11,14 @@ import UIKit
 
 
 class FeelsLikeHumidityWidgetSectionConfigurator: SectionConfiguratorProtocol {
+    
+    struct Data {
+        let feelsLike: StringGeneratorForViewService.FeelsLikeStringValue
+        let humidity: StringGeneratorForViewService.HumidityStringValue
+    }
+
     let cellIdentifier = "FeelsLikeHumidityWidgetSectionCell"
-    var data: (StringGeneratorForViewService.FeelsLikeStringValue, StringGeneratorForViewService.HumidityStringValue)?
+    var data: Data?
     
     func getHeaderView() -> UIView? {
         let view = UIView()
@@ -62,8 +68,8 @@ class FeelsLikeHumidityWidgetSectionConfigurator: SectionConfiguratorProtocol {
             return cell
         }
 
-        let feelsLikeDataStringValue = data.0
-        let humidityDataStringValue = data.1
+        let feelsLikeDataStringValue = data.feelsLike
+        let humidityDataStringValue = data.humidity
         cell.configure(dataForFeelsLikeWidget: FeelsLikeWidget.FeelsLikeStringValue(feelsLikeValue: feelsLikeDataStringValue.feelsLikeValue, description: feelsLikeDataStringValue.description), dataForHumidityWidget: HumidityWidget.HumidityStringValue(humidityValue: humidityDataStringValue.humidityValue, description: humidityDataStringValue.description))
         return cell
     }

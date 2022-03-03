@@ -102,10 +102,10 @@ class MainTableController: UIViewController {
 
             self.hourlyForecastSection?.data = StringGeneratorForViewService.shared.getHourlyStringValue(rowDayData: oneDayResponse, rowTenDaysData: tenDaysResponse)
             self.tenDaysForecastSection?.data = StringGeneratorForViewService.shared.getTenDaysStringValue(dataTenDays: tenDaysResponse, currentDay: oneDayResponse)
-            self.uviSunriseWidgetSection?.data = (StringGeneratorForViewService.shared.getUVIndexStringValue(rowData: oneDayResponse), StringGeneratorForViewService.shared.getSunriseStringValue(rowData: oneDayResponse))
-            self.windPrecipitationWidgetSection?.data = (StringGeneratorForViewService.shared.getWindStringValue(rowData: oneDayResponse), StringGeneratorForViewService.shared.getPrecipitationStringValue(rowData: tenDaysResponse))
-            self.feelsLikeHumidityWidgetSection?.data = (StringGeneratorForViewService.shared.getFeelsLikeStringValue(rowData: oneDayResponse), StringGeneratorForViewService.shared.getHumidityStringValue(rowData: oneDayResponse))
-            self.visibilityPressureWidgetSection?.data = (StringGeneratorForViewService.shared.getVisibilityStringValue(rowData: oneDayResponse), StringGeneratorForViewService.shared.getPressureStringValue(rowData: oneDayResponse))
+            self.uviSunriseWidgetSection?.data =  UVISunriseWidgetSectionConfigurator.Data(uvindex: StringGeneratorForViewService.shared.getUVIndexStringValue(rowData: oneDayResponse), sunrise: StringGeneratorForViewService.shared.getSunriseStringValue(rowData: oneDayResponse))
+            self.windPrecipitationWidgetSection?.data =  WindPrecipitationWidgetSectionConfigurator.Data(wind: StringGeneratorForViewService.shared.getWindStringValue(rowData: oneDayResponse), precipitation: StringGeneratorForViewService.shared.getPrecipitationStringValue(rowData: tenDaysResponse))
+            self.feelsLikeHumidityWidgetSection?.data = FeelsLikeHumidityWidgetSectionConfigurator.Data(feelsLike: StringGeneratorForViewService.shared.getFeelsLikeStringValue(rowData: oneDayResponse), humidity: StringGeneratorForViewService.shared.getHumidityStringValue(rowData: oneDayResponse))
+            self.visibilityPressureWidgetSection?.data = VisibilityPressureWidgetSectionConfigurator.Data(visibility: StringGeneratorForViewService.shared.getVisibilityStringValue(rowData: oneDayResponse), pressure: StringGeneratorForViewService.shared.getPressureStringValue(rowData: oneDayResponse))
             
             let dataForHeader = StringGeneratorForViewService.shared.getHeaderStringValue(rowData: oneDayResponse, rowDataForMinMax: tenDaysResponse)
             self.headerView.configure(data: StretchyTableHeaderView.HeaderStringValue(cityName: dataForHeader.cityName, temp: dataForHeader.temp, description: dataForHeader.description, maxMinTemp: dataForHeader.maxMinTemp))
