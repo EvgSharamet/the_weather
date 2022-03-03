@@ -24,7 +24,7 @@ class FeelsLikeHumidityWidgetSection: SectionConfiguratorProtocol {
             maker.edges.equalToSuperview()
         }
         
-        let firstHeader = HeaderViewWithRoundedCorner()
+        let firstHeader = BaseHeaderView()
         stackView.addArrangedSubview(firstHeader)
         let firstLabel = UILabel()
         firstLabel.text = "🌡 FEELS LIKE"
@@ -35,7 +35,7 @@ class FeelsLikeHumidityWidgetSection: SectionConfiguratorProtocol {
             maker.left.equalToSuperview().inset(10)
         }
 
-        let secondHeader = HeaderViewWithRoundedCorner()
+        let secondHeader = BaseHeaderView()
         stackView.addArrangedSubview(secondHeader)
         let secondLabel = UILabel()
         secondLabel.text = "🌫 HUMIDITY"

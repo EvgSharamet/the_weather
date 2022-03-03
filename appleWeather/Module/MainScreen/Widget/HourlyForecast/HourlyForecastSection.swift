@@ -14,7 +14,7 @@ struct HourlyForecastSection: SectionConfiguratorProtocol {
     var data: StringGeneratorForViewService.HourlyStringValue?
     
     func getHeaderView() -> UIView? {
-        let view = HeaderViewWithRoundedCorner()
+        let view = BaseHeaderView()
         let label = UILabel()
         label.text = " 🕘 HOURLY FORECAST"
         view.addSubview(label)

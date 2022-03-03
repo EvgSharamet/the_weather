@@ -25,7 +25,7 @@ class WindPrecipitationWidgetSection: SectionConfiguratorProtocol {
             maker.edges.equalToSuperview()
         }
         
-        let firstHeader = HeaderViewWithRoundedCorner()
+        let firstHeader = BaseHeaderView()
         stackView.addArrangedSubview(firstHeader)
         let firstLabel = UILabel()
         firstLabel.text = "💨 WIND"
@@ -36,7 +36,7 @@ class WindPrecipitationWidgetSection: SectionConfiguratorProtocol {
             maker.left.equalToSuperview().inset(10)
         }
    
-        let secondHeader = HeaderViewWithRoundedCorner()
+        let secondHeader = BaseHeaderView()
         stackView.addArrangedSubview(secondHeader)
         precipitationHeaderLabel.textColor = .lightGray
         secondHeader.addSubview(precipitationHeaderLabel)

@@ -24,7 +24,7 @@ class UVISunriseWidgetSection: SectionConfiguratorProtocol {
             maker.edges.equalToSuperview()
         }
         
-        let firstHeader = HeaderViewWithRoundedCorner()
+        let firstHeader = BaseHeaderView()
         stackView.addArrangedSubview(firstHeader)
         let firstLabel = UILabel()
         firstLabel.text = "🌤 UV-INDEX"
@@ -36,7 +36,7 @@ class UVISunriseWidgetSection: SectionConfiguratorProtocol {
         }
 
         
-        let secondHeader = HeaderViewWithRoundedCorner()
+        let secondHeader = BaseHeaderView()
         stackView.addArrangedSubview(secondHeader)
         let secondLabel = UILabel()
         secondLabel.text = " 🌅 SUNRISE/SUNSET"
