@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		444C1F4F27CCF34E00A2C3C6 /* SunPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444C1F4E27CCF34E00A2C3C6 /* SunPathView.swift */; };
-		854FEBD027D0D41300463EDF /* FeelsLikeHumidityWidgetSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824B727A2DDE00054E337 /* FeelsLikeHumidityWidgetSection.swift */; };
+		854FEBD027D0D41300463EDF /* FeelsLikeHumidityWidgetSectionConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824B727A2DDE00054E337 /* FeelsLikeHumidityWidgetSectionConfigurator.swift */; };
 		854FEBD527D0D57F00463EDF /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854FEBD327D0D57F00463EDF /* BaseCell.swift */; };
 		854FEBD627D0D57F00463EDF /* BaseHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854FEBD427D0D57F00463EDF /* BaseHeaderView.swift */; };
 		855CE47F27C54C30001A1E31 /* ImageLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855CE47E27C54C30001A1E31 /* ImageLoaderService.swift */; };
 		8560A80427B12BF70065AA4F /* StringGeneratorForViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8560A80327B12BF70065AA4F /* StringGeneratorForViewService.swift */; };
 		8560A80627B2F4A20065AA4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8560A80527B2F4A20065AA4F /* Assets.xcassets */; };
-		858824AE27A2AEFE0054E337 /* WindPrecipitationWidgetSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824AD27A2AEFE0054E337 /* WindPrecipitationWidgetSection.swift */; };
+		858824AE27A2AEFE0054E337 /* WindPrecipitationWidgetSectionConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824AD27A2AEFE0054E337 /* WindPrecipitationWidgetSectionConfigurator.swift */; };
 		858824B027A2B00E0054E337 /* WindPrecipitationWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824AF27A2B00E0054E337 /* WindPrecipitationWidgetView.swift */; };
 		858824B227A2B0CB0054E337 /* WindWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824B127A2B0CB0054E337 /* WindWidget.swift */; };
 		858824B427A2B0E70054E337 /* HumidityWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824B327A2B0E70054E337 /* HumidityWidget.swift */; };
@@ -22,7 +22,7 @@
 		858824BA27A2E16B0054E337 /* FeelsLikeHumidityWidgetSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824B927A2E16B0054E337 /* FeelsLikeHumidityWidgetSectionView.swift */; };
 		858824BC27A2E3CA0054E337 /* FeelsLikeWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824BB27A2E3CA0054E337 /* FeelsLikeWidget.swift */; };
 		858824BE27A2EAF50054E337 /* VisibilityPressureWidgetSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824BD27A2EAF50054E337 /* VisibilityPressureWidgetSectionView.swift */; };
-		858824C027A2EB420054E337 /* VisibilityPressureWidgetSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824BF27A2EB420054E337 /* VisibilityPressureWidgetSection.swift */; };
+		858824C027A2EB420054E337 /* VisibilityPressureWidgetSectionConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824BF27A2EB420054E337 /* VisibilityPressureWidgetSectionConfigurator.swift */; };
 		858824C227A2ED9F0054E337 /* VisibilityWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824C127A2ED9F0054E337 /* VisibilityWidget.swift */; };
 		858824C427A2EDE60054E337 /* PressureWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824C327A2EDE60054E337 /* PressureWidget.swift */; };
 		858824C627A824B70054E337 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824C527A824B70054E337 /* MainNavigationController.swift */; };
@@ -38,13 +38,13 @@
 		85BC889A2791B56A00D7CB4A /* WeatherDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BC88992791B56A00D7CB4A /* WeatherDataService.swift */; };
 		85C54C7A2795B42B00B9CFA2 /* MainTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C54C792795B42B00B9CFA2 /* MainTableController.swift */; };
 		85C54C7C2795B65D00B9CFA2 /* HourlyForecastSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C54C7B2795B65D00B9CFA2 /* HourlyForecastSectionView.swift */; };
-		85C54C812795C42800B9CFA2 /* HourlyForecastSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C54C802795C42800B9CFA2 /* HourlyForecastSection.swift */; };
+		85C54C812795C42800B9CFA2 /* HourlyForecastSectionConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C54C802795C42800B9CFA2 /* HourlyForecastSectionConfigurator.swift */; };
 		85C54C832796045C00B9CFA2 /* SectionConfiguratorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C54C822796045C00B9CFA2 /* SectionConfiguratorProtocol.swift */; };
 		85C54C852796EF1500B9CFA2 /* OneHourInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C54C842796EF1500B9CFA2 /* OneHourInfoView.swift */; };
-		85E2B843279985E600E8595B /* TenDaysForecastSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E2B842279985E600E8595B /* TenDaysForecastSection.swift */; };
+		85E2B843279985E600E8595B /* TenDaysForecastSectionConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E2B842279985E600E8595B /* TenDaysForecastSectionConfigurator.swift */; };
 		85E2B84527998D1F00E8595B /* TenDaysForecastSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E2B84427998D1F00E8595B /* TenDaysForecastSectionView.swift */; };
 		85E2B84727999E1F00E8595B /* OneDayInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E2B84627999E1F00E8595B /* OneDayInfoView.swift */; };
-		85E2B8492799BFFC00E8595B /* UVISunRiseWidgetSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E2B8482799BFFC00E8595B /* UVISunRiseWidgetSection.swift */; };
+		85E2B8492799BFFC00E8595B /* UVISunRiseWidgetSectionConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E2B8482799BFFC00E8595B /* UVISunRiseWidgetSectionConfigurator.swift */; };
 		85E2B84B2799C3AB00E8595B /* UVISunriseWidgetSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E2B84A2799C3AB00E8595B /* UVISunriseWidgetSectionView.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,16 +69,16 @@
 		855CE47E27C54C30001A1E31 /* ImageLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderService.swift; sourceTree = "<group>"; };
 		8560A80327B12BF70065AA4F /* StringGeneratorForViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringGeneratorForViewService.swift; sourceTree = "<group>"; };
 		8560A80527B2F4A20065AA4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		858824AD27A2AEFE0054E337 /* WindPrecipitationWidgetSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindPrecipitationWidgetSection.swift; sourceTree = "<group>"; };
+		858824AD27A2AEFE0054E337 /* WindPrecipitationWidgetSectionConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindPrecipitationWidgetSectionConfigurator.swift; sourceTree = "<group>"; };
 		858824AF27A2B00E0054E337 /* WindPrecipitationWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindPrecipitationWidgetView.swift; sourceTree = "<group>"; };
 		858824B127A2B0CB0054E337 /* WindWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindWidget.swift; sourceTree = "<group>"; };
 		858824B327A2B0E70054E337 /* HumidityWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumidityWidget.swift; sourceTree = "<group>"; };
 		858824B527A2DA270054E337 /* PrecipitationWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecipitationWidget.swift; sourceTree = "<group>"; };
-		858824B727A2DDE00054E337 /* FeelsLikeHumidityWidgetSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelsLikeHumidityWidgetSection.swift; sourceTree = "<group>"; };
+		858824B727A2DDE00054E337 /* FeelsLikeHumidityWidgetSectionConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelsLikeHumidityWidgetSectionConfigurator.swift; sourceTree = "<group>"; };
 		858824B927A2E16B0054E337 /* FeelsLikeHumidityWidgetSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelsLikeHumidityWidgetSectionView.swift; sourceTree = "<group>"; };
 		858824BB27A2E3CA0054E337 /* FeelsLikeWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelsLikeWidget.swift; sourceTree = "<group>"; };
 		858824BD27A2EAF50054E337 /* VisibilityPressureWidgetSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisibilityPressureWidgetSectionView.swift; sourceTree = "<group>"; };
-		858824BF27A2EB420054E337 /* VisibilityPressureWidgetSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisibilityPressureWidgetSection.swift; sourceTree = "<group>"; };
+		858824BF27A2EB420054E337 /* VisibilityPressureWidgetSectionConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisibilityPressureWidgetSectionConfigurator.swift; sourceTree = "<group>"; };
 		858824C127A2ED9F0054E337 /* VisibilityWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisibilityWidget.swift; sourceTree = "<group>"; };
 		858824C327A2EDE60054E337 /* PressureWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureWidget.swift; sourceTree = "<group>"; };
 		858824C527A824B70054E337 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
@@ -95,13 +95,13 @@
 		85BC88992791B56A00D7CB4A /* WeatherDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataService.swift; sourceTree = "<group>"; };
 		85C54C792795B42B00B9CFA2 /* MainTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableController.swift; sourceTree = "<group>"; };
 		85C54C7B2795B65D00B9CFA2 /* HourlyForecastSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastSectionView.swift; sourceTree = "<group>"; };
-		85C54C802795C42800B9CFA2 /* HourlyForecastSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastSection.swift; sourceTree = "<group>"; };
+		85C54C802795C42800B9CFA2 /* HourlyForecastSectionConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastSectionConfigurator.swift; sourceTree = "<group>"; };
 		85C54C822796045C00B9CFA2 /* SectionConfiguratorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionConfiguratorProtocol.swift; sourceTree = "<group>"; };
 		85C54C842796EF1500B9CFA2 /* OneHourInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneHourInfoView.swift; sourceTree = "<group>"; };
-		85E2B842279985E600E8595B /* TenDaysForecastSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenDaysForecastSection.swift; sourceTree = "<group>"; };
+		85E2B842279985E600E8595B /* TenDaysForecastSectionConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenDaysForecastSectionConfigurator.swift; sourceTree = "<group>"; };
 		85E2B84427998D1F00E8595B /* TenDaysForecastSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenDaysForecastSectionView.swift; sourceTree = "<group>"; };
 		85E2B84627999E1F00E8595B /* OneDayInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDayInfoView.swift; sourceTree = "<group>"; };
-		85E2B8482799BFFC00E8595B /* UVISunRiseWidgetSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UVISunRiseWidgetSection.swift; sourceTree = "<group>"; };
+		85E2B8482799BFFC00E8595B /* UVISunRiseWidgetSectionConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UVISunRiseWidgetSectionConfigurator.swift; sourceTree = "<group>"; };
 		85E2B84A2799C3AB00E8595B /* UVISunriseWidgetSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UVISunriseWidgetSectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -172,7 +172,7 @@
 		44F4678A27B67EF700D01BA3 /* HourlyForecast */ = {
 			isa = PBXGroup;
 			children = (
-				85C54C802795C42800B9CFA2 /* HourlyForecastSection.swift */,
+				85C54C802795C42800B9CFA2 /* HourlyForecastSectionConfigurator.swift */,
 				85C54C7B2795B65D00B9CFA2 /* HourlyForecastSectionView.swift */,
 				85C54C842796EF1500B9CFA2 /* OneHourInfoView.swift */,
 			);
@@ -183,7 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				85E2B84627999E1F00E8595B /* OneDayInfoView.swift */,
-				85E2B842279985E600E8595B /* TenDaysForecastSection.swift */,
+				85E2B842279985E600E8595B /* TenDaysForecastSectionConfigurator.swift */,
 				85E2B84427998D1F00E8595B /* TenDaysForecastSectionView.swift */,
 			);
 			path = TenDaysForecast;
@@ -194,7 +194,7 @@
 			children = (
 				444C1F4E27CCF34E00A2C3C6 /* SunPathView.swift */,
 				858D851027A1A75600CDEC90 /* SunriseWidget.swift */,
-				85E2B8482799BFFC00E8595B /* UVISunRiseWidgetSection.swift */,
+				85E2B8482799BFFC00E8595B /* UVISunRiseWidgetSectionConfigurator.swift */,
 				85E2B84A2799C3AB00E8595B /* UVISunriseWidgetSectionView.swift */,
 				858D8506279F22DF00CDEC90 /* UVIWidget.swift */,
 			);
@@ -205,7 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				858824B527A2DA270054E337 /* PrecipitationWidget.swift */,
-				858824AD27A2AEFE0054E337 /* WindPrecipitationWidgetSection.swift */,
+				858824AD27A2AEFE0054E337 /* WindPrecipitationWidgetSectionConfigurator.swift */,
 				858824AF27A2B00E0054E337 /* WindPrecipitationWidgetView.swift */,
 				858824B127A2B0CB0054E337 /* WindWidget.swift */,
 			);
@@ -215,7 +215,7 @@
 		44F4678E27B67F2700D01BA3 /* FeelsLikeHumidityWidget */ = {
 			isa = PBXGroup;
 			children = (
-				858824B727A2DDE00054E337 /* FeelsLikeHumidityWidgetSection.swift */,
+				858824B727A2DDE00054E337 /* FeelsLikeHumidityWidgetSectionConfigurator.swift */,
 				858824B927A2E16B0054E337 /* FeelsLikeHumidityWidgetSectionView.swift */,
 				858824BB27A2E3CA0054E337 /* FeelsLikeWidget.swift */,
 				858824B327A2B0E70054E337 /* HumidityWidget.swift */,
@@ -227,7 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				858824C327A2EDE60054E337 /* PressureWidget.swift */,
-				858824BF27A2EB420054E337 /* VisibilityPressureWidgetSection.swift */,
+				858824BF27A2EB420054E337 /* VisibilityPressureWidgetSectionConfigurator.swift */,
 				858824BD27A2EAF50054E337 /* VisibilityPressureWidgetSectionView.swift */,
 				858824C127A2ED9F0054E337 /* VisibilityWidget.swift */,
 			);
@@ -352,8 +352,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				854FEBD027D0D41300463EDF /* FeelsLikeHumidityWidgetSection.swift in Sources */,
-				85C54C812795C42800B9CFA2 /* HourlyForecastSection.swift in Sources */,
+				854FEBD027D0D41300463EDF /* FeelsLikeHumidityWidgetSectionConfigurator.swift in Sources */,
+				85C54C812795C42800B9CFA2 /* HourlyForecastSectionConfigurator.swift in Sources */,
 				858824B627A2DA270054E337 /* PrecipitationWidget.swift in Sources */,
 				858824B427A2B0E70054E337 /* HumidityWidget.swift in Sources */,
 				85C54C7C2795B65D00B9CFA2 /* HourlyForecastSectionView.swift in Sources */,
@@ -371,8 +371,8 @@
 				858824C227A2ED9F0054E337 /* VisibilityWidget.swift in Sources */,
 				85BC887B2790E7A300D7CB4A /* SceneDelegate.swift in Sources */,
 				854FEBD527D0D57F00463EDF /* BaseCell.swift in Sources */,
-				858824C027A2EB420054E337 /* VisibilityPressureWidgetSection.swift in Sources */,
-				85E2B8492799BFFC00E8595B /* UVISunRiseWidgetSection.swift in Sources */,
+				858824C027A2EB420054E337 /* VisibilityPressureWidgetSectionConfigurator.swift in Sources */,
+				85E2B8492799BFFC00E8595B /* UVISunRiseWidgetSectionConfigurator.swift in Sources */,
 				858824C627A824B70054E337 /* MainNavigationController.swift in Sources */,
 				858824BC27A2E3CA0054E337 /* FeelsLikeWidget.swift in Sources */,
 				858824BE27A2EAF50054E337 /* VisibilityPressureWidgetSectionView.swift in Sources */,
@@ -386,8 +386,8 @@
 				85E2B84B2799C3AB00E8595B /* UVISunriseWidgetSectionView.swift in Sources */,
 				85AA47C327C7975000169D1F /* StretchyTableHeaderView.swift in Sources */,
 				858824B027A2B00E0054E337 /* WindPrecipitationWidgetView.swift in Sources */,
-				85E2B843279985E600E8595B /* TenDaysForecastSection.swift in Sources */,
-				858824AE27A2AEFE0054E337 /* WindPrecipitationWidgetSection.swift in Sources */,
+				85E2B843279985E600E8595B /* TenDaysForecastSectionConfigurator.swift in Sources */,
+				858824AE27A2AEFE0054E337 /* WindPrecipitationWidgetSectionConfigurator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

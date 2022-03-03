@@ -10,7 +10,7 @@ import SnapKit
 import UIKit
 
 
-class VisibilityPressureWidgetSection: SectionConfiguratorProtocol {
+class VisibilityPressureWidgetSectionConfigurator: SectionConfiguratorProtocol {
     let cellIdentifier = "VisibilityPressureWidgetSectionCell"
     var data: (StringGeneratorForViewService.VisibilityStringValue, StringGeneratorForViewService.PressureStringValue)?
     

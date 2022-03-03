@@ -1,8 +1,8 @@
 //
-//  CurrentDataWidgets.swift
+//  FeelsLikeHumiditySidgetView.swift
 //  appleWeather
 //
-//  Created by Евгения Шарамет on 20.01.2022.
+//  Created by Евгения Шарамет on 27.01.2022.
 //
 
 import Foundation
@@ -10,9 +10,9 @@ import SnapKit
 import UIKit
 
 
-class UVISunriseWidgetSection: SectionConfiguratorProtocol {
-    let cellIdentifier = "UVISunriseWidgetSectionCell"
-    var data: (StringGeneratorForViewService.UVIndexStringValue, StringGeneratorForViewService.SunriseStringValue)?
+class FeelsLikeHumidityWidgetSectionConfigurator: SectionConfiguratorProtocol {
+    let cellIdentifier = "FeelsLikeHumidityWidgetSectionCell"
+    var data: (StringGeneratorForViewService.FeelsLikeStringValue, StringGeneratorForViewService.HumidityStringValue)?
     
     func getHeaderView() -> UIView? {
         let view = UIView()
@@ -27,7 +27,7 @@ class UVISunriseWidgetSection: SectionConfiguratorProtocol {
         let firstHeader = BaseHeaderView()
         stackView.addArrangedSubview(firstHeader)
         let firstLabel = UILabel()
-        firstLabel.text = "🌤 UV-INDEX"
+        firstLabel.text = "🌡 FEELS LIKE"
         firstLabel.textColor = .lightGray
         firstHeader.addSubview(firstLabel)
         firstLabel.snp.makeConstraints { maker in
@@ -35,18 +35,16 @@ class UVISunriseWidgetSection: SectionConfiguratorProtocol {
             maker.left.equalToSuperview().inset(10)
         }
 
-        
         let secondHeader = BaseHeaderView()
         stackView.addArrangedSubview(secondHeader)
         let secondLabel = UILabel()
-        secondLabel.text = " 🌅 SUNRISE/SUNSET"
+        secondLabel.text = "🌫 HUMIDITY"
         secondLabel.textColor = .lightGray
         secondHeader.addSubview(secondLabel)
         secondLabel.snp.makeConstraints { maker in
             maker.top.bottom.right.equalToSuperview()
             maker.left.equalToSuperview().inset(10)
         }
-        
         return view
     }
     
@@ -55,18 +53,18 @@ class UVISunriseWidgetSection: SectionConfiguratorProtocol {
     }
     
     init(tableView: UITableView){
-        tableView.register(UVISunriseWidgetSectionView.self, forCellReuseIdentifier: cellIdentifier)
+        tableView.register(FeelsLikeHumidityWidgetSectionView.self, forCellReuseIdentifier: cellIdentifier)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! UVISunriseWidgetSectionView
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! FeelsLikeHumidityWidgetSectionView
         guard let data = data else {
             return cell
         }
-        let uviDataStringValue = data.0
-        let sunriseDataStringValue = data.1
-        
-        cell.configure(dataForUVIVidget:  UVIWidget.UVIndexStringValue(number: uviDataStringValue.number, numberValue: uviDataStringValue.numberValue , textValue: uviDataStringValue.textValue, description: uviDataStringValue.description),  dataForSunriseVidget: SunriseWidget.SunriseStringValue(sunrise: sunriseDataStringValue.sunrise, sunset: sunriseDataStringValue.sunset, sunriseValue: sunriseDataStringValue.sunriseValue, sunsetValue: sunriseDataStringValue.sunsetValue))
+
+        let feelsLikeDataStringValue = data.0
+        let humidityDataStringValue = data.1
+        cell.configure(dataForFeelsLikeWidget: FeelsLikeWidget.FeelsLikeStringValue(feelsLikeValue: feelsLikeDataStringValue.feelsLikeValue, description: feelsLikeDataStringValue.description), dataForHumidityWidget: HumidityWidget.HumidityStringValue(humidityValue: humidityDataStringValue.humidityValue, description: humidityDataStringValue.description))
         return cell
     }
     
@@ -74,3 +72,5 @@ class UVISunriseWidgetSection: SectionConfiguratorProtocol {
         150
     }
 }
+
+

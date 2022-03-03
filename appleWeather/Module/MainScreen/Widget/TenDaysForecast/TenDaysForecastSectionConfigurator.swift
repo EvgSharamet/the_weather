@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 
-class TenDaysForecastSection: SectionConfiguratorProtocol {
+class TenDaysForecastSectionConfigurator: SectionConfiguratorProtocol {
     let cellIdentifier = "TenDaysForecastSectionCell"
     var data: StringGeneratorForViewService.TenDaysStringValue?
     

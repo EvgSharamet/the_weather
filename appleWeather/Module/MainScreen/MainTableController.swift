@@ -25,12 +25,12 @@ class MainTableController: UIViewController {
         case visibilityPressureWidgets
     }
     
-    private var hourlyForecastSection: HourlyForecastSection?
-    private var tenDaysForecastSection: TenDaysForecastSection?
-    private var uviSunriseWidgetSection: UVISunriseWidgetSection?
-    private var windPrecipitationWidgetSection: WindPrecipitationWidgetSection?
-    private var feelsLikeHumidityWidgetSection: FeelsLikeHumidityWidgetSection?
-    private var visibilityPressureWidgetSection: VisibilityPressureWidgetSection?
+    private var hourlyForecastSection: HourlyForecastSectionConfigurator?
+    private var tenDaysForecastSection: TenDaysForecastSectionConfigurator?
+    private var uviSunriseWidgetSection: UVISunriseWidgetSectionConfigurator?
+    private var windPrecipitationWidgetSection: WindPrecipitationWidgetSectionConfigurator?
+    private var feelsLikeHumidityWidgetSection: FeelsLikeHumidityWidgetSectionConfigurator?
+    private var visibilityPressureWidgetSection: VisibilityPressureWidgetSectionConfigurator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,12 +58,12 @@ class MainTableController: UIViewController {
         tableView.backgroundColor = .clear
         tableView.delegate = self
         tableView.dataSource = self
-        hourlyForecastSection = HourlyForecastSection(tableView: tableView)
-        tenDaysForecastSection = TenDaysForecastSection(tableView: tableView)
-        uviSunriseWidgetSection = UVISunriseWidgetSection(tableView: tableView)
-        windPrecipitationWidgetSection = WindPrecipitationWidgetSection(tableView: tableView)
-        feelsLikeHumidityWidgetSection = FeelsLikeHumidityWidgetSection(tableView: tableView)
-        visibilityPressureWidgetSection = VisibilityPressureWidgetSection(tableView: tableView)
+        hourlyForecastSection = HourlyForecastSectionConfigurator(tableView: tableView)
+        tenDaysForecastSection = TenDaysForecastSectionConfigurator(tableView: tableView)
+        uviSunriseWidgetSection = UVISunriseWidgetSectionConfigurator(tableView: tableView)
+        windPrecipitationWidgetSection = WindPrecipitationWidgetSectionConfigurator(tableView: tableView)
+        feelsLikeHumidityWidgetSection = FeelsLikeHumidityWidgetSectionConfigurator(tableView: tableView)
+        visibilityPressureWidgetSection = VisibilityPressureWidgetSectionConfigurator(tableView: tableView)
         updateData()
     }
     
