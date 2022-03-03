@@ -126,7 +126,10 @@ extension MainTableController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tablerView: UITableView, numberOfRowsInSection section : Int) -> Int {
-        1
+        guard let configurator = getSectionConfigurator(section: section) else {
+            return 0
+        }
+        return configurator.getNumberOfRows()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
