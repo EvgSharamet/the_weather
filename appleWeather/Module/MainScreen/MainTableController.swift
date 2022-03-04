@@ -10,9 +10,7 @@ import SnapKit
 import UIKit
 
 
-
 class MainTableController: UIViewController {
-    
     let tableView = UITableView()
     let headerView = StretchyTableHeaderView()
     
@@ -54,6 +52,7 @@ class MainTableController: UIViewController {
             make.width.equalTo(self.tableView.safeAreaLayoutGuide)
         }
         headerView.prepare()
+        LocationService.shared.local()
 
         tableView.backgroundColor = .clear
         tableView.delegate = self

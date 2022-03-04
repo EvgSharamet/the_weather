@@ -4,30 +4,29 @@
 //
 //  Created by Евгения Шарамет on 14.01.2022.
 //
-
 import Foundation
 import CoreLocation
-/*
+
+
 class LocationService: NSObject, CLLocationManagerDelegate {
-    private let locationManager = CLLocationManager()
+    static let shared = LocationService()
+    private let manager = CLLocationManager()
 
     override init() {
         super.init()
-        locationManager.delegate = self
-        locationManager.startUpdatingLocation()
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestAlwaysAuthorization()
+        manager.startUpdatingLocation()
     }
-
-    viewDidLoad() you have to instantiate the CLLocationManager class, like so:
-
-    // Ask for Authorisation from the User.
-    self.locationManager.requestAlwaysAuthorization()
-
-    // For use in foreground
-    self.locationManager.requestWhenInUseAuthorization()
-
-    if CLLocationManager.locationServicesEnabled() {
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        locationManager.startUpdatingLocation()
+    
+    func local () {
+        self.locationManager(manager, locations: [] )
     }
-}*/
+    
+    func locationManager(_ manager: CLLocationManager, locations: [CLLocation]) {
+        if let location = locations.last {
+          print( "Lat : \(location.coordinate.latitude) , Lng : \(location.coordinate.longitude)")
+        }
+    }
+}
