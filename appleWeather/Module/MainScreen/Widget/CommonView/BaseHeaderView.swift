@@ -32,4 +32,6 @@ class BaseHeaderView: UIView {
         maskLayer.path = path.cgPath
         self.layer.mask = maskLayer
     }
+    
+    
 }

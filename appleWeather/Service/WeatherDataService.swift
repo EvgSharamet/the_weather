@@ -96,6 +96,11 @@ class WeatherDataService {
         let list: [Day]
     }
     
+    struct Coordinate {
+        let latitude: Double
+        let longitude: Double
+    }
+    
     typealias DayInformationRequestResult = Result<OneDayResponse, Swift.Error>
     typealias DayInformationRequestResultHandler = (DayInformationRequestResult) -> Void
     
@@ -107,38 +112,38 @@ class WeatherDataService {
     static let shared = WeatherDataService()
     
     //MARK: - internal functions
-    func requestByCurrentDay(place: String, handler: @escaping DayInformationRequestResultHandler) {
-
+    func requestByCurrentDay(location: Coordinate, handler: @escaping DayInformationRequestResultHandler) {
+/*
         CLGeocoder().geocodeAddressString(place) { placemark, error in
             guard let location = placemark?.first?.location?.coordinate else {
                 let err = error ?? Error(info: "no location \(place)")
                 handler(.failure(err))
                 return
-            }
+            }*/
             do {
-                let weatherData = try self.getCurrentDayData(location)
+                let weatherData = try self.getCurrentDayData(CLLocationCoordinate2D(latitude: location.longitude, longitude: location.longitude))
                 handler(.success(weatherData))
             } catch {
                 handler(.failure(error))
             }
-        }
+        //}
     }
     
-    func requestByTenDays(place: String, handler: @escaping TenDaysInformationRequestResultHandler) {
+    func requestByTenDays(location: Coordinate, handler: @escaping TenDaysInformationRequestResultHandler) {
 
-        CLGeocoder().geocodeAddressString(place) { placemark, error in
-            guard let location = placemark?.first?.location?.coordinate else {
+      /*//  CLGeocoder().geocodeAddressString(place) { placemark, error in
+           guard let location = placemark?.first?.location?.coordinate else {
                 let err = error ?? Error(info: "no location \(place)")
                 handler(.failure(err))
                 return
-            }
+            }*/
             do {
-                let weatherData = try self.getDataForTenDays(location)
+                let weatherData = try self.getDataForTenDays(CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude))
                 handler(.success(weatherData))
             } catch {
                 handler(.failure(error))
             }
-        }
+       // }
     }
     
     //MARK: - private functions
@@ -147,11 +152,10 @@ class WeatherDataService {
         let decoder = JSONDecoder()
         
         guard let url = URL(string: "https://api.openweathermap.org/data/2.5/forecast/daily?lat=\(location.latitude)&lon=\(location.longitude)&lang=ru&cnt=10&units=metric&appid=167ec7c4487c8b004df1c9b138fb6600")
-
         else {
             throw Error(info: "can't get url")
         }
-
+        print( url)
         
         guard let jsonString = try? String(contentsOf: url, encoding:.utf8) else {
             throw Error(info: "can't decode url")
@@ -167,9 +171,11 @@ class WeatherDataService {
     private func getCurrentDayData(_ location:CLLocationCoordinate2D ) throws -> OneDayResponse {
         let decoder = JSONDecoder()
         guard let url = URL( string: "https://api.openweathermap.org/data/2.5/onecall?lat=\(location.latitude)&lon=\(location.longitude)&lang=ru&exclude=minutely,daily&units=metric&appid=167ec7c4487c8b004df1c9b138fb6600")
+             
         else {
             throw Error(info: "can't get url")
         }
+        print( url)
         
         guard let jsonString = try? String(contentsOf: url, encoding:.utf8) else {
             throw Error(info: "can't decode url")

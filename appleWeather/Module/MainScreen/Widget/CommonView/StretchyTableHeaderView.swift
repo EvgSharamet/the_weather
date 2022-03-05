@@ -59,4 +59,8 @@ class StretchyTableHeaderView: UIView {
         descriptionLabel.text = data.description
         maxMinTempLabel.text = data.maxMinTemp
     }
+    
+    override func removeFromSuperview() {
+        super.removeFromSuperview()
+    }
 }

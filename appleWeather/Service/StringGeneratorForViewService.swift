@@ -10,6 +10,7 @@ import SnapKit
 import UIKit
 
 
+
 class StringGeneratorForViewService {
     struct UVIndexStringValue {
         let number: Float
