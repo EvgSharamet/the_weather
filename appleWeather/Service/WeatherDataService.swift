@@ -113,42 +113,26 @@ class WeatherDataService {
     
     //MARK: - internal functions
     func requestByCurrentDay(location: Coordinate, handler: @escaping DayInformationRequestResultHandler) {
-/*
-        CLGeocoder().geocodeAddressString(place) { placemark, error in
-            guard let location = placemark?.first?.location?.coordinate else {
-                let err = error ?? Error(info: "no location \(place)")
-                handler(.failure(err))
-                return
-            }*/
             do {
-                let weatherData = try self.getCurrentDayData(CLLocationCoordinate2D(latitude: location.longitude, longitude: location.longitude))
+                let weatherData = try self.getCurrentDayData(CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude))
                 handler(.success(weatherData))
             } catch {
                 handler(.failure(error))
             }
-        //}
     }
     
     func requestByTenDays(location: Coordinate, handler: @escaping TenDaysInformationRequestResultHandler) {
-
-      /*//  CLGeocoder().geocodeAddressString(place) { placemark, error in
-           guard let location = placemark?.first?.location?.coordinate else {
-                let err = error ?? Error(info: "no location \(place)")
-                handler(.failure(err))
-                return
-            }*/
             do {
                 let weatherData = try self.getDataForTenDays(CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude))
                 handler(.success(weatherData))
             } catch {
                 handler(.failure(error))
             }
-       // }
     }
     
     //MARK: - private functions
     
-    private func getDataForTenDays(_ location:CLLocationCoordinate2D ) throws -> TenDaysResponse {
+    private func getDataForTenDays(_ location: CLLocationCoordinate2D ) throws -> TenDaysResponse {
         let decoder = JSONDecoder()
         
         guard let url = URL(string: "https://api.openweathermap.org/data/2.5/forecast/daily?lat=\(location.latitude)&lon=\(location.longitude)&lang=ru&cnt=10&units=metric&appid=167ec7c4487c8b004df1c9b138fb6600")
