@@ -176,3 +176,9 @@ extension MainTableController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 }
+
+extension MainTableController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+       headerView.scrollViewDidScroll(scrollView)
+    }
+}
