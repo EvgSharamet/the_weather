@@ -35,6 +35,7 @@ class OneHourInfoView: UIView {
         }
     
         dateLabel.textAlignment = .center
+        dateLabel.textColor = .white
         mainStackView.addArrangedSubview(dateLabel)
         dateLabel.snp.makeConstraints { make in
             make.height.equalToSuperview().multipliedBy(0.25)
@@ -67,6 +68,7 @@ class OneHourInfoView: UIView {
         
         mainStackView.addArrangedSubview(tempLabel)
         tempLabel.textAlignment = .center
+        tempLabel.textColor = .white
         tempLabel.font = tempLabel.font.withSize(15)
         tempLabel.snp.makeConstraints { maker in
             maker.height.equalToSuperview().multipliedBy(0.25)

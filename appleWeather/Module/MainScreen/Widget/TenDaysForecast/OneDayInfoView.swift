@@ -45,7 +45,7 @@ class OneDayInfoView: UIView {
             maker.edges.equalToSuperview()
         }
         mainStackView.addArrangedSubview(dateLabel)
-        dateLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 17.0)
+        dateLabel.font = dateLabel.font.withSize(17)
         dateLabel.textColor = .white
         
         mainStackView.addArrangedSubview(weatherIconImageView)
@@ -67,6 +67,7 @@ class OneDayInfoView: UIView {
         
         mainStackView.addArrangedSubview(minTempLabel)
         minTempLabel.textAlignment = .center
+        minTempLabel.textColor = .lightGray
         let distributionView = UIView()
         mainStackView.addArrangedSubview(distributionView)
         distributionView.addSubview(distributionAxisView)
@@ -100,6 +101,7 @@ class OneDayInfoView: UIView {
     
         mainStackView.addArrangedSubview(maxTempLabel)
         maxTempLabel.textAlignment = .center
+        maxTempLabel.textColor = .white
     }
 
     func configure(data: OneDayStringValue) {
