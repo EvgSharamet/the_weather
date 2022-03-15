@@ -93,6 +93,12 @@ class WeatherDataService {
             let rain: Float?
             let snow: Float?
         }
+        
+        struct City: Codable {
+            let name: String
+        }
+        
+        let city: City
         let list: [Day]
     }
     
