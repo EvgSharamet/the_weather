@@ -19,6 +19,7 @@ class TenDaysForecastSectionConfigurator: SectionConfiguratorProtocol {
         
         let label = UILabel()
         label.text = " 📅 TEN DAYS FORECAST"
+        label.textColor = .lightGray
         view.addSubview(label)
         label.snp.makeConstraints { maker in
             maker.top.bottom.right.equalToSuperview()

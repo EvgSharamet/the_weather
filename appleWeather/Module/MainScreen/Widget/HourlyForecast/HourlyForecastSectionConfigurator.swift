@@ -17,6 +17,7 @@ struct HourlyForecastSectionConfigurator: SectionConfiguratorProtocol {
         let view = BaseHeaderView()
         let label = UILabel()
         label.text = " 🕘 HOURLY FORECAST"
+        label.textColor = .lightGray
         view.addSubview(label)
         label.snp.makeConstraints { maker in
             maker.top.bottom.right.equalToSuperview()

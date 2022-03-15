@@ -13,7 +13,7 @@ class BaseCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .clear
-        let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+        let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterialDark))
         self.addSubview(blurEffectView)
         blurEffectView.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()

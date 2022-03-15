@@ -45,6 +45,8 @@ class OneDayInfoView: UIView {
             maker.edges.equalToSuperview()
         }
         mainStackView.addArrangedSubview(dateLabel)
+        dateLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 17.0)
+        dateLabel.textColor = .white
         
         mainStackView.addArrangedSubview(weatherIconImageView)
         weatherIconImageView.snp.makeConstraints { make in

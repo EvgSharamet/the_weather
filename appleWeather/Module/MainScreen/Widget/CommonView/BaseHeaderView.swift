@@ -14,7 +14,8 @@ class BaseHeaderView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+        let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .systemThinMaterialDark))
+        blurEffectView.alpha = 0.3
         self.addSubview(blurEffectView)
         blurEffectView.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
@@ -32,6 +33,4 @@ class BaseHeaderView: UIView {
         maskLayer.path = path.cgPath
         self.layer.mask = maskLayer
     }
-    
-    
 }
