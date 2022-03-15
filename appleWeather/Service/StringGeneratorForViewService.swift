@@ -227,7 +227,7 @@ class StringGeneratorForViewService {
         
         
         
-        return SunriseStringValue(sunrise: rowData.current.sunrise, sunset: rowData.current.sunset, sunriseValue: dateFormatter.string(from:  Date(timeIntervalSince1970: Double(rowData.current.sunrise))), sunsetValue: dateFormatter.string(from:  Date(timeIntervalSince1970: Double(rowData.current.sunset))))
+        return SunriseStringValue(sunrise: rowData.current.sunrise, sunset: rowData.current.sunset, sunriseValue: dateFormatter.string(from:  Date(timeIntervalSince1970: Double(rowData.current.sunrise))), sunsetValue: "Восход: \(dateFormatter.string(from:  Date(timeIntervalSince1970: Double(rowData.current.sunset))))")
     }
     
     func getWindStringValue(rowData: WeatherDataService.OneDayResponse) -> WindStringValue {
@@ -295,7 +295,7 @@ class StringGeneratorForViewService {
     }
     
     func getFeelsLikeStringValue(rowData: WeatherDataService.OneDayResponse) -> FeelsLikeStringValue {
-        var description: String?
+        var description = "По ощущениям примерно так же"
         
         if rowData.current.feels_like < rowData.current.temp {
             if rowData.current.wind_speed >= 3 {

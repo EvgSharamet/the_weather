@@ -33,7 +33,7 @@ class MainTableController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let backgroundImageView = UIImageView(image: UIImage(named: "backgroundMainTable"))
+        let backgroundImageView = UIImageView(image: UIImage(named: "backgroundEveningMainScreen"))
         backgroundImageView.contentMode = .scaleAspectFill
         self.view.addSubview(backgroundImageView)
         backgroundImageView.snp.makeConstraints { maker in
