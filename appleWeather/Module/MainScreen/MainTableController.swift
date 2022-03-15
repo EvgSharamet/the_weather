@@ -33,7 +33,27 @@ class MainTableController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let backgroundImageView = UIImageView(image: UIImage(named: "backgroundDayMainScreen"))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH"
+        let backgroundImageView = UIImageView()
+        if let dataLikeInt = Int(dateFormatter.string(from: Date())) {
+            switch dataLikeInt {
+            case 6...12:
+                backgroundImageView.image = UIImage(named: "backgroundMorningEveningMainScreen")
+            case 12...18:
+                backgroundImageView.image = UIImage(named: "backgroundDayMainScreen")
+            case 18...24:
+                backgroundImageView.image = UIImage(named: "backgroundMorningEveningMainScreen")
+            case 24, 0...6:
+                backgroundImageView.image = UIImage(named: "backgroundNightMainScreen")
+            default:
+                backgroundImageView.image = UIImage(named: "backgroundDayMainScreen")
+            }
+            
+        } else {
+            backgroundImageView.image = UIImage(named: "backgroundDayMainScreen")
+        }
+                                 
         backgroundImageView.contentMode = .scaleAspectFill
         self.view.addSubview(backgroundImageView)
         backgroundImageView.snp.makeConstraints { maker in
