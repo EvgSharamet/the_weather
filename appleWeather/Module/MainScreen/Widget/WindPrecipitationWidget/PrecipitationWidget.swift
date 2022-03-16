@@ -28,7 +28,6 @@ class PrecipitationWidget: ViewWithRoundedCorner {
     let descriptionLabel = UILabel()
     
     func prepare() {
-        
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally

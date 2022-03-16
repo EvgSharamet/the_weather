@@ -51,7 +51,6 @@ class UVISunriseWidgetSectionConfigurator: SectionConfiguratorProtocol {
             maker.top.bottom.right.equalToSuperview()
             maker.left.equalToSuperview().inset(10)
         }
-        
         return view
     }
     
@@ -71,7 +70,7 @@ class UVISunriseWidgetSectionConfigurator: SectionConfiguratorProtocol {
         let uviDataStringValue = data.uvindex
         let sunriseDataStringValue = data.sunrise
         
-        cell.configure(dataForUVIVidget:  UVIWidget.UVIndexStringValue(number: uviDataStringValue.number, numberValue: uviDataStringValue.numberValue , textValue: uviDataStringValue.textValue, description: uviDataStringValue.description),  dataForSunriseVidget: SunriseWidget.SunriseStringValue(sunrise: sunriseDataStringValue.sunrise, sunset: sunriseDataStringValue.sunset, sunriseValue: sunriseDataStringValue.sunriseValue, sunsetValue: sunriseDataStringValue.sunsetValue))
+        cell.configure(dataForUVIVidget:  UVIWidget.UVIndexStringValue(number: uviDataStringValue.number, numberValue: uviDataStringValue.numberValue , textValue: uviDataStringValue.textValue, description: uviDataStringValue.description), dataForSunriseVidget: SunriseWidget.SunriseStringValue(sunriseForGraph: sunriseDataStringValue.sunriseForGraph, sunsetForGraph: sunriseDataStringValue.sunsetForGraph, widgetName: sunriseDataStringValue.widgetName, sunset: sunriseDataStringValue.sunset, sunrise: sunriseDataStringValue.sunrise))
         return cell
     }
     
