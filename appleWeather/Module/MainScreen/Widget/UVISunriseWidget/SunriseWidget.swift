@@ -21,7 +21,7 @@ class SunriseWidget: ViewWithRoundedCorner {
     let sunriseLabel = UILabel()
     let sunsetLabel = UILabel()
     let indicatorView = UIView()
-    let indicatorPointView = UIImageView()
+    let indicatorPointView = UIView()
     
     func prepare() {
         let stackView = UIStackView()
@@ -58,7 +58,6 @@ class SunriseWidget: ViewWithRoundedCorner {
         }
         let beforeSunriseView =  UIVisualEffectView(effect: UIBlurEffect(style: .systemChromeMaterialDark))
         beforeSunriseView.alpha = 0.5
-      //  beforeSunriseView.backgroundColor = .darkGray.withAlphaComponent(0.6)
         indicatorView.addSubview(beforeSunriseView)
         beforeSunriseView.snp.makeConstraints { make in
             make.height.equalToSuperview()
@@ -73,22 +72,28 @@ class SunriseWidget: ViewWithRoundedCorner {
             make.width.equalToSuperview().multipliedBy(0.3)
             make.right.equalToSuperview()
         }
-        
-        indicatorPointView.image = UIImage(named:"pointUVI")
-        indicatorPointView.contentMode = .scaleAspectFill
+    
+        indicatorPointView.backgroundColor = .white
+        indicatorPointView.layer.cornerRadius = 4.5
         self.addSubview(indicatorPointView)
         indicatorPointView.snp.makeConstraints { maker in
-            maker.height.equalTo(indicatorView)
+            maker.height.equalTo(9)
             maker.width.equalTo(9)
             maker.centerY.equalTo(indicatorView)
         }
-        indicatorPointView.layer.shadowOffset = .init(width: 0, height: 0)
+        indicatorPointView.layer.shadowOffset = .zero
         indicatorPointView.layer.shadowOpacity = 0.7
-        indicatorPointView.layer.shadowRadius = 7
+        indicatorPointView.layer.shadowRadius = 5
         indicatorPointView.layer.shadowColor = UIColor.white.cgColor
+        indicatorPointView.layer.masksToBounds = false
         stackView.addArrangedSubview(sunsetLabel)
         sunsetLabel.font = sunsetLabel.font.withSize(17)
         sunsetLabel.textColor = .white
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        indicatorPointView.layer.shadowPath = UIBezierPath(ovalIn: indicatorPointView.bounds.insetBy(dx: -5, dy: -5)).cgPath
     }
     
     func configure(data: SunriseStringValue) {
