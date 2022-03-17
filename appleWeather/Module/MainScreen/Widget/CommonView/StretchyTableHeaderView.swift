@@ -33,7 +33,7 @@ class StretchyTableHeaderView: UIView {
         
         let stack = UIStackView()
         stack.axis = .vertical
-        stack.distribution = .fill
+        stack.distribution = .fillProportionally
         stack.alignment = .center
         containerView.addSubview(stack)
         stack.snp.makeConstraints { make in
@@ -45,15 +45,15 @@ class StretchyTableHeaderView: UIView {
         cityNameLabel.textAlignment = .center
         cityNameLabel.font = cityNameLabel.font.withSize(40)
         cityNameLabel.shadowColor = .darkGray
-        cityNameLabel.layer.shadowOpacity = 0.3
+        cityNameLabel.layer.shadowOpacity = 0.1
         cityNameLabel.shadowOffset = CGSize(width: 1, height: 0)
         
         stack.addArrangedSubview(currentTempLabel)
-        currentTempLabel.font = currentTempLabel.font.withSize(75)
+        currentTempLabel.font = UIFont(name: "Avenir-Light", size: 90)
         currentTempLabel.textColor = .white
         currentTempLabel.textAlignment = .center
-        currentTempLabel.shadowColor = .darkGray
-        currentTempLabel.layer.shadowOpacity = 0.3
+        currentTempLabel.shadowColor = .darkGray//
+        currentTempLabel.layer.shadowOpacity = 0.1
         currentTempLabel.shadowOffset = CGSize(width: 1, height: 0)
         
         stack.addArrangedSubview(descriptionLabel)
@@ -61,7 +61,7 @@ class StretchyTableHeaderView: UIView {
         descriptionLabel.textColor = .white
         descriptionLabel.textAlignment = .center
         descriptionLabel.shadowColor = .darkGray
-        descriptionLabel.layer.shadowOpacity = 0.3
+        descriptionLabel.layer.shadowOpacity = 0.1
         descriptionLabel.shadowOffset = CGSize(width: 1, height: 0)
         
         stack.addArrangedSubview(maxMinTempLabel)
@@ -69,7 +69,7 @@ class StretchyTableHeaderView: UIView {
         maxMinTempLabel.textColor = .white
         maxMinTempLabel.textAlignment = .center
         maxMinTempLabel.shadowColor = .darkGray
-        maxMinTempLabel.layer.shadowOpacity = 0.3
+        maxMinTempLabel.layer.shadowOpacity = 0.1
         maxMinTempLabel.shadowOffset = CGSize(width: 1, height: 0)
     }
     

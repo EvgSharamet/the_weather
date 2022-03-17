@@ -29,7 +29,6 @@ class WindWidget: ViewWithRoundedCorner {
         }
         backgroundImageView.contentMode = .scaleAspectFit
         backgroundImageView.image = UIImage(named: "compassWind")
-    //    backgroundImageView.alpha = 0.7
         
         self.addSubview(arrowImageView)
         arrowImageView.snp.makeConstraints { make in

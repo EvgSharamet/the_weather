@@ -46,7 +46,6 @@ class PrecipitationWidget: ViewWithRoundedCorner {
         valueNumberLabel.font = valueNumberLabel.font.withSize(30)
         valueNumberLabel.textColor = .white
         
-        
         stackView.addArrangedSubview(valueTextLabel)
    
         valueTextLabel.lineBreakMode = .byWordWrapping

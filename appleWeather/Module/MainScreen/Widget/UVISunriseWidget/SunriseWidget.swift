@@ -88,6 +88,19 @@ class SunriseWidget: ViewWithRoundedCorner {
         stackView.addArrangedSubview(sunriseLabel)
         sunriseLabel.font = sunsetLabel.font.withSize(17)
         sunriseLabel.textColor = .white
+        
+        let gradient = CAGradientLayer()
+         gradient.type = .axial
+         gradient.colors = [
+            UIColor.darkGray.withAlphaComponent(0.7).cgColor,
+             UIColor.clear.cgColor,
+            UIColor.darkGray.withAlphaComponent(0.7).cgColor
+         ]
+        gradient.startPoint = CGPoint(x: 0, y: 1)
+        gradient.endPoint = CGPoint(x: 1, y: 1)
+        indicatorView.layer.addSublayer(gradient)
+//indicatorView.layer.masksToBounds = false
+        gradient.frame = CGRect(x: 0, y: 0, width: 200, height: 20)
     }
     
     override func layoutSubviews() {
@@ -101,13 +114,16 @@ class SunriseWidget: ViewWithRoundedCorner {
         
         let dateF = DateFormatter()
         dateF.dateFormat = "HH"
-        if let offsetForSun = Int(dateF.string(from: Date())) {
-            let pointLocation =  Double(offsetForSun) / 24.0 + 0.01
+        if let offsetForSun = Double(dateF.string(from: Date())) {
+            let pointLocation =  offsetForSun / 24 + 0.01
             indicatorPointView.snp.makeConstraints { maker in
                 maker.height.equalTo(9)
                 maker.width.equalTo(9)
                 maker.centerY.equalTo(indicatorView)
                 maker.right.equalTo(indicatorView).multipliedBy(pointLocation)
+            }
+            if offsetForSun <= data.sunriseForGraph || offsetForSun >= data.sunsetForGraph {
+                indicatorPointView.backgroundColor = .darkGray
             }
         }
         
@@ -120,7 +136,6 @@ class SunriseWidget: ViewWithRoundedCorner {
         }
     }
 }
-
 
 /*
 class SunriseWidget: ViewWithRoundedCorner {

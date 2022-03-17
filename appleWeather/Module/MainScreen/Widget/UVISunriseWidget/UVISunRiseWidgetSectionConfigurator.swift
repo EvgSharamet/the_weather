@@ -44,7 +44,7 @@ class UVISunriseWidgetSectionConfigurator: SectionConfiguratorProtocol {
         let secondHeader = BaseHeaderView()
         stackView.addArrangedSubview(secondHeader)
         let secondLabel = UILabel()
-        secondLabel.text = " 🌅 SUNRISE/SUNSET"
+        secondLabel.text = " 🌅 SUNSET"
         secondLabel.textColor = .lightGray
         secondHeader.addSubview(secondLabel)
         secondLabel.snp.makeConstraints { maker in

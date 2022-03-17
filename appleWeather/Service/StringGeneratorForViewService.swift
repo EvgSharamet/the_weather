@@ -225,15 +225,11 @@ class StringGeneratorForViewService {
         dateFormatterForValueToNumber.dateFormat = "HH"
         let dateFormatterForString = DateFormatter()
         dateFormatterForString.dateFormat = "HH:mm"
-        print("!!!!!!! !!!!")
-        print("sunset")
-        print(dateFormatterForString.string(from:  Date(timeIntervalSince1970: Double(rowData.current.sunrise))))
-        print("sunrise")
-        print(dateFormatterForString.string(from:  Date(timeIntervalSince1970: Double(rowData.current.sunset))))
+
         guard let sunriseNumberValue = Double(dateFormatterForValueToNumber.string(from: Date(timeIntervalSince1970: Double(rowData.current.sunrise)))), let sunsetNumberValue = Double( dateFormatterForValueToNumber.string(from: Date(timeIntervalSince1970: Double(rowData.current.sunset)))) else {
-            return SunriseStringValue(sunriseForGraph: 0, sunsetForGraph: 0, widgetName: "Sunset", sunset:  dateFormatterForString.string(from:  Date(timeIntervalSince1970: Double(rowData.current.sunset))), sunrise: "Восход: \(dateFormatterForString.string(from:  Date(timeIntervalSince1970: Double(rowData.current.sunrise))))")
+            return SunriseStringValue(sunriseForGraph: 0, sunsetForGraph: 0, widgetName: "🌅 SUNSET", sunset:  dateFormatterForString.string(from:  Date(timeIntervalSince1970: Double(rowData.current.sunset))), sunrise: "Восход: \(dateFormatterForString.string(from:  Date(timeIntervalSince1970: Double(rowData.current.sunrise))))")
         }
-        return SunriseStringValue(sunriseForGraph: sunriseNumberValue, sunsetForGraph: sunsetNumberValue, widgetName: "Sunset", sunset:  dateFormatterForString.string(from:  Date(timeIntervalSince1970: Double(rowData.current.sunset))), sunrise: "Восход: \(dateFormatterForString.string(from:  Date(timeIntervalSince1970: Double(rowData.current.sunrise))))")
+        return SunriseStringValue(sunriseForGraph: sunriseNumberValue, sunsetForGraph: sunsetNumberValue, widgetName: "🌅 SUNSET", sunset:  dateFormatterForString.string(from:  Date(timeIntervalSince1970: Double(rowData.current.sunset))), sunrise: "Восход: \(dateFormatterForString.string(from:  Date(timeIntervalSince1970: Double(rowData.current.sunrise))))")
     }
     
     func getWindStringValue(rowData: WeatherDataService.OneDayResponse) -> WindStringValue {
