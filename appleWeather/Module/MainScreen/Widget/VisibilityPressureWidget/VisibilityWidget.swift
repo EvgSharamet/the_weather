@@ -31,13 +31,13 @@ class VisibilityWidget:  ViewWithRoundedCorner {
             maker.right.equalToSuperview().inset(15)
         }
         stackView.addArrangedSubview(visibilityValueLabel)
-        visibilityValueLabel.font = visibilityValueLabel.font.withSize(30)
+        visibilityValueLabel.font = UIFont(name: "Helvetica", size: 35)
         visibilityValueLabel.textColor = .white
         
         stackView.addArrangedSubview(descriptionLabel)
         descriptionLabel.lineBreakMode = .byWordWrapping
         descriptionLabel.numberOfLines = 0
-        descriptionLabel.font = descriptionLabel.font.withSize(16)
+        descriptionLabel.font = UIFont(name: "Helvetica", size: 16)
         descriptionLabel.textColor = .white
     }
     

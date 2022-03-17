@@ -31,13 +31,13 @@ class HumidityWidget: ViewWithRoundedCorner {
             maker.right.equalToSuperview().inset(15)
         }
         stackView.addArrangedSubview(humidityValueLabel)
-        humidityValueLabel.font = humidityValueLabel.font.withSize(30)
+        humidityValueLabel.font = UIFont(name: "HelveticaNeue", size: 35)
         humidityValueLabel.textColor = .white
         
         stackView.addArrangedSubview(descriptionLabel)
         descriptionLabel.lineBreakMode = .byWordWrapping
         descriptionLabel.numberOfLines = 0
-        descriptionLabel.font = descriptionLabel.font.withSize(16)
+        descriptionLabel.font = UIFont(name: "Helvetica", size: 16)
         descriptionLabel.textColor = .white
     }
     

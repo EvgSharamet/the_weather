@@ -41,14 +41,14 @@ class UVIWidget: ViewWithRoundedCorner {
             maker.height.equalToSuperview().multipliedBy(0.2)
         }
         
-        valueNumberLabel.font = valueNumberLabel.font.withSize(30)
+        valueNumberLabel.font = UIFont(name: "Helvetica", size: 35)
         valueNumberLabel.textColor = .white
         
         stackView.addArrangedSubview(valueTextLabel)
         valueTextLabel.snp.makeConstraints { maker in
             maker.height.equalToSuperview().multipliedBy(0.2)
         }
-        valueTextLabel.font = valueTextLabel.font.withSize(25)
+        valueTextLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 20)
         valueTextLabel.textColor = .white
     
         stackView.addArrangedSubview(indicatorView)
@@ -72,7 +72,7 @@ class UVIWidget: ViewWithRoundedCorner {
         stackView.addArrangedSubview(descriptionLabel)
         descriptionLabel.lineBreakMode = .byWordWrapping
         descriptionLabel.numberOfLines = 0
-        descriptionLabel.font = descriptionLabel.font.withSize(16)
+        descriptionLabel.font = UIFont(name: "Helvetica", size: 16)
         descriptionLabel.textColor = .white
         descriptionLabel.snp.makeConstraints { maker in
             maker.height.equalToSuperview().multipliedBy(0.45)

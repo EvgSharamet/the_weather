@@ -136,7 +136,7 @@ class OneDayInfoView: UIView {
             let leftset = Double( Int(data.pointCoord) - globalMin) / globalWidth * 100
             currentPointView.snp.makeConstraints { make in
                 make.centerY.equalTo(distributionAxisView)
-                make.height.equalTo(7)
+                make.height.equalTo(8)
                 make.width.equalTo(8)
                 make.left.equalTo(distributionAxisView).offset(leftset)
             }

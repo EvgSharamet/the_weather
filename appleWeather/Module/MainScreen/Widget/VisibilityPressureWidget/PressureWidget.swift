@@ -62,12 +62,12 @@ class PressureWidget: ViewWithRoundedCorner {
             make.width.equalToSuperview()
         }
         pressureValueLabel.textAlignment = .center
-        pressureValueLabel.font = pressureValueLabel.font.withSize(20)
+        pressureValueLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 20)
         pressureValueLabel.textColor = .white
         
         
         centerStackView.addArrangedSubview(descriptionLabel)
-        descriptionLabel.font = descriptionLabel.font.withSize(15)
+        descriptionLabel.font = UIFont(name: "Helvetica", size: 16)
         descriptionLabel.textColor = .white
         descriptionLabel.textAlignment = .center
         

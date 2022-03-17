@@ -43,7 +43,7 @@ class SunriseWidget: ViewWithRoundedCorner {
             maker.height.equalToSuperview().multipliedBy(0.2)
         }
         
-        sunsetLabel.font = sunriseLabel.font.withSize(30)
+        sunsetLabel.font = UIFont(name: "Helvetica", size: 35)
         sunsetLabel.textColor = .white
         
         stackView.addArrangedSubview(indicatorView)
@@ -86,7 +86,7 @@ class SunriseWidget: ViewWithRoundedCorner {
         indicatorPointView.layer.shadowColor = UIColor.white.cgColor
         indicatorPointView.layer.masksToBounds = false
         stackView.addArrangedSubview(sunriseLabel)
-        sunriseLabel.font = sunsetLabel.font.withSize(17)
+        sunriseLabel.font = UIFont(name: "Helvetica", size: 16)
         sunriseLabel.textColor = .white
         
         let gradient = CAGradientLayer()
@@ -99,8 +99,7 @@ class SunriseWidget: ViewWithRoundedCorner {
         gradient.startPoint = CGPoint(x: 0, y: 1)
         gradient.endPoint = CGPoint(x: 1, y: 1)
         indicatorView.layer.addSublayer(gradient)
-//indicatorView.layer.masksToBounds = false
-        gradient.frame = CGRect(x: 0, y: 0, width: 200, height: 20)
+        gradient.frame = CGRect(x: 0, y: 0, width: 170, height: 20)
     }
     
     override func layoutSubviews() {

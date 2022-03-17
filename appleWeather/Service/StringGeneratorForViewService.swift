@@ -212,12 +212,12 @@ class StringGeneratorForViewService {
         }
 
         if currentUVI >= maxUVI {
-            description = "Индекс \(textValue) до конца дня"
+            description = "Индекс \(textValue.lowercased()) до конца дня"
         } else {
-            description = "Индекс повысится до \(maxUVI) в течение дня"
+            description = "Индекс повысится до \(Int(maxUVI)) в течение дня"
         }
         
-        return UVIndexStringValue(number: rowData.current.uvi, numberValue:String(rowData.current.uvi), textValue: textValue, description: description)
+        return UVIndexStringValue(number: rowData.current.uvi, numberValue:String(lroundf((rowData.current.uvi))), textValue: textValue, description: description)
     }
     
     func  getSunriseStringValue(rowData: WeatherDataService.OneDayResponse)  -> SunriseStringValue {
@@ -293,7 +293,7 @@ class StringGeneratorForViewService {
             textForHeader = "💧 PRECIPITATION"
         }
         
-        return PrecipitationStringValue(weatherType: weatherType, textForHeader: textForHeader, currentValue: currentPrecipitation ?? "0", futureValue: futurePrecipitation ?? "0 ожидается в течение суток")
+        return PrecipitationStringValue(weatherType: weatherType, textForHeader: textForHeader, currentValue: currentPrecipitation ?? "0 мм", futureValue: futurePrecipitation ?? "0 ожидается в течение суток")
     }
     
     func getFeelsLikeStringValue(rowData: WeatherDataService.OneDayResponse) -> FeelsLikeStringValue {

@@ -75,7 +75,7 @@ class MainTableController: UIViewController {
         self.view.addSubview(tableView)
         tableView.snp.makeConstraints { maker in
             maker.height.equalTo(view.safeAreaLayoutGuide)
-            maker.left.right.equalTo(view.safeAreaLayoutGuide).inset(10)
+            maker.left.right.equalTo(view.safeAreaLayoutGuide).inset(20)
             maker.bottom.equalToSuperview()
         }
         

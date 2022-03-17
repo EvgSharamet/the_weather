@@ -43,21 +43,21 @@ class PrecipitationWidget: ViewWithRoundedCorner {
 
         valueNumberLabel.lineBreakMode = .byWordWrapping
         valueNumberLabel.numberOfLines = 0
-        valueNumberLabel.font = valueNumberLabel.font.withSize(30)
+        valueNumberLabel.font = UIFont(name: "Helvetica", size: 35)
         valueNumberLabel.textColor = .white
         
         stackView.addArrangedSubview(valueTextLabel)
    
         valueTextLabel.lineBreakMode = .byWordWrapping
         valueTextLabel.numberOfLines = 0
-        valueTextLabel.font = valueTextLabel.font.withSize(20)
+        valueTextLabel.font =  UIFont(name: "HelveticaNeue-Medium", size: 20)
         valueTextLabel.textColor = .white
         
         stackView.addArrangedSubview(descriptionLabel)
     
         descriptionLabel.lineBreakMode = .byWordWrapping
         descriptionLabel.numberOfLines = 0
-        descriptionLabel.font = descriptionLabel.font.withSize(15)
+        descriptionLabel.font = UIFont(name: "Helvetica", size: 16)
         descriptionLabel.textColor = .white
     }
     

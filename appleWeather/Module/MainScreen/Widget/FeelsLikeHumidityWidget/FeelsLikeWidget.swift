@@ -31,13 +31,13 @@ class FeelsLikeWidget: ViewWithRoundedCorner {
             maker.right.equalToSuperview().inset(15)
         }
         stackView.addArrangedSubview( feelsLikeValueLabel)
-        feelsLikeValueLabel.font =  feelsLikeValueLabel.font.withSize(30)
+        feelsLikeValueLabel.font =  UIFont(name: "HelveticaNeue-Medium", size: 35)
         feelsLikeValueLabel.textColor = .white
         
         stackView.addArrangedSubview(descriptionLabel)
         descriptionLabel.lineBreakMode = .byWordWrapping
         descriptionLabel.numberOfLines = 0
-        descriptionLabel.font = descriptionLabel.font.withSize(16)
+        descriptionLabel.font = UIFont(name: "Helvetica", size: 16)
         descriptionLabel.textColor = .white
     }
     
