@@ -12,20 +12,12 @@ import UIKit
 class BaseCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        let backgroundImage = UIImageView()
-        self.addSubview(backgroundImage)
-        backgroundImage.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-        backgroundImage.image = UIImage(named: "backgroundForSectionDay")
-        backgroundImage.alpha = 0.9
-        
+        self.backgroundColor = .clear
         let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .systemThinMaterialDark))
         self.addSubview(blurEffectView)
         blurEffectView.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
         }
-        blurEffectView.alpha = 0.5
         self.selectionStyle = UITableViewCell.SelectionStyle.none
     }
     

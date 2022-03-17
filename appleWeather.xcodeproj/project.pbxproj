@@ -64,8 +64,8 @@
 
 /* Begin PBXFileReference section */
 		444C1F4E27CCF34E00A2C3C6 /* SunPathView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunPathView.swift; sourceTree = "<group>"; };
-		854FEBD327D0D57F00463EDF /* BaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseCell.swift; path = Widget/CommonView/BaseCell.swift; sourceTree = "<group>"; };
-		854FEBD427D0D57F00463EDF /* BaseHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseHeaderView.swift; path = Widget/CommonView/BaseHeaderView.swift; sourceTree = "<group>"; };
+		854FEBD327D0D57F00463EDF /* BaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		854FEBD427D0D57F00463EDF /* BaseHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseHeaderView.swift; sourceTree = "<group>"; };
 		855CE47E27C54C30001A1E31 /* ImageLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderService.swift; sourceTree = "<group>"; };
 		8560A80327B12BF70065AA4F /* StringGeneratorForViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringGeneratorForViewService.swift; sourceTree = "<group>"; };
 		8560A80527B2F4A20065AA4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -137,8 +137,6 @@
 		44F4678727B67E8E00D01BA3 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
-				854FEBD327D0D57F00463EDF /* BaseCell.swift */,
-				854FEBD427D0D57F00463EDF /* BaseHeaderView.swift */,
 				85C54C792795B42B00B9CFA2 /* MainTableController.swift */,
 				85C54C822796045C00B9CFA2 /* SectionConfiguratorProtocol.swift */,
 				44F4678827B67EAA00D01BA3 /* Widget */,
@@ -163,6 +161,8 @@
 		44F4678927B67EB900D01BA3 /* CommonView */ = {
 			isa = PBXGroup;
 			children = (
+				854FEBD427D0D57F00463EDF /* BaseHeaderView.swift */,
+				854FEBD327D0D57F00463EDF /* BaseCell.swift */,
 				858D850A27A0843E00CDEC90 /* ViewWithRoundedCorner.swift */,
 				85AA47C227C7975000169D1F /* StretchyTableHeaderView.swift */,
 			);

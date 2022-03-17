@@ -49,7 +49,6 @@ class MainTableController: UIViewController {
             default:
                 backgroundImageView.image = UIImage(named: "backgroundDayMainScreen")
             }
-            
         } else {
             backgroundImageView.image = UIImage(named: "backgroundDayMainScreen")
         }
@@ -83,6 +82,8 @@ class MainTableController: UIViewController {
         headerView.snp.makeConstraints { make in
             make.height.equalTo(200)
             make.width.equalTo(self.tableView.safeAreaLayoutGuide)
+            make.top.equalToSuperview()
+            make.centerX.equalToSuperview()
         }
         headerView.prepare()
 
