@@ -31,11 +31,14 @@ class OneHourInfoView: UIView {
         mainStackView.distribution = .equalCentering
         self.addSubview(mainStackView)
         mainStackView.snp.makeConstraints { maker in
-            maker.edges.equalToSuperview()
+            maker.top.bottom.equalToSuperview().inset(10)
+            maker.width.equalToSuperview()
+            maker.center.equalToSuperview()
         }
     
         dateLabel.textAlignment = .center
         dateLabel.textColor = .white
+        dateLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 16)
         mainStackView.addArrangedSubview(dateLabel)
         dateLabel.snp.makeConstraints { make in
             make.height.equalToSuperview().multipliedBy(0.25)
@@ -62,14 +65,14 @@ class OneHourInfoView: UIView {
             make.bottom.equalToSuperview()
             make.centerX.equalToSuperview()
         }
-        cloudsLabel.font = cloudsLabel.font.withSize(14)
+        cloudsLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 16)
         cloudsLabel.textAlignment = .center
         cloudsLabel.textColor = .cyan
         
         mainStackView.addArrangedSubview(tempLabel)
         tempLabel.textAlignment = .center
         tempLabel.textColor = .white
-        tempLabel.font = tempLabel.font.withSize(15)
+        tempLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 18)
         tempLabel.snp.makeConstraints { maker in
             maker.height.equalToSuperview().multipliedBy(0.25)
         }

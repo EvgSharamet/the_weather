@@ -43,13 +43,13 @@ class StretchyTableHeaderView: UIView {
         stack.addArrangedSubview(cityNameLabel)
         cityNameLabel.textColor = .white
         cityNameLabel.textAlignment = .center
-        cityNameLabel.font = cityNameLabel.font.withSize(40)
+        cityNameLabel.font = UIFont(name: "Helvetica", size: 40)
         cityNameLabel.shadowColor = .darkGray
         cityNameLabel.layer.shadowOpacity = 0.1
         cityNameLabel.shadowOffset = CGSize(width: 1, height: 0)
         
         stack.addArrangedSubview(currentTempLabel)
-        currentTempLabel.font = UIFont(name: "Avenir-Light", size: 90)
+        currentTempLabel.font = UIFont(name: "HelveticaNeue-Thin", size: 90)
         currentTempLabel.textColor = .white
         currentTempLabel.textAlignment = .center
         currentTempLabel.shadowColor = .darkGray
@@ -57,7 +57,7 @@ class StretchyTableHeaderView: UIView {
         currentTempLabel.shadowOffset = CGSize(width: 1, height: 0)
         
         stack.addArrangedSubview(descriptionLabel)
-        descriptionLabel.font = descriptionLabel.font.withSize(20)
+        descriptionLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 20)
         descriptionLabel.textColor = .white
         descriptionLabel.textAlignment = .center
         descriptionLabel.shadowColor = .darkGray
@@ -65,7 +65,7 @@ class StretchyTableHeaderView: UIView {
         descriptionLabel.shadowOffset = CGSize(width: 1, height: 0)
         
         stack.addArrangedSubview(maxMinTempLabel)
-        maxMinTempLabel.font = maxMinTempLabel.font.withSize(20)
+        maxMinTempLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 20)
         maxMinTempLabel.textColor = .white
         maxMinTempLabel.textAlignment = .center
         maxMinTempLabel.shadowColor = .darkGray

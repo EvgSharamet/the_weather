@@ -34,7 +34,8 @@ class FeelsLikeHumidityWidgetSectionConfigurator: SectionConfiguratorProtocol {
         stackView.addArrangedSubview(firstHeader)
         let firstLabel = UILabel()
         firstLabel.text = "🌡 FEELS LIKE"
-        firstLabel.textColor = .lightGray
+        firstLabel.textColor = .white.withAlphaComponent(0.7)
+        firstLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 16)
         firstHeader.addSubview(firstLabel)
         firstLabel.snp.makeConstraints { maker in
             maker.top.bottom.right.equalToSuperview()
@@ -45,7 +46,8 @@ class FeelsLikeHumidityWidgetSectionConfigurator: SectionConfiguratorProtocol {
         stackView.addArrangedSubview(secondHeader)
         let secondLabel = UILabel()
         secondLabel.text = "🌫 HUMIDITY"
-        secondLabel.textColor = .lightGray
+        secondLabel.textColor = .white.withAlphaComponent(0.7)
+        secondLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 16)
         secondHeader.addSubview(secondLabel)
         secondLabel.snp.makeConstraints { maker in
             maker.top.bottom.right.equalToSuperview()

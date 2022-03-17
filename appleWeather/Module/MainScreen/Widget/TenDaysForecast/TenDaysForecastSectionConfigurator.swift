@@ -19,7 +19,8 @@ class TenDaysForecastSectionConfigurator: SectionConfiguratorProtocol {
         
         let label = UILabel()
         label.text = " 📅 TEN DAYS FORECAST"
-        label.textColor = .lightGray
+        label.textColor = .white.withAlphaComponent(0.7)
+        label.font = UIFont(name: "HelveticaNeue-Medium", size: 16)
         view.addSubview(label)
         label.snp.makeConstraints { maker in
             maker.top.bottom.right.equalToSuperview()
@@ -65,6 +66,6 @@ class TenDaysForecastSectionConfigurator: SectionConfiguratorProtocol {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        450
+        500
     }
 }

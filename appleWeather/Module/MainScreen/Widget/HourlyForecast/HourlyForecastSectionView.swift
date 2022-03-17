@@ -54,12 +54,12 @@ class HourlyForecastSectionView: BaseCell {
             self.hourlyStackView?.addArrangedSubview(oneHourInfoView)
             if hour.sunsetSunriseView {
                 oneHourInfoView.snp.makeConstraints { maker in
-                    maker.height.equalTo(120)
+                    maker.height.equalTo(140)
                     maker.width.equalTo(140)
                 }
             } else {
                 oneHourInfoView.snp.makeConstraints { maker in
-                    maker.height.equalTo(120)
+                    maker.height.equalTo(140)
                     maker.width.equalTo(60)
                 }
             }

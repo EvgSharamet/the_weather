@@ -34,7 +34,8 @@ class WindPrecipitationWidgetSectionConfigurator: SectionConfiguratorProtocol {
         stackView.addArrangedSubview(firstHeader)
         let firstLabel = UILabel()
         firstLabel.text = "💨 WIND"
-        firstLabel.textColor = .lightGray
+        firstLabel.textColor = .white.withAlphaComponent(0.7)
+        firstLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 16)
         firstHeader.addSubview(firstLabel)
         firstLabel.snp.makeConstraints { maker in
             maker.top.bottom.right.equalToSuperview()
@@ -43,7 +44,8 @@ class WindPrecipitationWidgetSectionConfigurator: SectionConfiguratorProtocol {
    
         let secondHeader = BaseHeaderView()
         stackView.addArrangedSubview(secondHeader)
-        precipitationHeaderLabel.textColor = .lightGray
+        precipitationHeaderLabel.textColor = .white.withAlphaComponent(0.7)
+        precipitationHeaderLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 16)
         secondHeader.addSubview(precipitationHeaderLabel)
         precipitationHeaderLabel.snp.makeConstraints { maker in
             maker.top.bottom.right.equalToSuperview()
