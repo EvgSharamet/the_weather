@@ -52,7 +52,7 @@ class StretchyTableHeaderView: UIView {
         currentTempLabel.font = UIFont(name: "Avenir-Light", size: 90)
         currentTempLabel.textColor = .white
         currentTempLabel.textAlignment = .center
-        currentTempLabel.shadowColor = .darkGray//
+        currentTempLabel.shadowColor = .darkGray
         currentTempLabel.layer.shadowOpacity = 0.1
         currentTempLabel.shadowOffset = CGSize(width: 1, height: 0)
         

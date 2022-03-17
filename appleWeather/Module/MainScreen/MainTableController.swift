@@ -65,10 +65,12 @@ class MainTableController: UIViewController {
         cloudsImageView.snp.makeConstraints{ make in
             make.width.equalToSuperview()
             make.top.equalToSuperview()
-            make.height.equalTo(400)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(500)
         }
-        cloudsImageView.alpha = 0.5
-        cloudsImageView.image = UIImage(named: "cloudsMainScreen")
+        cloudsImageView.alpha = 0.8
+        cloudsImageView.contentMode = .scaleAspectFill
+        cloudsImageView.image = UIImage(named: "cloudsEveningMainScreen")
         
         self.view.addSubview(tableView)
         tableView.snp.makeConstraints { maker in

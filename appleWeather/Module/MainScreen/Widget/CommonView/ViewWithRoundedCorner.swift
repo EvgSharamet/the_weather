@@ -13,8 +13,14 @@ class ViewWithRoundedCorner: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .systemThinMaterialDark))
-       blurEffectView.alpha = 0.3
+        self.backgroundColor = UIColor(
+            red: 62 / 255,
+            green: 90 / 255,
+            blue: 136 / 255,
+            alpha: 0.9
+        )
+        let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .systemThinMaterial))
+        blurEffectView.alpha = 0.6
         self.addSubview(blurEffectView)
         blurEffectView.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
