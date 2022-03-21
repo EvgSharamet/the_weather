@@ -15,7 +15,7 @@ class FeelsLikeHumidityWidgetSectionConfigurator: SectionConfiguratorProtocol {
         let humidity: StringGeneratorForViewService.HumidityStringValue
     }
 
-    let cellIdentifier = "FeelsLikeHumidityWidgetSectionCell"
+    private let cellIdentifier = "FeelsLikeHumidityWidgetSectionCell"
     var data: Data?
     
     func getHeaderView() -> UIView? {

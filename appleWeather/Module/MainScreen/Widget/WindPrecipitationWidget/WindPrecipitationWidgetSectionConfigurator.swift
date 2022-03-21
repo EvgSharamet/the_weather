@@ -16,7 +16,7 @@ class WindPrecipitationWidgetSectionConfigurator: SectionConfiguratorProtocol {
     }
     
     var data: Data?
-    let cellIdentifier = "WindHumidityWidgetSectionCell"
+    private let cellIdentifier = "WindHumidityWidgetSectionCell"
     var precipitationHeaderLabel = UILabel()
     
     func getHeaderView() -> UIView? {

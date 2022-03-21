@@ -15,7 +15,7 @@ class UVISunriseWidgetSectionConfigurator: SectionConfiguratorProtocol {
         let sunrise: StringGeneratorForViewService.SunriseStringValue
     }
     
-    let cellIdentifier = "UVISunriseWidgetSectionCell"
+    private let cellIdentifier = "UVISunriseWidgetSectionCell"
     var data: Data?
     
     func getHeaderView() -> UIView? {

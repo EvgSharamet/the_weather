@@ -16,7 +16,7 @@ class VisibilityPressureWidgetSectionConfigurator: SectionConfiguratorProtocol {
     }
     
     var data: Data?
-    let cellIdentifier = "VisibilityPressureWidgetSectionCell"
+    private let cellIdentifier = "VisibilityPressureWidgetSectionCell"
     
     func getHeaderView() -> UIView? {
         let view = UIView()

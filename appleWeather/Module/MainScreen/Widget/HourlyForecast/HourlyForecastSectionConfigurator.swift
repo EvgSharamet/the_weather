@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 struct HourlyForecastSectionConfigurator: SectionConfiguratorProtocol {
-    let cellIdentifier = "HourlyForecastSectionCell"
+    private let cellIdentifier = "HourlyForecastSectionCell"
     var data: StringGeneratorForViewService.HourlyStringValue?
     
     func getHeaderView() -> UIView? {
@@ -36,7 +36,7 @@ struct HourlyForecastSectionConfigurator: SectionConfiguratorProtocol {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HourlyForecastSectionView
+        private let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HourlyForecastSectionView
 
         var list:[OneHourInfoView.OneHourStringValue] = []
         guard let data = data else {
