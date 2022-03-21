@@ -39,9 +39,12 @@ class UVISunriseWidgetSectionView: UITableViewCell {
        
        let uviWidget = UVIWidget()
        self.uviWidget = uviWidget
+       uviWidget.setRoundedCorners([.bottomLeft, .bottomRight])
        uviWidget.prepare()
+       
        let sunriseWidget = SunriseWidget()
        self.sunriseWidget = sunriseWidget
+       sunriseWidget.setRoundedCorners([.bottomLeft, .bottomRight])
        sunriseWidget.prepare()
         
        stackView.addArrangedSubview(uviWidget)

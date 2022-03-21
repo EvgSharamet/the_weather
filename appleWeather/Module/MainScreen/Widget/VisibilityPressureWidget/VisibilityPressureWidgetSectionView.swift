@@ -39,10 +39,12 @@ class VisibilityPressureWidgetSectionView: UITableViewCell {
        
        let visibilityWidget = VisibilityWidget()
        self.visibilityWidget = visibilityWidget
+       visibilityWidget.setRoundedCorners([.bottomLeft, .bottomRight])
        visibilityWidget.prepare()
        
        let pressureWidget = PressureWidget()
        self.pressureWidget = pressureWidget
+       pressureWidget.setRoundedCorners([.bottomLeft, .bottomRight])
        pressureWidget.prepare()
        
        stackView.addArrangedSubview(visibilityWidget)

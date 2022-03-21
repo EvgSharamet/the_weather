@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		854FEBD027D0D41300463EDF /* FeelsLikeHumidityWidgetSectionConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824B727A2DDE00054E337 /* FeelsLikeHumidityWidgetSectionConfigurator.swift */; };
-		854FEBD527D0D57F00463EDF /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854FEBD327D0D57F00463EDF /* BaseCell.swift */; };
-		854FEBD627D0D57F00463EDF /* BaseHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854FEBD427D0D57F00463EDF /* BaseHeaderView.swift */; };
+		854FEBD527D0D57F00463EDF /* BaseWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854FEBD327D0D57F00463EDF /* BaseWidgetView.swift */; };
 		855CE47F27C54C30001A1E31 /* ImageLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855CE47E27C54C30001A1E31 /* ImageLoaderService.swift */; };
 		8560A80427B12BF70065AA4F /* StringGeneratorForViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8560A80327B12BF70065AA4F /* StringGeneratorForViewService.swift */; };
 		8560A80627B2F4A20065AA4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8560A80527B2F4A20065AA4F /* Assets.xcassets */; };
@@ -27,7 +26,7 @@
 		858824C627A824B70054E337 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824C527A824B70054E337 /* MainNavigationController.swift */; };
 		858D8507279F22DF00CDEC90 /* UVIWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D8506279F22DF00CDEC90 /* UVIWidget.swift */; };
 		858D851127A1A75600CDEC90 /* SunriseWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D851027A1A75600CDEC90 /* SunriseWidget.swift */; };
-		85AA47C327C7975000169D1F /* StretchyTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AA47C227C7975000169D1F /* StretchyTableHeaderView.swift */; };
+		85AA47C327C7975000169D1F /* TableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AA47C227C7975000169D1F /* TableHeaderView.swift */; };
 		85BC88792790E7A300D7CB4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BC88782790E7A300D7CB4A /* AppDelegate.swift */; };
 		85BC887B2790E7A300D7CB4A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BC887A2790E7A300D7CB4A /* SceneDelegate.swift */; };
 		85BC88852790E7A700D7CB4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85BC88832790E7A700D7CB4A /* LaunchScreen.storyboard */; };
@@ -61,8 +60,7 @@
 /* End PBXBuildRule section */
 
 /* Begin PBXFileReference section */
-		854FEBD327D0D57F00463EDF /* BaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
-		854FEBD427D0D57F00463EDF /* BaseHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseHeaderView.swift; sourceTree = "<group>"; };
+		854FEBD327D0D57F00463EDF /* BaseWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWidgetView.swift; sourceTree = "<group>"; };
 		855CE47E27C54C30001A1E31 /* ImageLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderService.swift; sourceTree = "<group>"; };
 		8560A80327B12BF70065AA4F /* StringGeneratorForViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringGeneratorForViewService.swift; sourceTree = "<group>"; };
 		8560A80527B2F4A20065AA4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,7 +79,7 @@
 		858824C527A824B70054E337 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		858D8506279F22DF00CDEC90 /* UVIWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UVIWidget.swift; sourceTree = "<group>"; };
 		858D851027A1A75600CDEC90 /* SunriseWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunriseWidget.swift; sourceTree = "<group>"; };
-		85AA47C227C7975000169D1F /* StretchyTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchyTableHeaderView.swift; sourceTree = "<group>"; };
+		85AA47C227C7975000169D1F /* TableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeaderView.swift; sourceTree = "<group>"; };
 		85BC88752790E7A300D7CB4A /* appleWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appleWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85BC88782790E7A300D7CB4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85BC887A2790E7A300D7CB4A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,9 +155,8 @@
 		44F4678927B67EB900D01BA3 /* CommonView */ = {
 			isa = PBXGroup;
 			children = (
-				854FEBD427D0D57F00463EDF /* BaseHeaderView.swift */,
-				854FEBD327D0D57F00463EDF /* BaseCell.swift */,
-				85AA47C227C7975000169D1F /* StretchyTableHeaderView.swift */,
+				854FEBD327D0D57F00463EDF /* BaseWidgetView.swift */,
+				85AA47C227C7975000169D1F /* TableHeaderView.swift */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
@@ -362,7 +359,7 @@
 				855CE47F27C54C30001A1E31 /* ImageLoaderService.swift in Sources */,
 				858824C227A2ED9F0054E337 /* VisibilityWidget.swift in Sources */,
 				85BC887B2790E7A300D7CB4A /* SceneDelegate.swift in Sources */,
-				854FEBD527D0D57F00463EDF /* BaseCell.swift in Sources */,
+				854FEBD527D0D57F00463EDF /* BaseWidgetView.swift in Sources */,
 				858824C027A2EB420054E337 /* VisibilityPressureWidgetSectionConfigurator.swift in Sources */,
 				85E2B8492799BFFC00E8595B /* UVISunRiseWidgetSectionConfigurator.swift in Sources */,
 				858824C627A824B70054E337 /* MainNavigationController.swift in Sources */,
@@ -370,13 +367,12 @@
 				858824BE27A2EAF50054E337 /* VisibilityPressureWidgetSectionView.swift in Sources */,
 				858824BA27A2E16B0054E337 /* FeelsLikeHumidityWidgetSectionView.swift in Sources */,
 				85C54C832796045C00B9CFA2 /* SectionConfiguratorProtocol.swift in Sources */,
-				854FEBD627D0D57F00463EDF /* BaseHeaderView.swift in Sources */,
 				858D851127A1A75600CDEC90 /* SunriseWidget.swift in Sources */,
 				858824B227A2B0CB0054E337 /* WindWidget.swift in Sources */,
 				85C54C852796EF1500B9CFA2 /* OneHourInfoView.swift in Sources */,
 				85BC88932790F1B100D7CB4A /* LocationService.swift in Sources */,
 				85E2B84B2799C3AB00E8595B /* UVISunriseWidgetSectionView.swift in Sources */,
-				85AA47C327C7975000169D1F /* StretchyTableHeaderView.swift in Sources */,
+				85AA47C327C7975000169D1F /* TableHeaderView.swift in Sources */,
 				858824B027A2B00E0054E337 /* WindPrecipitationWidgetView.swift in Sources */,
 				85E2B843279985E600E8595B /* TenDaysForecastSectionConfigurator.swift in Sources */,
 				858824AE27A2AEFE0054E337 /* WindPrecipitationWidgetSectionConfigurator.swift in Sources */,

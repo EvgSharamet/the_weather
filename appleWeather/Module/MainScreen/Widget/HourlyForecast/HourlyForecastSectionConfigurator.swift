@@ -13,7 +13,8 @@ struct HourlyForecastSectionConfigurator: SectionConfiguratorProtocol {
     var data: StringGeneratorForViewService.HourlyStringValue?
     
     func getHeaderView() -> UIView? {
-        let view = BaseHeaderView()
+        let view = BaseWidgetView()
+        view.setRoundedCorners([.topLeft, .topRight])
         let label = UILabel()
         label.text = " 🕘 HOURLY FORECAST"
         label.textColor = .white.withAlphaComponent(0.7)

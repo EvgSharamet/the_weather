@@ -9,7 +9,7 @@ import Foundation
 import SnapKit
 import UIKit
 
-class HumidityWidget: BaseCell {
+class HumidityWidget: BaseWidgetView {
     struct HumidityStringValue {
         let humidityValue: String
         let description: String

@@ -9,7 +9,7 @@ import Foundation
 import SnapKit
 import UIKit
 
-class PressureWidget: BaseCell {
+class PressureWidget: BaseWidgetView {
     struct PressureStringValue {
         let pressureValue: String
         let degreesForGraph: Int

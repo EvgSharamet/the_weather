@@ -14,8 +14,8 @@ class TenDaysForecastSectionConfigurator: SectionConfiguratorProtocol {
     var data: StringGeneratorForViewService.TenDaysStringValue?
     
     func getHeaderView() -> UIView? {
-        let view = BaseHeaderView()
-        
+        let view = BaseWidgetView()
+        view.setRoundedCorners([.topLeft, .topRight])
         let label = UILabel()
         label.text = " 📅 TEN DAYS FORECAST"
         label.textColor = .white.withAlphaComponent(0.7)

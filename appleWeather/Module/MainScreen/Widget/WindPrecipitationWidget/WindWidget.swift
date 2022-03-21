@@ -9,7 +9,7 @@ import Foundation
 import SnapKit
 import UIKit
 
-class WindWidget: BaseCell {
+class WindWidget: BaseWidgetView {
     struct WindStringValue {
          let windSpeed: String
          let windMeasure: String

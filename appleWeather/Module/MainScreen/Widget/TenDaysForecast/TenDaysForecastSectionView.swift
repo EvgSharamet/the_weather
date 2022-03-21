@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class TenDaysForecastSectionView: BaseCell {
+class TenDaysForecastSectionView: UITableViewCell {
     struct TenDaysStringValue {
         let list: [OneDayInfoView.OneDayStringValue]
     }
@@ -27,11 +27,19 @@ class TenDaysForecastSectionView: BaseCell {
     }
     
     func prepare() {
+        self.backgroundColor = .clear
+        let baseView = BaseWidgetView()
+        baseView.setRoundedCorners([.bottomLeft, .bottomRight])
+        self.addSubview(baseView)
+        baseView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         let tenDaysStackView = UIStackView()
         self.tenDaysStackView = tenDaysStackView
         tenDaysStackView.axis = .vertical
         tenDaysStackView.distribution = .fillEqually
-        self.addSubview(tenDaysStackView)
+        baseView.addSubview(tenDaysStackView)
         tenDaysStackView.snp.makeConstraints { maker in
             maker.edges.equalToSuperview().inset(10)
         }

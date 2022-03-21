@@ -9,7 +9,7 @@ import Foundation
 import SnapKit
 import UIKit
 
-class PrecipitationWidget: BaseCell {
+class PrecipitationWidget: BaseWidgetView {
     enum WeatherType {
         case rain, snow, rainWithSnow
     }

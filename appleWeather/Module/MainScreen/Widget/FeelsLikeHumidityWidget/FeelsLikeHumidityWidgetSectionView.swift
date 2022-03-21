@@ -40,10 +40,12 @@ class FeelsLikeHumidityWidgetSectionView: UITableViewCell {
        
        let feelsLikeWidget = FeelsLikeWidget()
        self.feelsLikeWidget = feelsLikeWidget
+       feelsLikeWidget.setRoundedCorners([.bottomLeft, .bottomRight])
        feelsLikeWidget.prepare()
        
        let humidityWidget = HumidityWidget()
        self.humidityWidget = humidityWidget
+       humidityWidget.setRoundedCorners([.bottomLeft, .bottomRight])
        humidityWidget.prepare()
        
        stackView.addArrangedSubview(feelsLikeWidget)

@@ -9,7 +9,7 @@ import Foundation
 import SnapKit
 import UIKit
 
-class SunriseWidget: BaseCell {
+class SunriseWidget: BaseWidgetView {
     struct SunriseStringValue {
         let sunriseForGraph: Double
         let sunsetForGraph: Double

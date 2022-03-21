@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class UVIWidget: BaseCell {
+class UVIWidget: BaseWidgetView {
     struct UVIndexStringValue {
         let number: Float
         let numberValue: String

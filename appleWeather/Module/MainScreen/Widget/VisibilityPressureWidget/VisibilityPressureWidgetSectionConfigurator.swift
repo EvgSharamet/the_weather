@@ -28,7 +28,8 @@ class VisibilityPressureWidgetSectionConfigurator: SectionConfiguratorProtocol {
             maker.edges.equalToSuperview()
         }
         
-        let firstHeader = BaseHeaderView()
+        let firstHeader = BaseWidgetView()
+        firstHeader.setRoundedCorners([.topLeft, .topRight])
         stackView.addArrangedSubview(firstHeader)
         let firstLabel = UILabel()
         firstLabel.text = "👁‍🗨 VISIBILITY"
@@ -40,7 +41,8 @@ class VisibilityPressureWidgetSectionConfigurator: SectionConfiguratorProtocol {
             maker.left.equalToSuperview().inset(10)
         }
        
-        let secondHeader = BaseHeaderView()
+        let secondHeader = BaseWidgetView()
+        secondHeader.setRoundedCorners([.topLeft, .topRight])
         stackView.addArrangedSubview(secondHeader)
         let secondLabel = UILabel()
         secondLabel.text = "⏲ PRESSURE"

@@ -11,7 +11,7 @@ import UIKit
 
 class MainTableController: UIViewController {
     let tableView = UITableView()
-    let headerView = StretchyTableHeaderView()
+    let headerView = TableHeaderView()
     
     private enum TableViewSections: Int, CaseIterable {
         case hourlyForecast = 0
@@ -146,7 +146,7 @@ class MainTableController: UIViewController {
                 self.visibilityPressureWidgetSection?.data = VisibilityPressureWidgetSectionConfigurator.Data(visibility: StringGeneratorForViewService.shared.getVisibilityStringValue(rowData: oneDayResponse), pressure: StringGeneratorForViewService.shared.getPressureStringValue(rowData: oneDayResponse))
                 
                 let dataForHeader = StringGeneratorForViewService.shared.getHeaderStringValue(rowData: oneDayResponse, rowDataForMinMax: tenDaysResponse)
-                self.headerView.configure(data: StretchyTableHeaderView.HeaderStringValue(cityName: dataForHeader.cityName, temp: dataForHeader.temp, description: dataForHeader.description, maxMinTemp: dataForHeader.maxMinTemp))
+                self.headerView.configure(data: TableHeaderView.HeaderStringValue(cityName: dataForHeader.cityName, temp: dataForHeader.temp, description: dataForHeader.description, maxMinTemp: dataForHeader.maxMinTemp))
                 self.tableView.reloadData()
             }
         }

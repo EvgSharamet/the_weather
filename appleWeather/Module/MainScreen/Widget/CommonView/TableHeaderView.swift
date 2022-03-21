@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class StretchyTableHeaderView: UIView {
+class TableHeaderView: UIView {
     struct HeaderStringValue {
         let cityName: String
         let temp: String

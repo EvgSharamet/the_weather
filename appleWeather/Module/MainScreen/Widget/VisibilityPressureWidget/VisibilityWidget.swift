@@ -9,7 +9,7 @@ import Foundation
 import SnapKit
 import UIKit
 
-class VisibilityWidget:  BaseCell {
+class VisibilityWidget: BaseWidgetView {
     struct VisibilityStringValue {
         let visibilityValue: String
         let description: String?

@@ -39,10 +39,12 @@ class WindPrecipitationWidgetSectionView: UITableViewCell {
        let windWidget = WindWidget()
        self.windWidget = windWidget
        stackView.addArrangedSubview(windWidget)
+       windWidget.setRoundedCorners([.bottomLeft, .bottomRight])
        windWidget.prepare()
        
        let precipitationWidget = PrecipitationWidget()
        self.precipitationWidget = precipitationWidget
+       precipitationWidget.setRoundedCorners([.bottomLeft, .bottomRight])
        stackView.addArrangedSubview(precipitationWidget)
        precipitationWidget.prepare()
     }

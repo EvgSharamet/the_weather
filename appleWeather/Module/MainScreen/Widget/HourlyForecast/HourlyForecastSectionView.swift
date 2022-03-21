@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class HourlyForecastSectionView: BaseCell {
+class HourlyForecastSectionView: UITableViewCell {
     struct HourlyForecastStringValue {
         let list: [OneHourInfoView.OneHourStringValue]
     }
@@ -27,9 +27,15 @@ class HourlyForecastSectionView: BaseCell {
     
     func prepare() {
         backgroundColor = .clear
-
+        let baseView = BaseWidgetView()
+        baseView.setRoundedCorners([.bottomLeft, .bottomRight])
+        contentView.addSubview(baseView)
+        baseView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         let scrollView = UIScrollView()
-        self.contentView.addSubview(scrollView)
+        baseView.addSubview(scrollView)
         scrollView.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
         }
