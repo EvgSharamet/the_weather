@@ -20,8 +20,7 @@ class VisibilityPressureWidgetSectionView: UITableViewCell {
    }
    
    required init?(coder: NSCoder) {
-       super.init(coder: coder)
-       prepare()
+       fatalError("init(coder) has not been implemented")
    }
    
    func prepare() {
