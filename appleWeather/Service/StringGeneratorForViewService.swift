@@ -35,7 +35,7 @@ class StringGeneratorForViewService {
         let weatherType: PrecipitationWidget.WeatherType?
         let textForHeader: String
         let currentValue: String
-        let preciptiationText = "за последние сутки"
+        let preciptiationText: String
         let futureValue: String
     }
     
@@ -291,7 +291,7 @@ class StringGeneratorForViewService {
             textForHeader = "💧 PRECIPITATION"
         }
         
-        return PrecipitationStringValue(weatherType: weatherType, textForHeader: textForHeader, currentValue: currentPrecipitation ?? "0 мм", futureValue: futurePrecipitation ?? "0 ожидается в течение суток")
+        return PrecipitationStringValue(weatherType: weatherType, textForHeader: textForHeader, currentValue: currentPrecipitation ?? "0 мм", preciptiationText: "За последние сутки", futureValue: futurePrecipitation ?? "0 ожидается в течение суток")
     }
     
     func getFeelsLikeStringValue(rowData: WeatherDataService.OneDayResponse) -> FeelsLikeStringValue {

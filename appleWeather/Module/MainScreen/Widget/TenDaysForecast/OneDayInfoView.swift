@@ -98,6 +98,12 @@ class OneDayInfoView: UIView {
         
         currentPointView.image = UIImage(named: "pointUVI")
         currentPointView.isHidden = true
+        currentPointView.snp.updateConstraints { make in
+            make.centerY.equalTo(distributionAxisView)
+            make.height.equalTo(8)
+            make.width.equalTo(8)
+            make.left.equalTo(distributionAxisView)
+        }
     
         mainStackView.addArrangedSubview(maxTempLabel)
         maxTempLabel.textAlignment = .center
@@ -133,14 +139,10 @@ class OneDayInfoView: UIView {
         if data.showCurrentPointView {
             currentPointView.isHidden = false
             let leftset = Double( Int(data.pointCoord) - globalMin) / globalWidth * 100
-            currentPointView.snp.makeConstraints { make in
-                make.centerY.equalTo(distributionAxisView)
-                make.height.equalTo(8)
-                make.width.equalTo(8)
+            currentPointView.snp.updateConstraints { make in
                 make.left.equalTo(distributionAxisView).offset(leftset)
             }
         }
-
     }
 }
 

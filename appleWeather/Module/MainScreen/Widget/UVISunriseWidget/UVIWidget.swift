@@ -63,7 +63,7 @@ class UVIWidget: BaseWidgetView {
         indicatorPointView.contentMode = .scaleAspectFill
         self.addSubview(indicatorPointView)
         indicatorPointView.snp.makeConstraints { maker in
-            maker.height.equalTo(indicatorView)
+            maker.height.equalTo(8)
             maker.width.equalTo(8)
             maker.centerY.equalTo(indicatorView)
         }

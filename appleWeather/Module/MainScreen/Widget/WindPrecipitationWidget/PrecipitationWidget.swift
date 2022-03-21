@@ -18,7 +18,7 @@ class PrecipitationWidget: BaseWidgetView {
         let weatherType: WeatherType?
         let textForHeader: String
         let currentValue: String
-        let preciptiationText = "За последние сутки"
+        let preciptiationText: String
         let futureValue: String
     }
     
