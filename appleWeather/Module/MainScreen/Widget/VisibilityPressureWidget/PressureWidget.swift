@@ -9,7 +9,7 @@ import Foundation
 import SnapKit
 import UIKit
 
-class PressureWidget: ViewWithRoundedCorner {
+class PressureWidget: BaseCell {
     struct PressureStringValue {
         let pressureValue: String
         let degreesForGraph: Int

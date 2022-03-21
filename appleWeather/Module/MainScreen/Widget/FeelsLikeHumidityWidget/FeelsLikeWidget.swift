@@ -9,7 +9,7 @@ import Foundation
 import SnapKit
 import UIKit
 
-class FeelsLikeWidget: ViewWithRoundedCorner {
+class FeelsLikeWidget: BaseCell {
     struct FeelsLikeStringValue {
         let feelsLikeValue: String
         let description: String?

@@ -9,7 +9,7 @@ import Foundation
 import SnapKit
 import UIKit
 
-class SunriseWidget: ViewWithRoundedCorner {
+class SunriseWidget: BaseCell {
     struct SunriseStringValue {
         let sunriseForGraph: Double
         let sunsetForGraph: Double

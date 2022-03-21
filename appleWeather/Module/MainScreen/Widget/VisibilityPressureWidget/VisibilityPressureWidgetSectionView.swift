@@ -25,7 +25,6 @@ class VisibilityPressureWidgetSectionView: UITableViewCell {
    }
    
    func prepare() {
-       
        self.selectionStyle = SelectionStyle.none
        self.backgroundColor = .clear
 
