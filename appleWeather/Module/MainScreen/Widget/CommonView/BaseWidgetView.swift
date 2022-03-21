@@ -14,7 +14,7 @@ class BaseWidgetView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .clear
-        let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .systemThinMaterialDark))
+        let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
         self.addSubview(blurEffectView)
         blurEffectView.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
