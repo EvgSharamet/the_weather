@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 class ImageLoaderService {
     static let shared = ImageLoaderService()
     

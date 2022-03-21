@@ -9,7 +9,6 @@ import Foundation
 import CoreLocation
 import UIKit
 
-
 class WeatherDataService {
     //MARK: - types
     struct Error: Swift.Error {
@@ -52,9 +51,9 @@ class WeatherDataService {
             let temp: Float
             let feels_like: Float
             let pressure: Int
-            let humidity: Int //влажность
-            let dew_point: Float // точка росы
-            let uvi: Float // уфи
+            let humidity: Int
+            let dew_point: Float
+            let uvi: Float
             let clouds: Int
             let visibility: Int
             let wind_speed: Float

@@ -9,9 +9,7 @@ import Foundation
 import SnapKit
 import UIKit
 
-
 class FeelsLikeHumidityWidgetSectionConfigurator: SectionConfiguratorProtocol {
-    
     struct Data {
         let feelsLike: StringGeneratorForViewService.FeelsLikeStringValue
         let humidity: StringGeneratorForViewService.HumidityStringValue

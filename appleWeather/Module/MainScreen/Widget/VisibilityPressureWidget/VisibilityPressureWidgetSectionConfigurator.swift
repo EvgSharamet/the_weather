@@ -9,7 +9,6 @@ import Foundation
 import SnapKit
 import UIKit
 
-
 class VisibilityPressureWidgetSectionConfigurator: SectionConfiguratorProtocol {
     struct Data {
         let visibility: StringGeneratorForViewService.VisibilityStringValue

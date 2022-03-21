@@ -9,7 +9,6 @@ import Foundation
 import SnapKit
 import UIKit
 
-
 class VisibilityWidget:  ViewWithRoundedCorner {
     struct VisibilityStringValue {
         let visibilityValue: String

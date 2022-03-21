@@ -9,7 +9,6 @@ import Foundation
 import SnapKit
 import UIKit
 
-
 class MainTableController: UIViewController {
     let tableView = UITableView()
     let headerView = StretchyTableHeaderView()
@@ -74,7 +73,7 @@ class MainTableController: UIViewController {
         self.view.addSubview(tableView)
         tableView.snp.makeConstraints { maker in
             maker.height.equalTo(view.safeAreaLayoutGuide)
-            maker.left.right.equalTo(view.safeAreaLayoutGuide).inset(20)
+            maker.left.right.equalTo(view.safeAreaLayoutGuide).inset(15)
             maker.bottom.equalToSuperview()
         }
         

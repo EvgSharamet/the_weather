@@ -9,7 +9,6 @@ import Foundation
 import SnapKit
 import UIKit
 
-
 class UVISunriseWidgetSectionConfigurator: SectionConfiguratorProtocol {
     struct Data {
         let uvindex: StringGeneratorForViewService.UVIndexStringValue

@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 class HourlyForecastSectionView: BaseCell {
     struct HourlyForecastStringValue {
         let list: [OneHourInfoView.OneHourStringValue]

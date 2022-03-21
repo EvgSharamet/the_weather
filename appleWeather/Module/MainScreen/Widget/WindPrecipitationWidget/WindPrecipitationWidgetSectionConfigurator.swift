@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 import SnapKit
 
-
 class WindPrecipitationWidgetSectionConfigurator: SectionConfiguratorProtocol {
     struct Data {
         let wind: StringGeneratorForViewService.WindStringValue

@@ -9,7 +9,6 @@ import Foundation
 import SnapKit
 import UIKit
 
-
 class PrecipitationWidget: ViewWithRoundedCorner {
     enum WeatherType {
         case rain, snow, rainWithSnow

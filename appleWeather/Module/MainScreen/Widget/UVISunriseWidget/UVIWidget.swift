@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 import SnapKit
 
-
 class UVIWidget: ViewWithRoundedCorner {
     struct UVIndexStringValue {
         let number: Float

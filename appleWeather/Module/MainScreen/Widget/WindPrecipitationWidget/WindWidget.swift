@@ -9,7 +9,6 @@ import Foundation
 import SnapKit
 import UIKit
 
-
 class WindWidget: ViewWithRoundedCorner {
     struct WindStringValue {
          let windSpeed: String

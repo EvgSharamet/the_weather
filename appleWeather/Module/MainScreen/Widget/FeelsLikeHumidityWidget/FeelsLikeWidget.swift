@@ -9,7 +9,6 @@ import Foundation
 import SnapKit
 import UIKit
 
-
 class FeelsLikeWidget: ViewWithRoundedCorner {
     struct FeelsLikeStringValue {
         let feelsLikeValue: String

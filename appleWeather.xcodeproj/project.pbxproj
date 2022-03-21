@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		444C1F4F27CCF34E00A2C3C6 /* SunPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444C1F4E27CCF34E00A2C3C6 /* SunPathView.swift */; };
 		854FEBD027D0D41300463EDF /* FeelsLikeHumidityWidgetSectionConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824B727A2DDE00054E337 /* FeelsLikeHumidityWidgetSectionConfigurator.swift */; };
 		854FEBD527D0D57F00463EDF /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854FEBD327D0D57F00463EDF /* BaseCell.swift */; };
 		854FEBD627D0D57F00463EDF /* BaseHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854FEBD427D0D57F00463EDF /* BaseHeaderView.swift */; };
@@ -63,7 +62,6 @@
 /* End PBXBuildRule section */
 
 /* Begin PBXFileReference section */
-		444C1F4E27CCF34E00A2C3C6 /* SunPathView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunPathView.swift; sourceTree = "<group>"; };
 		854FEBD327D0D57F00463EDF /* BaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		854FEBD427D0D57F00463EDF /* BaseHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseHeaderView.swift; sourceTree = "<group>"; };
 		855CE47E27C54C30001A1E31 /* ImageLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderService.swift; sourceTree = "<group>"; };
@@ -192,7 +190,6 @@
 		44F4678C27B67F0F00D01BA3 /* UVISunriseWidget */ = {
 			isa = PBXGroup;
 			children = (
-				444C1F4E27CCF34E00A2C3C6 /* SunPathView.swift */,
 				858D851027A1A75600CDEC90 /* SunriseWidget.swift */,
 				85E2B8482799BFFC00E8595B /* UVISunRiseWidgetSectionConfigurator.swift */,
 				85E2B84A2799C3AB00E8595B /* UVISunriseWidgetSectionView.swift */,
@@ -366,7 +363,6 @@
 				85E2B84727999E1F00E8595B /* OneDayInfoView.swift in Sources */,
 				858824C427A2EDE60054E337 /* PressureWidget.swift in Sources */,
 				858D850B27A0843E00CDEC90 /* ViewWithRoundedCorner.swift in Sources */,
-				444C1F4F27CCF34E00A2C3C6 /* SunPathView.swift in Sources */,
 				855CE47F27C54C30001A1E31 /* ImageLoaderService.swift in Sources */,
 				858824C227A2ED9F0054E337 /* VisibilityWidget.swift in Sources */,
 				85BC887B2790E7A300D7CB4A /* SceneDelegate.swift in Sources */,

@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 import SnapKit
 
-
 class TenDaysForecastSectionView: BaseCell {
     struct TenDaysStringValue {
         let list: [OneDayInfoView.OneDayStringValue]

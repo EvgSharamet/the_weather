@@ -8,9 +8,7 @@
 import Foundation
 import UIKit
 
-
 class ViewWithRoundedCorner: UIView {
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .systemThinMaterialDark))

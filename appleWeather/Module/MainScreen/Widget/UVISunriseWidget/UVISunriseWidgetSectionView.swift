@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 import SnapKit
 
-
 class UVISunriseWidgetSectionView: UITableViewCell {
     var stackView = UIStackView()
     var uviWidget: UVIWidget?

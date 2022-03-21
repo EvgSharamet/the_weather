@@ -9,9 +9,7 @@ import Foundation
 import SnapKit
 import UIKit
 
-
 class BaseHeaderView: UIView {
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .clear

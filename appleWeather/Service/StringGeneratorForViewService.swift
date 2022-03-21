@@ -9,7 +9,6 @@ import Foundation
 import SnapKit
 import UIKit
 
-
 class StringGeneratorForViewService {
     struct UVIndexStringValue {
         let number: Float
@@ -256,7 +255,6 @@ class StringGeneratorForViewService {
             }
             currentPrecipitation = String(Int(snowCurrentPrecipitation)) + " мм"
         }
-        
         
         if let rainCurrentPrecipitation = rowData.list[0].rain {
             weatherType = .rain

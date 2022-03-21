@@ -9,7 +9,6 @@ import Foundation
 import SnapKit
 import UIKit
 
-
 class FeelsLikeHumidityWidgetSectionView: UITableViewCell {
     var stackView = UIStackView()
     var feelsLikeWidget: FeelsLikeWidget?
