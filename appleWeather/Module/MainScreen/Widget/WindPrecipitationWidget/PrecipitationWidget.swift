@@ -10,6 +10,7 @@ import SnapKit
 import UIKit
 
 class PrecipitationWidget: BaseWidgetView {
+    //MARK: - types
     enum WeatherType {
         case rain, snow, rainWithSnow
     }
@@ -21,10 +22,12 @@ class PrecipitationWidget: BaseWidgetView {
         let preciptiationText: String
         let futureValue: String
     }
+    //MARK: - data
     
-    let valueNumberLabel = UILabel()
-    let valueTextLabel = UILabel()
-    let descriptionLabel = UILabel()
+    private let valueNumberLabel = UILabel()
+    private let valueTextLabel = UILabel()
+    private let descriptionLabel = UILabel()
+    //MARK: - internal functions
     
     func prepare() {
         let stackView = UIStackView()
@@ -32,31 +35,29 @@ class PrecipitationWidget: BaseWidgetView {
         stackView.distribution = .fillProportionally
         self.addSubview(stackView)
         stackView.snp.makeConstraints { maker in
-            maker.height.equalToSuperview().inset(10)
+            maker.top.bottom.equalToSuperview().inset(10)
             maker.left.equalToSuperview().inset(15)
             maker.right.equalToSuperview().inset(15)
-            maker.centerY.equalToSuperview()
         }
         
         stackView.addArrangedSubview(valueNumberLabel)
-
         valueNumberLabel.lineBreakMode = .byWordWrapping
         valueNumberLabel.numberOfLines = 0
-        valueNumberLabel.font = UIFont(name: "Helvetica", size: 35)
+        valueNumberLabel.font = UIConst.regular35Font
         valueNumberLabel.textColor = .white
         
         stackView.addArrangedSubview(valueTextLabel)
    
         valueTextLabel.lineBreakMode = .byWordWrapping
         valueTextLabel.numberOfLines = 0
-        valueTextLabel.font =  UIFont(name: "HelveticaNeue-Medium", size: 20)
+        valueTextLabel.font = UIConst.regularBold20Font
         valueTextLabel.textColor = .white
         
         stackView.addArrangedSubview(descriptionLabel)
     
         descriptionLabel.lineBreakMode = .byWordWrapping
         descriptionLabel.numberOfLines = 0
-        descriptionLabel.font = UIFont(name: "Helvetica", size: 16)
+        descriptionLabel.font = UIConst.regular16Font
         descriptionLabel.textColor = .white
     }
     

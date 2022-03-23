@@ -10,13 +10,17 @@ import SnapKit
 import UIKit
 
 class UVISunriseWidgetSectionConfigurator: SectionConfiguratorProtocol {
+    // MARK: - types
+
     struct Data {
         let uvindex: StringGeneratorForViewService.UVIndexStringValue
         let sunrise: StringGeneratorForViewService.SunriseStringValue
     }
+    // MARK: - data
     
-    private let cellIdentifier = "UVISunriseWidgetSectionCell"
     var data: Data?
+    private let cellIdentifier = "UVISunriseWidgetSectionCell"
+    // MARK: - internal functions
     
     func getHeaderView() -> UIView? {
         let view = UIView()
@@ -34,7 +38,7 @@ class UVISunriseWidgetSectionConfigurator: SectionConfiguratorProtocol {
         let firstLabel = UILabel()
         firstLabel.text = "🌤 UV-INDEX"
         firstLabel.textColor = .white.withAlphaComponent(0.7)
-        firstLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 16)
+        firstLabel.font = UIConst.regularBold16Font
         firstHeader.addSubview(firstLabel)
         firstLabel.snp.makeConstraints { maker in
             maker.top.bottom.right.equalToSuperview()
@@ -47,7 +51,7 @@ class UVISunriseWidgetSectionConfigurator: SectionConfiguratorProtocol {
         let secondLabel = UILabel()
         secondLabel.text = " 🌅 SUNSET"
         secondLabel.textColor = .white.withAlphaComponent(0.7)
-        secondLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 16)
+        secondLabel.font = UIConst.regularBold16Font
         secondHeader.addSubview(secondLabel)
         secondLabel.snp.makeConstraints { maker in
             maker.top.bottom.right.equalToSuperview()

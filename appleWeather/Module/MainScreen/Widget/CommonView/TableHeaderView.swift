@@ -9,18 +9,29 @@ import Foundation
 import UIKit
 
 class TableHeaderView: UIView {
+    //MARK: - types
+    
     struct HeaderStringValue {
         let cityName: String
         let temp: String
         let description: String
         let maxMinTemp: String
     }
+    //MARK: - data
     
-    let containerView = UIView()
-    let cityNameLabel = UILabel()
-    let currentTempLabel = UILabel()
-    let descriptionLabel = UILabel()
-    let maxMinTempLabel = UILabel()
+    private struct Const {
+        static let maxMinTempOffsetMult = 0.1
+        static let descriptionLabelOffsetMult = 0.05
+        static let currentTempLabelOffsetMult = 0.009
+        static let cityNameLabelOffsetMult = 0.005
+    }
+    
+    private let containerView = UIView()
+    private let cityNameLabel = UILabel()
+    private let currentTempLabel = UILabel()
+    private let descriptionLabel = UILabel()
+    private let maxMinTempLabel = UILabel()
+    //MARK: - internal functions 
     
     func prepare(){
         self.addSubview(containerView)
@@ -40,20 +51,20 @@ class TableHeaderView: UIView {
         stack.addArrangedSubview(cityNameLabel)
         cityNameLabel.textColor = .white
         cityNameLabel.textAlignment = .center
-        cityNameLabel.font = UIFont(name: "Helvetica", size: 40)
-        
+        cityNameLabel.font = UIConst.headerName40Font
+
         stack.addArrangedSubview(currentTempLabel)
-        currentTempLabel.font = UIFont(name: "HelveticaNeue-Thin", size: 90)
+        currentTempLabel.font = UIConst.headerTemp90Font
         currentTempLabel.textColor = .white
         currentTempLabel.textAlignment = .center
         
         stack.addArrangedSubview(descriptionLabel)
-        descriptionLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 20)
+        descriptionLabel.font = UIConst.regularBold20Font
         descriptionLabel.textColor = .white
         descriptionLabel.textAlignment = .center
         
         stack.addArrangedSubview(maxMinTempLabel)
-        maxMinTempLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 20)
+        maxMinTempLabel.font = UIConst.regularBold20Font
         maxMinTempLabel.textColor = .white
         maxMinTempLabel.textAlignment = .center
     }
@@ -74,9 +85,9 @@ class TableHeaderView: UIView {
             make.top.equalTo(offsetY <= 0 ? -offsetY : 0)
         }
         
-        maxMinTempLabel.alpha = (1 + offsetY * 0.1)
-        descriptionLabel.alpha = (1 + offsetY * 0.05)
-        currentTempLabel.alpha = (1 + offsetY * 0.009)
-        cityNameLabel.alpha = (1 + offsetY * 0.005)
+        maxMinTempLabel.alpha = (1 + offsetY * Const.maxMinTempOffsetMult)
+        descriptionLabel.alpha = (1 + offsetY * Const.descriptionLabelOffsetMult)
+        currentTempLabel.alpha = (1 + offsetY * Const.currentTempLabelOffsetMult)
+        cityNameLabel.alpha = (1 + offsetY * Const.cityNameLabelOffsetMult)
     }
 }

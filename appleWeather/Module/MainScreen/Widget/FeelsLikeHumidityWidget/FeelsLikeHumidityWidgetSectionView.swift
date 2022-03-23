@@ -10,23 +10,32 @@ import SnapKit
 import UIKit
 
 class FeelsLikeHumidityWidgetSectionView: UITableViewCell {
-    var stackView = UIStackView()
-    var feelsLikeWidget: FeelsLikeWidget?
-    var humidityWidget: HumidityWidget?
+    //MARK: - data
     
-   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    private var stackView = UIStackView()
+    private var feelsLikeWidget: FeelsLikeWidget?
+    private var humidityWidget: HumidityWidget?
+    //MARK: - internal functions
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
        super.init(style: style, reuseIdentifier: reuseIdentifier)
        prepare()
-   }
-   
-   required init?(coder: NSCoder) {
-       fatalError("init(coder) has not been implemented")
-   }
-   
-   func prepare() {
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder) has not been implemented")
+    }
+
+    func configure(dataForFeelsLikeWidget:  FeelsLikeWidget.FeelsLikeStringValue, dataForHumidityWidget: HumidityWidget.HumidityStringValue) {
+        feelsLikeWidget?.configure(data: dataForFeelsLikeWidget)
+        humidityWidget?.configure(data: dataForHumidityWidget)
+    }
+    //MARK: - private functions
+
+    private func prepare() {
        self.backgroundColor = .clear
        self.selectionStyle = SelectionStyle.none
-    
+
        stackView.arrangedSubviews.forEach{ $0.removeFromSuperview() }
        stackView.axis = .horizontal
        
@@ -49,11 +58,6 @@ class FeelsLikeHumidityWidgetSectionView: UITableViewCell {
        
        stackView.addArrangedSubview(feelsLikeWidget)
        stackView.addArrangedSubview(humidityWidget)
-    }
-    
-    func configure(dataForFeelsLikeWidget:  FeelsLikeWidget.FeelsLikeStringValue, dataForHumidityWidget: HumidityWidget.HumidityStringValue) {
-        feelsLikeWidget?.configure(data: dataForFeelsLikeWidget)
-        humidityWidget?.configure(data: dataForHumidityWidget)
     }
 }
 

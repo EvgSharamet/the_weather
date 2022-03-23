@@ -10,16 +10,21 @@ import UIKit
 import SnapKit
 
 class TenDaysForecastSectionConfigurator: SectionConfiguratorProtocol {
-    private let cellIdentifier = "TenDaysForecastSectionCell"
-    var data: StringGeneratorForViewService.TenDaysStringValue?
+    //MARK: - data
     
+    var data: StringGeneratorForViewService.TenDaysStringValue?
+    private let cellIdentifier = "TenDaysForecastSectionCell"
+    private struct Const {
+        static let imageUrl = "https://openweathermap.org/img/wn/${img-name}@2x.png"
+    }
+    //MARK: - internal functions 
     func getHeaderView() -> UIView? {
         let view = BaseWidgetView()
         view.setRoundedCorners([.topLeft, .topRight])
         let label = UILabel()
         label.text = " 📅 TEN DAYS FORECAST"
         label.textColor = .white.withAlphaComponent(0.7)
-        label.font = UIFont(name: "HelveticaNeue-Medium", size: 16)
+        label.font = UIConst.regular16Font
         view.addSubview(label)
         label.snp.makeConstraints { maker in
             maker.top.bottom.right.equalToSuperview()
@@ -51,7 +56,7 @@ class TenDaysForecastSectionConfigurator: SectionConfiguratorProtocol {
         list.forEach{ _ in group.enter() }
         list.enumerated().forEach { item in
             var val = item.element
-            let url = "https://openweathermap.org/img/wn/\(val.iconString)@2x.png"
+            let url = Const.imageUrl.replacingOccurrences(of: "${img-name}", with: val.iconString)
             ImageLoaderService.shared.resolveImage(urlString: url) { img in
                     val.icon = img
                 list[item.offset] = val

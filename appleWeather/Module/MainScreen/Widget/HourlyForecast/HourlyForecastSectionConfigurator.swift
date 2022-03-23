@@ -9,8 +9,14 @@ import Foundation
 import UIKit
 
 struct HourlyForecastSectionConfigurator: SectionConfiguratorProtocol {
-    private let cellIdentifier = "HourlyForecastSectionCell"
+    //MARK: - data
     var data: StringGeneratorForViewService.HourlyStringValue?
+    private let cellIdentifier = "HourlyForecastSectionCell"
+    
+    private struct Const {
+        static let imageUrl = "https://openweathermap.org/img/wn/${img-name}@2x.png"
+    }
+    //MARK: - internal functions
     
     func getHeaderView() -> UIView? {
         let view = BaseWidgetView()
@@ -53,7 +59,7 @@ struct HourlyForecastSectionConfigurator: SectionConfiguratorProtocol {
         list.forEach{ _ in group.enter() }
         list.enumerated().forEach { item in
             var val = item.element
-            let url = "https://openweathermap.org/img/wn/\(val.iconString)@2x.png"
+            let url = Const.imageUrl.replacingOccurrences(of: "${img-name}", with: val.iconString)
             if let _ = val.icon {
                 list[item.offset] = val
                 group.leave()

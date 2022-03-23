@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 class OneHourInfoView: UIView {
+    //MARK: - types
+    
     struct OneHourStringValue {
         let date: String
         let iconString: String
@@ -18,11 +20,13 @@ class OneHourInfoView: UIView {
         let temp: String
         let sunsetSunriseView: Bool
     }
+    //MARK: - data
     
-    let dateLabel = UILabel()
-    let weatherIconImageView = UIImageView()
-    let cloudsLabel = UILabel()
-    let tempLabel = UILabel()
+    private let dateLabel = UILabel()
+    private let weatherIconImageView = UIImageView()
+    private let cloudsLabel = UILabel()
+    private let tempLabel = UILabel()
+    //MARK: - internal functions
     
     func prepare() {
         let mainStackView = UIStackView()
@@ -37,7 +41,7 @@ class OneHourInfoView: UIView {
     
         dateLabel.textAlignment = .center
         dateLabel.textColor = .white
-        dateLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 16)
+        dateLabel.font = UIConst.regularBold16Font
         mainStackView.addArrangedSubview(dateLabel)
         dateLabel.snp.makeConstraints { make in
             make.height.equalToSuperview().multipliedBy(0.25)
@@ -64,14 +68,14 @@ class OneHourInfoView: UIView {
             make.bottom.equalToSuperview()
             make.centerX.equalToSuperview()
         }
-        cloudsLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 16)
+        cloudsLabel.font = UIConst.regularBold16Font
         cloudsLabel.textAlignment = .center
         cloudsLabel.textColor = .cyan
         
         mainStackView.addArrangedSubview(tempLabel)
         tempLabel.textAlignment = .center
         tempLabel.textColor = .white
-        tempLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 18)
+        tempLabel.font = UIConst.regularBold16Font
         tempLabel.snp.makeConstraints { maker in
             maker.height.equalToSuperview().multipliedBy(0.25)
         }

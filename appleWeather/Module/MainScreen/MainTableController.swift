@@ -10,8 +10,15 @@ import SnapKit
 import UIKit
 
 class MainTableController: UIViewController {
-    let tableView = UITableView()
-    let headerView = TableHeaderView()
+    //MARK: - data
+    
+    private let tableView = UITableView()
+    private let headerView = TableHeaderView()
+    
+    private struct Const {
+        static let tableViewHeaderHeight = CGFloat(200)
+        static let cloudsImageViewHeight = CGFloat(500)
+    }
     
     private enum TableViewSections: Int, CaseIterable {
         case hourlyForecast = 0
@@ -28,6 +35,7 @@ class MainTableController: UIViewController {
     private var windPrecipitationWidgetSection: WindPrecipitationWidgetSectionConfigurator?
     private var feelsLikeHumidityWidgetSection: FeelsLikeHumidityWidgetSectionConfigurator?
     private var visibilityPressureWidgetSection: VisibilityPressureWidgetSectionConfigurator?
+    //MARK: - internal functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +72,7 @@ class MainTableController: UIViewController {
             make.width.equalToSuperview()
             make.top.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.height.equalTo(500)
+            make.height.equalTo(Const.cloudsImageViewHeight)
         }
         cloudsImageView.alpha = 0.8
         cloudsImageView.contentMode = .scaleAspectFill
@@ -79,7 +87,7 @@ class MainTableController: UIViewController {
         
         self.tableView.tableHeaderView = headerView
         headerView.snp.makeConstraints { make in
-            make.height.equalTo(200)
+            make.height.equalTo(Const.tableViewHeaderHeight)
             make.width.equalTo(self.tableView.safeAreaLayoutGuide)
             make.top.equalToSuperview()
             make.centerX.equalToSuperview()
@@ -97,6 +105,7 @@ class MainTableController: UIViewController {
         visibilityPressureWidgetSection = VisibilityPressureWidgetSectionConfigurator(tableView: tableView)
         updateData()
     }
+    //MARK: - private functions
     
     private func updateData() {
         let group = DispatchGroup()
@@ -154,6 +163,7 @@ class MainTableController: UIViewController {
 }
 
 extension MainTableController: UITableViewDelegate, UITableViewDataSource {
+    //MARK: - internal functions
     
     func numberOfSections( in tableView: UITableView) -> Int {
         return TableViewSections.allCases.count
@@ -190,6 +200,7 @@ extension MainTableController: UITableViewDelegate, UITableViewDataSource {
         return configurator.tableView(tableView, heightForRowAt: indexPath)
     }
     
+    //MARK: -  private functions
     private func getSectionConfigurator(section: Int) -> SectionConfiguratorProtocol? {
         guard let section = TableViewSections(rawValue: section) else { return nil }
         switch section {
@@ -210,6 +221,8 @@ extension MainTableController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension MainTableController: UIScrollViewDelegate {
+    
+    //MARK: - internal functions
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
        headerView.scrollViewDidScroll(scrollView)
     }

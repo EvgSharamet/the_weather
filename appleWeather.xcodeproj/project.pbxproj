@@ -12,6 +12,7 @@
 		855CE47F27C54C30001A1E31 /* ImageLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855CE47E27C54C30001A1E31 /* ImageLoaderService.swift */; };
 		8560A80427B12BF70065AA4F /* StringGeneratorForViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8560A80327B12BF70065AA4F /* StringGeneratorForViewService.swift */; };
 		8560A80627B2F4A20065AA4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8560A80527B2F4A20065AA4F /* Assets.xcassets */; };
+		8579207527EA16F800710AA5 /* FontsReference .swift in Sources */ = {isa = PBXBuildFile; fileRef = 8579207427EA16F800710AA5 /* FontsReference .swift */; };
 		858824AE27A2AEFE0054E337 /* WindPrecipitationWidgetSectionConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824AD27A2AEFE0054E337 /* WindPrecipitationWidgetSectionConfigurator.swift */; };
 		858824B027A2B00E0054E337 /* WindPrecipitationWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824AF27A2B00E0054E337 /* WindPrecipitationWidgetView.swift */; };
 		858824B227A2B0CB0054E337 /* WindWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858824B127A2B0CB0054E337 /* WindWidget.swift */; };
@@ -64,6 +65,7 @@
 		855CE47E27C54C30001A1E31 /* ImageLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderService.swift; sourceTree = "<group>"; };
 		8560A80327B12BF70065AA4F /* StringGeneratorForViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringGeneratorForViewService.swift; sourceTree = "<group>"; };
 		8560A80527B2F4A20065AA4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8579207427EA16F800710AA5 /* FontsReference .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FontsReference .swift"; sourceTree = "<group>"; };
 		858824AD27A2AEFE0054E337 /* WindPrecipitationWidgetSectionConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindPrecipitationWidgetSectionConfigurator.swift; sourceTree = "<group>"; };
 		858824AF27A2B00E0054E337 /* WindPrecipitationWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindPrecipitationWidgetView.swift; sourceTree = "<group>"; };
 		858824B127A2B0CB0054E337 /* WindWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindWidget.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				85C54C792795B42B00B9CFA2 /* MainTableController.swift */,
 				85C54C822796045C00B9CFA2 /* SectionConfiguratorProtocol.swift */,
 				44F4678827B67EAA00D01BA3 /* Widget */,
+				8579207427EA16F800710AA5 /* FontsReference .swift */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				85C54C7A2795B42B00B9CFA2 /* MainTableController.swift in Sources */,
 				85E2B84727999E1F00E8595B /* OneDayInfoView.swift in Sources */,
 				858824C427A2EDE60054E337 /* PressureWidget.swift in Sources */,
+				8579207527EA16F800710AA5 /* FontsReference .swift in Sources */,
 				855CE47F27C54C30001A1E31 /* ImageLoaderService.swift in Sources */,
 				858824C227A2ED9F0054E337 /* VisibilityWidget.swift in Sources */,
 				85BC887B2790E7A300D7CB4A /* SceneDelegate.swift in Sources */,

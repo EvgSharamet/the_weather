@@ -10,14 +10,18 @@ import SnapKit
 import UIKit
 
 class HumidityWidget: BaseWidgetView {
+    //MARK: - types
+    
     struct HumidityStringValue {
         let humidityValue: String
         let description: String
     }
+    //MARK: - data
     
-    let humidityValueLabel = UILabel()
-    let descriptionLabel = UILabel()
-    
+    private let humidityValueLabel = UILabel()
+    private let descriptionLabel = UILabel()
+    //MARK: - internal functions 
+
     func prepare() {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -30,13 +34,13 @@ class HumidityWidget: BaseWidgetView {
             maker.right.equalToSuperview().inset(15)
         }
         stackView.addArrangedSubview(humidityValueLabel)
-        humidityValueLabel.font = UIFont(name: "HelveticaNeue", size: 35)
+        humidityValueLabel.font = UIConst.regularBold35Font
         humidityValueLabel.textColor = .white
         
         stackView.addArrangedSubview(descriptionLabel)
         descriptionLabel.lineBreakMode = .byWordWrapping
         descriptionLabel.numberOfLines = 0
-        descriptionLabel.font = UIFont(name: "Helvetica", size: 16)
+        descriptionLabel.font = UIConst.regular16Font
         descriptionLabel.textColor = .white
     }
     

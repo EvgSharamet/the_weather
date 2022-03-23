@@ -10,9 +10,13 @@ import UIKit
 import SnapKit
 
 class UVISunriseWidgetSectionView: UITableViewCell {
-    var stackView = UIStackView()
-    var uviWidget: UVIWidget?
-    var sunriseWidget: SunriseWidget?
+    // MARK: - data
+    
+    private let stackView = UIStackView()
+    private var uviWidget: UVIWidget?
+    private var sunriseWidget: SunriseWidget?
+    
+    // MARK: - internal functions
     
    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
        super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -21,9 +25,15 @@ class UVISunriseWidgetSectionView: UITableViewCell {
    
    required init?(coder: NSCoder) {
        fatalError("init(coder) has not been implemented")
-   }
+    }
    
-   func prepare() {
+    func configure(dataForUVIVidget: UVIWidget.UVIndexStringValue, dataForSunriseVidget: SunriseWidget.SunriseStringValue) {
+        uviWidget?.configure(data: dataForUVIVidget)
+        sunriseWidget?.configure(data: dataForSunriseVidget)
+    }
+    // MARK: - private functions
+    
+   private func prepare() {
        self.backgroundColor = .clear
        self.selectionStyle = SelectionStyle.none
 
@@ -48,11 +58,6 @@ class UVISunriseWidgetSectionView: UITableViewCell {
         
        stackView.addArrangedSubview(uviWidget)
        stackView.addArrangedSubview(sunriseWidget)
-    }
-    
-    func configure(dataForUVIVidget: UVIWidget.UVIndexStringValue, dataForSunriseVidget: SunriseWidget.SunriseStringValue) {
-        uviWidget?.configure(data: dataForUVIVidget)
-        sunriseWidget?.configure(data: dataForSunriseVidget)
     }
 }
 

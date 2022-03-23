@@ -9,7 +9,10 @@ import Foundation
 import UIKit
 
 class BaseWidgetView: UIView {
+    //MARK: - data
+    
     private var roundedCorners: UIRectCorner = []
+    //MARK: - interanl functions
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,6 +32,7 @@ class BaseWidgetView: UIView {
         self.roundedCorners = roundedCorners
         setNeedsLayout()
     }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: roundedCorners,

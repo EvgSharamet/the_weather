@@ -106,6 +106,11 @@ class WeatherDataService {
         let longitude: Double
     }
     
+    struct Const {
+        static let tenDaysUrl = "https://api.openweathermap.org/data/2.5/forecast/daily?lat=${latitude}&lon=${longitude}&lang=ru&cnt=10&units=metric&appid=167ec7c4487c8b004df1c9b138fb6600"
+        static let oneDayUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&lang=ru&exclude=minutely,daily&units=metric&appid=167ec7c4487c8b004df1c9b138fb6600"
+    }
+    
     typealias DayInformationRequestResult = Result<OneDayResponse, Swift.Error>
     typealias DayInformationRequestResultHandler = (DayInformationRequestResult) -> Void
     
@@ -140,7 +145,7 @@ class WeatherDataService {
     private func getDataForTenDays(_ location: CLLocationCoordinate2D ) throws -> TenDaysResponse {
         let decoder = JSONDecoder()
         
-        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/forecast/daily?lat=\(location.latitude)&lon=\(location.longitude)&lang=ru&cnt=10&units=metric&appid=167ec7c4487c8b004df1c9b138fb6600")
+        guard let url = URL(string: (Const.tenDaysUrl.replacingOccurrences(of: "${latitude}" , with: String(location.latitude))).replacingOccurrences(of: "${longitude}", with: String(location.longitude)))
         else {
             throw Error(info: "can't get url")
         }
@@ -159,12 +164,10 @@ class WeatherDataService {
      
     private func getCurrentDayData(_ location:CLLocationCoordinate2D ) throws -> OneDayResponse {
         let decoder = JSONDecoder()
-        guard let url = URL( string: "https://api.openweathermap.org/data/2.5/onecall?lat=\(location.latitude)&lon=\(location.longitude)&lang=ru&exclude=minutely,daily&units=metric&appid=167ec7c4487c8b004df1c9b138fb6600")
-             
+        guard let url = URL( string: (Const.oneDayUrl.replacingOccurrences(of: "${latitude}", with: String(location.latitude))).replacingOccurrences(of: "${longitude}", with: String(location.longitude)))
         else {
             throw Error(info: "can't get url")
         }
-        print( url)
         
         guard let jsonString = try? String(contentsOf: url, encoding:.utf8) else {
             throw Error(info: "can't decode url")

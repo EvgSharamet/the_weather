@@ -10,6 +10,8 @@ import SnapKit
 import UIKit
 
 class PressureWidget: BaseWidgetView {
+    //MARK: - types
+    
     struct PressureStringValue {
         let pressureValue: String
         let degreesForGraph: Int
@@ -17,12 +19,19 @@ class PressureWidget: BaseWidgetView {
         let willRise: Bool
         let description: String
     }
+    //MARK: - data
     
     let pressureValueLabel = UILabel()
     let graphImageView = UIImageView()
     let valueSegmentImageView = UIImageView()
     let arrowImageView = UIImageView()
     let descriptionLabel = UILabel()
+    
+    private struct Const {
+        static let centerStackHeight = 65
+        static let centerStackWidth = 80
+    }
+    //MARK: - internal functions
     
     func prepare() {
         self.addSubview(graphImageView)
@@ -43,30 +52,23 @@ class PressureWidget: BaseWidgetView {
         self.addSubview(centerStackView)
         centerStackView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.height.equalTo(65)
-            make.width.equalTo(80)
+            make.height.equalTo(Const.centerStackHeight)
+            make.width.equalTo(Const.centerStackWidth)
         }
         centerStackView.axis = .vertical
-        centerStackView.distribution = .equalSpacing
+        centerStackView.distribution = .fillEqually
         
         centerStackView.addArrangedSubview(arrowImageView)
         arrowImageView.image = UIImage(named: "arrowPressure")
         arrowImageView.contentMode = .scaleAspectFit
         
-        
         centerStackView.addArrangedSubview(pressureValueLabel)
-        pressureValueLabel.snp.makeConstraints { make in
-            make.height.equalToSuperview().multipliedBy(0.33)
-            make.centerY.equalToSuperview()
-            make.width.equalToSuperview()
-        }
         pressureValueLabel.textAlignment = .center
-        pressureValueLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 20)
+        pressureValueLabel.font = UIConst.regularBold20Font
         pressureValueLabel.textColor = .white
         
-        
         centerStackView.addArrangedSubview(descriptionLabel)
-        descriptionLabel.font = UIFont(name: "Helvetica", size: 16)
+        descriptionLabel.font = UIConst.regular16Font
         descriptionLabel.textColor = .white
         descriptionLabel.textAlignment = .center
         
@@ -75,8 +77,8 @@ class PressureWidget: BaseWidgetView {
         arrowDown.snp.makeConstraints { make in
             make.height.equalTo(16)
             make.width.equalTo(16)
-            make.bottom.equalToSuperview().inset(20)
-            make.centerX.equalToSuperview().offset(-20)
+            make.bottom.equalToSuperview().inset(15)
+            make.centerX.equalToSuperview().offset(-15)
         }
         arrowDown.contentMode = .scaleAspectFit
         arrowDown.image = UIImage(named: "arrowPressure")
@@ -87,8 +89,8 @@ class PressureWidget: BaseWidgetView {
         arrowUp.snp.makeConstraints { make in
             make.height.equalTo(16)
             make.width.equalTo(16)
-            make.bottom.equalToSuperview().inset(20)
-            make.centerX.equalToSuperview().offset(20)
+            make.bottom.equalToSuperview().inset(15)
+            make.centerX.equalToSuperview().offset(15)
         }
         arrowUp.contentMode = .scaleAspectFit
         arrowUp.image = UIImage(named: "arrowPressure")

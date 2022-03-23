@@ -10,6 +10,7 @@ import SnapKit
 import UIKit
 
 class OneDayInfoView: UIView {
+    //MARK: - types
     struct OneDayStringValue {
         var icon: UIImage?
         let iconString: String
@@ -25,15 +26,21 @@ class OneDayInfoView: UIView {
         let showClouds: Bool
         let showCurrentPointView: Bool
     }
-    
-    let distributionIndicatorView = UIView()
-    let distributionAxisView = UIView()
-    let weatherIconImageView = UIImageView()
-    let dateLabel = UILabel()
-    let minTempLabel = UILabel()
-    let maxTempLabel = UILabel()
-    let currentPointView = UIImageView()
-    let cloudsLabel = UILabel()
+    //MARK: - data
+    private struct Const {
+        static let distributionAxisWidth = 100
+        static let distributionIndicatorCornerRadius = CGFloat(2)
+        static let cloudsLabelHeight = CGFloat(14)
+    }
+    private let distributionIndicatorView = UIView()
+    private let distributionAxisView = UIView()
+    private let weatherIconImageView = UIImageView()
+    private let dateLabel = UILabel()
+    private let minTempLabel = UILabel()
+    private let maxTempLabel = UILabel()
+    private let currentPointView = UIImageView()
+    private let cloudsLabel = UILabel()
+    //MARK: - internal functions
     
     func prepare() {
         let mainStackView = UIStackView()
@@ -44,7 +51,7 @@ class OneDayInfoView: UIView {
             maker.edges.equalToSuperview()
         }
         mainStackView.addArrangedSubview(dateLabel)
-        dateLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 20)
+        dateLabel.font = UIConst.regularBold20Font
         dateLabel.textColor = .white
         
         mainStackView.addArrangedSubview(weatherIconImageView)
@@ -57,7 +64,7 @@ class OneDayInfoView: UIView {
         weatherIconImageView.addSubview(cloudsLabel)
         cloudsLabel.snp.makeConstraints { make in
             make.bottom.equalToSuperview()
-            make.height.equalTo(14)
+            make.height.equalTo(Const.cloudsLabelHeight)
             make.centerX.equalToSuperview()
         }
         cloudsLabel.font = cloudsLabel.font.withSize(14)
@@ -66,7 +73,7 @@ class OneDayInfoView: UIView {
         
         mainStackView.addArrangedSubview(minTempLabel)
         minTempLabel.textAlignment = .center
-        minTempLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 20)
+        minTempLabel.font = UIConst.regularBold20Font
         minTempLabel.textColor = .white.withAlphaComponent(0.7)
         let distributionView = UIView()
         mainStackView.addArrangedSubview(distributionView)
@@ -74,10 +81,10 @@ class OneDayInfoView: UIView {
         distributionAxisView.snp.makeConstraints { make in
             make.height.equalToSuperview().multipliedBy(0.08)
             make.center.equalToSuperview()
-            make.width.equalTo(100)
+            make.width.equalTo(Const.distributionAxisWidth)
         }
         
-        distributionAxisView.layer.cornerRadius = 2
+        distributionAxisView.layer.cornerRadius = Const.distributionIndicatorCornerRadius
         distributionAxisView.layer.masksToBounds = true
     
         let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .systemMaterialDark))
@@ -108,7 +115,7 @@ class OneDayInfoView: UIView {
         mainStackView.addArrangedSubview(maxTempLabel)
         maxTempLabel.textAlignment = .center
         maxTempLabel.textColor = .white
-        maxTempLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 20)
+        maxTempLabel.font = UIConst.regularBold20Font
     }
 
     func configure(data: OneDayStringValue) {
@@ -127,9 +134,8 @@ class OneDayInfoView: UIView {
         let width = Double(data.localMax - data.localMin)
         
         if globalWidth != Double(0) {
-            
             let indicatorRealWidth = Double(width / globalWidth)
-            let leftOffset = Double( Int(data.localMin) - globalMin) / globalWidth * 100
+            let leftOffset = Double( Int(data.localMin) - globalMin) / globalWidth * Double(Const.distributionAxisWidth)
             distributionIndicatorView.snp.makeConstraints { make in
                 make.left.equalToSuperview().offset(leftOffset)
                 make.width.equalToSuperview().multipliedBy(Swift.max(Swift.min(indicatorRealWidth, 1.0), 0.1))
@@ -138,7 +144,7 @@ class OneDayInfoView: UIView {
         
         if data.showCurrentPointView {
             currentPointView.isHidden = false
-            let leftset = Double( Int(data.pointCoord) - globalMin) / globalWidth * 100
+            let leftset = Double( Int(data.pointCoord) - globalMin) / globalWidth * Double(Const.distributionAxisWidth)
             currentPointView.snp.updateConstraints { make in
                 make.left.equalTo(distributionAxisView).offset(leftset)
             }

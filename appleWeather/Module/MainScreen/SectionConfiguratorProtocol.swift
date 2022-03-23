@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 protocol SectionConfiguratorProtocol {
     func getHeaderView() -> UIView?
     func getNumberOfRows() -> Int

@@ -15,7 +15,8 @@ class TenDaysForecastSectionView: UITableViewCell {
     }
     
     var tenDaysStackView: UIStackView?
-     
+    //MARK: - internal functions
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = .none
@@ -24,25 +25,6 @@ class TenDaysForecastSectionView: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder) has not been implemented")
-    }
-    
-    func prepare() {
-        self.backgroundColor = .clear
-        let baseView = BaseWidgetView()
-        baseView.setRoundedCorners([.bottomLeft, .bottomRight])
-        self.addSubview(baseView)
-        baseView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-        
-        let tenDaysStackView = UIStackView()
-        self.tenDaysStackView = tenDaysStackView
-        tenDaysStackView.axis = .vertical
-        tenDaysStackView.distribution = .fillEqually
-        baseView.addSubview(tenDaysStackView)
-        tenDaysStackView.snp.makeConstraints { maker in
-            maker.edges.equalToSuperview().inset(10)
-        }
     }
     
     func configure(data: TenDaysStringValue) {
@@ -61,5 +43,25 @@ class TenDaysForecastSectionView: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         tenDaysStackView?.arrangedSubviews.forEach{ $0.removeFromSuperview() }
+    }
+    //MARK: - private functions
+    
+    private func prepare() {
+        self.backgroundColor = .clear
+        let baseView = BaseWidgetView()
+        baseView.setRoundedCorners([.bottomLeft, .bottomRight])
+        self.addSubview(baseView)
+        baseView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        let tenDaysStackView = UIStackView()
+        self.tenDaysStackView = tenDaysStackView
+        tenDaysStackView.axis = .vertical
+        tenDaysStackView.distribution = .fillEqually
+        baseView.addSubview(tenDaysStackView)
+        tenDaysStackView.snp.makeConstraints { maker in
+            maker.edges.equalToSuperview().inset(10)
+        }
     }
 }

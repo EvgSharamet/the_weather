@@ -9,12 +9,16 @@ import Foundation
 import UIKit
 
 class HourlyForecastSectionView: UITableViewCell {
+    //MARK: - types
+    
     struct HourlyForecastStringValue {
         let list: [OneHourInfoView.OneHourStringValue]
     }
+    //MARK: - data
     
-    var hourlyStackView: UIStackView?
-     
+    private var hourlyStackView: UIStackView?
+    //MARK: - internal functions
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = .none
@@ -25,31 +29,6 @@ class HourlyForecastSectionView: UITableViewCell {
         fatalError("init(coder) has not been implemented")
     }
     
-    func prepare() {
-        backgroundColor = .clear
-        let baseView = BaseWidgetView()
-        baseView.setRoundedCorners([.bottomLeft, .bottomRight])
-        contentView.addSubview(baseView)
-        baseView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-        
-        let scrollView = UIScrollView()
-        baseView.addSubview(scrollView)
-        scrollView.snp.makeConstraints { maker in
-            maker.edges.equalToSuperview()
-        }
-        
-        let hourlyStackView = UIStackView()
-        self.hourlyStackView = hourlyStackView
-        hourlyStackView.axis = .horizontal
-        hourlyStackView.spacing = 10
-        scrollView.addSubview(hourlyStackView)
-        hourlyStackView.snp.makeConstraints { maker in
-            maker.edges.equalToSuperview()
-        }
-    }
-
     func configure(data: HourlyForecastStringValue) {
         self.hourlyStackView?.arrangedSubviews.forEach{ $0.removeFromSuperview() }
         for hour in data.list {
@@ -75,4 +54,31 @@ class HourlyForecastSectionView: UITableViewCell {
         super.prepareForReuse()
         hourlyStackView?.arrangedSubviews.forEach{ $0.removeFromSuperview() }
     }
+    //MARK: - private functions
+    
+    private func prepare() {
+        backgroundColor = .clear
+        let baseView = BaseWidgetView()
+        baseView.setRoundedCorners([.bottomLeft, .bottomRight])
+        contentView.addSubview(baseView)
+        baseView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        let scrollView = UIScrollView()
+        baseView.addSubview(scrollView)
+        scrollView.snp.makeConstraints { maker in
+            maker.edges.equalToSuperview()
+        }
+        
+        let hourlyStackView = UIStackView()
+        self.hourlyStackView = hourlyStackView
+        hourlyStackView.axis = .horizontal
+        hourlyStackView.spacing = 10
+        scrollView.addSubview(hourlyStackView)
+        hourlyStackView.snp.makeConstraints { maker in
+            maker.edges.equalToSuperview()
+        }
+    }
+
 }

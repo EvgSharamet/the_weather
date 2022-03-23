@@ -10,14 +10,18 @@ import SnapKit
 import UIKit
 
 class VisibilityWidget: BaseWidgetView {
+    //MARK: - types
+    
     struct VisibilityStringValue {
         let visibilityValue: String
         let description: String?
     }
+    //MARK: - data
     
-    let visibilityValueLabel = UILabel()
-    let descriptionLabel = UILabel()
+    private let visibilityValueLabel = UILabel()
+    private let descriptionLabel = UILabel()
     
+    //MARK: - internal functions
     func prepare() {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -30,13 +34,13 @@ class VisibilityWidget: BaseWidgetView {
             maker.right.equalToSuperview().inset(15)
         }
         stackView.addArrangedSubview(visibilityValueLabel)
-        visibilityValueLabel.font = UIFont(name: "Helvetica", size: 35)
+        visibilityValueLabel.font = UIConst.regularBold35Font
         visibilityValueLabel.textColor = .white
         
         stackView.addArrangedSubview(descriptionLabel)
         descriptionLabel.lineBreakMode = .byWordWrapping
         descriptionLabel.numberOfLines = 0
-        descriptionLabel.font = UIFont(name: "Helvetica", size: 16)
+        descriptionLabel.font = UIConst.regular16Font
         descriptionLabel.textColor = .white
     }
     

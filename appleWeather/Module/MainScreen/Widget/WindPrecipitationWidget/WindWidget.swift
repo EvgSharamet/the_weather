@@ -10,16 +10,24 @@ import SnapKit
 import UIKit
 
 class WindWidget: BaseWidgetView {
+    //MARK: - types
+    
     struct WindStringValue {
          let windSpeed: String
          let windMeasure: String
          let windDeg: Int
     }
-
-    let windSpeedLabel = UILabel()
-    let windMeasureLabel = UILabel()
-    let backgroundImageView = UIImageView()
-    let arrowImageView = UIImageView()
+    
+    private struct Const {
+        static let circleViewDiameter = 50
+    }
+    //MARK: - data
+    
+    private let windSpeedLabel = UILabel()
+    private let windMeasureLabel = UILabel()
+    private let backgroundImageView = UIImageView()
+    private let arrowImageView = UIImageView()
+    //MARK: - internal functions
     
     func prepare() {
         self.addSubview(backgroundImageView)
@@ -41,9 +49,9 @@ class WindWidget: BaseWidgetView {
         self.addSubview(circleView)
         circleView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.height.width.equalTo(50)
+            make.height.width.equalTo(Const.circleViewDiameter)
         }
-        circleView.layer.cornerRadius = 25
+        circleView.layer.cornerRadius = CGFloat(Const.circleViewDiameter / 2)
         
         let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
         circleView.addSubview(blurEffectView)
@@ -53,15 +61,13 @@ class WindWidget: BaseWidgetView {
         circleView.layer.masksToBounds = true
         
         let centerStack = UIStackView()
-        self.addSubview(centerStack)
+        circleView.addSubview(centerStack)
         centerStack.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.height.equalTo(40)
-            make.width.equalTo(40)
+            make.height.width.equalToSuperview().inset(5)
         }
         centerStack.axis = .vertical
         centerStack.distribution = .fillProportionally
-        centerStack.layer.cornerRadius = 20
         windSpeedLabel.textAlignment = .center
         windSpeedLabel.font = windSpeedLabel.font.withSize(25)
         windSpeedLabel.textColor = .white

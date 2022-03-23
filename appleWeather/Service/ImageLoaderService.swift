@@ -9,12 +9,13 @@ import Foundation
 import UIKit
 
 class ImageLoaderService {
+    //MARK: - data
     static let shared = ImageLoaderService()
     
     private let queue = DispatchQueue(label: "ImageLoaderService.queue",
                                       qos: .background,
                                       attributes: .concurrent)
-    
+    //MARK: - internal functions
     func resolveImage(urlString: String, completion: @escaping (UIImage?) -> Void) {
         queue.async {
             guard let url = URL(string: urlString),
@@ -27,6 +28,6 @@ class ImageLoaderService {
             completion(img)
         }
     }
-    
+    //MARK: - private functions
     private init() {}
 }

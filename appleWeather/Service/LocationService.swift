@@ -8,6 +8,8 @@ import Foundation
 import CoreLocation
 
 class LocationService {
+    //MARK: - types
+    
     typealias RequestResult = Result<Coordinate, Error>
     typealias RequestHandler = (RequestResult) -> Void
     
@@ -15,13 +17,15 @@ class LocationService {
         let latitude: Double
         let longitude: Double
     }
-    
+    //MARK: - data
+
     static let shared = LocationService()
     
     private let queue = DispatchQueue(label: "LocationService.queue", qos: .default)
     private var lastResult: Result<Coordinate, Error>?
     private var requestHandlers = [RequestHandler]()
     private var locationManagerWrapper: LocationManagerWrapper?
+    //MARK: - private functions
     
     func requestLocation(requestHandler: @escaping RequestHandler) {
         queue.sync {
@@ -32,6 +36,9 @@ class LocationService {
             self.requestHandlers.append(requestHandler)
         }
     }
+    
+    
+    //MARK: - private functions
     
     private init() {
         let lmw = LocationManagerWrapper()
@@ -51,7 +58,11 @@ class LocationService {
     }
 }
 
+
+//MARK: - private class
+
 private class LocationManagerWrapper: NSObject, CLLocationManagerDelegate {
+    
     typealias RequestResult = Result<CLLocationCoordinate2D, Error>
     typealias RequestHandler = (RequestResult) -> Void
     
@@ -61,6 +72,8 @@ private class LocationManagerWrapper: NSObject, CLLocationManagerDelegate {
     override init() {
         super.init()
     }
+    
+    //MARK: - internal functions
     
     func run(handler: @escaping RequestHandler) {
         self.handler = handler
@@ -82,6 +95,8 @@ private class LocationManagerWrapper: NSObject, CLLocationManagerDelegate {
 }
 
 private extension LocationManagerWrapper.RequestResult {
+    //MARK: - internal functions
+    
     func toLocationServiceRequestResult() -> LocationService.RequestResult {
         switch self {
         case .success(let coordinate):

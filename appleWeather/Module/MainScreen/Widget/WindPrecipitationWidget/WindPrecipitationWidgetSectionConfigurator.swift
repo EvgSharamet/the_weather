@@ -10,14 +10,17 @@ import UIKit
 import SnapKit
 
 class WindPrecipitationWidgetSectionConfigurator: SectionConfiguratorProtocol {
+    //MARK: - types
+    
     struct Data {
         let wind: StringGeneratorForViewService.WindStringValue
         let precipitation: StringGeneratorForViewService.PrecipitationStringValue
     }
-    
+    //MARK: - data
     var data: Data?
+    private let precipitationHeaderLabel = UILabel()
     private let cellIdentifier = "WindHumidityWidgetSectionCell"
-    var precipitationHeaderLabel = UILabel()
+    //MARK: - internal functions
     
     func getHeaderView() -> UIView? {
         let view = UIView()
@@ -35,7 +38,7 @@ class WindPrecipitationWidgetSectionConfigurator: SectionConfiguratorProtocol {
         let firstLabel = UILabel()
         firstLabel.text = "💨 WIND"
         firstLabel.textColor = .white.withAlphaComponent(0.7)
-        firstLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 16)
+        firstLabel.font = UIConst.regularBold16Font
         firstHeader.addSubview(firstLabel)
         firstLabel.snp.makeConstraints { maker in
             maker.top.bottom.right.equalToSuperview()
@@ -46,13 +49,12 @@ class WindPrecipitationWidgetSectionConfigurator: SectionConfiguratorProtocol {
         secondHeader.setRoundedCorners([.topLeft, .topRight])
         stackView.addArrangedSubview(secondHeader)
         precipitationHeaderLabel.textColor = .white.withAlphaComponent(0.7)
-        precipitationHeaderLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 16)
+        precipitationHeaderLabel.font = UIConst.regularBold16Font
         secondHeader.addSubview(precipitationHeaderLabel)
         precipitationHeaderLabel.snp.makeConstraints { maker in
             maker.top.bottom.right.equalToSuperview()
             maker.left.equalToSuperview().inset(10)
         }
-
         return view
     }
     

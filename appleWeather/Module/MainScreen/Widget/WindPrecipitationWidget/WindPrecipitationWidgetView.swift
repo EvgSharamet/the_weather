@@ -10,9 +10,12 @@ import SnapKit
 import UIKit
 
 class WindPrecipitationWidgetSectionView: UITableViewCell {
-    var stackView = UIStackView()
-    var windWidget: WindWidget?
-    var precipitationWidget: PrecipitationWidget?
+    //MARK: - data
+    
+    private var stackView = UIStackView()
+    private var windWidget: WindWidget?
+    private var precipitationWidget: PrecipitationWidget?
+    //MARK: - internal functions
     
    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
        super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -23,7 +26,13 @@ class WindPrecipitationWidgetSectionView: UITableViewCell {
        fatalError("init(coder) has not been implemented")
    }
    
-   func prepare() {
+    func configure(dataForWindVidget: WindWidget.WindStringValue, dataForPrecipitationWidget: PrecipitationWidget.PrecipitationStringValue) {
+        windWidget?.configure(data: dataForWindVidget)
+        precipitationWidget?.configure(data: dataForPrecipitationWidget)
+    }
+    //MARK: - private functions
+    
+   private func prepare() {
        self.backgroundColor = .clear
        self.selectionStyle = SelectionStyle.none
        
@@ -46,10 +55,5 @@ class WindPrecipitationWidgetSectionView: UITableViewCell {
        precipitationWidget.setRoundedCorners([.bottomLeft, .bottomRight])
        stackView.addArrangedSubview(precipitationWidget)
        precipitationWidget.prepare()
-    }
-    
-    func configure(dataForWindVidget: WindWidget.WindStringValue, dataForPrecipitationWidget: PrecipitationWidget.PrecipitationStringValue) {
-        windWidget?.configure(data: dataForWindVidget)
-        precipitationWidget?.configure(data: dataForPrecipitationWidget)
     }
 }

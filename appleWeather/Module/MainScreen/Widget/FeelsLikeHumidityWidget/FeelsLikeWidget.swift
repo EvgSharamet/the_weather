@@ -10,13 +10,17 @@ import SnapKit
 import UIKit
 
 class FeelsLikeWidget: BaseWidgetView {
+    //MARK: - types
+    
     struct FeelsLikeStringValue {
         let feelsLikeValue: String
         let description: String?
     }
+    //MARK: - data
     
-    let feelsLikeValueLabel = UILabel()
-    let descriptionLabel = UILabel()
+    private let feelsLikeValueLabel = UILabel()
+    private let descriptionLabel = UILabel()
+    //MARK: - internal functions 
     
     func prepare() {
         let stackView = UIStackView()
@@ -30,13 +34,13 @@ class FeelsLikeWidget: BaseWidgetView {
             maker.right.equalToSuperview().inset(15)
         }
         stackView.addArrangedSubview( feelsLikeValueLabel)
-        feelsLikeValueLabel.font =  UIFont(name: "HelveticaNeue-Medium", size: 35)
+        feelsLikeValueLabel.font = UIConst.regularBold35Font
         feelsLikeValueLabel.textColor = .white
         
         stackView.addArrangedSubview(descriptionLabel)
         descriptionLabel.lineBreakMode = .byWordWrapping
         descriptionLabel.numberOfLines = 0
-        descriptionLabel.font = UIFont(name: "Helvetica", size: 16)
+        descriptionLabel.font = UIConst.regular16Font
         descriptionLabel.textColor = .white
     }
     

@@ -10,6 +10,7 @@ import SnapKit
 import UIKit
 
 class SunriseWidget: BaseWidgetView {
+    //MARK: - types
     struct SunriseStringValue {
         let sunriseForGraph: Double
         let sunsetForGraph: Double
@@ -17,18 +18,29 @@ class SunriseWidget: BaseWidgetView {
         let sunset: String
         let sunrise: String
     }
+    //MARK: - data
     
-    let sunriseLabel = UILabel()
-    let sunsetLabel = UILabel()
-    let indicatorView = UIView()
-    let indicatorPointView = UIView()
-    let beforeSunriseView =  UIVisualEffectView(effect: UIBlurEffect(style: .systemChromeMaterialDark))
-    let afterSunsetView =  UIVisualEffectView(effect: UIBlurEffect(style: .systemChromeMaterialDark))
+    private struct Const {
+        static let inducatorCornerRadius = CGFloat(4)
+        static let sunriseGradientAlpha = 0.5
+        static let indicatorHeight = CGFloat(7)
+        static let indicatorPointRadius = 4.5
+        static let sunriseSegments = 24
+    }
     
+    private let sunriseLabel = UILabel()
+    private let sunsetLabel = UILabel()
+    private let indicator = UIView()
+    private let indicatorView = UIView()
+    private let indicatorPointView = UIView()
+    private let beforeSunriseView =  UIVisualEffectView(effect: UIBlurEffect(style: .systemChromeMaterialDark))
+    private let afterSunsetView = UIVisualEffectView(effect: UIBlurEffect(style: .systemChromeMaterialDark))
+  
+    //MARK: - internal functions 
     func prepare() {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.distribution = .equalSpacing
+        stackView.distribution = .fill
         self.addSubview(stackView)
         stackView.snp.makeConstraints { maker in
             maker.top.equalToSuperview().inset(10)
@@ -38,37 +50,37 @@ class SunriseWidget: BaseWidgetView {
         }
         stackView.addArrangedSubview(sunsetLabel)
         
-        sunsetLabel.snp.makeConstraints { maker in
-            maker.height.equalToSuperview().multipliedBy(0.2)
-        }
-        
         sunsetLabel.font = UIFont(name: "Helvetica", size: 35)
         sunsetLabel.textColor = .white
         
         stackView.addArrangedSubview(indicatorView)
-        indicatorView.snp.makeConstraints { make in
-            make.height.equalToSuperview().multipliedBy(0.05)
+        indicatorView.addSubview(indicator)
+        indicator.snp.makeConstraints { make in
+            make.height.equalTo(Const.indicatorHeight)
+            make.width.equalToSuperview()
+            make.center.equalToSuperview()
         }
-        indicatorView.layer.cornerRadius = 4
-        indicatorView.contentMode = .scaleAspectFit
-        indicatorView.layer.masksToBounds = true
+        
+        indicator.layer.cornerRadius = Const.inducatorCornerRadius
+        indicator.contentMode = .scaleAspectFit
+        indicator.layer.masksToBounds = true
     
         let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .systemThinMaterial))
-        indicatorView.addSubview(blurEffectView)
+        indicator.addSubview(blurEffectView)
         blurEffectView.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
         }
 
-        beforeSunriseView.alpha = 0.5
-        indicatorView.addSubview(beforeSunriseView)
+        beforeSunriseView.alpha = Const.sunriseGradientAlpha
+        indicator.addSubview(beforeSunriseView)
         beforeSunriseView.snp.makeConstraints { make in
             make.height.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.3)
             make.left.equalToSuperview()
         }
         
-        afterSunsetView.alpha = 0.5
-        indicatorView.addSubview(afterSunsetView)
+        afterSunsetView.alpha = Const.sunriseGradientAlpha
+        indicator.addSubview(afterSunsetView)
         afterSunsetView.snp.makeConstraints { make in
             make.height.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.3)
@@ -76,7 +88,7 @@ class SunriseWidget: BaseWidgetView {
         }
     
         indicatorPointView.backgroundColor = .white
-        indicatorPointView.layer.cornerRadius = 4.5
+        indicatorPointView.layer.cornerRadius = Const.indicatorPointRadius
         self.addSubview(indicatorPointView)
       
         indicatorPointView.layer.shadowOffset = .zero
@@ -97,7 +109,7 @@ class SunriseWidget: BaseWidgetView {
          ]
         gradient.startPoint = CGPoint(x: 0, y: 1)
         gradient.endPoint = CGPoint(x: 1, y: 1)
-        indicatorView.layer.addSublayer(gradient)
+        indicator.layer.addSublayer(gradient)
         gradient.frame = CGRect(x: 0, y: 0, width: 170, height: 20)
     }
     
@@ -113,12 +125,12 @@ class SunriseWidget: BaseWidgetView {
         let dateF = DateFormatter()
         dateF.dateFormat = "HH"
         if let offsetForSun = Double(dateF.string(from: Date())) {
-            let pointLocation =  offsetForSun / 24 + 0.01
+            let pointLocation =  offsetForSun / Double(Const.sunriseSegments) + 0.01
             indicatorPointView.snp.makeConstraints { maker in
                 maker.height.equalTo(9)
                 maker.width.equalTo(9)
-                maker.centerY.equalTo(indicatorView)
-                maker.right.equalTo(indicatorView).multipliedBy(pointLocation)
+                maker.centerY.equalTo(indicator)
+                maker.right.equalTo(indicator).multipliedBy(pointLocation)
             }
             if offsetForSun <= data.sunriseForGraph || offsetForSun >= data.sunsetForGraph {
                 indicatorPointView.backgroundColor = .darkGray
@@ -126,11 +138,11 @@ class SunriseWidget: BaseWidgetView {
         }
         
         beforeSunriseView.snp.makeConstraints { make in
-            make.right.equalTo(indicatorView).multipliedBy((data.sunriseForGraph) / 24.0 + 0.01)
+            make.right.equalTo(indicator).multipliedBy((data.sunriseForGraph) / Double(Const.sunriseSegments) + 0.01)
         }
         
         afterSunsetView.snp.makeConstraints { make in
-            make.left.equalTo(indicatorView).multipliedBy((data.sunsetForGraph) / 24.0 + 0.01)
+            make.left.equalTo(indicator).multipliedBy((data.sunsetForGraph) / Double(Const.sunriseSegments) + 0.01)
         }
     }
 }

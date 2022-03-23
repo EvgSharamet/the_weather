@@ -10,13 +10,17 @@ import SnapKit
 import UIKit
 
 class VisibilityPressureWidgetSectionConfigurator: SectionConfiguratorProtocol {
+    //MARK: - types
+    
     struct Data {
         let visibility: StringGeneratorForViewService.VisibilityStringValue
         let pressure: StringGeneratorForViewService.PressureStringValue
     }
+    //MARK: - data
     
     var data: Data?
     private let cellIdentifier = "VisibilityPressureWidgetSectionCell"
+    //MARK: - internal functions
     
     func getHeaderView() -> UIView? {
         let view = UIView()
@@ -34,7 +38,7 @@ class VisibilityPressureWidgetSectionConfigurator: SectionConfiguratorProtocol {
         let firstLabel = UILabel()
         firstLabel.text = "👁‍🗨 VISIBILITY"
         firstLabel.textColor = .white.withAlphaComponent(0.7)
-        firstLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 16)
+        firstLabel.font = UIConst.regular16Font
         firstHeader.addSubview(firstLabel)
         firstLabel.snp.makeConstraints { maker in
             maker.top.bottom.right.equalToSuperview()
@@ -47,7 +51,7 @@ class VisibilityPressureWidgetSectionConfigurator: SectionConfiguratorProtocol {
         let secondLabel = UILabel()
         secondLabel.text = "⏲ PRESSURE"
         secondLabel.textColor = .white.withAlphaComponent(0.7)
-        secondLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 16)
+        secondLabel.font = UIConst.regularBold16Font
         secondHeader.addSubview(secondLabel)
         secondLabel.snp.makeConstraints { maker in
             maker.top.bottom.right.equalToSuperview()
