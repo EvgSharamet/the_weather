@@ -54,7 +54,7 @@ class HourlyForecastSectionView: UITableViewCell {
         super.prepareForReuse()
         hourlyStackView?.arrangedSubviews.forEach{ $0.removeFromSuperview() }
     }
-    //MARK: - private functions
+    //MARK: - private selectionStylefunctions
     
     private func prepare() {
         backgroundColor = .clear

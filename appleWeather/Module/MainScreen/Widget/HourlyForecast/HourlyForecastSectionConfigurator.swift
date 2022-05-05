@@ -10,12 +10,14 @@ import UIKit
 
 struct HourlyForecastSectionConfigurator: SectionConfiguratorProtocol {
     //MARK: - data
+    
     var data: StringGeneratorForViewService.HourlyStringValue?
     private let cellIdentifier = "HourlyForecastSectionCell"
     
     private struct Const {
         static let imageUrl = "https://openweathermap.org/img/wn/${img-name}@2x.png"
     }
+    
     //MARK: - internal functions
     
     func getHeaderView() -> UIView? {
